@@ -71,6 +71,203 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-服务器远程管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2021-02-20T14:24:48.000Z" itemprop="datePublished">2021-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">服务器远程管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h2 id="NTFS权限概述"><a href="#NTFS权限概述" class="headerlink" title="NTFS权限概述"></a>NTFS权限概述</h2><p><strong>作用</strong>：不同的用户访问不同<strong>文件/文件夹</strong>的权限。</p>
+<h3 id="文件系统概述"><a href="#文件系统概述" class="headerlink" title="文件系统概述"></a>文件系统概述</h3><ul>
+<li>存储文件格式方式</li>
+</ul>
+<h4 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h4><ul>
+<li>FAT   windows</li>
+<li>NTFS  windows</li>
+<li>EXT   liunx 常见</li>
+</ul>
+<h4 id="格式化-制作文件系统"><a href="#格式化-制作文件系统" class="headerlink" title="格式化 == 制作文件系统"></a>格式化 == 制作文件系统</h4><p>格式化——在分区上重新打格子（簇）<br><strong>操作</strong>：盘右击$\rightarrow$格式化（默认4096字节）<br><img src="https://img-blog.csdnimg.cn/20200329102909215.png" alt="在这里插入图片描述"></p>
+<h3 id="NTFS文件系统的特点"><a href="#NTFS文件系统的特点" class="headerlink" title="NTFS文件系统的特点"></a>NTFS文件系统的特点</h3><p>1、提高磁盘读写性能（每个块读写略高于FAT）<br>2、可靠性，支持文件加密，访问控制列表-ACL（NTFS分区的文件才可以设置权限）<br>3、磁盘利用率，压缩，磁盘配额（为不同的用户设置使用空间）<br>4、支持单个文件大于4个G（若小文件FAT更好）</p>
+<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><ul>
+<li><strong>继承自上级目录的权限无法随意取消</strong></li>
+<li>管理员拥有所有文件夹权限列表的权限</li>
+<li><strong>权限累加</strong>：<strong>用户最终权限 = 用户权限 + $\sum$users所有组权限</strong></li>
+<li><strong>拒绝最大</strong>：拒绝√  $ &gt;&gt; $  权限√</li>
+</ul>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="https://img-blog.csdnimg.cn/2020032913143413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="文件夹权限"><a href="#文件夹权限" class="headerlink" title="文件夹权限"></a>文件夹权限</h3><p><img src="https://img-blog.csdnimg.cn/20200329131508497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h2><h3 id="取消权限继承"><a href="#取消权限继承" class="headerlink" title="取消权限继承"></a>取消权限继承</h3><p><strong>作用</strong>：取消后可以任意修改权限列表<br><strong>方法</strong>：文件夹右键属性$\rightarrow$安全$\rightarrow$高级 $\rightarrow$去掉父子继承的√$\rightarrow$复制<br><img src="https://img-blog.csdnimg.cn/20200329120640997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="添加用户权限"><a href="#添加用户权限" class="headerlink" title="添加用户权限"></a>添加用户权限</h3><p>添加$\rightarrow$输入对象名称（<code>;</code>间隔）</p>
+<p><img src="https://img-blog.csdnimg.cn/20200329125010826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>列出本地所有组以供选择</strong>：添加$\rightarrow$高级$\rightarrow$立即查找<br><strong>默认用户权限</strong>：读取和运行、列出文件夹目录、读取<br><img src="https://img-blog.csdnimg.cn/20200329122111163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="拒绝最大"><a href="#拒绝最大" class="headerlink" title="拒绝最大"></a>拒绝最大</h3><p>相同的权限允许和拒绝发生碰撞拒绝最大<br><strong>作用</strong>：让某个组内某成员拒绝访问文件夹的权限，但不必将其从组内移除</p>
+<h3 id="取得所有权"><a href="#取得所有权" class="headerlink" title="取得所有权"></a>取得所有权</h3><p>只有管理员组的用户可以操作<br><strong>作用</strong>：用户把管理员权限删了，管理员恢复权限（会让该用户权限消除）</p>
+<p>文件夹右键属性$\rightarrow$ 安全$\rightarrow$高级 $\rightarrow$ 所有者 $\rightarrow$ 选中管理员 $\rightarrow$ 替换子容器所有者√<br><img src="https://img-blog.csdnimg.cn/20200329133245458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="强制继承"><a href="#强制继承" class="headerlink" title="强制继承"></a>强制继承</h3><p><strong>作用</strong>：子文件夹权限全部恢复为父文件夹权限<br>方法：文件夹右键属性$\rightarrow$安全$\rightarrow$高级$\rightarrow$可应用子对象替代所有子对象权限项目<br><img src="https://img-blog.csdnimg.cn/20200329133935447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" data-id="ckldxts2z000074njb23tazxh" data-title="服务器远程管理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-服务器系统和用户与组管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2021-02-20T02:14:09.000Z" itemprop="datePublished">2021-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/">服务器系统和用户与组管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h1 id="服务器系统和用户与组管理"><a href="#服务器系统和用户与组管理" class="headerlink" title="服务器系统和用户与组管理"></a>服务器系统和用户与组管理</h1><h2 id="服务器系统版本介绍"><a href="#服务器系统版本介绍" class="headerlink" title="服务器系统版本介绍"></a>服务器系统版本介绍</h2><h3 id="Windows服务系统"><a href="#Windows服务系统" class="headerlink" title="Windows服务系统"></a>Windows服务系统</h3><blockquote>
+<p>win 2000<br>win 2003<br>win 2008<br>win 2012</p>
+</blockquote>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>Redhat (要服务费)<br>Centos (免费的无服务)</p>
+</blockquote>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><h3 id="用户概述"><a href="#用户概述" class="headerlink" title="用户概述"></a>用户概述</h3><ul>
+<li><p>每个用户有不同的权限</p>
+</li>
+<li><p>每个用户有唯一的<strong>安全标识符SID</strong>（身份证）</p>
+</li>
+<li><p>系统SID: S- XXXXXXXXX<br>管理SID: S- XXXXXXXXX- 500<br>用户SID: S- XXXXXXXXX- 1000起</p>
+<ul>
+<li>查询用户SID<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami /user</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>密码存储位置</p>
+<blockquote>
+<p>C:\windows\system32\config\SAM</p>
+</blockquote>
+<p>默认密码最长有效期<strong>42天</strong></p>
+</li>
+</ul>
+<h3 id="内置账户"><a href="#内置账户" class="headerlink" title="内置账户"></a>内置账户</h3><ul>
+<li><p>用户账户</p>
+<blockquote>
+<p>administrator  # 管理员<br>user # 用户<br>guest # 来宾</p>
+</blockquote>
+</li>
+<li><p>计算机账户</p>
+</li>
+</ul>
+<blockquote>
+<p>system # 系统账户 == 权限至高无上<br>local services # 本地服务账户 == 权限等于普通用户<br>network services # 网络服务账户 == 权限等于普通用户</p>
+</blockquote>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>就是家目录，在以下文件夹</p>
+<blockquote>
+<p>C:\ Users<br>C: \ Documents and Settings\ </p>
+</blockquote>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> user                    	列出当前计算机账户列表</span><br><span class="line"><span class="built_in">net</span> user administrator      	查看用户详细信息</span><br><span class="line"><span class="built_in">net</span> user administrator <span class="number">123</span>  	修改密码</span><br><span class="line"><span class="built_in">net</span> user andy <span class="number">123</span> /add      	添加新用户andy  密码设置为<span class="number">123</span></span><br><span class="line"><span class="built_in">net</span> user andy /<span class="built_in">del</span>          	删除用户andy</span><br><span class="line"><span class="built_in">net</span> user 用户名 /active:yes/no   激活/禁用账户</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200328160246852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="组"><a href="#组" class="headerlink" title="组"></a>组</h2><p><strong>作用</strong>：简化权限的给予</p>
+<h3 id="内置组"><a href="#内置组" class="headerlink" title="内置组"></a>内置组</h3><p>权限默认已经被系统赋予</p>
+<blockquote>
+<p>administrators        管理员组<br>guests                       来宾组<br>users                         普通用户组，默认新建用户都属于这个组<br>network                    网络配置组<br>print                          打印机组<br>Remote Desktop     远程桌面组</p>
+</blockquote>
+<h3 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h3><blockquote>
+<p>net localgroup                               查看组列表<br>net localgroup 组名                      查看该组成员<br>net localgroup 组名 /add             创建一个新的组<br>net localgroup 组名 /del               删除组<br>net localgroup 组名 用户名 /add 添加用户到组<br>net localgroup 组名 用户名 /del  从组中踢出用户</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2020032816031696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h2><blockquote>
+<p>cmd &gt; services.msc</p>
+</blockquote>
+<img src="https://img-blog.csdnimg.cn/20200328161000546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/" data-id="ckld95hbv0001jsnj94tz1qyg" data-title="服务器系统和用户与组管理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-DOS命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/17/DOS%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2021-02-17T15:45:10.000Z" itemprop="datePublished">2021-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/17/DOS%E5%91%BD%E4%BB%A4/">DOS命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/17/DOS%E5%91%BD%E4%BB%A4/" data-id="ckld95hbr0000jsnjak7a1462" data-title="DOS命令" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-IP地址" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/16/IP%E5%9C%B0%E5%9D%80/" class="article-date">
@@ -93,7 +290,63 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>123</p>
+        <p>[toc]</p>
+<h1 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h1><h2 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h2><p>交换机：用来组建内网的局域网的设备（多个口）</p>
+<p>路由器：接外网（两个口）</p>
+<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><ul>
+<li><p><strong>局域网通信规则</strong>：所有人必须都在<strong>同一网段内</strong>才能通信</p>
+</li>
+<li><p>IP 地址构成：网络位 + 主机位</p>
+</li>
+<li><p><strong>子网掩码</strong>：用来确定网络位，与 1 对应的是网路位，与 0 对应的是主机位</p>
+</li>
+<li><p>ABCD 类 IP 地址：</p>
+<ul>
+<li>A 类：1-126 默认子网掩码：255.0.0.0</li>
+<li>B 类：128-191 默认子网掩码：255.255.0.0</li>
+<li>C 类：192-223 默认子网掩码：255.255.255.0</li>
+<li>D 类：224-239 组播地址（一个地址代表一组人）</li>
+<li>E 类：244-254 科研使用</li>
+</ul>
+</li>
+<li><p>几种特殊的 IP 地址：</p>
+<ul>
+<li><p>本机 IP ：127.0.0.1（回环地址）</p>
+</li>
+<li><p>广播地址：主机位全为 1（发送所有主机）</p>
+<blockquote>
+<p>主机位不能全为0和1</p>
+</blockquote>
+</li>
+<li><p>网段：主机位全为 0</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><p><strong>作用</strong>：局域网主机访问外网的出口IP地址（类比于出国时的海关）</p>
+<ul>
+<li><p>一般网关是在<strong>路由器</strong>上</p>
+</li>
+<li><p>常用网关地址为可用主机IP的<strong>第一个</strong>或<strong>最后一个</strong></p>
+</li>
+</ul>
+<h2 id="PC主机向外发送数据包过程"><a href="#PC主机向外发送数据包过程" class="headerlink" title="PC主机向外发送数据包过程"></a>PC主机向外发送数据包过程</h2><ol>
+<li>判断目标IP与自身是否同一网段（<strong>IP地址</strong>与<strong>子网掩码</strong>判断）</li>
+<li>若是，直接发出</li>
+<li>若不是，发给<strong>网关</strong></li>
+</ol>
+<h2 id="DNS（Domain-Name-Service-域名解析服务）"><a href="#DNS（Domain-Name-Service-域名解析服务）" class="headerlink" title="DNS（Domain Name Service 域名解析服务）"></a>DNS（Domain Name Service 域名解析服务）</h2><p><strong>作用</strong>：通过域名查询IP</p>
+<h3 id="查找DNS过程"><a href="#查找DNS过程" class="headerlink" title="查找DNS过程"></a>查找DNS过程</h3><ol>
+<li>若登录过该网站，先寻找本机DNS缓存</li>
+<li>查找DNS本地解析文件</li>
+<li>询问DNS服务器 $\star$</li>
+</ol>
+<p><strong>常用备用DNS</strong></p>
+<p>国内通用DNS：<code>114.114.114.114</code></p>
+<p>谷歌NDS：<code>8.8.8.8</code></p>
+<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span>   # 查看IP地址基本信息</span><br><span class="line"><span class="built_in">ipconfig</span> /all  # 查看IP地址详细信息</span><br></pre></td></tr></table></figure>
+<h3 id="PING"><a href="#PING" class="headerlink" title="PING"></a>PING</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> w # 测试联通,w为目标网址</span><br><span class="line"><span class="built_in">ping</span> -l n w # 每次都发n个字节 在局域网内最大阈值为<span class="number">65500</span>字节 </span><br><span class="line"><span class="built_in">ping</span> -t w # 一直<span class="built_in">ping</span></span><br><span class="line"><span class="built_in">ping</span> -n N # <span class="built_in">ping</span> N个包</span><br></pre></td></tr></table></figure>
+<h3 id="手工解析域名"><a href="#手工解析域名" class="headerlink" title="手工解析域名"></a>手工解析域名</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup w</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -226,15 +479,23 @@
       <ul>
         
           <li>
+            <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">服务器远程管理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/">服务器系统和用户与组管理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/17/DOS%E5%91%BD%E4%BB%A4/">DOS命令</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/16/IP%E5%9C%B0%E5%9D%80/">IP地址</a>
           </li>
         
           <li>
             <a href="/2021/02/15/My-First-Blog/">My First Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/15/hello-world/">Hello World</a>
           </li>
         
       </ul>

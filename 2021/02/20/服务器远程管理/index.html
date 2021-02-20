@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>服务器远程管理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[toc] NTFS权限概述作用：不同的用户访问不同文件&#x2F;文件夹的权限。 文件系统概述 存储文件格式方式  常见的文件系统： FAT   windows NTFS  windows EXT   liunx 常见  格式化 &#x3D;&#x3D; 制作文件系统格式化——在分区上重新打格子（簇）操作：盘右击$\rightarrow$格式化（默认4096字节） NTFS文件系统的特点1、提高磁盘读写性能（每个块读写略高于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器远程管理">
+<meta property="og:url" content="http://example.com/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[toc] NTFS权限概述作用：不同的用户访问不同文件&#x2F;文件夹的权限。 文件系统概述 存储文件格式方式  常见的文件系统： FAT   windows NTFS  windows EXT   liunx 常见  格式化 &#x3D;&#x3D; 制作文件系统格式化——在分区上重新打格子（簇）操作：盘右击$\rightarrow$格式化（默认4096字节） NTFS文件系统的特点1、提高磁盘读写性能（每个块读写略高于">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329102909215.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020032913143413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329131508497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329120640997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329125010826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329122111163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329133245458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200329133935447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-02-20T14:24:48.000Z">
+<meta property="article:modified_time" content="2021-02-20T16:29:21.570Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200329102909215.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-服务器远程管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2021-02-20T14:24:48.000Z" itemprop="datePublished">2021-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      服务器远程管理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h2 id="NTFS权限概述"><a href="#NTFS权限概述" class="headerlink" title="NTFS权限概述"></a>NTFS权限概述</h2><p><strong>作用</strong>：不同的用户访问不同<strong>文件/文件夹</strong>的权限。</p>
+<h3 id="文件系统概述"><a href="#文件系统概述" class="headerlink" title="文件系统概述"></a>文件系统概述</h3><ul>
+<li>存储文件格式方式</li>
+</ul>
+<h4 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h4><ul>
+<li>FAT   windows</li>
+<li>NTFS  windows</li>
+<li>EXT   liunx 常见</li>
+</ul>
+<h4 id="格式化-制作文件系统"><a href="#格式化-制作文件系统" class="headerlink" title="格式化 == 制作文件系统"></a>格式化 == 制作文件系统</h4><p>格式化——在分区上重新打格子（簇）<br><strong>操作</strong>：盘右击$\rightarrow$格式化（默认4096字节）<br><img src="https://img-blog.csdnimg.cn/20200329102909215.png" alt="在这里插入图片描述"></p>
+<h3 id="NTFS文件系统的特点"><a href="#NTFS文件系统的特点" class="headerlink" title="NTFS文件系统的特点"></a>NTFS文件系统的特点</h3><p>1、提高磁盘读写性能（每个块读写略高于FAT）<br>2、可靠性，支持文件加密，访问控制列表-ACL（NTFS分区的文件才可以设置权限）<br>3、磁盘利用率，压缩，磁盘配额（为不同的用户设置使用空间）<br>4、支持单个文件大于4个G（若小文件FAT更好）</p>
+<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><ul>
+<li><strong>继承自上级目录的权限无法随意取消</strong></li>
+<li>管理员拥有所有文件夹权限列表的权限</li>
+<li><strong>权限累加</strong>：<strong>用户最终权限 = 用户权限 + $\sum$users所有组权限</strong></li>
+<li><strong>拒绝最大</strong>：拒绝√  $ &gt;&gt; $  权限√</li>
+</ul>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="https://img-blog.csdnimg.cn/2020032913143413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="文件夹权限"><a href="#文件夹权限" class="headerlink" title="文件夹权限"></a>文件夹权限</h3><p><img src="https://img-blog.csdnimg.cn/20200329131508497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h2><h3 id="取消权限继承"><a href="#取消权限继承" class="headerlink" title="取消权限继承"></a>取消权限继承</h3><p><strong>作用</strong>：取消后可以任意修改权限列表<br><strong>方法</strong>：文件夹右键属性$\rightarrow$安全$\rightarrow$高级 $\rightarrow$去掉父子继承的√$\rightarrow$复制<br><img src="https://img-blog.csdnimg.cn/20200329120640997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="添加用户权限"><a href="#添加用户权限" class="headerlink" title="添加用户权限"></a>添加用户权限</h3><p>添加$\rightarrow$输入对象名称（<code>;</code>间隔）</p>
+<p><img src="https://img-blog.csdnimg.cn/20200329125010826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>列出本地所有组以供选择</strong>：添加$\rightarrow$高级$\rightarrow$立即查找<br><strong>默认用户权限</strong>：读取和运行、列出文件夹目录、读取<br><img src="https://img-blog.csdnimg.cn/20200329122111163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="拒绝最大"><a href="#拒绝最大" class="headerlink" title="拒绝最大"></a>拒绝最大</h3><p>相同的权限允许和拒绝发生碰撞拒绝最大<br><strong>作用</strong>：让某个组内某成员拒绝访问文件夹的权限，但不必将其从组内移除</p>
+<h3 id="取得所有权"><a href="#取得所有权" class="headerlink" title="取得所有权"></a>取得所有权</h3><p>只有管理员组的用户可以操作<br><strong>作用</strong>：用户把管理员权限删了，管理员恢复权限（会让该用户权限消除）</p>
+<p>文件夹右键属性$\rightarrow$ 安全$\rightarrow$高级 $\rightarrow$ 所有者 $\rightarrow$ 选中管理员 $\rightarrow$ 替换子容器所有者√<br><img src="https://img-blog.csdnimg.cn/20200329133245458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="强制继承"><a href="#强制继承" class="headerlink" title="强制继承"></a>强制继承</h3><p><strong>作用</strong>：子文件夹权限全部恢复为父文件夹权限<br>方法：文件夹右键属性$\rightarrow$安全$\rightarrow$高级$\rightarrow$可应用子对象替代所有子对象权限项目<br><img src="https://img-blog.csdnimg.cn/20200329133935447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" data-id="ckldxts2z000074njb23tazxh" data-title="服务器远程管理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">服务器系统和用户与组管理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">服务器远程管理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86/">服务器系统和用户与组管理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/17/DOS%E5%91%BD%E4%BB%A4/">DOS命令</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/16/IP%E5%9C%B0%E5%9D%80/">IP地址</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/15/My-First-Blog/">My First Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

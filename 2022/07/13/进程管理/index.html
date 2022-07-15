@@ -20,28 +20,40 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Jarrycow">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="进程 &amp; 线程进程进程控制块：（PCB）描述进程基本情况和运行状态进程存在唯一标志 进程映像(进程实体)：程序段、相关数据段、PCB 进程：进程实体的运行过程，系统进行资源分配和调度的一个独立单位 进程特征：  动态性(最重要特点) 并发性 独立性 异步性 结构性  进程状态 &amp; 转换基本状态：运行态、就绪态、阻塞态  运行态：进程在处理机上运行 就绪态：进程获得了除处理机外所有资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程管理">
+<meta property="og:url" content="http://example.com/2022/07/13/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Jarrycow">
+<meta property="og:description" content="进程 &amp; 线程进程进程控制块：（PCB）描述进程基本情况和运行状态进程存在唯一标志 进程映像(进程实体)：程序段、相关数据段、PCB 进程：进程实体的运行过程，系统进行资源分配和调度的一个独立单位 进程特征：  动态性(最重要特点) 并发性 独立性 异步性 结构性  进程状态 &amp; 转换基本状态：运行态、就绪态、阻塞态  运行态：进程在处理机上运行 就绪态：进程获得了除处理机外所有资">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/E296C0365BA348F6B7B0D610D5BC6AD2/69245">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/F1E7DC5BA8BF48AE8D8C9132C055A29B/69247">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/17461E55F69F4857B613B82517EC6DBE/69249">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/D09E471082B9482181CAD659D941DF79/69251">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/7BBF531D0FF0499F86A89A0B88A510FA/70056">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/2048548B0AD345519DEA55DA6B6803AC/70058">
+<meta property="article:published_time" content="2022-07-13T08:44:14.000Z">
+<meta property="article:modified_time" content="2022-07-15T17:50:56.090Z">
 <meta property="article:author" content="Jarrycow">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/E296C0365BA348F6B7B0D610D5BC6AD2/69245">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/07/13/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Jarrycow</title>
+  <title>进程管理 | Jarrycow</title>
   
 
 
@@ -165,183 +177,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/13/I-O%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/13/I-O%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">I/O管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-13 18:53:35 / 修改时间：18:55:29" itemprop="dateCreated datePublished" datetime="2022-07-13T18:53:35+08:00">2022-07-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="I-O管理"><a href="#I-O管理" class="headerlink" title="I/O管理"></a>I/O管理</h1><h2 id="I-O设备"><a href="#I-O设备" class="headerlink" title="I/O设备"></a>I/O设备</h2><h2 id="I-O控制方式"><a href="#I-O控制方式" class="headerlink" title="I/O控制方式"></a>I/O控制方式</h2><h2 id="I-O子系统层次结构"><a href="#I-O子系统层次结构" class="headerlink" title="I/O子系统层次结构"></a>I/O子系统层次结构</h2><h1 id="I-O核心子系统"><a href="#I-O核心子系统" class="headerlink" title="I/O核心子系统"></a>I/O核心子系统</h1><h2 id="I-O调度"><a href="#I-O调度" class="headerlink" title="I/O调度"></a>I/O调度</h2><h2 id="高速缓存-amp-缓冲区"><a href="#高速缓存-amp-缓冲区" class="headerlink" title="高速缓存 &amp; 缓冲区"></a>高速缓存 &amp; 缓冲区</h2><h2 id="设备分配-amp-回收"><a href="#设备分配-amp-回收" class="headerlink" title="设备分配 &amp; 回收"></a>设备分配 &amp; 回收</h2><h2 id="假脱机SPOOLing技术"><a href="#假脱机SPOOLing技术" class="headerlink" title="假脱机SPOOLing技术"></a>假脱机SPOOLing技术</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/13/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/13/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">文件管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-13 18:51:10 / 修改时间：18:53:21" itemprop="dateCreated datePublished" datetime="2022-07-13T18:51:10+08:00">2022-07-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="文件逻辑结构"><a href="#文件逻辑结构" class="headerlink" title="文件逻辑结构"></a>文件逻辑结构</h2><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h2 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h2><h2 id="文件保护"><a href="#文件保护" class="headerlink" title="文件保护"></a>文件保护</h2><h1 id="文件系统实现"><a href="#文件系统实现" class="headerlink" title="文件系统实现"></a>文件系统实现</h1><h2 id="文件系统层次结构"><a href="#文件系统层次结构" class="headerlink" title="文件系统层次结构"></a>文件系统层次结构</h2><h2 id="目录实现"><a href="#目录实现" class="headerlink" title="目录实现"></a>目录实现</h2><h2 id="文件实现——文件分配方式"><a href="#文件实现——文件分配方式" class="headerlink" title="文件实现——文件分配方式"></a>文件实现——文件分配方式</h2><h2 id="文件实现——文件分配空间管理"><a href="#文件实现——文件分配空间管理" class="headerlink" title="文件实现——文件分配空间管理"></a>文件实现——文件分配空间管理</h2><h1 id="磁盘组织-amp-管理"><a href="#磁盘组织-amp-管理" class="headerlink" title="磁盘组织 &amp; 管理"></a>磁盘组织 &amp; 管理</h1><h2 id="磁盘结构"><a href="#磁盘结构" class="headerlink" title="磁盘结构"></a>磁盘结构</h2><h2 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h2><h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/13/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/13/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">内存管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-13 18:48:46 / 修改时间：18:50:54" itemprop="dateCreated datePublished" datetime="2022-07-13T18:48:46+08:00">2022-07-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="内存管理基本原理"><a href="#内存管理基本原理" class="headerlink" title="内存管理基本原理"></a>内存管理基本原理</h2><h2 id="覆盖-amp-交换"><a href="#覆盖-amp-交换" class="headerlink" title="覆盖 &amp; 交换"></a>覆盖 &amp; 交换</h2><h2 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h2><h1 id="虚拟内存管理"><a href="#虚拟内存管理" class="headerlink" title="虚拟内存管理"></a>虚拟内存管理</h1><h2 id="请求分页管理方式"><a href="#请求分页管理方式" class="headerlink" title="请求分页管理方式"></a>请求分页管理方式</h2><h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><h2 id="页面分配策略"><a href="#页面分配策略" class="headerlink" title="页面分配策略"></a>页面分配策略</h2><h2 id="抖动"><a href="#抖动" class="headerlink" title="抖动"></a>抖动</h2><h2 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h2><h2 id="地址翻译"><a href="#地址翻译" class="headerlink" title="地址翻译"></a>地址翻译</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -357,10 +196,9 @@
       <meta itemprop="name" content="Jarrycow">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/13/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">进程管理</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          进程管理
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -390,7 +228,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="进程-amp-线程"><a href="#进程-amp-线程" class="headerlink" title="进程 &amp; 线程"></a>进程 &amp; 线程</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p><strong>进程控制块：</strong>（PCB）描述进程基本情况和运行状态<sub>进程存在唯一标志</sub></p>
+        <h1 id="进程-amp-线程"><a href="#进程-amp-线程" class="headerlink" title="进程 &amp; 线程"></a>进程 &amp; 线程</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p><strong>进程控制块：</strong>（PCB）描述进程基本情况和运行状态<sub>进程存在唯一标志</sub></p>
 <p><strong>进程映像(进程实体)：</strong>程序段、相关数据段、PCB</p>
 <p><strong>进程：</strong>进程实体的运行过程，系统进行资源分配和调度的一个独立单位</p>
 <p><strong>进程特征：</strong></p>
@@ -900,765 +738,37 @@
 <li><strong>进程回退法：</strong>让进程回退到足以回避死锁地步</li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">操作系统概述</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-13 09:13:20 / 修改时间：14:59:33" itemprop="dateCreated datePublished" datetime="2022-07-13T09:13:20+08:00">2022-07-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="操作系统定义"><a href="#操作系统定义" class="headerlink" title="操作系统定义"></a>操作系统定义</h1><p><strong>操作系统</strong>：<strong>管理</strong>整个计算机系统的<strong>硬件和软件</strong>资源，并合理地组织调度计算机的工作和资源的分配；<strong>以提供给用户和其他软件方便的接口和环境</strong>；它是计算机系统中<strong>最基本</strong>的系统软件</p>
-<ul>
-<li>是系统资源的<strong>管理者</strong></li>
-<li>是<strong>最接近硬件</strong>的一层<strong>软件</strong></li>
-<li>向上层提供方便易用的<strong>服务</strong></li>
-</ul>
-<p><strong>加载位置：</strong>RAM</p>
-<h2 id="操作系统特征"><a href="#操作系统特征" class="headerlink" title="操作系统特征"></a>操作系统特征</h2><p><strong>最基本特征：</strong>并发、共享</p>
-<p><strong>并发 &amp; 共享</strong></p>
-<ul>
-<li>共享以并发为条件<sub>若不允许并发，自然不存在共享问题</sub></li>
-<li>若系统无法实施有效共享管理，将影响并发执行</li>
-</ul>
-<h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>同时存在多个运行程序</p>
-<ul>
-<li><p>宏观上有多道程序<strong>同时</strong>执行</p>
-<p>微观上每时刻单处理机实际<strong>仅有一道</strong>程序执行</p>
-</li>
-<li><p>并发性通过<strong>分时</strong>实现</p>
-</li>
-</ul>
-<p><strong>并发 &amp; 并行</strong></p>
-<ul>
-<li>并发微观上<strong>交替进行</strong>，通过<strong>分时</strong>实现</li>
-<li>并行<strong>同时</strong>完成多种工作，需要<strong>硬件支持</strong><sub>多流水线/多处理机</sub></li>
-</ul>
-<blockquote>
-<p>多道程序设计特征</p>
-<ul>
-<li>制约性</li>
-<li>间断性</li>
-<li>共享性</li>
-<li><del>封闭性</del></li>
-<li><del>顺序性</del></li>
-</ul>
-</blockquote>
-<h3 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h3><p>系统资源可供多个并发进程共同使用</p>
-<p><strong>互斥共享方式：</strong>同一时段只允许<strong>一个进程</strong>访问</p>
-<ul>
-<li><strong>临界资源：</strong>只允许一个进程访问的资源</li>
-<li>大多数物理设备、软件中变量、栈</li>
-</ul>
-<p><strong>同时访问方式：</strong>允许多个进程<strong>宏观上同时</strong>访问</p>
-<ul>
-<li>磁盘资源</li>
-</ul>
-<h3 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h3><p><strong>虚拟技术：</strong>将物理实体变为逻辑对应物</p>
-<ul>
-<li>时分复用<sub>处理器分时共享</sub></li>
-<li>空分复用<sub>虚拟存储器</sub></li>
-</ul>
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>并发程序以不可预知速度推进</p>
-<h2 id="操作系统目标-amp-功能"><a href="#操作系统目标-amp-功能" class="headerlink" title="操作系统目标 &amp; 功能"></a>操作系统目标 &amp; 功能</h2><h3 id="计算机系统管理者"><a href="#计算机系统管理者" class="headerlink" title="计算机系统管理者"></a>计算机系统管理者</h3><p><strong>处理机管理：</strong>对进程管理</p>
-<p><strong>存储器管理：</strong>给并发运行提供环境</p>
-<p><strong>文件管理：</strong>负责文件管理</p>
-<p><strong>设备管理：</strong>I/O请求</p>
-<h3 id="用户和硬件系统接口"><a href="#用户和硬件系统接口" class="headerlink" title="用户和硬件系统接口"></a>用户和硬件系统接口</h3><p><strong>命令接口：</strong>进行作业控制</p>
-<ul>
-<li><strong>联机命令接口：</strong>（交互式命令接口）输入命令，做出反馈</li>
-<li><strong>脱机命令接口：</strong>（批处理命令接口）一组作业控制命令</li>
-</ul>
-<blockquote>
-<p> <strong>操作系统与用户通信接口</strong></p>
-<p>广义指令：即系统调用命令</p>
-<p>命令解释器</p>
-<p>shell：命令解析器</p>
-</blockquote>
-<p><strong>程序接口：</strong>一组系统调用</p>
-<ul>
-<li>系统调用：提供给应用程序接口，只能通过用户程序间接使用</li>
-<li>用户调用程序接口<strong>请求系统服务</strong></li>
-</ul>
-<blockquote>
-<p><strong>库函数 &amp; 系统调用</strong></p>
-<ul>
-<li><p>库函数是<strong>语言或应用程序</strong>一部分</p>
-<p>系统调用是<strong>操作系统</strong>一部分</p>
-</li>
-<li><p>库函数运行<strong>用户空间</strong>中</p>
-<p>系统调用运行<strong>内核空间</strong>中</p>
-</li>
-<li><p>许多库函数会使用系统调用实现</p>
-</li>
-<li><p>库函数<sub>未使用系统调用</sub>执行效率比系统调用高<sub>系统调用状态切换</sub></p>
-</li>
-</ul>
-</blockquote>
-<h3 id="用作扩充机器"><a href="#用作扩充机器" class="headerlink" title="用作扩充机器"></a>用作扩充机器</h3><p>将裸机改造功能更强</p>
-<h1 id="操作系统发展-amp-分类"><a href="#操作系统发展-amp-分类" class="headerlink" title="操作系统发展 &amp; 分类"></a>操作系统发展 &amp; 分类</h1><h2 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h2><h3 id="手工操作阶段"><a href="#手工操作阶段" class="headerlink" title="手工操作阶段"></a>手工操作阶段</h3><p><strong>缺点</strong></p>
-<ul>
-<li>用户独占全机，资源利用效率低</li>
-<li>CPU全手工操作，CPU利用不充分</li>
-</ul>
-<h3 id="单道批处理系统"><a href="#单道批处理系统" class="headerlink" title="单道批处理系统"></a>单道批处理系统</h3><p>内存始终保持一道作业</p>
-<p><strong>特征</strong></p>
-<ul>
-<li><strong>自动性</strong></li>
-<li><strong>顺序性</strong></li>
-<li><strong>单道性</strong></li>
-</ul>
-<p><strong>缺点：</strong>运行期间发出I/O请求后，高速CPU处于等待低速I/O状态</p>
-<blockquote>
-<p><strong>中断 &amp; 通道对多道程序作用</strong></p>
-<p>多道程序并发即有的程序在CPU执行，有的在I/O设备传输，必须中断和通道技术支持</p>
-<ul>
-<li><strong>通道：</strong>控制外部设备的硬件机构，独立于CPU运行，因而可以使得CPU与I/O并行工作</li>
-<li><strong>中断：</strong>I/O结束或硬件故障时，由中断机构告知CPU停止工作，处理中断请求，待处理完中断再继续工作</li>
-</ul>
-</blockquote>
-<h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><p><strong>特点</strong></p>
-<ul>
-<li>多道</li>
-<li>宏观并行</li>
-<li>微观串行</li>
-</ul>
-<p><strong>问题</strong></p>
-<ul>
-<li>处理器分配</li>
-<li>内存分配</li>
-<li>I/O设备分配</li>
-<li>组织和存放大量程序和数据，保证安全性和一致性</li>
-</ul>
-<p><strong>优点</strong></p>
-<ul>
-<li>资源利用效率高</li>
-<li>系统吞吐量大</li>
-</ul>
-<p><strong>缺点</strong></p>
-<ul>
-<li>用户响应时间较长</li>
-<li>不提供人机交互能力</li>
-</ul>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
-<li><p><strong>批处理操作系统</strong></p>
-<p>用户脱机使用计算机</p>
-<p>作业成批处理，系统内并发执行多道程序</p>
-<p>交互能力差</p>
-</li>
-<li><p><strong>分时操作系统</strong></p>
-<p>多个用户同时使用计算机</p>
-<p>交互性强</p>
-<p>具有每个用户独立使用计算机的独占性</p>
-<p>系统响应及时</p>
-</li>
-<li><p><strong>实时操作系统</strong></p>
-<p>控制对象做出及时响应</p>
-<p>可靠性高，响应及时</p>
-<p>资源利用率低</p>
-</li>
-</ul>
-<h3 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h3><p>多个用户通过终端共享主机</p>
-<p><strong>调度算法：</strong>优先级+非抢占式调度</p>
-<p><strong>目标：</strong>比较快速响应用户</p>
-<p><strong>特点</strong></p>
-<ul>
-<li>同时性</li>
-<li>交互性</li>
-<li>独立性</li>
-<li>及时性</li>
-</ul>
-<h3 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h3><p>某个时间限制内完成紧急任务</p>
-<p><strong>进程调度：</strong>抢占式的优先级高者优先算法</p>
-<ul>
-<li><strong>硬实时系统：</strong>某动作必须在规定时刻发生<sub>飞行自动控制系统</sub></li>
-<li><strong>软实时系统：</strong>可偶尔违反时间规定<sub>飞机订票系统</sub></li>
-</ul>
-<p><strong>特点</strong></p>
-<ul>
-<li>及时性</li>
-<li>可靠性</li>
-</ul>
-<h3 id="网络操作系统-amp-分布式计算机系统"><a href="#网络操作系统-amp-分布式计算机系统" class="headerlink" title="网络操作系统 &amp; 分布式计算机系统"></a>网络操作系统 &amp; 分布式计算机系统</h3><p><strong>网络操作系统：</strong>通过网络使各计算机有机结合</p>
-<ul>
-<li><strong>特点：</strong>通信、共享</li>
-</ul>
-<p><strong>分布式计算及系统：</strong>通信计算机地位平等</p>
-<ul>
-<li><strong>特点：</strong>分布性、并行性</li>
-</ul>
-<p><strong>不同：</strong>分布式计算及系统中若干计算机协同完成同一任务</p>
-<h1 id="操作系统运行环境"><a href="#操作系统运行环境" class="headerlink" title="操作系统运行环境"></a>操作系统运行环境</h1><h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><p><strong>特权指令：</strong>不允许用户直接使用的指令，必须在<strong>核心态</strong>执行</p>
-<ul>
-<li>清理内存</li>
-<li>置时钟</li>
-<li>分配系统资源</li>
-<li>修改虚存表</li>
-<li>修改用户权限</li>
-</ul>
-<p><strong>访管指令：</strong>在<strong>用户态</strong>下要求操作<strong>系统提供服务</strong>的指令，引起<strong>访管中断</strong>，进入内核</p>
-<p>具体实现：将CPU划分为<strong>用户态</strong>和<strong>内核态</strong></p>
-<p><strong>区分两态的目的：</strong>保护系统程序</p>
-<h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><ul>
-<li>与硬件关联紧密的模块</li>
-<li>运行频率较高的程序</li>
-</ul>
-<p><strong>时间管理</strong></p>
-<ul>
-<li>向用户提供标准系统时间</li>
-<li>实现进程切换</li>
-</ul>
-<p><strong>中断机制</strong></p>
-<ul>
-<li>提高CPU利用率</li>
-</ul>
-<p><strong>原语</strong></p>
-<ul>
-<li>最接近硬件</li>
-<li>原子性</li>
-<li>运行时间较短、调用频繁</li>
-</ul>
-<p><strong>系统控制的数据结构及处理</strong></p>
-<ul>
-<li>进程管理</li>
-<li>存储器管理</li>
-<li>设备管理</li>
-</ul>
-<h2 id="中断-amp-异常"><a href="#中断-amp-异常" class="headerlink" title="中断 &amp; 异常"></a>中断 &amp; 异常</h2><p>用户态$\rightarrow$内核<br>$$<br>\text{中断}\left{ \begin{array}{l}<br>    \text{内中断}\left{ \begin{array}{l}<br>    \text{自愿中断}——\text{指令中断}\<br>    \text{强迫中断}\left{ \begin{array}{l}<br>    \text{硬件故障}\<br>    \text{软件中断}\<br>\end{array} \right.\<br>\end{array} \right.\<br>    \text{外中断}\left( \text{强迫中断} \right) \left{ \begin{array}{l}<br>    \text{外设请求}\<br>    \text{人为干预}\<br>\end{array} \right.\<br>\end{array} \right.<br>$$<br><strong>中断</strong>（外中断）：来自CPU执行指令以外事情发生</p>
-<p><strong>异常</strong>（内中断/陷入）：CPU执行内部事件引起</p>
-<h3 id="中断处理"><a href="#中断处理" class="headerlink" title="中断处理"></a>中断处理</h3><ol>
-<li>关中断</li>
-<li>保存断点<sub>PC &amp; PSW</sub></li>
-<li>中断服务程序寻址</li>
-<li>保存现场和屏蔽字</li>
-<li>开中断</li>
-<li>执行中断服务程序</li>
-<li>关中断</li>
-<li>恢复现场和屏蔽字</li>
-<li>开中断、中断返回</li>
-</ol>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>用户调用操作系统提供子功能</p>
-<ul>
-<li>设备管理</li>
-<li>文件管理</li>
-<li>进程控制</li>
-<li>进程通信</li>
-<li>内存管理</li>
-</ul>
-<p><img src="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/AC4767A8641143708B57BE104726F506/69243.png"></p>
-<blockquote>
-<p>用户态到核心态转换由<strong>硬件</strong>完成</p>
-</blockquote>
-<h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><p><strong>大内核：</strong>操作系统主要功能整体置于核心态</p>
-<p><strong>微内核：</strong>内核仅保留最基础功能</p>
-<ul>
-<li><strong>优点</strong><ul>
-<li>添加系统服务，不必修改内核</li>
-<li>系统更可靠</li>
-</ul>
-</li>
-<li><strong>缺点</strong><ul>
-<li>性能降低</li>
-</ul>
-</li>
-</ul>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="prev" title="操作系统概述">
+      <i class="fa fa-chevron-left"></i> 操作系统概述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/13/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="内存管理">
+      内存管理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/12/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/12/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">搭建博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-12 10:43:18 / 修改时间：15:26:33" itemprop="dateCreated datePublished" datetime="2022-07-12T10:43:18+08:00">2022-07-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>以常用的更换next主题为例</p>
-<h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p>在Blog根目录文件夹下，用GitBash下载</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>打开根目录下的<code>_config.yml</code>，修改<code># Extensions</code>下内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span>   <span class="comment">#主题改为next</span></span><br></pre></td></tr></table></figure>
-<p>next提供了4种主题，只需将 <strong><code>themes\next\_config.yml</code></strong> 中<code># Schemes</code>下内容中，想选择的主题前<code>#</code>删除即可</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span>    <span class="comment">#这是我选的主题</span></span><br></pre></td></tr></table></figure>
-<p>回到根目录打开Git Bash，输入如下三条命令：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h2 id="博客页面空白"><a href="#博客页面空白" class="headerlink" title="博客页面空白"></a>博客页面空白</h2><p><strong>问题：</strong>安装好主题之后，预览本地页面正常，但博客显示空白</p>
-<p><strong>原因：</strong><code>next</code>默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架</p>
-<p><strong>解决：</strong>打开 **<code>themes\next\_config.yml</code>**，将<code># FancyBox</code>以下修改为</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FancyBox</span></span><br><span class="line"><span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js</span></span><br><span class="line"><span class="comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span></span><br><span class="line"><span class="comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span></span><br><span class="line"><span class="attr">jquery:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js</span></span><br><span class="line"><span class="attr">fancybox_css:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox</span></span><br></pre></td></tr></table></figure>
-<p>重新部署即可</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-title-link" itemprop="url">数据链路层</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-10 11:07:32 / 修改时间：16:08:32" itemprop="dateCreated datePublished" datetime="2021-03-10T11:07:32+08:00">2021-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="数据链路层-Data-Link-Layer"><a href="#数据链路层-Data-Link-Layer" class="headerlink" title="数据链路层(Data Link Layer)"></a>数据链路层(Data Link Layer)</h1><p><strong>传输单元</strong>：帧</p>
-<p><strong>设备</strong>：交换机/网卡</p>
-<h2 id="帧格式"><a href="#帧格式" class="headerlink" title="帧格式"></a>帧格式</h2><p>802.3 有线<br>802.11 无线</p>
-<h2 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h2><h3 id="帧头"><a href="#帧头" class="headerlink" title="帧头"></a>帧头</h3><ul>
-<li>目标MAC：6字节</li>
-<li>源MAC：6字节</li>
-<li>类型：2字节（识别上层协议）<ul>
-<li>0x0800：IP协议</li>
-<li>0x0806：ARP协议</li>
-</ul>
-</li>
-</ul>
-<h3 id="MTU"><a href="#MTU" class="headerlink" title="MTU"></a>MTU</h3><p>上三层数据</p>
-<p>最多1500字节</p>
-<h3 id="帧尾"><a href="#帧尾" class="headerlink" title="帧尾"></a>帧尾</h3><p>4字节</p>
-<h1 id="交换机工作原理"><a href="#交换机工作原理" class="headerlink" title="交换机工作原理"></a>交换机工作原理</h1><p>MAC地址表: MAC地址、MAC地址对应接口动态绑定</p>
-<p>交换机通过学子帧中的<strong>源MAC地址</strong>形成MAC地址表</p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li>接受端口A发送给D的帧</li>
-<li>若MAC地址表中无A，将A的MAC地址与其对应接口写入MAC地址表</li>
-<li>若MAC地址表无目的MAC，则发送广播</li>
-<li>目标MAC接收广播后接受解析信息</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/%E7%89%A9%E7%90%86%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">物理层</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-10 10:45:11 / 修改时间：11:07:18" itemprop="dateCreated datePublished" datetime="2021-03-10T10:45:11+08:00">2021-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><p><strong>单元</strong>：bit</p>
-<h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><ol>
-<li>单模光纤：一般黄色</li>
-<li>多模光纤：一般橙色/蓝色</li>
-</ol>
-<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p>T568A: 白绿、绿、白橙、蓝、白蓝、橙、白棕、棕</p>
-<p>T568B: 白橙、橙、白绿、蓝、白蓝、绿、白棕、棕</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/OSI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/OSI/" class="post-title-link" itemprop="url">OSI</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-10 09:58:15 / 修改时间：10:44:11" itemprop="dateCreated datePublished" datetime="2021-03-10T09:58:15+08:00">2021-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><p><img src="https://img-blog.csdnimg.cn/20200628155313839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70"></p>
-<p>五层模型：会话层+表示层+传输层$\rightarrow$应用层（实际协议填入）</p>
-<p>四层模型：物理层+数据链路层$\rightarrow$网络接口层</p>
-<h2 id="封装-amp-解封"><a href="#封装-amp-解封" class="headerlink" title="封装&amp;解封"></a>封装&amp;解封</h2><img src="https://img-blog.csdnimg.cn/20200628170557422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
-
-<h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><p>应用层：PC/ 防火墙</p>
-<p>传输层：防火墙</p>
-<p>网络层：路由器</p>
-<p>数据链路层：交换机/ 网卡</p>
-<p>物理层：网线/ 网卡</p>
-<h2 id="各层通信"><a href="#各层通信" class="headerlink" title="各层通信"></a>各层通信</h2><img src="https://img-blog.csdnimg.cn/20200628170718967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/01/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarrycow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarrycow">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/01/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">DNS服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-01 20:26:18 / 修改时间：22:07:56" itemprop="dateCreated datePublished" datetime="2021-03-01T20:26:18+08:00">2021-03-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="域名组成"><a href="#域名组成" class="headerlink" title="域名组成"></a>域名组成</h2><p>如下图<br><img src="https://img-blog.csdnimg.cn/20200407230358734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>各类顶级域</p>
-<ul>
-<li>国家顶级域 <code>cn jp hk uk</code></li>
-<li>商业顶级域<ul>
-<li>com 商业机构</li>
-<li>gov 政府机构</li>
-<li>mil 军事机构</li>
-<li>edu 教育机构</li>
-<li>org 民间组织架构</li>
-<li>net 互联网</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>QDN = 主机名.DNS后缀<br>FQDN（完整的域名）= 主机名.域名</p>
-</blockquote>
-<p><strong>监听端口</strong></p>
-<blockquote>
-<p>TCP  53<br>UDP 53</p>
-</blockquote>
-<h3 id="DNS解析种类"><a href="#DNS解析种类" class="headerlink" title="DNS解析种类"></a>DNS解析种类</h3><h4 id="按照查询分类"><a href="#按照查询分类" class="headerlink" title="按照查询分类"></a>按照查询分类</h4><ol>
-<li>递归查询：客户机与本地DNS服务器之间</li>
-<li>迭代查询：本地DNS服务器与根等其他DNS服务器的解析过程</li>
-</ol>
-<p>全世界目前一共13个根域名服务器</p>
-<h3 id="解析步骤"><a href="#解析步骤" class="headerlink" title="解析步骤"></a>解析步骤</h3><ol>
-<li><p>查询本地主机缓存以及host</p>
-<p>若有，解析</p>
-<p>若无，像本地DNS服务器发送请求</p>
-</li>
-<li><p>本地DNS服务器查询缓存，</p>
-<p>若有，发送给客户机</p>
-<p>若无，像根域发送请求</p>
-</li>
-<li><p>根域发送二级域名服务器地址，本地DNS向二级域名服务器发送请求</p>
-</li>
-<li><p>二级域名发送三级域名服务器地址，本地DNS向三级域名服务器发送请求</p>
-</li>
-<li><p>三级域名向本地DNS发送解析，本地DNS收到并缓存</p>
-</li>
-<li><p>本地DNS向客户机发送解析，客户机收到并缓存</p>
-</li>
-</ol>
-<h2 id="DNS服务器搭建过程"><a href="#DNS服务器搭建过程" class="headerlink" title="DNS服务器搭建过程"></a>DNS服务器搭建过程</h2><p><strong>注意：配置服务器前一定要配置静态IP</strong></p>
-<ol>
-<li><p>插入光驱双击打开，安装可选的Windows组件- 网络服务 – 域名系统DNS</p>
-</li>
-<li><p>开始 – 管理工具 打开DNS服务</p>
-<p>此时已经可以作为DNS服务器（缓存服务器）</p>
-</li>
-<li><p>正向查询区域 – 右键新建区域<br><img src="https://img-blog.csdnimg.cn/20200408221536893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>主要区域就是主服务器；</li>
-<li>辅助区域是备份区域，如果公司已经有一台DNS服务器了，想要做一台备份服务器，就选辅助区域；</li>
-<li>存根区域就是根域，一般由国家级的来创建；</li>
-</ul>
-</li>
-<li><p>区域名称写待解析域名调音</p>
-</li>
-<li><p><code>域名.dns</code>这个文件是区域解析文件，以后<code>任何主机.域名</code>都会写入这个文件；</p>
-</li>
-<li><p>不允许动态更新</p>
-<p>  <img src="https://img-blog.csdnimg.cn/20200408222258358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  直接下一步</p>
-</li>
-<li><p>名称：baidu.com<br>  类型：主要区域（本服务器是baidu.com的主DNS服务器）<br>  查找类型：正向（正向解析）<br>  文件名：baidu.com.dns<br>  <img src="https://img-blog.csdnimg.cn/20200408223217828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>右击-新建主机<br>  <img src="https://img-blog.csdnimg.cn/20200408223731524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/20200408223855825.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /flushdns    <span class="comment"># 刷新本地DNS缓存</span></span><br><span class="line">ipconfig /displaydns  <span class="comment"># 显示DNS缓存</span></span><br></pre></td></tr></table></figure>
-<h3 id="反向解析"><a href="#反向解析" class="headerlink" title="反向解析"></a>反向解析</h3><p>给服务器命名为dns.baidu.com<br><img src="https://img-blog.csdnimg.cn/20200408232047898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>反向区域配置<br><img src="https://img-blog.csdnimg.cn/20200408232143182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200408232201401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>新建指针 – 配置反向解析（通过访问IP可以解析到服务器名）<br><img src="https://img-blog.csdnimg.cn/20200408232224250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200408232413337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="同步备份"><a href="#同步备份" class="headerlink" title="同步备份"></a>同步备份</h3><p><strong>备份</strong>：在域名右键-属性-区域复制-只允许到下列服务器<br><strong>同步</strong>：右键-新建区域-辅助区域-IP地址填写主DNS服务器</p>
-<h3 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h3><ul>
-<li>主要名称服务器</li>
-<li>辅助名称服务器</li>
-<li>根名称服务器</li>
-<li>高速缓存名称服务器</li>
-</ul>
-<h3 id="客户机域名请求解析顺序"><a href="#客户机域名请求解析顺序" class="headerlink" title="客户机域名请求解析顺序"></a>客户机域名请求解析顺序</h3><p>1、dns缓存<br>2、本地hosts文件<br>3、本地dns服务器</p>
-<h3 id="服务器对域名请求的处理顺序"><a href="#服务器对域名请求的处理顺序" class="headerlink" title="服务器对域名请求的处理顺序"></a>服务器对域名请求的处理顺序</h3><p>1、dns高速缓存<br>2、本地域名解析文件<br>3、转发器<br>4、根rt</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -1710,6 +820,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B-amp-%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">进程 &amp; 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81-amp-%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.1.1.</span> <span class="nav-text">进程状态 &amp; 转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">进程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%84%E7%BB%87"><span class="nav-number">1.1.3.</span> <span class="nav-text">进程组织</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="nav-number">1.1.4.</span> <span class="nav-text">进程通信</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B-amp-%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">线程 &amp; 进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7"><span class="nav-number">1.2.2.</span> <span class="nav-text">线程属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">线程实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">多线程模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">处理机调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-number">2.0.1.</span> <span class="nav-text">为什么要处理机调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E5%B1%82%E6%AC%A1"><span class="nav-number">2.0.2.</span> <span class="nav-text">调度层次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E6%97%B6%E6%9C%BA-amp-%E5%88%87%E6%8D%A2-amp-%E8%BF%87%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">调度时机 &amp; 切换 &amp; 过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">调度顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E8%BF%9B%E8%A1%8C%E8%B0%83%E5%BA%A6%E5%88%87%E6%8D%A2%E6%83%85%E5%86%B5"><span class="nav-number">2.1.2.</span> <span class="nav-text">不能进行调度切换情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E8%AF%A5%E8%B0%83%E5%BA%A6%E5%88%87%E6%8D%A2"><span class="nav-number">2.1.3.</span> <span class="nav-text">应该调度切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">进程调度方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E5%9F%BA%E6%9C%AC%E5%87%86%E5%88%99"><span class="nav-number">2.3.</span> <span class="nav-text">调度基本准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95FCFS"><span class="nav-number">2.4.1.</span> <span class="nav-text">先来先服务调度算法FCFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95SJF"><span class="nav-number">2.4.2.</span> <span class="nav-text">短作业优先调度算法SJF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.3.</span> <span class="nav-text">优先级调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%93%8D%E5%BA%94%E6%AF%94%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.4.</span> <span class="nav-text">高响应比优先调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%89%87%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.5.</span> <span class="nav-text">时间片轮转调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.6.</span> <span class="nav-text">多级反馈队列调度算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">3.</span> <span class="nav-text">进程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E8%B5%84%E6%BA%90"><span class="nav-number">3.0.1.</span> <span class="nav-text">临界资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">3.0.2.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5"><span class="nav-number">3.0.3.</span> <span class="nav-text">互斥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%BA%92%E6%96%A5%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.</span> <span class="nav-text">临界区互斥实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">软件实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.2.</span> <span class="nav-text">硬件实现方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">信号量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">3.2.1.</span> <span class="nav-text">整型信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E5%9E%8B%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">3.2.2.</span> <span class="nav-text">记录型信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%AD%A5"><span class="nav-number">3.2.3.</span> <span class="nav-text">信号量实现同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5"><span class="nav-number">3.2.4.</span> <span class="nav-text">信号量实现互斥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">管程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%A8%8B%E7%BB%84%E6%88%90"><span class="nav-number">3.3.1.</span> <span class="nav-text">管程组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">条件变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.</span> <span class="nav-text">同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.1.</span> <span class="nav-text">生产者-消费者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.2.</span> <span class="nav-text">读者-写者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.3.</span> <span class="nav-text">哲学家进餐问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%B8%E7%83%9F%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.4.</span> <span class="nav-text">吸烟者问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">4.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E5%8E%9F%E5%9B%A0"><span class="nav-number">4.0.1.</span> <span class="nav-text">死锁原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="nav-number">4.1.</span> <span class="nav-text">死锁处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="nav-number">4.2.</span> <span class="nav-text">死锁预防</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="nav-number">4.3.</span> <span class="nav-text">死锁避免</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81"><span class="nav-number">4.3.1.</span> <span class="nav-text">系统安全状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">银行家算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B-amp-%E8%A7%A3%E9%99%A4"><span class="nav-number">4.4.</span> <span class="nav-text">死锁检测 &amp; 解除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E5%AE%9A%E7%90%86"><span class="nav-number">4.4.1.</span> <span class="nav-text">死锁定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E8%A7%A3%E9%99%A4"><span class="nav-number">4.4.2.</span> <span class="nav-text">死锁解除</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

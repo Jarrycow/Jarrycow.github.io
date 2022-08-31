@@ -401,6 +401,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -433,13 +436,49 @@
 </ul>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>设置标志记录“是否遇到空格”</p>
 <p>若遇到空格之后又遇到字母，则重新计数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">&quot;&quot;</span>  ||  s == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;  <span class="comment">// 记录单词长度</span></span><br><span class="line">        <span class="keyword">int</span> point = <span class="number">0</span>;  <span class="comment">//  指向字符的指针</span></span><br><span class="line">        <span class="keyword">boolean</span> reset = <span class="keyword">true</span>;  <span class="comment">// 重置指令：当接触到空格</span></span><br><span class="line">        <span class="keyword">while</span>(point &lt; s.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(point) == <span class="string">&#x27; &#x27;</span>)&#123;  <span class="comment">// 指到空格，标志重置</span></span><br><span class="line">                reset = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(reset)&#123;  <span class="comment">// 指到了字母，且标志重置</span></span><br><span class="line">                reset = <span class="keyword">false</span>;  <span class="comment">// 标志转换</span></span><br><span class="line">                result = <span class="number">1</span>;  <span class="comment">// 指向第一个</span></span><br><span class="line">            &#125;  <span class="comment">// 即单词第一个</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(!reset)&#123;  <span class="comment">// 指向不是第一个字母</span></span><br><span class="line">                ++result;</span><br><span class="line">            &#125;</span><br><span class="line">            ++point;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLastWord(String s) &#123;
+        if(s &#x3D;&#x3D; &quot;&quot;  ||  s &#x3D;&#x3D; null)
+            return 0;
+        int result &#x3D; 0;  &#x2F;&#x2F; 记录单词长度
+        int point &#x3D; 0;  &#x2F;&#x2F;  指向字符的指针
+        boolean reset &#x3D; true;  &#x2F;&#x2F; 重置指令：当接触到空格
+        while(point &lt; s.length())&#123;
+            if(s.charAt(point) &#x3D;&#x3D; &#39; &#39;)&#123;  &#x2F;&#x2F; 指到空格，标志重置
+                reset &#x3D; true;
+            &#125;
+            else if(reset)&#123;  &#x2F;&#x2F; 指到了字母，且标志重置
+                reset &#x3D; false;  &#x2F;&#x2F; 标志转换
+                result &#x3D; 1;  &#x2F;&#x2F; 指向第一个
+            &#125;  &#x2F;&#x2F; 即单词第一个
+            else if(!reset)&#123;  &#x2F;&#x2F; 指向不是第一个字母
+                ++result;
+            &#125;
+            ++point;
+        &#125;
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(n)$——遍历</p>
 <p>空间复杂度：$O(1)$</p>
 <h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>倒序遍历</p>
 <p>先跳过空格</p>
 <p>到下一次遇到空格停止</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>; <span class="comment">// 记录单词长度</span></span><br><span class="line">        <span class="keyword">int</span> point = s.length() - <span class="number">1</span>; <span class="comment">// 指向字符的指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (point &gt;= <span class="number">0</span> &amp;&amp; s.charAt(point) == <span class="string">&#x27; &#x27;</span>) <span class="comment">// 从最后开始计数，跳过所有空格</span></span><br><span class="line">            --point;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            ++result;</span><br><span class="line">            --point;</span><br><span class="line">        &#125; <span class="keyword">while</span> (point &gt;= <span class="number">0</span> &amp;&amp; s.charAt(point) != <span class="string">&#x27; &#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLastWord(String s) &#123;
+        int result &#x3D; 0; &#x2F;&#x2F; 记录单词长度
+        int point &#x3D; s.length() - 1; &#x2F;&#x2F; 指向字符的指针
+
+        while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) &#x3D;&#x3D; &#39; &#39;) &#x2F;&#x2F; 从最后开始计数，跳过所有空格
+            --point;
+        do &#123;
+            ++result;
+            --point;
+        &#125; while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) !&#x3D; &#39; &#39;);
+
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -675,6 +714,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

@@ -402,6 +402,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -430,22 +433,71 @@
 </ul>
 <p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己的"><a href="#自己的" class="headerlink" title="自己的"></a>自己的</h2><p>用队列的方法，将数字顺序对调，再和原数据比较</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> x</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt;= <span class="number">0</span>)  <span class="comment">// 负数一定不是</span></span><br><span class="line">            <span class="keyword">return</span> (x &lt; <span class="number">0</span>) ? <span class="keyword">false</span> : <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// while(x != 0)</span></span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> x_num = x;</span><br><span class="line">        <span class="keyword">while</span>(x != <span class="number">0</span>)&#123;</span><br><span class="line">            queue.offer(x % <span class="number">10</span>);</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(Integer q : queue)&#123;</span><br><span class="line">            <span class="comment">// System.out.println(q);</span></span><br><span class="line">            num *= <span class="number">10</span>;</span><br><span class="line">            num += q;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// System.out.println(num);</span></span><br><span class="line">        <span class="comment">// System.out.println(x_num);;</span></span><br><span class="line">        <span class="keyword">return</span> (num == x_num); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    &#x2F;**
+     * @param x
+     * @return
+     *&#x2F;
+    public boolean isPalindrome(int x) &#123;
+        if(x &lt;&#x3D; 0)  &#x2F;&#x2F; 负数一定不是
+            return (x &lt; 0) ? false : true;
+        &#x2F;&#x2F; while(x !&#x3D; 0)
+        Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();
+        int x_num &#x3D; x;
+        while(x !&#x3D; 0)&#123;
+            queue.offer(x % 10);
+            x &#x2F;&#x3D; 10;
+        &#125;
+        int num &#x3D; 0;
+        for(Integer q : queue)&#123;
+            &#x2F;&#x2F; System.out.println(q);
+            num *&#x3D; 10;
+            num +&#x3D; q;
+        &#125;
+        &#x2F;&#x2F; System.out.println(num);
+        &#x2F;&#x2F; System.out.println(x_num);;
+        return (num &#x3D;&#x3D; x_num); 
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>翻转一半数字，同时新建翻转的数字</p>
 <p>当原始数据处理后比新建数字小时，处理过半</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 特殊情况：</span></span><br><span class="line">        <span class="comment">// 如上所述，当 x &lt; 0 时，x 不是回文数。</span></span><br><span class="line">        <span class="comment">// 同样地，如果数字的最后一位是 0，为了使该数字为回文，</span></span><br><span class="line">        <span class="comment">// 则其第一位数字也应该是 0</span></span><br><span class="line">        <span class="comment">// 只有 0 满足这一属性</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> revertedNumber = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。</span></span><br><span class="line">        <span class="comment">// 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，</span></span><br><span class="line">        <span class="comment">// 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。</span></span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public boolean isPalindrome(int x) &#123;
+        &#x2F;&#x2F; 特殊情况：
+        &#x2F;&#x2F; 如上所述，当 x &lt; 0 时，x 不是回文数。
+        &#x2F;&#x2F; 同样地，如果数字的最后一位是 0，为了使该数字为回文，
+        &#x2F;&#x2F; 则其第一位数字也应该是 0
+        &#x2F;&#x2F; 只有 0 满足这一属性
+        if (x &lt; 0 || (x % 10 &#x3D;&#x3D; 0 &amp;&amp; x !&#x3D; 0)) &#123;
+            return false;
+        &#125;
+
+        int revertedNumber &#x3D; 0;
+        while (x &gt; revertedNumber) &#123;
+            revertedNumber &#x3D; revertedNumber * 10 + x % 10;
+            x &#x2F;&#x3D; 10;
+        &#125;
+
+        &#x2F;&#x2F; 当数字长度为奇数时，我们可以通过 revertedNumber&#x2F;10 去除处于中位的数字。
+        &#x2F;&#x2F; 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x &#x3D; 12，revertedNumber &#x3D; 123，
+        &#x2F;&#x2F; 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。
+        return x &#x3D;&#x3D; revertedNumber || x &#x3D;&#x3D; revertedNumber &#x2F; 10;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(\log n)$</p>
 <p>空间复杂度：$O(1)$ss</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="java队列"><a href="#java队列" class="headerlink" title="java队列"></a>java队列</h2><p><strong>初始化队列</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>入队</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.offer(x);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.offer(x);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>出队</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.poll();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.poll();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>取队首</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.peek();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.peek();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>遍历队列</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Integer q : queue)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">for(Integer q : queue)&#123;
+    ...
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -688,6 +740,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

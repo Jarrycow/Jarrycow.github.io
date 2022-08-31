@@ -7,8 +7,7 @@
     <meta name="keywords" content="搭建博客, Jarrycow">
     <meta name="description" content="主题以常用的更换next主题为例
 修改主题在Blog根目录文件夹下，用GitBash下载
-1git clone https://github.com/theme-next/hexo-theme-next themes/next
-打开根目录下">
+git clone https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;theme-next&amp;#x2F;hexo-theme-next">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -398,6 +397,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -405,17 +407,32 @@
             <div id="articleContent">
                 <h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>以常用的更换next主题为例</p>
 <h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p>在Blog根目录文件夹下，用GitBash下载</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>打开根目录下的<code>_config.yml</code>，修改<code># Extensions</code>下内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span>   <span class="comment">#主题改为next</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Extensions
+## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;
+## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;
+theme: next   #主题改为next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>next提供了4种主题，只需将 <strong><code>themes\next\_config.yml</code></strong> 中<code># Schemes</code>下内容中，想选择的主题前<code>#</code>删除即可</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span>    <span class="comment">#这是我选的主题</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini    #这是我选的主题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>回到根目录打开Git Bash，输入如下三条命令：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">hexo clean
+hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="博客页面空白"><a href="#博客页面空白" class="headerlink" title="博客页面空白"></a>博客页面空白</h2><p><strong>问题：</strong>安装好主题之后，预览本地页面正常，但博客显示空白</p>
 <p><strong>原因：</strong><code>next</code>默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架</p>
 <p><strong>解决：</strong>打开 **<code>themes\next\_config.yml</code>**，将<code># FancyBox</code>以下修改为</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FancyBox</span></span><br><span class="line"><span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js</span></span><br><span class="line"><span class="comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span></span><br><span class="line"><span class="comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span></span><br><span class="line"><span class="attr">jquery:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js</span></span><br><span class="line"><span class="attr">fancybox_css:</span> <span class="string">https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># FancyBox
+# jquery: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;jquery@3&#x2F;dist&#x2F;jquery.min.js
+# fancybox: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;fancyapps&#x2F;fancybox@3&#x2F;dist&#x2F;jquery.fancybox.min.js
+# fancybox_css: &#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;fancyapps&#x2F;fancybox@3&#x2F;dist&#x2F;jquery.fancybox.min.css
+jquery: https:&#x2F;&#x2F;cdn.bootcdn.net&#x2F;ajax&#x2F;libs&#x2F;jquery&#x2F;3.6.0&#x2F;jquery.min.js
+fancybox: https:&#x2F;&#x2F;cdn.bootcdn.net&#x2F;ajax&#x2F;libs&#x2F;fancybox&#x2F;3.5.1&#x2F;jquery.fancybox.min.js
+fancybox_css: https:&#x2F;&#x2F;cdn.bootcdn.net&#x2F;ajax&#x2F;libs&#x2F;fancybox&#x2F;3.5.1&#x2F;jquery.fancybox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>重新部署即可</p>
 
                 
@@ -651,6 +668,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

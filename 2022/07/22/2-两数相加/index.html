@@ -397,6 +397,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -423,7 +426,36 @@
 <li><code>0 &lt;= Node.val &lt;= 9</code></li>
 <li>题目数据保证列表表示的数字不含前导零</li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><h3 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode result = <span class="keyword">new</span> ListNode();</span><br><span class="line">        result = NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ListNodeToNum</span><span class="params">(ListNode node)</span> </span>&#123;  <span class="comment">// 链表转换数字</span></span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            result = <span class="number">10</span> * result + node.val;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">NumToListNode</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;  <span class="comment">// 数字转换链表</span></span><br><span class="line">        ListNode head = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode node = <span class="keyword">new</span> ListNode();</span><br><span class="line">        node = head;</span><br><span class="line">        <span class="keyword">while</span> (num != <span class="number">0</span>) &#123;</span><br><span class="line">            node.next = <span class="keyword">new</span> ListNode();</span><br><span class="line">            node = node.next;</span><br><span class="line">            node.val = num % <span class="number">10</span>;</span><br><span class="line">            node.next = <span class="keyword">null</span>;</span><br><span class="line">            num = num / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><h3 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode();
+        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
+        return result;
+    &#125;
+
+    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
+        int result &#x3D; 0;
+        while (node !&#x3D; null) &#123;
+            result &#x3D; 10 * result + node.val;
+            node &#x3D; node.next;
+        &#125;
+        return result;
+    &#125;
+
+    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
+        ListNode head &#x3D; new ListNode();
+        ListNode node &#x3D; new ListNode();
+        node &#x3D; head;
+        while (num !&#x3D; 0) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; num % 10;
+            node.next &#x3D; null;
+            num &#x3D; num &#x2F; 10;
+        &#125;
+        return head.next;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>错误</strong></p>
 <p>测试用例</p>
 <blockquote>
@@ -431,7 +463,45 @@
 <p>我的输出：[]</p>
 </blockquote>
 <p>忽略了<code>num=0</code>情况</p>
-<h3 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a><strong>修改代码</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode result = <span class="keyword">new</span> ListNode();</span><br><span class="line">        result = NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ListNodeToNum</span><span class="params">(ListNode node)</span> </span>&#123;  <span class="comment">// 链表转换数字</span></span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            result = <span class="number">10</span> * result + node.val;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">NumToListNode</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;  <span class="comment">// 数字转换链表</span></span><br><span class="line">        ListNode head = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode node = <span class="keyword">new</span> ListNode();</span><br><span class="line">        node = head;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*增添部分*/</span>*</span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (num != <span class="number">0</span>) &#123;</span><br><span class="line">            node.next = <span class="keyword">new</span> ListNode();</span><br><span class="line">            node = node.next;</span><br><span class="line">            node.val = num % <span class="number">10</span>;</span><br><span class="line">            node.next = <span class="keyword">null</span>;</span><br><span class="line">            num = num / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a><strong>修改代码</strong></h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode();
+        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
+        return result;
+    &#125;
+
+    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
+        int result &#x3D; 0;
+        while (node !&#x3D; null) &#123;
+            result &#x3D; 10 * result + node.val;
+            node &#x3D; node.next;
+        &#125;
+        return result;
+    &#125;
+
+    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
+        ListNode head &#x3D; new ListNode();
+        ListNode node &#x3D; new ListNode();
+        node &#x3D; head;
+        
+        
+        &#x2F;*增添部分*&#x2F;*
+        if(num &#x3D;&#x3D; 0)&#123;
+            return new ListNode(0);
+        &#125;
+        
+        
+        while (num !&#x3D; 0) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; num % 10;
+            node.next &#x3D; null;
+            num &#x3D; num &#x2F; 10;
+        &#125;
+        return head.next;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>错误</strong></p>
 <p>测试用例</p>
 <blockquote>
@@ -440,7 +510,33 @@
 </blockquote>
 <p>这题完全理解错了，不是简单加起来，变成链表</p>
 <p>而是从左开始，每个元素相加，进位是在右边元素上的</p>
-<h3 id="二次修改"><a href="#二次修改" class="headerlink" title="二次修改"></a>二次修改</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode result = <span class="keyword">new</span> ListNode(), node = result;</span><br><span class="line">        ListNode node1 = l1, node2 = l2; <span class="comment">// 指向l1,l2的结点</span></span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>; <span class="comment">// 进位</span></span><br><span class="line">        <span class="keyword">while</span> (node1 != <span class="keyword">null</span> || node2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            node.next = <span class="keyword">new</span> ListNode();</span><br><span class="line">            node = node.next;</span><br><span class="line">            node.val = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (node1 != <span class="keyword">null</span>)</span><br><span class="line">                node.val += node1.val;</span><br><span class="line">            <span class="keyword">if</span> (node2 != <span class="keyword">null</span>)</span><br><span class="line">                node.val += node2.val;</span><br><span class="line">            node.val += carry;</span><br><span class="line">            carry = node.val / <span class="number">10</span>; <span class="comment">// 产生进位</span></span><br><span class="line">            node.val = node.val % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (node1 != <span class="keyword">null</span>)</span><br><span class="line">                node1 = node1.next;</span><br><span class="line">            <span class="keyword">if</span> (node2 != <span class="keyword">null</span>)</span><br><span class="line">                node2 = node2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry != <span class="number">0</span>)</span><br><span class="line">            node.next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">        <span class="keyword">return</span> result.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二次修改"><a href="#二次修改" class="headerlink" title="二次修改"></a>二次修改</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode(), node &#x3D; result;
+        ListNode node1 &#x3D; l1, node2 &#x3D; l2; &#x2F;&#x2F; 指向l1,l2的结点
+        int carry &#x3D; 0; &#x2F;&#x2F; 进位
+        while (node1 !&#x3D; null || node2 !&#x3D; null) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; 0;
+            if (node1 !&#x3D; null)
+                node.val +&#x3D; node1.val;
+            if (node2 !&#x3D; null)
+                node.val +&#x3D; node2.val;
+            node.val +&#x3D; carry;
+            carry &#x3D; node.val &#x2F; 10; &#x2F;&#x2F; 产生进位
+            node.val &#x3D; node.val % 10;
+            if (node1 !&#x3D; null)
+                node1 &#x3D; node1.next;
+            if (node2 !&#x3D; null)
+                node2 &#x3D; node2.next;
+        &#125;
+        if (carry !&#x3D; 0)
+            node.next &#x3D; new ListNode(carry);
+        return result.next;
+    &#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>同样用模拟</p>
 <p>但我的代码值得改进的是可以将几个<code>if</code>语句转化为<code>?:</code></p>
 
@@ -685,6 +781,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

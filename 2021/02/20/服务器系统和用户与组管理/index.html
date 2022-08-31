@@ -399,6 +399,9 @@ Redhat (要服务费)Centos (免费的无服务)
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -418,7 +421,7 @@ Redhat (要服务费)Centos (免费的无服务)
 </li>
 <li><p>系统SID: S- XXXXXXXXX<br>管理SID: S- XXXXXXXXX- 500<br>用户SID: S- XXXXXXXXX- 1000起</p>
 <ul>
-<li>查询用户SID<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami /user</span><br></pre></td></tr></table></figure>
+<li>查询用户SID<pre class="line-numbers language-DOS" data-language="DOS"><code class="language-DOS">whoami &#x2F;user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -445,7 +448,12 @@ Redhat (要服务费)Centos (免费的无服务)
 <blockquote>
 <p>C:\ Users<br>C: \ Documents and Settings\ </p>
 </blockquote>
-<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> user                    	列出当前计算机账户列表</span><br><span class="line"><span class="built_in">net</span> user administrator      	查看用户详细信息</span><br><span class="line"><span class="built_in">net</span> user administrator <span class="number">123</span>  	修改密码</span><br><span class="line"><span class="built_in">net</span> user andy <span class="number">123</span> /add      	添加新用户andy  密码设置为<span class="number">123</span></span><br><span class="line"><span class="built_in">net</span> user andy /<span class="built_in">del</span>          	删除用户andy</span><br><span class="line"><span class="built_in">net</span> user 用户名 /active:yes/no   激活/禁用账户</span><br></pre></td></tr></table></figure>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">net user                    	列出当前计算机账户列表
+net user administrator      	查看用户详细信息
+net user administrator 123  	修改密码
+net user andy 123 &#x2F;add      	添加新用户andy  密码设置为123
+net user andy &#x2F;del          	删除用户andy
+net user 用户名 &#x2F;active:yes&#x2F;no   激活&#x2F;禁用账户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20200328160246852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70"></p>
 <h2 id="组"><a href="#组" class="headerlink" title="组"></a>组</h2><p><strong>作用</strong>：简化权限的给予</p>
 <h3 id="内置组"><a href="#内置组" class="headerlink" title="内置组"></a>内置组</h3><p>权限默认已经被系统赋予</p>
@@ -681,6 +689,9 @@ Redhat (要服务费)Centos (免费的无服务)
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

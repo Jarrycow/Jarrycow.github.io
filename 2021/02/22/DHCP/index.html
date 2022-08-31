@@ -398,6 +398,9 @@ DHCP概念作用：自动分配IP地址地址池/作用域：（IP、子网掩�
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -439,9 +442,9 @@ DHCP概念作用：自动分配IP地址地址池/作用域：（IP、子网掩�
 <h2 id="部署DHCP服务器-段号：67、68"><a href="#部署DHCP服务器-段号：67、68" class="headerlink" title="部署DHCP服务器 (段号：67、68)"></a>部署DHCP服务器 (段号：67、68)</h2><p>注意：配置DHCP服务的前提是客户机和服务机在同一个网段内<br>1、点击“我的电脑”中的光驱， 安装DHCP服务$\rightarrow$安装组件$\rightarrow$网络服务$\rightarrow$DHCP<br><img src="https://img-blog.csdnimg.cn/2020032921015092.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200329210215761.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong><font color="red">服务器必须使用静态IP</font></strong><br>2、配置DHCP服务（windows$\rightarrow$管理工具$\rightarrow$DHCP）<br><img src="https://img-blog.csdnimg.cn/2020032921043266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3、右键$\rightarrow$ 新建作用域<br><img src="https://img-blog.csdnimg.cn/20200329210612170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4、配置可用IP及子网掩码</p>
 <p><font color="red"><strong>分配IP一定要预留一部分IP，备用（添加服务器时用）</strong></font><br>5、添加排除IP（不会分配的IP）<br>6、设置租期<br>7、添加公司网关（提供外网服务）<br>8、添加DNS服务器IP（父域以及WINS服务过于古老）（可在后续服务器选项里统一配置，作用域选项优先级 &gt; 服务器选项优先级）<br>9、检查配置好的DHCP服务再激活</p>
 <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p><strong>释放当前IP</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /release  <span class="comment"># 释放IP（取消租约，或者改为手动配置IP，也可以释放租约）</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">ipconfig &#x2F;release  # 释放IP（取消租约，或者改为手动配置IP，也可以释放租约）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>发送Discovery广播获取新的IP</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /renew    <span class="comment"># 有IP时，发送Request续约;无IP时发送Discovery重新获取IP</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">ipconfig &#x2F;renew    # 有IP时，发送Request续约;无IP时发送Discovery重新获取IP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="地址保留"><a href="#地址保留" class="headerlink" title="地址保留"></a>地址保留</h2><p>动态保留，来自同一个客户机请求分配固定的IP地址</p>
 <p>保留$\rightarrow$右键 新建保留$\rightarrow$填写保留IP和主机MAC地址、类型填两者</p>
 <p><img src="https://img-blog.csdnimg.cn/20200329223950627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200329224702614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200329224713973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020032922494650.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -682,6 +685,9 @@ DHCP概念作用：自动分配IP地址地址池/作用域：（IP、子网掩�
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

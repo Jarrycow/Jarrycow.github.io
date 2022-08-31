@@ -396,6 +396,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -407,7 +410,15 @@
 <p>不要使用额外的空间，你必须在 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong> 并在使用 O(1) 额外空间的条件下完成。</p>
 <p><strong>判题标准:</strong></p>
 <p>系统会用下面的代码来测试你的题解:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] nums = [...]; <span class="comment">// 输入数组</span></span><br><span class="line"><span class="keyword">int</span>[] expectedNums = [...]; <span class="comment">// 长度正确的期望答案</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> k = removeDuplicates(nums); <span class="comment">// 调用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> k == expectedNums.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">    <span class="keyword">assert</span> nums[i] == expectedNums[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">int[] nums &#x3D; [...]; &#x2F;&#x2F; 输入数组
+int[] expectedNums &#x3D; [...]; &#x2F;&#x2F; 长度正确的期望答案
+
+int k &#x3D; removeDuplicates(nums); &#x2F;&#x2F; 调用
+
+assert k &#x3D;&#x3D; expectedNums.length;
+for (int i &#x3D; 0; i &lt; k; i++) &#123;
+    assert nums[i] &#x3D;&#x3D; expectedNums[i];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果所有断言都通过，那么您的题解将被 <strong>通过</strong>。</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
@@ -423,14 +434,78 @@
 <li><code>-10^4 &lt;= nums[i] &lt;= 10^4</code></li>
 <li><code>nums</code> 已按 <strong>升序</strong> 排列</li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><h3 id="1st"><a href="#1st" class="headerlink" title="1st"></a>1st</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>; <span class="comment">// 重复起始、结束元素</span></span><br><span class="line">        <span class="keyword">int</span> count = nums.length; <span class="comment">// 数组长度</span></span><br><span class="line">        <span class="keyword">while</span> (end &lt; count) &#123;</span><br><span class="line">            <span class="keyword">while</span> (nums[start] == nums[end] &amp;&amp; end &lt; count) &#123; <span class="comment">// 遇到重复元素，尾指针一直前移</span></span><br><span class="line">                <span class="keyword">if</span> (nums[end] == nums[start])&#123;</span><br><span class="line">                    ++end;</span><br><span class="line">                    <span class="keyword">if</span>(end == count)</span><br><span class="line">                        <span class="comment">// break;</span></span><br><span class="line">                        <span class="keyword">return</span> ++start;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i + end &lt; nums.length; ++i) &#123;</span><br><span class="line">                nums[start + i + <span class="number">1</span>] = nums[end + i];</span><br><span class="line">            &#125;</span><br><span class="line">            count -= (end - start - <span class="number">1</span>);</span><br><span class="line">            ++start;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><h3 id="1st"><a href="#1st" class="headerlink" title="1st"></a>1st</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int removeDuplicates(int[] nums) &#123;
+        if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0)
+            return 0;
+        if (nums.length &#x3D;&#x3D; 1)
+            return 1;
+        int start &#x3D; 0, end &#x3D; 0; &#x2F;&#x2F; 重复起始、结束元素
+        int count &#x3D; nums.length; &#x2F;&#x2F; 数组长度
+        while (end &lt; count) &#123;
+            while (nums[start] &#x3D;&#x3D; nums[end] &amp;&amp; end &lt; count) &#123; &#x2F;&#x2F; 遇到重复元素，尾指针一直前移
+                if (nums[end] &#x3D;&#x3D; nums[start])&#123;
+                    ++end;
+                    if(end &#x3D;&#x3D; count)
+                        &#x2F;&#x2F; break;
+                        return ++start;
+                &#125;
+            &#125;
+            for (int i &#x3D; 0; i + end &lt; nums.length; ++i) &#123;
+                nums[start + i + 1] &#x3D; nums[end + i];
+            &#125;
+            count -&#x3D; (end - start - 1);
+            ++start;
+        &#125;
+        return count;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>错误</strong></p>
 <p>输入：[-1,0,0,0,0,3,3]</p>
 <p>输出：[-1,0,3,3]</p>
 <p>预期结果：[-1,0,3]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2nd</span><br><span class="line"></span><br><span class="line">重新考虑，只要将没有见过的元素覆盖即可</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int removeDuplicates(int[] nums) &#123;</span><br><span class="line">        if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0)</span><br><span class="line">            return 0;</span><br><span class="line">        int slow &#x3D; 0, fast &#x3D; 0;</span><br><span class="line">        Map&lt;Integer, Boolean&gt; hashtable &#x3D; new HashMap&lt;Integer, Boolean&gt;();  &#x2F;&#x2F; 初始化字典&lt;&gt;</span><br><span class="line">        while(slow &lt; nums.length  &amp;&amp;  fast &lt; nums.length)&#123;</span><br><span class="line">            if(!(hashtable.containsKey(nums[fast])))&#123;</span><br><span class="line">                hashtable.put(nums[fast], true);</span><br><span class="line">                nums[slow] &#x3D; nums[fast];</span><br><span class="line">                ++slow;++fast;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                ++fast;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int result &#x3D; hashtable.size();</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-++end```时没有及时核验`end`范围，越界" data-language="++end```时没有及时核验`end`范围，越界"><code class="language-++end```时没有及时核验`end`范围，越界">
+### 2nd
+
+重新考虑，只要将没有见过的元素覆盖即可
+
+&#96;&#96;&#96;java
+class Solution &#123;
+    public int removeDuplicates(int[] nums) &#123;
+        if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0)
+            return 0;
+        int slow &#x3D; 0, fast &#x3D; 0;
+        Map&lt;Integer, Boolean&gt; hashtable &#x3D; new HashMap&lt;Integer, Boolean&gt;();  &#x2F;&#x2F; 初始化字典&lt;&gt;
+        while(slow &lt; nums.length  &amp;&amp;  fast &lt; nums.length)&#123;
+            if(!(hashtable.containsKey(nums[fast])))&#123;
+                hashtable.put(nums[fast], true);
+                nums[slow] &#x3D; nums[fast];
+                ++slow;++fast;
+            &#125;else&#123;
+                ++fast;
+            &#125;
+        &#125;
+        int result &#x3D; hashtable.size();
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><p>定义两个指针 $\textit{fast} $和 $\textit{slow}$分别为快指针和慢指针</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)    <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">// 空数组返回</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> fast = <span class="number">1</span>, slow = <span class="number">1</span>;  <span class="comment">// 定义快慢指针</span></span><br><span class="line">        <span class="keyword">while</span> (fast &lt; n) &#123;  <span class="comment">// 快指针小于数组长度</span></span><br><span class="line">            <span class="keyword">if</span> (nums[fast] != nums[fast - <span class="number">1</span>]) &#123;  <span class="comment">// 快指针和前一个不同</span></span><br><span class="line">                nums[slow] = nums[fast];  <span class="comment">// 慢指针覆盖</span></span><br><span class="line">                ++slow;</span><br><span class="line">            &#125;</span><br><span class="line">            ++fast;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int removeDuplicates(int[] nums) &#123;
+        int n &#x3D; nums.length;
+        if (n &#x3D;&#x3D; 0)    return 0;  &#x2F;&#x2F; 空数组返回
+        
+        int fast &#x3D; 1, slow &#x3D; 1;  &#x2F;&#x2F; 定义快慢指针
+        while (fast &lt; n) &#123;  &#x2F;&#x2F; 快指针小于数组长度
+            if (nums[fast] !&#x3D; nums[fast - 1]) &#123;  &#x2F;&#x2F; 快指针和前一个不同
+                nums[slow] &#x3D; nums[fast];  &#x2F;&#x2F; 慢指针覆盖
+                ++slow;
+            &#125;
+            ++fast;
+        &#125;
+        return slow;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之前个人做法过于复杂了，实际不用再求长度什么的</p>
 
                 
@@ -674,6 +749,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

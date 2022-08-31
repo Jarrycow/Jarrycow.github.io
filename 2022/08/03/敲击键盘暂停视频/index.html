@@ -12,7 +12,7 @@
 
 识别键盘敲击获取&amp;lt;video&amp;gt;元素B站视频的&amp;lt;video&amp;gt;标签并没有id
 因此可以使用
-1document.querySelector(&amp;qu">
+document.querySelector(&#34;#de">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -402,6 +402,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -414,7 +417,7 @@
 
 <h1 id="识别键盘敲击"><a href="#识别键盘敲击" class="headerlink" title="识别键盘敲击"></a>识别键盘敲击</h1><h1 id="获取-lt-video-gt-元素"><a href="#获取-lt-video-gt-元素" class="headerlink" title="获取&lt;video&gt;元素"></a>获取&lt;video&gt;元素</h1><p>B站视频的<code>&lt;video&gt;</code>标签并没有<code>id</code></p>
 <p>因此可以使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;#demo&quot;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"#demo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>该语句可以选择id, 类, 类型, 属性, 属性值所匹配的第一个元素</p>
 <h1 id="播放-暂停"><a href="#播放-暂停" class="headerlink" title="播放/暂停"></a>播放/暂停</h1><p>对于上述获取的<code>&lt;video&gt;</code>标签，可以用<code>.play()</code>/<code>.pause</code>进行播放/暂停</p>
 <p>通过监测<code>.play</code>/<code>.paused</code>显示视频当前播放状态</p>
@@ -652,6 +655,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

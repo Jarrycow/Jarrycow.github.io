@@ -399,6 +399,9 @@ IP 地址构成：网络位 + 主机位
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -458,9 +461,13 @@ IP 地址构成：网络位 + 主机位
 <p><strong>常用备用DNS</strong></p>
 <p>国内通用DNS：<code>114.114.114.114</code></p>
 <p>谷歌NDS：<code>8.8.8.8</code></p>
-<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span>   # 查看IP地址基本信息</span><br><span class="line"><span class="built_in">ipconfig</span> /all  # 查看IP地址详细信息</span><br></pre></td></tr></table></figure>
-<h3 id="PING"><a href="#PING" class="headerlink" title="PING"></a>PING</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> w # 测试联通,w为目标网址</span><br><span class="line"><span class="built_in">ping</span> -l n w # 每次都发n个字节 在局域网内最大阈值为<span class="number">65500</span>字节 </span><br><span class="line"><span class="built_in">ping</span> -t w # 一直<span class="built_in">ping</span></span><br><span class="line"><span class="built_in">ping</span> -n N # <span class="built_in">ping</span> N个包</span><br></pre></td></tr></table></figure>
-<h3 id="手工解析域名"><a href="#手工解析域名" class="headerlink" title="手工解析域名"></a>手工解析域名</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup w</span><br></pre></td></tr></table></figure>
+<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ipconfig   # 查看IP地址基本信息
+ipconfig &#x2F;all  # 查看IP地址详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="PING"><a href="#PING" class="headerlink" title="PING"></a>PING</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping w # 测试联通,w为目标网址
+ping -l n w # 每次都发n个字节 在局域网内最大阈值为65500字节 
+ping -t w # 一直ping
+ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="手工解析域名"><a href="#手工解析域名" class="headerlink" title="手工解析域名"></a>手工解析域名</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">nslookup w<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -683,6 +690,9 @@ IP 地址构成：网络位 + 主机位
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

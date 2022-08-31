@@ -8,7 +8,9 @@
     <meta name="description" content="设置菜单 
 
 打开themes/next下的_config.yml
-123456789menu:  home: / || home                      #首页  archives: /archives/ || arch">
+menu:
+  home: &amp;#x2F; || home                      #首页
+  archives: &amp;#x2F;archives&amp;#x2F;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -398,6 +400,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -406,44 +411,116 @@
                 <h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2> <a id="more"></a>
 
 <p>打开<code>themes/next</code>下的<code>_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span>                      <span class="comment">#首页</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span>      <span class="comment">#归档</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span>       <span class="comment">#分类</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span>                 <span class="comment">#标签</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">user</span>               <span class="comment">#关于</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar    #日历</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap    #站点地图，供搜索引擎爬取</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat      #腾讯公益404</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">menu:
+  home: &#x2F; || home                      #首页
+  archives: &#x2F;archives&#x2F; || archive      #归档
+  categories: &#x2F;categories&#x2F; || th       #分类
+  tags: &#x2F;tags&#x2F; || tags                 #标签
+  about: &#x2F;about&#x2F; || user               #关于
+  #schedule: &#x2F;schedule&#x2F; || calendar    #日历
+  #sitemap: &#x2F;sitemap.xml || sitemap    #站点地图，供搜索引擎爬取
+  #commonweal: &#x2F;404&#x2F; || heartbeat      #腾讯公益404<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>英文名称:  /目标地址/  ||  图标(Font Awesome)</code></p>
 <p>将对应英文翻译中文，打开<code>theme/next/languages/zh-CN.yml</code>，在<code>menu</code>下编辑翻译</p>
 <p>在根目录下打开Git Bash，添加页面，会在根目录的<code>sources</code>文件夹下会生成<code>categories</code>、<code>tags</code>、<code>about</code>子文件夹</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page &quot;categories&quot;
+hexo new page &quot;tags&quot;
+hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="设置建站时间"><a href="#设置建站时间" class="headerlink" title="设置建站时间"></a>设置建站时间</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># Specify the date when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2020-02</span>   <span class="comment">#建站时间</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">footer:
+  # Specify the date when the site was setup. If not defined, current year will be used.
+  since: 2020-02   #建站时间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar.gif</span>   <span class="comment">#头像图片的位置</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">true</span>   <span class="comment">#头像展示在圈里</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span>  <span class="comment">#头像随光标旋转</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Sidebar Avatar
+avatar:
+  url: &#x2F;images&#x2F;avatar.gif   #头像图片的位置
+  rounded: true   #头像展示在圈里
+  rotated: false  #头像随光标旋转<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="网站图标设置"><a href="#网站图标设置" class="headerlink" title="网站图标设置"></a>网站图标设置</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/sast-16×16.jpg</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/sast-32×32.jpg</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /images/manifest.json</span></span><br><span class="line">  <span class="comment">#ms_browserconfig: /images/browserconfig.xml</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">favicon:
+  small: &#x2F;images&#x2F;sast-16×16.jpg
+  medium: &#x2F;images&#x2F;sast-32×32.jpg
+  apple_touch_icon: &#x2F;images&#x2F;apple-touch-icon-next.png
+  safari_pinned_tab: &#x2F;images&#x2F;logo.svg
+  #android_manifest: &#x2F;images&#x2F;manifest.json
+  #ms_browserconfig: &#x2F;images&#x2F;browserconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>修改<code>small</code>和<code>medium</code>到图片路径，我在<a target="_blank" rel="noopener" href="https://www.zhizuotu.com/msize">制作图</a>网站将手边的图片裁剪为$16\times 16$像素以及$32\times 32$像素</p>
 <h2 id="设置动态背景"><a href="#设置动态背景" class="headerlink" title="设置动态背景"></a>设置动态背景</h2><h3 id="canvas-nest-风格"><a href="#canvas-nest-风格" class="headerlink" title="canvas nest 风格"></a>canvas nest 风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-canvas-nest</span></span><br><span class="line"><span class="comment"># For more information: https://github.com/hustcc/canvas-nest.js</span></span><br><span class="line"><span class="attr">canvas_nest:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">onmobile:</span> <span class="literal">true</span> <span class="comment"># Display on mobile or not</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">&quot;255,255,255&quot;</span> <span class="comment"># RGB values, use `,` to separate</span></span><br><span class="line">  <span class="attr">opacity:</span> <span class="number">0.5</span> <span class="comment"># The opacity of line: 0~1</span></span><br><span class="line">  <span class="attr">zIndex:</span> <span class="number">-1</span> <span class="comment"># z-index property of the background</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">99</span> <span class="comment"># The number of lines</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Canvas-nest
+# Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest
+# For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js
+canvas_nest:
+  enable: true
+  onmobile: true # Display on mobile or not
+  color: &quot;255,255,255&quot; # RGB values, use &#96;,&#96; to separate
+  opacity: 0.5 # The opacity of line: 0~1
+  zIndex: -1 # z-index property of the background
+  count: 99 # The number of lines<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="JavaScript-3D-library风格"><a href="#JavaScript-3D-library风格" class="headerlink" title="JavaScript 3D library风格"></a>JavaScript 3D library风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-three source/lib/three</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three source&#x2F;lib&#x2F;three<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>打开主题配置文件<code>themes/next/_config.yml</code></p>
 <p>将想要的风格后的<code>false</code>改为<code>true</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JavaScript 3D library.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-three</span></span><br><span class="line"><span class="attr">three:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">canvas_lines:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># JavaScript 3D library.
+# Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three
+three:
+  enable: true
+  three_waves: false
+  canvas_lines: true
+  canvas_sphere: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="设置背景图片-失败"><a href="#设置背景图片-失败" class="headerlink" title="设置背景图片(失败)"></a>设置背景图片(失败)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，取消<code>style</code>前的注释</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">custom_file_path:
+  style: source&#x2F;_data&#x2F;styles.styl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h2><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pace source/lib/pace</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace source&#x2F;lib&#x2F;pace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>打开主题配置文件<code>themes/next/_config.yml</code>，将<code>pace</code>下<code>enable</code>修改为<code>true</code>，并在<code>theme</code>后选择合适加载条</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Themes list:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">bounce</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">pace:
+  enable: true
+  # Themes list:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: bounce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="设置预览摘要"><a href="#设置预览摘要" class="headerlink" title="设置预览摘要"></a>设置预览摘要</h2><p>在正文摘要部分撰写</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">&lt;!-- more --&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="设置侧边栏显示效果"><a href="#设置侧边栏显示效果" class="headerlink" title="设置侧边栏显示效果(?)"></a>设置侧边栏显示效果(?)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>sidebar</code>下设置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sidebar:</span></span><br><span class="line">  <span class="comment"># Sidebar Position. #设置侧边栏位置</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">  <span class="comment">#position: right</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#  - post    默认显示模式</span></span><br><span class="line">  <span class="comment">#  - always  一直显示</span></span><br><span class="line">  <span class="comment">#  - hide    初始隐藏</span></span><br><span class="line">  <span class="comment">#  - remove  移除侧边栏</span></span><br><span class="line">  <span class="attr">display:</span> <span class="string">post</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">sidebar:
+  # Sidebar Position. #设置侧边栏位置
+  position: left
+  #position: right
+
+  #  - post    默认显示模式
+  #  - always  一直显示
+  #  - hide    初始隐藏
+  #  - remove  移除侧边栏
+  display: post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="侧边栏推荐链接"><a href="#侧边栏推荐链接" class="headerlink" title="侧边栏推荐链接"></a>侧边栏推荐链接</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>links</code>下设置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">links_settings:</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">link</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">链接网站</span>  <span class="comment">#修改名称</span></span><br><span class="line"></span><br><span class="line"><span class="attr">links:</span></span><br><span class="line">  <span class="comment">#Title: http://yoursite.com</span></span><br><span class="line">  <span class="string">我的网站:</span> <span class="string">http://网站链接.com</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">links_settings:
+  icon: link
+  title: 链接网站  #修改名称
+
+links:
+  #Title: http:&#x2F;&#x2F;yoursite.com
+  我的网站: http:&#x2F;&#x2F;网站链接.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="添加社交链接"><a href="#添加社交链接" class="headerlink" title="添加社交链接"></a>添加社交链接</h2><p>这一块就是放置自己其他社交账号地方</p>
 <p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>social</code>下设置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">https://github.com/yourname</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">  <span class="comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span></span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">social:
+  GitHub: https:&#x2F;&#x2F;github.com&#x2F;yourname || fab fa-github
+  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  #Weibo: https:&#x2F;&#x2F;weibo.com&#x2F;yourname || fab fa-weibo
+  #Google: https:&#x2F;&#x2F;plus.google.com&#x2F;yourname || fab fa-google
+  #Twitter: https:&#x2F;&#x2F;twitter.com&#x2F;yourname || fab fa-twitter
+  #FB Page: https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname || fab fa-facebook
+  #StackOverflow: https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname || fab fa-stack-overflow
+  #YouTube: https:&#x2F;&#x2F;youtube.com&#x2F;yourname || fab fa-youtube
+  #Instagram: https:&#x2F;&#x2F;instagram.com&#x2F;yourname || fab fa-instagram
+  #Skype: skype:yourname?call|chat || fab fa-skype<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="文章末尾添加版权说明"><a href="#文章末尾添加版权说明" class="headerlink" title="文章末尾添加版权说明"></a>文章末尾添加版权说明</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>creative_commons</code>下设置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span>  <span class="comment"># 将post改为true</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">creative_commons:
+  license: by-nc-sa
+  sidebar: false
+  post: true  # 将post改为true
+  language:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h2><p>在<a target="_blank" rel="noopener" href="http://livere.com/">来必利网站</a>注册登录，并获得uid</p>
 <p>打开主题配置文件<code>themes/next/_config.yml</code>，将<code>livere_uid</code>改为所获得uid</p>
 <h2 id="项目主页添加README"><a href="#项目主页添加README" class="headerlink" title="项目主页添加README"></a>项目主页添加README</h2><h2 id="忽略要编译的文件"><a href="#忽略要编译的文件" class="headerlink" title="忽略要编译的文件"></a>忽略要编译的文件</h2><h2 id="代码块样式自定义"><a href="#代码块样式自定义" class="headerlink" title="代码块样式自定义"></a>代码块样式自定义</h2><h2 id="支持mathjax公式"><a href="#支持mathjax公式" class="headerlink" title="支持mathjax公式"></a>支持mathjax公式</h2><h2 id="图床网站"><a href="#图床网站" class="headerlink" title="图床网站"></a>图床网站</h2><h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><h2 id="Hexo博客提交百度和Google收录"><a href="#Hexo博客提交百度和Google收录" class="headerlink" title="Hexo博客提交百度和Google收录"></a>Hexo博客提交百度和Google收录</h2><h2 id="博文置顶"><a href="#博文置顶" class="headerlink" title="博文置顶"></a>博文置顶</h2><h2 id="添加打赏"><a href="#添加打赏" class="headerlink" title="添加打赏"></a>添加打赏</h2><h2 id="添加分享（未完成）"><a href="#添加分享（未完成）" class="headerlink" title="添加分享（未完成）"></a>添加分享（未完成）</h2><h2 id="图片可点击放大查看，放大后可关闭（fancybox可能有点问题，暂时未实现）"><a href="#图片可点击放大查看，放大后可关闭（fancybox可能有点问题，暂时未实现）" class="headerlink" title="图片可点击放大查看，放大后可关闭（fancybox可能有点问题，暂时未实现）"></a>图片可点击放大查看，放大后可关闭（fancybox可能有点问题，暂时未实现）</h2>
@@ -689,6 +766,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

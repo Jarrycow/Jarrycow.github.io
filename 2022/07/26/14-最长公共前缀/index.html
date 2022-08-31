@@ -403,6 +403,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -426,20 +429,83 @@
 </ul>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>先求出最短的字符串，然后以最短的字符串开始横向扫描</p>
 <p>（所以为啥要求最短的字符串？）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        String result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">int</span> i_min = <span class="number">0</span>, min = strs[<span class="number">0</span>].length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; strs.length ; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[i].length() &lt; min)&#123;</span><br><span class="line">                min = strs[i].length();</span><br><span class="line">                i_min = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span>[] chs = strs[i_min].toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; chs.length ; ++i)&#123;</span><br><span class="line">            result += chs[i];</span><br><span class="line">            <span class="keyword">for</span>(String str : strs)&#123;</span><br><span class="line">                <span class="keyword">if</span>(str.charAt(i) != chs[i])&#123;</span><br><span class="line">                    result = result.substring(<span class="number">0</span>, result.length() - <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">return</span> result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public String longestCommonPrefix(String[] strs) &#123;
+        String result &#x3D; &quot;&quot;;
+        int i_min &#x3D; 0, min &#x3D; strs[0].length();
+        for(int i &#x3D; 0 ; i &lt; strs.length ; ++i)&#123;
+            if(strs[i].length() &lt; min)&#123;
+                min &#x3D; strs[i].length();
+                i_min &#x3D; i;
+            &#125;
+        &#125;
+        char[] chs &#x3D; strs[i_min].toCharArray();
+        for(int i &#x3D; 0 ; i &lt; chs.length ; ++i)&#123;
+            result +&#x3D; chs[i];
+            for(String str : strs)&#123;
+                if(str.charAt(i) !&#x3D; chs[i])&#123;
+                    result &#x3D; result.substring(0, result.length() - 1);
+                    return result;
+                &#125;
+            &#125;
+        &#125;
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><p>以$LCP(S_1\cdots S_n)$表示字符串$S_1\cdots S_n$最长公共前缀</p>
 <h3 id="横向扫描"><a href="#横向扫描" class="headerlink" title="横向扫描"></a>横向扫描</h3><p>$LCP(S_1\cdots S_n)=LCP(LCP(LCP(S_1, S_2), S_3), S_4)$</p>
 <p>依次遍历字符串数组中的每个字符串，对于每个遍历到的字符串，更新最长公共前缀</p>
 <p>如果在尚未遍历完所有的字符串时，最长公共前缀已经是空串，则最长公共前缀一定是空串</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;  <span class="comment">// 空串 </span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String prefix = strs[<span class="number">0</span>];  <span class="comment">// 以首个字符串为LCP</span></span><br><span class="line">        <span class="keyword">int</span> count = strs.length;  <span class="comment">// LCP长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; count; i++) &#123;</span><br><span class="line">            prefix = longestCommonPrefix(prefix, strs[i]);  <span class="comment">// 求当前LCP和str的LCP</span></span><br><span class="line">            <span class="keyword">if</span> (prefix.length() == <span class="number">0</span>) &#123;  <span class="comment">// LCP已为空串直接返回</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prefix;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String str1, String str2)</span> </span>&#123;  <span class="comment">// 求两个字符串最长前缀</span></span><br><span class="line">        <span class="keyword">int</span> length = Math.min(str1.length(), str2.length());  <span class="comment">// 长度</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; length &amp;&amp; str1.charAt(index) == str2.charAt(index)) &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str1.substring(<span class="number">0</span>, index);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public String longestCommonPrefix(String[] strs) &#123;
+        if (strs &#x3D;&#x3D; null || strs.length &#x3D;&#x3D; 0) &#123;  &#x2F;&#x2F; 空串 
+            return &quot;&quot;;
+        &#125;
+        String prefix &#x3D; strs[0];  &#x2F;&#x2F; 以首个字符串为LCP
+        int count &#x3D; strs.length;  &#x2F;&#x2F; LCP长度
+        for (int i &#x3D; 1; i &lt; count; i++) &#123;
+            prefix &#x3D; longestCommonPrefix(prefix, strs[i]);  &#x2F;&#x2F; 求当前LCP和str的LCP
+            if (prefix.length() &#x3D;&#x3D; 0) &#123;  &#x2F;&#x2F; LCP已为空串直接返回
+                break;
+            &#125;
+        &#125;
+        return prefix;
+    &#125;
+
+    public String longestCommonPrefix(String str1, String str2) &#123;  &#x2F;&#x2F; 求两个字符串最长前缀
+        int length &#x3D; Math.min(str1.length(), str2.length());  &#x2F;&#x2F; 长度
+        int index &#x3D; 0;
+        while (index &lt; length &amp;&amp; str1.charAt(index) &#x3D;&#x3D; str2.charAt(index)) &#123;
+            index++;
+        &#125;
+        return str1.substring(0, index);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(mn)$——$m ：$字符串的平均长度；$n：$字符串的数量</p>
 <p>空间复杂度：$O(1)$</p>
 <h3 id="纵向扫描"><a href="#纵向扫描" class="headerlink" title="纵向扫描"></a>纵向扫描</h3><p><img src="https://assets.leetcode-cn.com/solution-static/14/14_fig2.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> length = strs[<span class="number">0</span>].length();</span><br><span class="line">        <span class="keyword">int</span> count = strs.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = strs[<span class="number">0</span>].charAt(i);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; count; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == strs[j].length() || strs[j].charAt(i) != c) &#123;</span><br><span class="line">                    <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public String longestCommonPrefix(String[] strs) &#123;
+        if (strs &#x3D;&#x3D; null || strs.length &#x3D;&#x3D; 0) &#123;
+            return &quot;&quot;;
+        &#125;
+        int length &#x3D; strs[0].length();
+        int count &#x3D; strs.length;
+        for (int i &#x3D; 0; i &lt; length; i++) &#123;
+            char c &#x3D; strs[0].charAt(i);
+            for (int j &#x3D; 1; j &lt; count; j++) &#123;
+                if (i &#x3D;&#x3D; strs[j].length() || strs[j].charAt(i) !&#x3D; c) &#123;
+                    return strs[0].substring(0, i);
+                &#125;
+            &#125;
+        &#125;
+        return strs[0];
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(mn)$</p>
 <p>空间复杂度：$O(1)$</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><p><strong>字符串分割</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.substring(start, end);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.substring(start, end);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -682,6 +748,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

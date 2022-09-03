@@ -4,8 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="matery, Jarrycow">
-    <meta name="description" content="">
+    <meta name="keywords" content="matery主题的配置, Jarrycow&#39;s Blog">
+    <meta name="description" content="matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置
+
+
+基础修改
+修改网站图标
+\themes\source\favicon.png
+\themes\source\medias
+
+修改副标题：修改themes\_config &amp;g">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>matery | Jarrycow</title>
+    <title>matery主题的配置 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -64,7 +72,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jarrycow</span>
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
                 </a>
             </div>
             
@@ -119,11 +127,34 @@
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/about" class="waves-effect waves-light">
+
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
       <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -168,10 +199,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jarrycow</div>
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            孔健睿的博客
             
         </div>
     </div>
@@ -224,12 +255,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -339,7 +394,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">matery</h1>
+                    <h1 class="description center-align post-title">matery主题的配置</h1>
                 </div>
             </div>
         </div>
@@ -403,7 +458,90 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id=""><a href="#" class="headerlink" title=""></a></h1><a id="more"></a>
+                <p>matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置</p>
+<a id="more"></a>
+
+<h1 id="基础修改"><a href="#基础修改" class="headerlink" title="基础修改"></a>基础修改</h1><ol>
+<li><p>修改网站图标</p>
+<p><code>\themes\source\favicon.png</code></p>
+<p><code>\themes\source\medias</code></p>
+</li>
+<li><p>修改副标题：修改<code>themes\_config</code> &gt; <code>subtitle:</code></p>
+<p>在<code>sub</code>下添加语句</p>
+</li>
+<li><p>修改社交链接：</p>
+</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h1 id="菜单的设置"><a href="#菜单的设置" class="headerlink" title="菜单的设置"></a>菜单的设置</h1><p>在<code>\themes\_config.yml</code>中，对<code>menu:</code>进行修改</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">menu:
+  Index:
+    url: &#x2F;
+    icon: fas fa-home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中，<code>url</code>指目录指向链接，该链接生成需在<code>git bash</code>中用<code>hexo new page &quot;...&quot;</code>生成文件夹；<code>icon</code>使用Font Awesome</p>
+<p>若想要生成二级目录，可如下使用<code>children</code>    </p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">Index:
+	children:
+      - name: 关于我
+        url: &#x2F;about
+        icon: fas fa-user-circle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中，<code>-</code>引领具体的二次目录；<code>name</code>为二级目录名称</p>
+<h1 id="404界面更改-未完成"><a href="#404界面更改-未完成" class="headerlink" title="404界面更改(未完成)"></a>404界面更改(未完成)</h1><p>在<code>source</code>文件夹下新建<code>404.md</code>，内容开头包括</p>
+<pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">title: 404
+date: 20xx-xx-xx xx:xx:xx
+type: &quot;404&quot;
+layout: &quot;404&quot;
+description: &quot;随便啥404界面的描述&quot;
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<style type="text/css"> 
+    /* don't remove. */ 
+    .about-cover { 
+        height: 90.2vh; 
+    } 
+</style> 
+<div class="bg-cover pd-header about-cover"> 
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2"> 
+                <div class="brand"> 
+                    <div class="title center-align"> 
+                        404 
+                    </div> 
+                    <div class="description center-align"> 
+                        <%= page.description %> 
+                            </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    <script> 
+        // 每天切换 banner 图. Switch banner image every day. 
+        $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)'); </script>
+# 代码高亮
+
+<p>下载hexo-prism-plugin 插件</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">npm i -S hexo-prism-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改根目录下<code>_config.yml</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">
+highlight: # 代码块的设置 
+    enable: false # 关闭自带代码高亮 
+    line_number: true # 自动检测编程语言 
+    auto_detect: false # 显示行数 
+    tab_replace: 4 # 用空格替换tabs
+    tabs wrap: true 
+    hljs: false 
+
+# 关闭原有的代码高亮，使用自己的 
+prism_plugin: 
+    mode: &#39;preprocess&#39; # realtime&#x2F;preprocess 
+    theme: &#39;tomorrow&#39; 
+    line_number: false # default false 
+    custom_css:
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -547,44 +685,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/30/matery/">
+                <a href="/2022/09/02/%E6%8F%92%E4%BB%B6BCC/">
                     <div class="card-image">
                         
+                        <img src="/source/images/xxx.jpg" class="responsive-img" alt="插件BCC">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="matery">
-                        
-                        <span class="card-title">matery</span>
+                        <span class="card-title">插件BCC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            BCC插件与其说是插件，不如说是一堆乱七八糟的效果预设
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-02
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" class="post-category">
+                                    多媒体
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/AE/">
+                        <span class="chip bg-color">AE</span>
                     </a>
                     
                 </div>

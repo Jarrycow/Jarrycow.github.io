@@ -447,25 +447,40 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/13/I-O%E7%AE%A1%E7%90%86/">
+                    <a href="/posts/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="I/O管理">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="DNS服务器">
                             
-                            <span class="card-title">I/O管理</span>
+                            <span class="card-title">DNS服务器</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                I/O管理I/O设备I/O控制方式I/O子系统层次结构I/O核心子系统I/O调度高速缓存 &amp; 缓冲区设备分配 &amp; 回收假脱机SPOOLing技术
+                                [toc]
+域名组成如下图各类顶级域
+
+国家顶级域 cn jp hk uk
+商业顶级域
+com 商业机构
+gov 政府机构
+mil 军事机构
+edu 教育机构
+org 民间组织架构
+net 互联网
+
+
+
+
+QDN = 主机名.DNS后缀FQ
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
                             </span>
                             <span class="publish-author">
                                 
@@ -476,14 +491,6 @@
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -492,25 +499,32 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/13/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                    <a href="/posts/DHCP.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="文件管理">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="DHCP">
                             
-                            <span class="card-title">文件管理</span>
+                            <span class="card-title">DHCP</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                文件系统文件逻辑结构目录结构文件共享文件保护文件系统实现文件系统层次结构目录实现文件实现——文件分配方式文件实现——文件分配空间管理磁盘组织 &amp; 管理磁盘结构磁盘调度算法磁盘管理
+                                [toc]
+DHCP概念作用：自动分配IP地址地址池/作用域：（IP、子网掩码、网关、DNS、租期）DHCP协议端口是 67/68优点
+
+减少工作量
+避免IP冲突
+提高地址利用率DHCP原理
+
+也称为DHCP租约过程，分为4步1、发送DHC
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
                             </span>
                             <span class="publish-author">
                                 
@@ -521,14 +535,6 @@
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -537,30 +543,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/13/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                    <a href="/posts/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="内存管理">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="共享文件">
                             
-                            <span class="card-title">内存管理</span>
+                            <span class="card-title">共享文件</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                内存管理对内存空间合理划分，动态分配
-内存管理基本原理 &amp; 要求功能
-内存空间分配与回收：操作系统完成主存储器空间分配管理
-地址转换：逻辑地址转换为物理地址
-内存空间扩充：利用虚拟存储技术或自动覆盖技术逻辑上扩充内存
-存储保护：各作
+                                [toc]
+共享服务器文件共享协议：CIFS
+操作服务器端设置共享文件右键属性$\rightarrow$共享$\rightarrow$权限
+共享名是外部看此文件夹的名称可以断绝父子关系后修改子文件夹的权限
+注意
+
+在本地登录时Z只受NTFS
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
                             </span>
                             <span class="publish-author">
                                 
@@ -571,14 +578,6 @@
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -587,30 +586,35 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/13/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
+                    <a href="/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="进程管理">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="服务器远程管理">
                             
-                            <span class="card-title">进程管理</span>
+                            <span class="card-title">服务器远程管理</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                进程 &amp; 线程进程进程控制块：（PCB）描述进程基本情况和运行状态进程存在唯一标志
-进程映像(进程实体)：程序段、相关数据段、PCB
-进程：进程实体的运行过程，系统进行资源分配和调度的一个独立单位
-进程特征：
+                                [toc]
+NTFS权限概述作用：不同的用户访问不同文件/文件夹的权限。
+文件系统概述
+存储文件格式方式
 
-动态性(最重要特点)
+常见的文件系统：
+FAT   windows
+NTFS  windows
+EXT   liunx 常见
+
+格式化 == 制作文件系统
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
                             </span>
                             <span class="publish-author">
                                 
@@ -621,14 +625,6 @@
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -637,29 +633,33 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                    <a href="/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="操作系统概述">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="服务器系统和用户与组管理">
                             
-                            <span class="card-title">操作系统概述</span>
+                            <span class="card-title">服务器系统和用户与组管理</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                操作系统定义操作系统：管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中最基本的系统软件
+                                [toc]
+服务器系统和用户与组管理服务器系统版本介绍Windows服务系统
+win 2000win 2003win 2008win 2012
 
-是系统资源的管理者
-是最接近硬件的一层软件
-向上层提供方便易用的
+Linux
+Redhat (要服务费)Centos (免费的无服务)
+
+用户用户概述
+每个用户
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
                             </span>
                             <span class="publish-author">
                                 
@@ -670,14 +670,6 @@
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -686,27 +678,23 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/12/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                    <a href="/posts/DOS%E5%91%BD%E4%BB%A4.html">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="DOS命令">
                             
-                            <span class="card-title">搭建博客</span>
+                            <span class="card-title">DOS命令</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                主题以常用的更换next主题为例
-修改主题在Blog根目录文件夹下，用GitBash下载
-git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next
-                            
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-17
                             </span>
                             <span class="publish-author">
                                 
@@ -717,14 +705,6 @@ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%BE%85/">
-                            <span class="chip bg-color">待</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -747,7 +727,7 @@ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 6</div>
+            <div class="center-align b-text-gray">4 / 5</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1099,3 +1079,14 @@ $(function () {
 
 </html>
 
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

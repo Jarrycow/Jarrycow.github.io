@@ -450,11 +450,29 @@
                 
                 
                 
-                <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" title="多媒体: 1">
+                <a href="/categories/%E5%8A%9B%E6%89%A3/" title="力扣: 12">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">多媒体
-                        <span class="tag-length">1</span>
+                            style="background-color: #F9EBEA;">力扣
+                        <span class="tag-length">12</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">博客
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" title="计算机基础: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">计算机基础
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -501,7 +519,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"多媒体","max":2}],
+            indicator: [{"name":"力扣","max":14},{"name":"博客","max":14},{"name":"计算机基础","max":14}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -512,7 +530,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [1],
+                    value : [12,2,3],
                     name : '文章分类数量'
                 }
             ]
@@ -863,3 +881,14 @@ $(function () {
 
 </html>
 
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

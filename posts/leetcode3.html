@@ -4,10 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="1-两数之和, Jarrycow&#39;s Blog">
-    <meta name="description" content="题目描述给定一个整数数组nums和一个整数目标值 target，请你在该数组中找出 和为目标值target 的那 两个 整数，并返回它们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-你可以按">
+    <meta name="keywords" content="3. 无重复字符的最长子串, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+示例 1:
+
+输入: s = “abcabcbb”输出: 3解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。
+
+示例 2:
+
+输入: s = ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>1-两数之和 | Jarrycow&#39;s Blog</title>
+    <title>3. 无重复字符的最长子串 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -343,12 +348,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">1-两数之和</h1>
+                    <h1 class="description center-align post-title">3. 无重复字符的最长子串</h1>
                 </div>
             </div>
         </div>
@@ -376,10 +381,23 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                力扣
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -395,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -417,48 +435,125 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个整数数组<code>nums</code>和一个整数目标值<code> target</code>，请你在该数组中找出 和为目标值<code>target </code>的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1：</p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例 1:</strong></p>
 <blockquote>
-<p>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</p>
+<p>输入: s = “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
 </blockquote>
-<p>示例 2：</p>
+<p><strong>示例 2:</strong></p>
 <blockquote>
-<p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]</p>
+<p>输入: s = “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。</p>
 </blockquote>
-<p>示例 3：</p>
+<p><strong>示例 3:</strong></p>
 <blockquote>
-<p>输入：nums = [3,3], target = 6<br>输出：[0,1]</p>
+<p>输入: s = “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
 </blockquote>
 <p><strong>提示：</strong></p>
-<p>$2$ &lt;= nums.length &lt;= $10^4$<br>$-10^9$ &lt;= nums[i] &lt;= $10^9$<br>-109 &lt;= target &lt;= $10^9$<br>只会存在一个有效答案</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>暴力求解寻找<code>target - x</code>的时间复杂度过高。</p>
-<p>因此，需要更优秀的快速寻找数组中是否存在目标元素。</p>
-<p>使用哈希表，可以将寻找<code>target - x</code>的时间复杂度从$ O(N)$ 降低到 $O(1)$。</p>
-<p>这样创建一个哈希表，对于每一个<code> x</code>，首先查询哈希表中是否存在<code> target - x</code>，然后将<code>x</code>插入到哈希表中，即可保证不会让<code>x</code>和自己匹配。</p>
-<p><strong>代码</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int[] twoSum(int[] nums, int target) &#123;
-        Map&lt;Integer, Integer&gt; hashtable &#x3D; new HashMap&lt;Integer, Integer&gt;();
-        for (int i &#x3D; 0; i &lt; nums.length; ++i) &#123;
-            if (hashtable.containsKey(target - nums[i])) &#123;
-                return new int[]&#123;hashtable.get(target - nums[i]), i&#125;;
+<ul>
+<li>0 &lt;= <code>s.length </code>&lt;= 5 * $10^4$</li>
+<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
+</ul>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="初次提交"><a href="#初次提交" class="headerlink" title="初次提交"></a>初次提交</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLongestSubstring(String s) &#123;
+        int[] pre &#x3D; new int[26 + 1 + 10]; &#x2F;&#x2F; 0123456789 a-z
+        int[] node &#x3D; new int[26 + 1 + 10];
+        int[] distance &#x3D; new int[26 + 1 + 10];
+        Arrays.fill(pre, -1);
+        Arrays.fill(node, -1);
+        Arrays.fill(distance, 0);
+        &#x2F;* 索引最长间隔 *&#x2F;
+        for (int i &#x3D; 0; i &lt; s.length(); ++i) &#123;
+            int pe &#x3D; (s.charAt(i) &gt;&#x3D; &#39;0&#39; &amp;&amp; s.charAt(i) &lt;&#x3D; &#39;9&#39;) ? (s.charAt(i) - 48)
+                    : ((s.charAt(i) &gt;&#x3D; &#39;a&#39; &amp;&amp; s.charAt(i) &lt;&#x3D; &#39;z&#39;) ? (s.charAt(i) - 97 + 11) : (s.charAt(i) - 32 + 10)); &#x2F;&#x2F; 对应填充位置
+            if (pre[pe] &#x3D;&#x3D; -1)&#123;
+                pre[pe] &#x3D; i;
+                distance[pe] &#x3D; 0;
             &#125;
-            hashtable.put(nums[i], i);
+            else&#123;
+                node[pe] &#x3D; i;
+                distance[pe] &#x3D; node[pe] - pre[pe];
+                pre[pe] &#x3D; i;
+            &#125;
         &#125;
-        return new int[0];
+        int maxNum &#x3D; Arrays.stream(distance).max().getAsInt();
+        return maxNum;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>新建哈希表</strong></p>
-<p><code>Map&lt;Integer, Integer&gt; hashtable = new HashMap&lt;Integer, Integer&gt;();</code></p>
-<p><strong>判断键值是否存在</strong></p>
-<p><code>hashtable.containsKey(key)</code></p>
-<p><strong>返回键所映射到的值</strong></p>
-<p><code>hashtable.get(key)</code></p>
-<p><strong>哈希表插入</strong></p>
-<p><code>hashtable.put(key, value)</code></p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>思路</strong></p>
+<p>做<code>0-9 a-z</code>的对应的</p>
+<p><code>pre</code>：指向前一个元素的指针</p>
+<p><code>node</code>：指向当前元素的指针</p>
+<p><code>distance</code>：相同元素之间的距离</p>
+<p><strong>错误</strong></p>
+<p>输入：”aab”</p>
+<p>输出：1</p>
+<p>预期结果：2</p>
+<p><strong>错误原因</strong></p>
+<p>未考虑元素读完后的距离</p>
+<h2 id="再次提交"><a href="#再次提交" class="headerlink" title="再次提交"></a>再次提交</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLongestSubstring(String s) &#123;
+        int[] pre &#x3D; new int[26 + 1 + 10];  &#x2F;&#x2F; 前一个元素指针 &#x2F;&#x2F; 0123456789 a-z
+        int[] node &#x3D; new int[26 + 1 + 10];  &#x2F;&#x2F; 当前元素指针
+        int[] distance &#x3D; new int[26 + 1 + 10];  &#x2F;&#x2F; 该元素前后距离
+        int[] window &#x3D; new int[26+1+10];  &#x2F;&#x2F; 滑动窗口
+        Arrays.fill(pre, -1);
+        Arrays.fill(node, -1);
+        Arrays.fill(distance, 0);
+        
+        &#x2F;* 索引最长间隔 *&#x2F;
+        for (int i &#x3D; 0; i &lt; s.length(); ++i) &#123;
+            int pe &#x3D; (s.charAt(i) &gt;&#x3D; &#39;0&#39; &amp;&amp; s.charAt(i) &lt;&#x3D; &#39;9&#39;) ? (s.charAt(i) - 48)
+                    : ((s.charAt(i) &gt;&#x3D; &#39;a&#39; &amp;&amp; s.charAt(i) &lt;&#x3D; &#39;z&#39;) ? (s.charAt(i) - 97 + 11) : (s.charAt(i) - 32 + 10)); &#x2F;&#x2F; 对应填充位置
+            if (pre[pe] &#x3D;&#x3D; -1)&#123;
+                pre[pe] &#x3D; i;
+                distance[pe] &#x3D; 0;
+            &#125;
+            else&#123;
+                node[pe] &#x3D; i;
+                distance[pe] &#x3D; node[pe] - pre[pe];
+                pre[pe] &#x3D; i;
+            &#125;
+            
+        &#125;
+
+        int maxNum &#x3D; Arrays.stream(distance).max().getAsInt();  &#x2F;&#x2F; 得到相同元素最大距离
+        
+        Map&lt;Character, Boolean&gt; hashtable &#x3D; new HashMap&lt;Character, Boolean&gt;();  &#x2F;&#x2F; 字符：存在
+        int i;
+        for(i &#x3D; 0; i &lt; s.length(); ++i)&#123;  &#x2F;&#x2F; 遍历之前
+            if(hashtable.containsKey(s.charAt(i)))&#123;
+                break;
+            &#125;else&#123;
+                hashtable.put(s.charAt(i), true);
+            &#125;
+        &#125;
+        int first &#x3D; i;
+        hashtable.clear();
+        for(i &#x3D; s.length() - 1; i &gt; 0; --i)&#123;
+            if(hashtable.containsKey(s.charAt(i)))&#123;
+                break;
+            &#125;else&#123;
+                hashtable.put(s.charAt(i), true);
+            &#125;
+        &#125;
+        int last &#x3D; s.length() - i - 1;
+
+        maxNum &#x3D; (first &gt; last) ? 
+                ((maxNum &gt; first) ? (maxNum) : (first)) : 
+                ((maxNum &gt; last) ? (maxNum) : (last));
+
+
+        return maxNum;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这次考虑了读取头尾不重复分段</p>
+<p>但似乎开始考虑的“求取中间的相同的间距”想法就不对，因为相同字符间可能夹了其他相同字符</p>
+<p><strong>错误</strong></p>
+<p>输入：”abba”</p>
+<p>输出：3</p>
+<p>预期结果：2</p>
+<h1 id="也许能称得上知识点的玩意"><a href="#也许能称得上知识点的玩意" class="headerlink" title="也许能称得上知识点的玩意"></a>也许能称得上知识点的玩意</h1><p><strong>哈希表的清理</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable.clear();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -485,7 +580,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/undefined.html">http://jarrycow.top/posts/undefined.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode3.html">http://jarrycow.top/posts/leetcode3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,6 +620,10 @@
                             
                                 <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
                                 </a>
                             
                         </div>
@@ -874,13 +973,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0.html">
+                <a href="/posts/leetcode9.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2. 两数相加">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="9. 回文数">
                         
-                        <span class="card-title">2. 两数相加</span>
+                        <span class="card-title">9. 回文数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -891,7 +990,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
                         </span>
                         <span class="publish-author">
                             
@@ -927,13 +1026,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.html">
+                <a href="/posts/leetcode2.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="内存管理">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2. 两数相加">
                         
-                        <span class="card-title">内存管理</span>
+                        <span class="card-title">2. 两数相加</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -944,14 +1043,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
                                 </a>
                             
                             
@@ -961,12 +1060,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
                     </a>
                     
                 </div>

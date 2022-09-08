@@ -4,23 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DNS服务器, Jarrycow&#39;s Blog">
-    <meta name="description" content="[toc]
-域名组成如下图各类顶级域
-
-国家顶级域 cn jp hk uk
-商业顶级域
-com 商业机构
-gov 政府机构
-mil 军事机构
-edu 教育机构
-org 民间组织架构
-net 互联网
-
-
-
-
-QDN = 主机名.DNS后缀FQ">
+    <meta name="keywords" content="20. 有效的括号, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给定一个只包括 &amp;#39;(&amp;#39;，&amp;#39;)&amp;#39;，&amp;#39;&amp;#123;&amp;#39;，&amp;#39;&amp;#125;&amp;#39;，&amp;#39;[&amp;#39;，&amp;#39;]&amp;#39; 的字符串 s ，判断字符串是否有效。
+有效字符串需满">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +18,7 @@ QDN = 主机名.DNS后缀FQ">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DNS服务器 | Jarrycow&#39;s Blog</title>
+    <title>20. 有效的括号 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -356,12 +342,12 @@ QDN = 主机名.DNS后缀FQ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DNS服务器</h1>
+                    <h1 class="description center-align post-title">20. 有效的括号</h1>
                 </div>
             </div>
         </div>
@@ -383,12 +369,29 @@ QDN = 主机名.DNS后缀FQ">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                力扣
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -397,14 +400,14 @@ QDN = 主机名.DNS后缀FQ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-01
+                    2022-07-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -426,88 +429,104 @@ QDN = 主机名.DNS后缀FQ">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<h2 id="域名组成"><a href="#域名组成" class="headerlink" title="域名组成"></a>域名组成</h2><p>如下图<br><img src="https://img-blog.csdnimg.cn/20200407230358734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>各类顶级域</p>
-<ul>
-<li>国家顶级域 <code>cn jp hk uk</code></li>
-<li>商业顶级域<ul>
-<li>com 商业机构</li>
-<li>gov 政府机构</li>
-<li>mil 军事机构</li>
-<li>edu 教育机构</li>
-<li>org 民间组织架构</li>
-<li>net 互联网</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>QDN = 主机名.DNS后缀<br>FQDN（完整的域名）= 主机名.域名</p>
-</blockquote>
-<p><strong>监听端口</strong></p>
-<blockquote>
-<p>TCP  53<br>UDP 53</p>
-</blockquote>
-<h3 id="DNS解析种类"><a href="#DNS解析种类" class="headerlink" title="DNS解析种类"></a>DNS解析种类</h3><h4 id="按照查询分类"><a href="#按照查询分类" class="headerlink" title="按照查询分类"></a>按照查询分类</h4><ol>
-<li>递归查询：客户机与本地DNS服务器之间</li>
-<li>迭代查询：本地DNS服务器与根等其他DNS服务器的解析过程</li>
-</ol>
-<p>全世界目前一共13个根域名服务器</p>
-<h3 id="解析步骤"><a href="#解析步骤" class="headerlink" title="解析步骤"></a>解析步骤</h3><ol>
-<li><p>查询本地主机缓存以及host</p>
-<p>若有，解析</p>
-<p>若无，像本地DNS服务器发送请求</p>
-</li>
-<li><p>本地DNS服务器查询缓存，</p>
-<p>若有，发送给客户机</p>
-<p>若无，像根域发送请求</p>
-</li>
-<li><p>根域发送二级域名服务器地址，本地DNS向二级域名服务器发送请求</p>
-</li>
-<li><p>二级域名发送三级域名服务器地址，本地DNS向三级域名服务器发送请求</p>
-</li>
-<li><p>三级域名向本地DNS发送解析，本地DNS收到并缓存</p>
-</li>
-<li><p>本地DNS向客户机发送解析，客户机收到并缓存</p>
-</li>
-</ol>
-<h2 id="DNS服务器搭建过程"><a href="#DNS服务器搭建过程" class="headerlink" title="DNS服务器搭建过程"></a>DNS服务器搭建过程</h2><p><strong>注意：配置服务器前一定要配置静态IP</strong></p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
 <ol>
-<li><p>插入光驱双击打开，安装可选的Windows组件- 网络服务 – 域名系统DNS</p>
-</li>
-<li><p>开始 – 管理工具 打开DNS服务</p>
-<p>此时已经可以作为DNS服务器（缓存服务器）</p>
-</li>
-<li><p>正向查询区域 – 右键新建区域<br><img src="https://img-blog.csdnimg.cn/20200408221536893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>主要区域就是主服务器；</li>
-<li>辅助区域是备份区域，如果公司已经有一台DNS服务器了，想要做一台备份服务器，就选辅助区域；</li>
-<li>存根区域就是根域，一般由国家级的来创建；</li>
-</ul>
-</li>
-<li><p>区域名称写待解析域名调音</p>
-</li>
-<li><p><code>域名.dns</code>这个文件是区域解析文件，以后<code>任何主机.域名</code>都会写入这个文件；</p>
-</li>
-<li><p>不允许动态更新</p>
-<p>  <img src="https://img-blog.csdnimg.cn/20200408222258358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  直接下一步</p>
-</li>
-<li><p>名称：baidu.com<br>  类型：主要区域（本服务器是baidu.com的主DNS服务器）<br>  查找类型：正向（正向解析）<br>  文件名：baidu.com.dns<br>  <img src="https://img-blog.csdnimg.cn/20200408223217828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>右击-新建主机<br>  <img src="https://img-blog.csdnimg.cn/20200408223731524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/20200408223855825.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
 </ol>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">ipconfig &#x2F;flushdns    # 刷新本地DNS缓存
-ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="反向解析"><a href="#反向解析" class="headerlink" title="反向解析"></a>反向解析</h3><p>给服务器命名为dns.baidu.com<br><img src="https://img-blog.csdnimg.cn/20200408232047898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>反向区域配置<br><img src="https://img-blog.csdnimg.cn/20200408232143182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200408232201401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>新建指针 – 配置反向解析（通过访问IP可以解析到服务器名）<br><img src="https://img-blog.csdnimg.cn/20200408232224250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200408232413337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="同步备份"><a href="#同步备份" class="headerlink" title="同步备份"></a>同步备份</h3><p><strong>备份</strong>：在域名右键-属性-区域复制-只允许到下列服务器<br><strong>同步</strong>：右键-新建区域-辅助区域-IP地址填写主DNS服务器</p>
-<h3 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h3><ul>
-<li>主要名称服务器</li>
-<li>辅助名称服务器</li>
-<li>根名称服务器</li>
-<li>高速缓存名称服务器</li>
+<p><strong>示例 1：</strong></p>
+<blockquote>
+<p>输入：s = “()”<br>输出：true</p>
+</blockquote>
+<p><strong>示例 2：</strong></p>
+<blockquote>
+<p>输入：s = “()[]{}”<br>输出：true</p>
+</blockquote>
+<p><strong>示例 3：</strong></p>
+<blockquote>
+<p>输入：s = “(]”<br>输出：false</p>
+</blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 10^4</code></li>
+<li><code>s</code> 仅由括号 <code>&#39;()[]&#123;&#125;&#39;</code> 组成</li>
 </ul>
-<h3 id="客户机域名请求解析顺序"><a href="#客户机域名请求解析顺序" class="headerlink" title="客户机域名请求解析顺序"></a>客户机域名请求解析顺序</h3><p>1、dns缓存<br>2、本地hosts文件<br>3、本地dns服务器</p>
-<h3 id="服务器对域名请求的处理顺序"><a href="#服务器对域名请求的处理顺序" class="headerlink" title="服务器对域名请求的处理顺序"></a>服务器对域名请求的处理顺序</h3><p>1、dns高速缓存<br>2、本地域名解析文件<br>3、转发器<br>4、根rt</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>堆栈</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public boolean isValid(String s) &#123;
+        if(s &#x3D;&#x3D; null || s &#x3D;&#x3D; &quot;&quot;)    return true;
+        Stack&lt;Character&gt; st &#x3D; new Stack&lt;Character&gt;();
+        for(char ch : s.toCharArray())&#123;
+            if (isLeft(ch)) &#123; &#x2F;&#x2F; 为左字符
+                st.push(ch);
+            &#125; else &#123; &#x2F;&#x2F; 右字符
+                if(st.empty())    return false;
+                if (match(st.pop(), ch)) &#123;
+                    ;
+                &#125; else &#123;
+                    return false;
+                &#125;
+            &#125;
+            
+        &#125;
+        if(!st.empty())  return false;
+        return true;
+    &#125;
+
+    private boolean match(char L, char R)&#123;
+        switch(L)&#123;
+            case &#39;(&#39;: return (R &#x3D;&#x3D; &#39;)&#39;);
+            case &#39;[&#39;: return (R &#x3D;&#x3D; &#39;]&#39;);
+            case &#39;&#123;&#39;: return (R &#x3D;&#x3D; &#39;&#125;&#39;);
+            default: return false;
+        &#125;
+    &#125;
+
+    private boolean isLeft(char ch)&#123;
+        switch(ch)&#123;
+            case &#39;(&#39;: return true;
+            case &#39;[&#39;: return true;
+            case &#39;&#123;&#39;: return true;
+            default: return false;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public boolean isValid(String s) &#123;  &#x2F;&#x2F; 对应括号一定长度偶数
+        int n &#x3D; s.length();
+        if (n % 2 &#x3D;&#x3D; 1) &#123;
+            return false;
+        &#125;
+
+        Map&lt;Character, Character&gt; pairs &#x3D; new HashMap&lt;Character, Character&gt;() &#123;&#123;
+            put(&#39;)&#39;, &#39;(&#39;);
+            put(&#39;]&#39;, &#39;[&#39;);
+            put(&#39;&#125;&#39;, &#39;&#123;&#39;);
+        &#125;&#125;;
+        Deque&lt;Character&gt; stack &#x3D; new LinkedList&lt;Character&gt;();
+        for (int i &#x3D; 0; i &lt; n; i++) &#123;
+            char ch &#x3D; s.charAt(i);
+            if (pairs.containsKey(ch)) &#123;
+                if (stack.isEmpty() || stack.peek() !&#x3D; pairs.get(ch)) &#123;
+                    return false;
+                &#125;
+                stack.pop();
+            &#125; else &#123;
+                stack.push(ch);
+            &#125;
+        &#125;
+        return stack.isEmpty();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Java栈"><a href="#Java栈" class="headerlink" title="Java栈"></a>Java栈</h2><p><strong>新建栈</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Stack&lt;Integer&gt; st &#x3D; new Stack&lt;Integer&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>入栈</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.push(x);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>出栈</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.pop();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>栈空</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.empty();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -534,7 +553,7 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8.html">http://jarrycow.top/posts/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode20.html">http://jarrycow.top/posts/leetcode20.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,7 +590,15 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -919,13 +946,13 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html">
+                <a href="/posts/leetcode21.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="21. 合并两个有序链表">
                         
-                        <span class="card-title">搭建博客</span>
+                        <span class="card-title">21. 合并两个有序链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -936,14 +963,14 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
                                 </a>
                             
                             
@@ -953,8 +980,12 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
                     </a>
                     
                 </div>
@@ -968,13 +999,13 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/DHCP.html">
+                <a href="/posts/leetcode14.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="DHCP">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="14. 最长公共前缀">
                         
-                        <span class="card-title">DHCP</span>
+                        <span class="card-title">14. 最长公共前缀</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -985,15 +1016,31 @@ ipconfig &#x2F;displaydns  # 显示DNS缓存<span aria-hidden="true" class="line
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2. 两数相加, Jarrycow&#39;s Blog">
-    <meta name="description" content="题目描述给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
-请你将两个数相加，并以相同形式返回一个表示和的链表。
-你可以假设除了数字 0 之外，这两个数都不会以 0 开头">
+    <meta name="keywords" content="27. 移除元素, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。元素的顺序可以改变。你不需要考虑数组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2. 两数相加 | Jarrycow&#39;s Blog</title>
+    <title>27. 移除元素 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -343,12 +341,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2. 两数相加</h1>
+                    <h1 class="description center-align post-title">27. 移除元素</h1>
                 </div>
             </div>
         </div>
@@ -401,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-22
+                    2022-07-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -430,140 +428,76 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1：</p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong>。元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：l1 = [2,4,3], l2 = [5,6,4]<br>输出：[7,0,8]<br>解释：342 + 465 = 807.</p>
+<p>输入：nums = [3,2,2,3], val = 3<br>输出：2, nums = [2,2]<br>解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。</p>
 </blockquote>
-<p>示例 2：</p>
+<p><strong>示例 2：</strong></p>
 <blockquote>
-<p>输入：l1 = [0], l2 = [0]<br>输出：[0]</p>
-</blockquote>
-<p>示例 3：</p>
-<blockquote>
-<p>输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]<br>输出：[8,9,9,9,0,0,0,1]</p>
+<p>输入：nums = [0,1,2,2,3,0,4,2], val = 2<br>输出：5, nums = [0,1,4,0,3]<br>解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-<li><code>0 &lt;= Node.val &lt;= 9</code></li>
-<li>题目数据保证列表表示的数字不含前导零</li>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 50</code></li>
+<li><code>0 &lt;= val &lt;= 100</code></li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><h3 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
-        ListNode result &#x3D; new ListNode();
-        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
-        return result;
-    &#125;
-
-    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
-        int result &#x3D; 0;
-        while (node !&#x3D; null) &#123;
-            result &#x3D; 10 * result + node.val;
-            node &#x3D; node.next;
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>这题甚至比上题类似，也是双指针。</p>
+<p>从上题判断是否出现过变为是否等于某值</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int removeElement(int[] nums, int val) &#123;
+        int slow &#x3D; 0, fast &#x3D; 0;
+        while(fast &lt; nums.length)&#123;
+            if(nums[fast] &#x3D;&#x3D; val)&#123;
+                ++fast;
+            &#125;else&#123;
+                nums[slow] &#x3D; nums[fast];
+                ++slow;++fast;
+            &#125;
         &#125;
-        return result;
+        return slow;
     &#125;
-
-    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
-        ListNode head &#x3D; new ListNode();
-        ListNode node &#x3D; new ListNode();
-        node &#x3D; head;
-        while (num !&#x3D; 0) &#123;
-            node.next &#x3D; new ListNode();
-            node &#x3D; node.next;
-            node.val &#x3D; num % 10;
-            node.next &#x3D; null;
-            num &#x3D; num &#x2F; 10;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h4 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h4><p>右指针$\textit{right}$指向当前将要处理的元素<br>左指针$ \textit{left}$指向下一个将要赋值的位置</p>
+<ul>
+<li>如果右指针指向的元素不等于$ \textit{val}$，它一定是输出数组的一个元素，我们就将右指针指向的元素复制到左指针位置，然后将左右指针同时右移；</li>
+<li>如果右指针指向的元素等于$ \textit{val}$，它不能在输出数组里，此时左指针不动，右指针右移一位。</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int removeElement(int[] nums, int val) &#123;
+        int n &#x3D; nums.length;
+        int left &#x3D; 0;
+        for (int right &#x3D; 0; right &lt; n; right++) &#123;
+            if (nums[right] !&#x3D; val) &#123;
+                nums[left] &#x3D; nums[right];
+                left++;
+            &#125;
         &#125;
-        return head.next;
+        return left;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>错误</strong></p>
-<p>测试用例</p>
-<blockquote>
-<p>输入：l1 = [0], l2 = [0]<br>输出：[0]</p>
-<p>我的输出：[]</p>
-</blockquote>
-<p>忽略了<code>num=0</code>情况</p>
-<h3 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a><strong>修改代码</strong></h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
-        ListNode result &#x3D; new ListNode();
-        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
-        return result;
-    &#125;
-
-    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
-        int result &#x3D; 0;
-        while (node !&#x3D; null) &#123;
-            result &#x3D; 10 * result + node.val;
-            node &#x3D; node.next;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(1)$</p>
+<h4 id="双指针优化"><a href="#双指针优化" class="headerlink" title="双指针优化"></a>双指针优化</h4><p>双指针从头尾向中间遍历，在序列$val$元素非常少时有效<sub>删除开头元素</sub></p>
+<p><strong>避免了需要保留的元素的重复赋值操作</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int removeElement(int[] nums, int val) &#123;
+        int left &#x3D; 0;
+        int right &#x3D; nums.length;
+        while (left &lt; right) &#123;
+            if (nums[left] &#x3D;&#x3D; val) &#123;
+                nums[left] &#x3D; nums[right - 1];
+                right--;
+            &#125; else &#123;
+                left++;
+            &#125;
         &#125;
-        return result;
+        return left;
     &#125;
-
-    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
-        ListNode head &#x3D; new ListNode();
-        ListNode node &#x3D; new ListNode();
-        node &#x3D; head;
-        
-        
-        &#x2F;*增添部分*&#x2F;*
-        if(num &#x3D;&#x3D; 0)&#123;
-            return new ListNode(0);
-        &#125;
-        
-        
-        while (num !&#x3D; 0) &#123;
-            node.next &#x3D; new ListNode();
-            node &#x3D; node.next;
-            node.val &#x3D; num % 10;
-            node.next &#x3D; null;
-            num &#x3D; num &#x2F; 10;
-        &#125;
-        return head.next;
-    &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>错误</strong></p>
-<p>测试用例</p>
-<blockquote>
-<p>输入：l1 = [2,4,9], l2 = [5,6,4,9]<br>输出：[7,0,4,0,1]</p>
-<p>我的输出：[8,9,8,5]</p>
-</blockquote>
-<p>这题完全理解错了，不是简单加起来，变成链表</p>
-<p>而是从左开始，每个元素相加，进位是在右边元素上的</p>
-<h3 id="二次修改"><a href="#二次修改" class="headerlink" title="二次修改"></a>二次修改</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
-        ListNode result &#x3D; new ListNode(), node &#x3D; result;
-        ListNode node1 &#x3D; l1, node2 &#x3D; l2; &#x2F;&#x2F; 指向l1,l2的结点
-        int carry &#x3D; 0; &#x2F;&#x2F; 进位
-        while (node1 !&#x3D; null || node2 !&#x3D; null) &#123;
-            node.next &#x3D; new ListNode();
-            node &#x3D; node.next;
-            node.val &#x3D; 0;
-            if (node1 !&#x3D; null)
-                node.val +&#x3D; node1.val;
-            if (node2 !&#x3D; null)
-                node.val +&#x3D; node2.val;
-            node.val +&#x3D; carry;
-            carry &#x3D; node.val &#x2F; 10; &#x2F;&#x2F; 产生进位
-            node.val &#x3D; node.val % 10;
-            if (node1 !&#x3D; null)
-                node1 &#x3D; node1.next;
-            if (node2 !&#x3D; null)
-                node2 &#x3D; node2.next;
-        &#125;
-        if (carry !&#x3D; 0)
-            node.next &#x3D; new ListNode(carry);
-        return result.next;
-    &#125;
-
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>同样用模拟</p>
-<p>但我的代码值得改进的是可以将几个<code>if</code>语句转化为<code>?:</code></p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(1)$</p>
 
                 
             </div>
@@ -590,7 +524,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0.html">http://jarrycow.top/posts/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode27.html">http://jarrycow.top/posts/leetcode27.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -983,24 +917,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.html">
+                <a href="/posts/leetcode35.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="3. 无重复字符的最长子串">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="35. 搜索插入位置">
                         
-                        <span class="card-title">3. 无重复字符的最长子串</span>
+                        <span class="card-title">35. 搜索插入位置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+请必须使用时间复杂度为 O(log n) 的算法。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
                         </span>
                         <span class="publish-author">
                             
@@ -1036,13 +971,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/undefined.html">
+                <a href="/posts/leetcode26.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="1-两数之和">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="26. 删除有序数组中的重复项">
                         
-                        <span class="card-title">1-两数之和</span>
+                        <span class="card-title">26. 删除有序数组中的重复项</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1053,12 +988,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1068,6 +1007,10 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
                     </a>
                     
                 </div>

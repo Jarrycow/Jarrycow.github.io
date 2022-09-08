@@ -4,12 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="操作系统概述, Jarrycow&#39;s Blog">
-    <meta name="description" content="操作系统定义操作系统：管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中最基本的系统软件
-
-是系统资源的管理者
-是最接近硬件的一层软件
-向上层提供方便易用的">
+    <meta name="keywords" content="1-两数之和, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给定一个整数数组nums和一个整数目标值 target，请你在该数组中找出 和为目标值target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>操作系统概述 | Jarrycow&#39;s Blog</title>
+    <title>1-两数之和 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -345,12 +343,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">操作系统概述</h1>
+                    <h1 class="description center-align post-title">1-两数之和</h1>
                 </div>
             </div>
         </div>
@@ -374,12 +372,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">计算机基础</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">操作系统</span>
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
                             </a>
                         
                     </div>
@@ -390,8 +388,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                计算机基础
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                力扣
                             </a>
                         
                     </div>
@@ -403,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-13
+                    2022-07-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -432,260 +430,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="操作系统定义"><a href="#操作系统定义" class="headerlink" title="操作系统定义"></a>操作系统定义</h1><p><strong>操作系统</strong>：<strong>管理</strong>整个计算机系统的<strong>硬件和软件</strong>资源，并合理地组织调度计算机的工作和资源的分配；<strong>以提供给用户和其他软件方便的接口和环境</strong>；它是计算机系统中<strong>最基本</strong>的系统软件</p>
-<ul>
-<li>是系统资源的<strong>管理者</strong></li>
-<li>是<strong>最接近硬件</strong>的一层<strong>软件</strong></li>
-<li>向上层提供方便易用的<strong>服务</strong></li>
-</ul>
-<p><strong>加载位置：</strong>RAM</p>
-<h2 id="操作系统特征"><a href="#操作系统特征" class="headerlink" title="操作系统特征"></a>操作系统特征</h2><p><strong>最基本特征：</strong>并发、共享</p>
-<p><strong>并发 &amp; 共享</strong></p>
-<ul>
-<li>共享以并发为条件<sub>若不允许并发，自然不存在共享问题</sub></li>
-<li>若系统无法实施有效共享管理，将影响并发执行</li>
-</ul>
-<h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>同时存在多个运行程序</p>
-<ul>
-<li><p>宏观上有多道程序<strong>同时</strong>执行</p>
-<p>微观上每时刻单处理机实际<strong>仅有一道</strong>程序执行</p>
-</li>
-<li><p>并发性通过<strong>分时</strong>实现</p>
-</li>
-</ul>
-<p><strong>并发 &amp; 并行</strong></p>
-<ul>
-<li>并发微观上<strong>交替进行</strong>，通过<strong>分时</strong>实现</li>
-<li>并行<strong>同时</strong>完成多种工作，需要<strong>硬件支持</strong><sub>多流水线/多处理机</sub></li>
-</ul>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个整数数组<code>nums</code>和一个整数目标值<code> target</code>，请你在该数组中找出 和为目标值<code>target </code>的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1：</p>
 <blockquote>
-<p>多道程序设计特征</p>
-<ul>
-<li>制约性</li>
-<li>间断性</li>
-<li>共享性</li>
-<li><del>封闭性</del></li>
-<li><del>顺序性</del></li>
-</ul>
+<p>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</p>
 </blockquote>
-<h3 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h3><p>系统资源可供多个并发进程共同使用</p>
-<p><strong>互斥共享方式：</strong>同一时段只允许<strong>一个进程</strong>访问</p>
-<ul>
-<li><strong>临界资源：</strong>只允许一个进程访问的资源</li>
-<li>大多数物理设备、软件中变量、栈</li>
-</ul>
-<p><strong>同时访问方式：</strong>允许多个进程<strong>宏观上同时</strong>访问</p>
-<ul>
-<li>磁盘资源</li>
-</ul>
-<h3 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h3><p><strong>虚拟技术：</strong>将物理实体变为逻辑对应物</p>
-<ul>
-<li>时分复用<sub>处理器分时共享</sub></li>
-<li>空分复用<sub>虚拟存储器</sub></li>
-</ul>
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>并发程序以不可预知速度推进</p>
-<h2 id="操作系统目标-amp-功能"><a href="#操作系统目标-amp-功能" class="headerlink" title="操作系统目标 &amp; 功能"></a>操作系统目标 &amp; 功能</h2><h3 id="计算机系统管理者"><a href="#计算机系统管理者" class="headerlink" title="计算机系统管理者"></a>计算机系统管理者</h3><p><strong>处理机管理：</strong>对进程管理</p>
-<p><strong>存储器管理：</strong>给并发运行提供环境</p>
-<p><strong>文件管理：</strong>负责文件管理</p>
-<p><strong>设备管理：</strong>I/O请求</p>
-<h3 id="用户和硬件系统接口"><a href="#用户和硬件系统接口" class="headerlink" title="用户和硬件系统接口"></a>用户和硬件系统接口</h3><p><strong>命令接口：</strong>进行作业控制</p>
-<ul>
-<li><strong>联机命令接口：</strong>（交互式命令接口）输入命令，做出反馈</li>
-<li><strong>脱机命令接口：</strong>（批处理命令接口）一组作业控制命令</li>
-</ul>
+<p>示例 2：</p>
 <blockquote>
-<p> <strong>操作系统与用户通信接口</strong></p>
-<p>广义指令：即系统调用命令</p>
-<p>命令解释器</p>
-<p>shell：命令解析器</p>
+<p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]</p>
 </blockquote>
-<p><strong>程序接口：</strong>一组系统调用</p>
-<ul>
-<li>系统调用：提供给应用程序接口，只能通过用户程序间接使用</li>
-<li>用户调用程序接口<strong>请求系统服务</strong></li>
-</ul>
+<p>示例 3：</p>
 <blockquote>
-<p><strong>库函数 &amp; 系统调用</strong></p>
-<ul>
-<li><p>库函数是<strong>语言或应用程序</strong>一部分</p>
-<p>系统调用是<strong>操作系统</strong>一部分</p>
-</li>
-<li><p>库函数运行<strong>用户空间</strong>中</p>
-<p>系统调用运行<strong>内核空间</strong>中</p>
-</li>
-<li><p>许多库函数会使用系统调用实现</p>
-</li>
-<li><p>库函数<sub>未使用系统调用</sub>执行效率比系统调用高<sub>系统调用状态切换</sub></p>
-</li>
-</ul>
+<p>输入：nums = [3,3], target = 6<br>输出：[0,1]</p>
 </blockquote>
-<h3 id="用作扩充机器"><a href="#用作扩充机器" class="headerlink" title="用作扩充机器"></a>用作扩充机器</h3><p>将裸机改造功能更强</p>
-<h1 id="操作系统发展-amp-分类"><a href="#操作系统发展-amp-分类" class="headerlink" title="操作系统发展 &amp; 分类"></a>操作系统发展 &amp; 分类</h1><h2 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h2><h3 id="手工操作阶段"><a href="#手工操作阶段" class="headerlink" title="手工操作阶段"></a>手工操作阶段</h3><p><strong>缺点</strong></p>
-<ul>
-<li>用户独占全机，资源利用效率低</li>
-<li>CPU全手工操作，CPU利用不充分</li>
-</ul>
-<h3 id="单道批处理系统"><a href="#单道批处理系统" class="headerlink" title="单道批处理系统"></a>单道批处理系统</h3><p>内存始终保持一道作业</p>
-<p><strong>特征</strong></p>
-<ul>
-<li><strong>自动性</strong></li>
-<li><strong>顺序性</strong></li>
-<li><strong>单道性</strong></li>
-</ul>
-<p><strong>缺点：</strong>运行期间发出I/O请求后，高速CPU处于等待低速I/O状态</p>
-<blockquote>
-<p><strong>中断 &amp; 通道对多道程序作用</strong></p>
-<p>多道程序并发即有的程序在CPU执行，有的在I/O设备传输，必须中断和通道技术支持</p>
-<ul>
-<li><strong>通道：</strong>控制外部设备的硬件机构，独立于CPU运行，因而可以使得CPU与I/O并行工作</li>
-<li><strong>中断：</strong>I/O结束或硬件故障时，由中断机构告知CPU停止工作，处理中断请求，待处理完中断再继续工作</li>
-</ul>
-</blockquote>
-<h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><p><strong>特点</strong></p>
-<ul>
-<li>多道</li>
-<li>宏观并行</li>
-<li>微观串行</li>
-</ul>
-<p><strong>问题</strong></p>
-<ul>
-<li>处理器分配</li>
-<li>内存分配</li>
-<li>I/O设备分配</li>
-<li>组织和存放大量程序和数据，保证安全性和一致性</li>
-</ul>
-<p><strong>优点</strong></p>
-<ul>
-<li>资源利用效率高</li>
-<li>系统吞吐量大</li>
-</ul>
-<p><strong>缺点</strong></p>
-<ul>
-<li>用户响应时间较长</li>
-<li>不提供人机交互能力</li>
-</ul>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
-<li><p><strong>批处理操作系统</strong></p>
-<p>用户脱机使用计算机</p>
-<p>作业成批处理，系统内并发执行多道程序</p>
-<p>交互能力差</p>
-</li>
-<li><p><strong>分时操作系统</strong></p>
-<p>多个用户同时使用计算机</p>
-<p>交互性强</p>
-<p>具有每个用户独立使用计算机的独占性</p>
-<p>系统响应及时</p>
-</li>
-<li><p><strong>实时操作系统</strong></p>
-<p>控制对象做出及时响应</p>
-<p>可靠性高，响应及时</p>
-<p>资源利用率低</p>
-</li>
-</ul>
-<h3 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h3><p>多个用户通过终端共享主机</p>
-<p><strong>调度算法：</strong>优先级+非抢占式调度</p>
-<p><strong>目标：</strong>比较快速响应用户</p>
-<p><strong>特点</strong></p>
-<ul>
-<li>同时性</li>
-<li>交互性</li>
-<li>独立性</li>
-<li>及时性</li>
-</ul>
-<h3 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h3><p>某个时间限制内完成紧急任务</p>
-<p><strong>进程调度：</strong>抢占式的优先级高者优先算法</p>
-<ul>
-<li><strong>硬实时系统：</strong>某动作必须在规定时刻发生<sub>飞行自动控制系统</sub></li>
-<li><strong>软实时系统：</strong>可偶尔违反时间规定<sub>飞机订票系统</sub></li>
-</ul>
-<p><strong>特点</strong></p>
-<ul>
-<li>及时性</li>
-<li>可靠性</li>
-</ul>
-<h3 id="网络操作系统-amp-分布式计算机系统"><a href="#网络操作系统-amp-分布式计算机系统" class="headerlink" title="网络操作系统 &amp; 分布式计算机系统"></a>网络操作系统 &amp; 分布式计算机系统</h3><p><strong>网络操作系统：</strong>通过网络使各计算机有机结合</p>
-<ul>
-<li><strong>特点：</strong>通信、共享</li>
-</ul>
-<p><strong>分布式计算及系统：</strong>通信计算机地位平等</p>
-<ul>
-<li><strong>特点：</strong>分布性、并行性</li>
-</ul>
-<p><strong>不同：</strong>分布式计算及系统中若干计算机协同完成同一任务</p>
-<h1 id="操作系统运行环境"><a href="#操作系统运行环境" class="headerlink" title="操作系统运行环境"></a>操作系统运行环境</h1><h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><p><strong>特权指令：</strong>不允许用户直接使用的指令，必须在<strong>核心态</strong>执行</p>
-<ul>
-<li>清理内存</li>
-<li>置时钟</li>
-<li>分配系统资源</li>
-<li>修改虚存表</li>
-<li>修改用户权限</li>
-</ul>
-<p><strong>访管指令：</strong>在<strong>用户态</strong>下要求操作<strong>系统提供服务</strong>的指令，引起<strong>访管中断</strong>，进入内核</p>
-<p>具体实现：将CPU划分为<strong>用户态</strong>和<strong>内核态</strong></p>
-<p><strong>区分两态的目的：</strong>保护系统程序</p>
-<h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><ul>
-<li>与硬件关联紧密的模块</li>
-<li>运行频率较高的程序</li>
-</ul>
-<p><strong>时间管理</strong></p>
-<ul>
-<li>向用户提供标准系统时间</li>
-<li>实现进程切换</li>
-</ul>
-<p><strong>中断机制</strong></p>
-<ul>
-<li>提高CPU利用率</li>
-</ul>
-<p><strong>原语</strong></p>
-<ul>
-<li>最接近硬件</li>
-<li>原子性</li>
-<li>运行时间较短、调用频繁</li>
-</ul>
-<p><strong>系统控制的数据结构及处理</strong></p>
-<ul>
-<li>进程管理</li>
-<li>存储器管理</li>
-<li>设备管理</li>
-</ul>
-<h2 id="中断-amp-异常"><a href="#中断-amp-异常" class="headerlink" title="中断 &amp; 异常"></a>中断 &amp; 异常</h2><p>用户态$\rightarrow$内核<br>$$<br>\text{中断}\left{ \begin{array}{l}<br>    \text{内中断}\left{ \begin{array}{l}<br>    \text{自愿中断}——\text{指令中断}\<br>    \text{强迫中断}\left{ \begin{array}{l}<br>    \text{硬件故障}\<br>    \text{软件中断}\<br>\end{array} \right.\<br>\end{array} \right.\<br>    \text{外中断}\left( \text{强迫中断} \right) \left{ \begin{array}{l}<br>    \text{外设请求}\<br>    \text{人为干预}\<br>\end{array} \right.\<br>\end{array} \right.<br>$$<br><strong>中断</strong>（外中断）：来自CPU执行指令以外事情发生</p>
-<p><strong>异常</strong>（内中断/陷入）：CPU执行内部事件引起</p>
-<h3 id="中断处理"><a href="#中断处理" class="headerlink" title="中断处理"></a>中断处理</h3><ol>
-<li>关中断</li>
-<li>保存断点<sub>PC &amp; PSW</sub></li>
-<li>中断服务程序寻址</li>
-<li>保存现场和屏蔽字</li>
-<li>开中断</li>
-<li>执行中断服务程序</li>
-<li>关中断</li>
-<li>恢复现场和屏蔽字</li>
-<li>开中断、中断返回</li>
-</ol>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>用户调用操作系统提供子功能</p>
-<ul>
-<li>设备管理</li>
-<li>文件管理</li>
-<li>进程控制</li>
-<li>进程通信</li>
-<li>内存管理</li>
-</ul>
-<p><img src="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/AC4767A8641143708B57BE104726F506/69243.png"></p>
-<blockquote>
-<p>用户态到核心态转换由<strong>硬件</strong>完成</p>
-</blockquote>
-<h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><p><strong>大内核：</strong>操作系统主要功能整体置于核心态</p>
-<p><strong>微内核：</strong>内核仅保留最基础功能</p>
-<ul>
-<li><strong>优点</strong><ul>
-<li>添加系统服务，不必修改内核</li>
-<li>系统更可靠</li>
-</ul>
-</li>
-<li><strong>缺点</strong><ul>
-<li>性能降低</li>
-</ul>
-</li>
-</ul>
+<p><strong>提示：</strong></p>
+<p>$2$ &lt;= nums.length &lt;= $10^4$<br>$-10^9$ &lt;= nums[i] &lt;= $10^9$<br>-109 &lt;= target &lt;= $10^9$<br>只会存在一个有效答案</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>暴力求解寻找<code>target - x</code>的时间复杂度过高。</p>
+<p>因此，需要更优秀的快速寻找数组中是否存在目标元素。</p>
+<p>使用哈希表，可以将寻找<code>target - x</code>的时间复杂度从$ O(N)$ 降低到 $O(1)$。</p>
+<p>这样创建一个哈希表，对于每一个<code> x</code>，首先查询哈希表中是否存在<code> target - x</code>，然后将<code>x</code>插入到哈希表中，即可保证不会让<code>x</code>和自己匹配。</p>
+<p><strong>代码</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int[] twoSum(int[] nums, int target) &#123;
+        Map&lt;Integer, Integer&gt; hashtable &#x3D; new HashMap&lt;Integer, Integer&gt;();
+        for (int i &#x3D; 0; i &lt; nums.length; ++i) &#123;
+            if (hashtable.containsKey(target - nums[i])) &#123;
+                return new int[]&#123;hashtable.get(target - nums[i]), i&#125;;
+            &#125;
+            hashtable.put(nums[i], i);
+        &#125;
+        return new int[0];
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>新建哈希表</strong></p>
+<p><code>Map&lt;Integer, Integer&gt; hashtable = new HashMap&lt;Integer, Integer&gt;();</code></p>
+<p><strong>判断键值是否存在</strong></p>
+<p><code>hashtable.containsKey(key)</code></p>
+<p><strong>返回键所映射到的值</strong></p>
+<p><code>hashtable.get(key)</code></p>
+<p><strong>哈希表插入</strong></p>
+<p><code>hashtable.put(key, value)</code></p>
 
                 
             </div>
@@ -712,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html">http://jarrycow.top/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode1.html">http://jarrycow.top/posts/leetcode1.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -750,12 +536,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">计算机基础</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">操作系统</span>
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
                                 </a>
                             
                         </div>
@@ -1105,13 +891,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.html">
+                <a href="/posts/leetcode2.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="进程管理">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2. 两数相加">
                         
-                        <span class="card-title">进程管理</span>
+                        <span class="card-title">2. 两数相加</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1122,8 +908,61 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="内存管理">
+                        
+                        <span class="card-title">内存管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1145,55 +984,6 @@
                     
                     <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
                         <span class="chip bg-color">操作系统</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
-                        
-                        <span class="card-title">搭建博客</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>
@@ -1354,13 +1144,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 

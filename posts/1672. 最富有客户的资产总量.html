@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="20. 有效的括号, Jarrycow&#39;s Blog">
-    <meta name="description" content="题目描述给定一个只包括 &amp;#39;(&amp;#39;，&amp;#39;)&amp;#39;，&amp;#39;&amp;#123;&amp;#39;，&amp;#39;&amp;#125;&amp;#39;，&amp;#39;[&amp;#39;，&amp;#39;]&amp;#39; 的字符串 s ，判断字符串是否有效。
-有效字符串需满">
+    <meta name="keywords" content="1672. 最富有客户的资产总量">
+    <meta name="description" content="
+
+题目描述给你一个 m x n 的整数网格 accounts ，其中 accounts[i][j] 是第 i 位客户在第 j 家银行托管的资产数量。返回最富有客户所拥有的 资产总量 。
+客户的 资产总量 就是他们在各家银行托管的资产数量之">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>20. 有效的括号 | Jarrycow&#39;s Blog</title>
+    <title>1672. 最富有客户的资产总量 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -342,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">20. 有效的括号</h1>
+                    <h1 class="description center-align post-title">1672. 最富有客户的资产总量</h1>
                 </div>
             </div>
         </div>
@@ -379,6 +381,10 @@
                                 <span class="chip bg-color">力扣</span>
                             </a>
                         
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -400,14 +406,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-26
+                    2022-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-07
                 </div>
                 
 
@@ -429,104 +435,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<ol>
-<li>左括号必须用相同类型的右括号闭合。</li>
-<li>左括号必须以正确的顺序闭合。</li>
-</ol>
+                <a id="more"></a>
+
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个 <code>m x n</code> 的整数网格 <code>accounts</code> ，其中 <code>accounts[i][j]</code> 是第 <code>i</code> 位客户在第 <code>j</code> 家银行托管的资产数量。返回最富有客户所拥有的 <strong>资产总量</strong> 。</p>
+<p>客户的 <strong>资产总量</strong> 就是他们在各家银行托管的资产数量之和。最富有客户就是 <strong>资产总量</strong> 最大的客户。</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：s = “()”<br>输出：true</p>
+<p>输入：accounts = [[1,2,3],[3,2,1]]<br>输出：6<br>解释：<br>第 1 位客户的资产总量 = 1 + 2 + 3 = 6<br>第 2 位客户的资产总量 = 3 + 2 + 1 = 6<br>两位客户都是最富有的，资产总量都是 6 ，所以返回 6 。</p>
 </blockquote>
 <p><strong>示例 2：</strong></p>
 <blockquote>
-<p>输入：s = “()[]{}”<br>输出：true</p>
+<p>输入：accounts = [[1,5],[7,3],[3,5]]<br>输出：10<br>解释：<br>第 1 位客户的资产总量 = 6<br>第 2 位客户的资产总量 = 10<br>第 3 位客户的资产总量 = 8<br>第 2 位客户是最富有的，资产总量是 10</p>
 </blockquote>
 <p><strong>示例 3：</strong></p>
 <blockquote>
-<p>输入：s = “(]”<br>输出：false</p>
+<p>输入：accounts = [[2,8,7],[7,1,3],[1,9,5]]<br>输出：17</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= s.length &lt;= 10^4</code></li>
-<li><code>s</code> 仅由括号 <code>&#39;()[]&#123;&#125;&#39;</code> 组成</li>
+<li><code>m == accounts.length</code></li>
+<li><code>n == accounts[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 50</code></li>
+<li><code>1 &lt;= accounts[i][j] &lt;= 100</code></li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>堆栈</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public boolean isValid(String s) &#123;
-        if(s &#x3D;&#x3D; null || s &#x3D;&#x3D; &quot;&quot;)    return true;
-        Stack&lt;Character&gt; st &#x3D; new Stack&lt;Character&gt;();
-        for(char ch : s.toCharArray())&#123;
-            if (isLeft(ch)) &#123; &#x2F;&#x2F; 为左字符
-                st.push(ch);
-            &#125; else &#123; &#x2F;&#x2F; 右字符
-                if(st.empty())    return false;
-                if (match(st.pop(), ch)) &#123;
-                    ;
-                &#125; else &#123;
-                    return false;
-                &#125;
-            &#125;
-            
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int maximumWealth(int[][] accounts) &#123;
+        int result &#x3D; 0;
+        for(int i &#x3D; 0; i &lt; accounts.length; ++i)&#123;
+            IntStream stream &#x3D; Arrays.stream(accounts[i]);
+            int sum &#x3D; stream.sum();
+            if(sum &gt; result)
+                result &#x3D; sum;
         &#125;
-        if(!st.empty())  return false;
-        return true;
+        return result;
     &#125;
-
-    private boolean match(char L, char R)&#123;
-        switch(L)&#123;
-            case &#39;(&#39;: return (R &#x3D;&#x3D; &#39;)&#39;);
-            case &#39;[&#39;: return (R &#x3D;&#x3D; &#39;]&#39;);
-            case &#39;&#123;&#39;: return (R &#x3D;&#x3D; &#39;&#125;&#39;);
-            default: return false;
-        &#125;
-    &#125;
-
-    private boolean isLeft(char ch)&#123;
-        switch(ch)&#123;
-            case &#39;(&#39;: return true;
-            case &#39;[&#39;: return true;
-            case &#39;&#123;&#39;: return true;
-            default: return false;
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public boolean isValid(String s) &#123;  &#x2F;&#x2F; 对应括号一定长度偶数
-        int n &#x3D; s.length();
-        if (n % 2 &#x3D;&#x3D; 1) &#123;
-            return false;
+    public int maximumWealth(int[][] accounts) &#123;
+        int maxWealth &#x3D; Integer.MIN_VALUE;
+        for (int[] account : accounts) &#123;
+            maxWealth &#x3D; Math.max(maxWealth, Arrays.stream(account).sum());
         &#125;
-
-        Map&lt;Character, Character&gt; pairs &#x3D; new HashMap&lt;Character, Character&gt;() &#123;&#123;
-            put(&#39;)&#39;, &#39;(&#39;);
-            put(&#39;]&#39;, &#39;[&#39;);
-            put(&#39;&#125;&#39;, &#39;&#123;&#39;);
-        &#125;&#125;;
-        Deque&lt;Character&gt; stack &#x3D; new LinkedList&lt;Character&gt;();
-        for (int i &#x3D; 0; i &lt; n; i++) &#123;
-            char ch &#x3D; s.charAt(i);
-            if (pairs.containsKey(ch)) &#123;
-                if (stack.isEmpty() || stack.peek() !&#x3D; pairs.get(ch)) &#123;
-                    return false;
-                &#125;
-                stack.pop();
-            &#125; else &#123;
-                stack.push(ch);
-            &#125;
-        &#125;
-        return stack.isEmpty();
+        return maxWealth;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Java栈"><a href="#Java栈" class="headerlink" title="Java栈"></a>Java栈</h2><p><strong>新建栈</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">Stack&lt;Integer&gt; st &#x3D; new Stack&lt;Integer&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>入栈</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.push(x);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>出栈</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.pop();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>栈空</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">st.empty();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><p><strong>整数最小值</strong></p>
+<p><code>Integer.MIN_VALUE</code></p>
+<p><strong>创建数组流</strong></p>
+<p>流是比数组更高的抽象方式，能够满足许多统计上的要求</p>
+<p><code>IntStream stream = Arrays.stream(array)</code></p>
+<p><strong>求和</strong></p>
+<p><code>stream.sum()</code></p>
+<p><strong>取最大值</strong></p>
+<p><code>Math.max(num1, num2)</code></p>
 
                 
             </div>
@@ -553,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/20.%20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7.html">http://jarrycow.top/posts/20.%20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7.html</a>
+                    <a href="http://jarrycow.top/posts/1672.%20%E6%9C%80%E5%AF%8C%E6%9C%89%E5%AE%A2%E6%88%B7%E7%9A%84%E8%B5%84%E4%BA%A7%E6%80%BB%E9%87%8F.html">http://jarrycow.top/posts/1672.%20%E6%9C%80%E5%AF%8C%E6%9C%89%E5%AE%A2%E6%88%B7%E7%9A%84%E8%B5%84%E4%BA%A7%E6%80%BB%E9%87%8F.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,6 +558,10 @@
                             
                                 <a href="/tags/%E5%8A%9B%E6%89%A3/">
                                     <span class="chip bg-color">力扣</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -946,13 +911,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/21.%20%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8.html">
+                <a href="/posts/leetcode_Offer58.html">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="剑指 Offer 58 - II. 左旋转字符串">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="21. 合并两个有序链表">
-                        
-                        <span class="card-title">21. 合并两个有序链表</span>
+                        <span class="card-title">剑指 Offer 58 - II. 左旋转字符串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -963,7 +927,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
                         </span>
                         <span class="publish-author">
                             
@@ -988,6 +952,10 @@
                         <span class="chip bg-color">力扣</span>
                     </a>
                     
+                    <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -999,13 +967,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/14.%20%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80.html">
+                <a href="/posts/leetcode118.html">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="118. 杨辉三角">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="14. 最长公共前缀">
-                        
-                        <span class="card-title">14. 最长公共前缀</span>
+                        <span class="card-title">118. 杨辉三角</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1016,7 +983,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
                             </span>
                         <span class="publish-author">
                             
@@ -1199,6 +1166,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

@@ -4,15 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="9. 回文数, Jarrycow&#39;s Blog">
-    <meta name="description" content="算法描述给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
-回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
-
-例如，121 是回文，而 123 不是。
-
-示例 1：
-
-输入：x = 1">
+    <meta name="keywords" content="2. 两数相加, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+请你将两个数相加，并以相同形式返回一个表示和的链表。
+你可以假设除了数字 0 之外，这两个数都不会以 0 开头">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>9. 回文数 | Jarrycow&#39;s Blog</title>
+    <title>2. 两数相加 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -348,12 +343,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">9. 回文数</h1>
+                    <h1 class="description center-align post-title">2. 两数相加</h1>
                 </div>
             </div>
         </div>
@@ -406,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-23
+                    2022-07-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -435,94 +430,140 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
-<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
-<ul>
-<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
-</ul>
-<p><strong>示例 1：</strong></p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1：</p>
 <blockquote>
-<p>输入：x = 121<br>输出：true</p>
+<p>输入：l1 = [2,4,3], l2 = [5,6,4]<br>输出：[7,0,8]<br>解释：342 + 465 = 807.</p>
 </blockquote>
-<p><strong>示例 2：</strong></p>
+<p>示例 2：</p>
 <blockquote>
-<p>输入：x = -121<br>输出：false<br>解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</p>
+<p>输入：l1 = [0], l2 = [0]<br>输出：[0]</p>
 </blockquote>
-<p><strong>示例 3：</strong></p>
+<p>示例 3：</p>
 <blockquote>
-<p>输入：x = 10<br>输出：false<br>解释：从右向左读, 为 01 。因此它不是一个回文数。</p>
+<p>输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]<br>输出：[8,9,9,9,0,0,0,1]</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li>$-2^{31}$ &lt;= $x$ &lt;= $2^{31} - 1$</li>
+<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
+<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+<li>题目数据保证列表表示的数字不含前导零</li>
 </ul>
-<p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己的"><a href="#自己的" class="headerlink" title="自己的"></a>自己的</h2><p>用队列的方法，将数字顺序对调，再和原数据比较</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    &#x2F;**
-     * @param x
-     * @return
-     *&#x2F;
-    public boolean isPalindrome(int x) &#123;
-        if(x &lt;&#x3D; 0)  &#x2F;&#x2F; 负数一定不是
-            return (x &lt; 0) ? false : true;
-        &#x2F;&#x2F; while(x !&#x3D; 0)
-        Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();
-        int x_num &#x3D; x;
-        while(x !&#x3D; 0)&#123;
-            queue.offer(x % 10);
-            x &#x2F;&#x3D; 10;
-        &#125;
-        int num &#x3D; 0;
-        for(Integer q : queue)&#123;
-            &#x2F;&#x2F; System.out.println(q);
-            num *&#x3D; 10;
-            num +&#x3D; q;
-        &#125;
-        &#x2F;&#x2F; System.out.println(num);
-        &#x2F;&#x2F; System.out.println(x_num);;
-        return (num &#x3D;&#x3D; x_num); 
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><h3 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode();
+        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
+        return result;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>翻转一半数字，同时新建翻转的数字</p>
-<p>当原始数据处理后比新建数字小时，处理过半</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public boolean isPalindrome(int x) &#123;
-        &#x2F;&#x2F; 特殊情况：
-        &#x2F;&#x2F; 如上所述，当 x &lt; 0 时，x 不是回文数。
-        &#x2F;&#x2F; 同样地，如果数字的最后一位是 0，为了使该数字为回文，
-        &#x2F;&#x2F; 则其第一位数字也应该是 0
-        &#x2F;&#x2F; 只有 0 满足这一属性
-        if (x &lt; 0 || (x % 10 &#x3D;&#x3D; 0 &amp;&amp; x !&#x3D; 0)) &#123;
-            return false;
-        &#125;
 
-        int revertedNumber &#x3D; 0;
-        while (x &gt; revertedNumber) &#123;
-            revertedNumber &#x3D; revertedNumber * 10 + x % 10;
-            x &#x2F;&#x3D; 10;
+    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
+        int result &#x3D; 0;
+        while (node !&#x3D; null) &#123;
+            result &#x3D; 10 * result + node.val;
+            node &#x3D; node.next;
         &#125;
-
-        &#x2F;&#x2F; 当数字长度为奇数时，我们可以通过 revertedNumber&#x2F;10 去除处于中位的数字。
-        &#x2F;&#x2F; 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x &#x3D; 12，revertedNumber &#x3D; 123，
-        &#x2F;&#x2F; 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。
-        return x &#x3D;&#x3D; revertedNumber || x &#x3D;&#x3D; revertedNumber &#x2F; 10;
+        return result;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>时间复杂度：$O(\log n)$</p>
-<p>空间复杂度：$O(1)$ss</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="java队列"><a href="#java队列" class="headerlink" title="java队列"></a>java队列</h2><p><strong>初始化队列</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>入队</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.offer(x);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>出队</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.poll();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>取队首</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.peek();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>遍历队列</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">for(Integer q : queue)&#123;
-    ...
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
+        ListNode head &#x3D; new ListNode();
+        ListNode node &#x3D; new ListNode();
+        node &#x3D; head;
+        while (num !&#x3D; 0) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; num % 10;
+            node.next &#x3D; null;
+            num &#x3D; num &#x2F; 10;
+        &#125;
+        return head.next;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>错误</strong></p>
+<p>测试用例</p>
+<blockquote>
+<p>输入：l1 = [0], l2 = [0]<br>输出：[0]</p>
+<p>我的输出：[]</p>
+</blockquote>
+<p>忽略了<code>num=0</code>情况</p>
+<h3 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a><strong>修改代码</strong></h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode();
+        result &#x3D; NumToListNode(ListNodeToNum(l1) + ListNodeToNum(l2));
+        return result;
+    &#125;
+
+    private int ListNodeToNum(ListNode node) &#123;  &#x2F;&#x2F; 链表转换数字
+        int result &#x3D; 0;
+        while (node !&#x3D; null) &#123;
+            result &#x3D; 10 * result + node.val;
+            node &#x3D; node.next;
+        &#125;
+        return result;
+    &#125;
+
+    private ListNode NumToListNode(int num) &#123;  &#x2F;&#x2F; 数字转换链表
+        ListNode head &#x3D; new ListNode();
+        ListNode node &#x3D; new ListNode();
+        node &#x3D; head;
+        
+        
+        &#x2F;*增添部分*&#x2F;*
+        if(num &#x3D;&#x3D; 0)&#123;
+            return new ListNode(0);
+        &#125;
+        
+        
+        while (num !&#x3D; 0) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; num % 10;
+            node.next &#x3D; null;
+            num &#x3D; num &#x2F; 10;
+        &#125;
+        return head.next;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>错误</strong></p>
+<p>测试用例</p>
+<blockquote>
+<p>输入：l1 = [2,4,9], l2 = [5,6,4,9]<br>输出：[7,0,4,0,1]</p>
+<p>我的输出：[8,9,8,5]</p>
+</blockquote>
+<p>这题完全理解错了，不是简单加起来，变成链表</p>
+<p>而是从左开始，每个元素相加，进位是在右边元素上的</p>
+<h3 id="二次修改"><a href="#二次修改" class="headerlink" title="二次修改"></a>二次修改</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;
+        ListNode result &#x3D; new ListNode(), node &#x3D; result;
+        ListNode node1 &#x3D; l1, node2 &#x3D; l2; &#x2F;&#x2F; 指向l1,l2的结点
+        int carry &#x3D; 0; &#x2F;&#x2F; 进位
+        while (node1 !&#x3D; null || node2 !&#x3D; null) &#123;
+            node.next &#x3D; new ListNode();
+            node &#x3D; node.next;
+            node.val &#x3D; 0;
+            if (node1 !&#x3D; null)
+                node.val +&#x3D; node1.val;
+            if (node2 !&#x3D; null)
+                node.val +&#x3D; node2.val;
+            node.val +&#x3D; carry;
+            carry &#x3D; node.val &#x2F; 10; &#x2F;&#x2F; 产生进位
+            node.val &#x3D; node.val % 10;
+            if (node1 !&#x3D; null)
+                node1 &#x3D; node1.next;
+            if (node2 !&#x3D; null)
+                node2 &#x3D; node2.next;
+        &#125;
+        if (carry !&#x3D; 0)
+            node.next &#x3D; new ListNode(carry);
+        return result.next;
+    &#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>同样用模拟</p>
+<p>但我的代码值得改进的是可以将几个<code>if</code>语句转化为<code>?:</code></p>
 
                 
             </div>
@@ -549,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/9.%20%E5%9B%9E%E6%96%87%E6%95%B0.html">http://jarrycow.top/posts/9.%20%E5%9B%9E%E6%96%87%E6%95%B0.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode2.html">http://jarrycow.top/posts/leetcode2.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -942,13 +983,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/13.%20%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0.html">
+                <a href="/posts/leetcode3.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13. 罗马数字转整数">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="3. 无重复字符的最长子串">
                         
-                        <span class="card-title">13. 罗马数字转整数</span>
+                        <span class="card-title">3. 无重复字符的最长子串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -959,7 +1000,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                         </span>
                         <span class="publish-author">
                             
@@ -995,13 +1036,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.html">
+                <a href="/posts/leetcode1.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="3. 无重复字符的最长子串">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="1-两数之和">
                         
-                        <span class="card-title">3. 无重复字符的最长子串</span>
+                        <span class="card-title">1-两数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

@@ -4,18 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="服务器远程管理, Jarrycow&#39;s Blog">
-    <meta name="description" content="[toc]
-NTFS权限概述作用：不同的用户访问不同文件/文件夹的权限。
-文件系统概述
-存储文件格式方式
+    <meta name="keywords" content="9. 回文数, Jarrycow&#39;s Blog">
+    <meta name="description" content="算法描述给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
+回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
 
-常见的文件系统：
-FAT   windows
-NTFS  windows
-EXT   liunx 常见
+例如，121 是回文，而 123 不是。
 
-格式化 == 制作文件系统">
+示例 1：
+
+输入：x = 1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +24,7 @@ EXT   liunx 常见
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>服务器远程管理 | Jarrycow&#39;s Blog</title>
+    <title>9. 回文数 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -351,12 +348,12 @@ EXT   liunx 常见
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">服务器远程管理</h1>
+                    <h1 class="description center-align post-title">9. 回文数</h1>
                 </div>
             </div>
         </div>
@@ -378,12 +375,29 @@ EXT   liunx 常见
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                力扣
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -392,14 +406,14 @@ EXT   liunx 常见
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2022-07-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -421,34 +435,94 @@ EXT   liunx 常见
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<h2 id="NTFS权限概述"><a href="#NTFS权限概述" class="headerlink" title="NTFS权限概述"></a>NTFS权限概述</h2><p><strong>作用</strong>：不同的用户访问不同<strong>文件/文件夹</strong>的权限。</p>
-<h3 id="文件系统概述"><a href="#文件系统概述" class="headerlink" title="文件系统概述"></a>文件系统概述</h3><ul>
-<li>存储文件格式方式</li>
+                <h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<ul>
+<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
 </ul>
-<h4 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h4><ul>
-<li>FAT   windows</li>
-<li>NTFS  windows</li>
-<li>EXT   liunx 常见</li>
+<p><strong>示例 1：</strong></p>
+<blockquote>
+<p>输入：x = 121<br>输出：true</p>
+</blockquote>
+<p><strong>示例 2：</strong></p>
+<blockquote>
+<p>输入：x = -121<br>输出：false<br>解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</p>
+</blockquote>
+<p><strong>示例 3：</strong></p>
+<blockquote>
+<p>输入：x = 10<br>输出：false<br>解释：从右向左读, 为 01 。因此它不是一个回文数。</p>
+</blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li>$-2^{31}$ &lt;= $x$ &lt;= $2^{31} - 1$</li>
 </ul>
-<h4 id="格式化-制作文件系统"><a href="#格式化-制作文件系统" class="headerlink" title="格式化 == 制作文件系统"></a>格式化 == 制作文件系统</h4><p>格式化——在分区上重新打格子（簇）<br><strong>操作</strong>：盘右击$\rightarrow$格式化（默认4096字节）<br><img src="https://img-blog.csdnimg.cn/20200329102909215.png" alt="在这里插入图片描述"></p>
-<h3 id="NTFS文件系统的特点"><a href="#NTFS文件系统的特点" class="headerlink" title="NTFS文件系统的特点"></a>NTFS文件系统的特点</h3><p>1、提高磁盘读写性能（每个块读写略高于FAT）<br>2、可靠性，支持文件加密，访问控制列表-ACL（NTFS分区的文件才可以设置权限）<br>3、磁盘利用率，压缩，磁盘配额（为不同的用户设置使用空间）<br>4、支持单个文件大于4个G（若小文件FAT更好）</p>
-<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><ul>
-<li><strong>继承自上级目录的权限无法随意取消</strong></li>
-<li>管理员拥有所有文件夹权限列表的权限</li>
-<li><strong>权限累加</strong>：<strong>用户最终权限 = 用户权限 + $\sum$users所有组权限</strong></li>
-<li><strong>拒绝最大</strong>：拒绝√  $ &gt;&gt; $  权限√</li>
-</ul>
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p><img src="https://img-blog.csdnimg.cn/2020032913143413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="文件夹权限"><a href="#文件夹权限" class="headerlink" title="文件夹权限"></a>文件夹权限</h3><p><img src="https://img-blog.csdnimg.cn/20200329131508497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h2><h3 id="取消权限继承"><a href="#取消权限继承" class="headerlink" title="取消权限继承"></a>取消权限继承</h3><p><strong>作用</strong>：取消后可以任意修改权限列表<br><strong>方法</strong>：文件夹右键属性$\rightarrow$安全$\rightarrow$高级 $\rightarrow$去掉父子继承的√$\rightarrow$复制<br><img src="https://img-blog.csdnimg.cn/20200329120640997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="添加用户权限"><a href="#添加用户权限" class="headerlink" title="添加用户权限"></a>添加用户权限</h3><p>添加$\rightarrow$输入对象名称（<code>;</code>间隔）</p>
-<p><img src="https://img-blog.csdnimg.cn/20200329125010826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>列出本地所有组以供选择</strong>：添加$\rightarrow$高级$\rightarrow$立即查找<br><strong>默认用户权限</strong>：读取和运行、列出文件夹目录、读取<br><img src="https://img-blog.csdnimg.cn/20200329122111163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="拒绝最大"><a href="#拒绝最大" class="headerlink" title="拒绝最大"></a>拒绝最大</h3><p>相同的权限允许和拒绝发生碰撞拒绝最大<br><strong>作用</strong>：让某个组内某成员拒绝访问文件夹的权限，但不必将其从组内移除</p>
-<h3 id="取得所有权"><a href="#取得所有权" class="headerlink" title="取得所有权"></a>取得所有权</h3><p>只有管理员组的用户可以操作<br><strong>作用</strong>：用户把管理员权限删了，管理员恢复权限（会让该用户权限消除）</p>
-<p>文件夹右键属性$\rightarrow$ 安全$\rightarrow$高级 $\rightarrow$ 所有者 $\rightarrow$ 选中管理员 $\rightarrow$ 替换子容器所有者√<br><img src="https://img-blog.csdnimg.cn/20200329133245458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="强制继承"><a href="#强制继承" class="headerlink" title="强制继承"></a>强制继承</h3><p><strong>作用</strong>：子文件夹权限全部恢复为父文件夹权限<br>方法：文件夹右键属性$\rightarrow$安全$\rightarrow$高级$\rightarrow$可应用子对象替代所有子对象权限项目<br><img src="https://img-blog.csdnimg.cn/20200329133935447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己的"><a href="#自己的" class="headerlink" title="自己的"></a>自己的</h2><p>用队列的方法，将数字顺序对调，再和原数据比较</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    &#x2F;**
+     * @param x
+     * @return
+     *&#x2F;
+    public boolean isPalindrome(int x) &#123;
+        if(x &lt;&#x3D; 0)  &#x2F;&#x2F; 负数一定不是
+            return (x &lt; 0) ? false : true;
+        &#x2F;&#x2F; while(x !&#x3D; 0)
+        Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();
+        int x_num &#x3D; x;
+        while(x !&#x3D; 0)&#123;
+            queue.offer(x % 10);
+            x &#x2F;&#x3D; 10;
+        &#125;
+        int num &#x3D; 0;
+        for(Integer q : queue)&#123;
+            &#x2F;&#x2F; System.out.println(q);
+            num *&#x3D; 10;
+            num +&#x3D; q;
+        &#125;
+        &#x2F;&#x2F; System.out.println(num);
+        &#x2F;&#x2F; System.out.println(x_num);;
+        return (num &#x3D;&#x3D; x_num); 
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h2><p>翻转一半数字，同时新建翻转的数字</p>
+<p>当原始数据处理后比新建数字小时，处理过半</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public boolean isPalindrome(int x) &#123;
+        &#x2F;&#x2F; 特殊情况：
+        &#x2F;&#x2F; 如上所述，当 x &lt; 0 时，x 不是回文数。
+        &#x2F;&#x2F; 同样地，如果数字的最后一位是 0，为了使该数字为回文，
+        &#x2F;&#x2F; 则其第一位数字也应该是 0
+        &#x2F;&#x2F; 只有 0 满足这一属性
+        if (x &lt; 0 || (x % 10 &#x3D;&#x3D; 0 &amp;&amp; x !&#x3D; 0)) &#123;
+            return false;
+        &#125;
+
+        int revertedNumber &#x3D; 0;
+        while (x &gt; revertedNumber) &#123;
+            revertedNumber &#x3D; revertedNumber * 10 + x % 10;
+            x &#x2F;&#x3D; 10;
+        &#125;
+
+        &#x2F;&#x2F; 当数字长度为奇数时，我们可以通过 revertedNumber&#x2F;10 去除处于中位的数字。
+        &#x2F;&#x2F; 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x &#x3D; 12，revertedNumber &#x3D; 123，
+        &#x2F;&#x2F; 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。
+        return x &#x3D;&#x3D; revertedNumber || x &#x3D;&#x3D; revertedNumber &#x2F; 10;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>时间复杂度：$O(\log n)$</p>
+<p>空间复杂度：$O(1)$ss</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="java队列"><a href="#java队列" class="headerlink" title="java队列"></a>java队列</h2><p><strong>初始化队列</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Queue&lt;Integer&gt; queue &#x3D; new LinkedList&lt;Integer&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>入队</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.offer(x);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>出队</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.poll();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>取队首</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">queue.peek();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>遍历队列</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">for(Integer q : queue)&#123;
+    ...
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -475,7 +549,7 @@ EXT   liunx 常见
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86.html">http://jarrycow.top/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode9.html">http://jarrycow.top/posts/leetcode9.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -512,7 +586,15 @@ EXT   liunx 常见
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -860,13 +942,13 @@ EXT   liunx 常见
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6.html">
+                <a href="/posts/leetcode13.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="共享文件">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13. 罗马数字转整数">
                         
-                        <span class="card-title">共享文件</span>
+                        <span class="card-title">13. 罗马数字转整数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -877,15 +959,35 @@ EXT   liunx 常见
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -897,13 +999,13 @@ EXT   liunx 常见
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86.html">
+                <a href="/posts/leetcode3.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="服务器系统和用户与组管理">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="3. 无重复字符的最长子串">
                         
-                        <span class="card-title">服务器系统和用户与组管理</span>
+                        <span class="card-title">3. 无重复字符的最长子串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -914,15 +1016,31 @@ EXT   liunx 常见
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
+                    </a>
+                    
                 </div>
                 
             </div>

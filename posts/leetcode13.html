@@ -4,14 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="58. 最后一个单词的长度, Jarrycow&#39;s Blog">
-    <meta name="description" content="题目描述给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
-单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
-
-
-示例 1：
-
-输入：s = “Hello World”输出：5解释">
+    <meta name="keywords" content="13. 罗马数字转整数, Jarrycow&#39;s Blog">
+    <meta name="description" content="题面描述罗马数字包含以下七种字符: I， V， X， L，C，D 和 M
+字符          数值
+I             1
+V             5
+X             10
+L             50
+C ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>58. 最后一个单词的长度 | Jarrycow&#39;s Blog</title>
+    <title>13. 罗马数字转整数 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -347,12 +347,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">58. 最后一个单词的长度</h1>
+                    <h1 class="description center-align post-title">13. 罗马数字转整数</h1>
                 </div>
             </div>
         </div>
@@ -384,6 +384,10 @@
                                 <span class="chip bg-color">力扣</span>
                             </a>
                         
+                            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                <span class="chip bg-color">字符串</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -405,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-07-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-07
                 </div>
                 
 
@@ -434,76 +438,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
-<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大子字符串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1：</strong></p>
+                <h1 id="题面描述"><a href="#题面描述" class="headerlink" title="题面描述"></a>题面描述</h1><p>罗马数字包含以下七种字符: <code>I</code>， <code>V</code>， <code>X</code>， <code>L</code>，<code>C</code>，<code>D</code> 和 <code>M</code></p>
+<pre class="line-numbers language-none"><code class="language-none">字符          数值
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例如， 罗马数字 <code>2</code> 写做 <code>II</code> ，即为两个并列的 1 。<code>12</code> 写做 <code>XII</code> ，即为 <code>X</code> + <code>II</code> 。 <code>27</code> 写做 <code>XXVII</code>, 即为 <code>XX</code> + <code>V</code> + <code>II</code> 。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <code>IIII</code>，而是 <code>IV</code>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <code>IX</code>。这个特殊的规则只适用于以下六种情况：</p>
+<ul>
+<li><p><code>I</code> 可以放在 <code>V</code> (5) 和 <code>X</code> (10) 的左边，来表示 4 和 9。</p>
+</li>
+<li><p><code>X</code> 可以放在 <code>L</code> (50) 和 <code>C</code> (100) 的左边，来表示 40 和 90。</p>
+</li>
+<li><p><code>C</code> 可以放在 <code>D</code> (500) 和 <code>M</code> (1000) 的左边，来表示 400 和 900。</p>
+</li>
+</ul>
+<p>给定一个罗马数字，将其转换成整数。</p>
+<p><strong>示例 1:</strong></p>
 <blockquote>
-<p>输入：s = “Hello World”<br>输出：5<br>解释：最后一个单词是“World”，长度为5。</p>
+<p>输入: s = “III”<br>输出: 3</p>
 </blockquote>
-<p><strong>示例 2：</strong></p>
+<p><strong>示例 2:</strong></p>
 <blockquote>
-<p>输入：s = “   fly me   to   the moon  “<br>输出：4<br>解释：最后一个单词是“moon”，长度为4。</p>
+<p>输入: s = “IV”<br>输出: 4</p>
 </blockquote>
-<p><strong>示例 3：</strong></p>
+<p><strong>示例 3:</strong></p>
 <blockquote>
-<p>输入：s = “luffy is still joyboy”<br>输出：6<br>解释：最后一个单词是长度为6的“joyboy”。</p>
+<p>输入: s = “IX”<br>输出: 9</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li><p><code>1 &lt;= s.length &lt;= 10^4</code></p>
+<li><p><code>1 &lt;= s.length &lt;= 15</code></p>
 </li>
-<li><p><code>s</code> 仅有英文字母和空格 <code>&#39; &#39;</code> 组成</p>
+<li><p><code>s</code> 仅含字符 <code>(&#39;I&#39;, &#39;V&#39;, &#39;X&#39;, &#39;L&#39;, &#39;C&#39;, &#39;D&#39;, &#39;M&#39;)</code></p>
 </li>
-<li><p><code>s</code> 中至少存在一个单词</p>
+<li><p>题目数据保证 <code>s</code> 是一个有效的罗马数字，且表示整数在范围 <code>[1, 3999]</code> 内</p>
+</li>
+<li><p>题目所给测试用例皆符合罗马数字书写规则，不会出现跨位等情况。</p>
+</li>
+<li><p>IL 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 应该写作 CMXCIX 。</p>
 </li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>设置标志记录“是否遇到空格”</p>
-<p>若遇到空格之后又遇到字母，则重新计数</p>
+<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><p>若小值在大值左边，就做减法</p>
+<p><strong>case比字典块很多</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int lengthOfLastWord(String s) &#123;
-        if(s &#x3D;&#x3D; &quot;&quot;  ||  s &#x3D;&#x3D; null)
-            return 0;
-        int result &#x3D; 0;  &#x2F;&#x2F; 记录单词长度
-        int point &#x3D; 0;  &#x2F;&#x2F;  指向字符的指针
-        boolean reset &#x3D; true;  &#x2F;&#x2F; 重置指令：当接触到空格
-        while(point &lt; s.length())&#123;
-            if(s.charAt(point) &#x3D;&#x3D; &#39; &#39;)&#123;  &#x2F;&#x2F; 指到空格，标志重置
-                reset &#x3D; true;
+    public int romanToInt(String s) &#123;
+        int sum &#x3D; 0;
+        int preNum &#x3D; getValue(s.charAt(0));
+        for(int i &#x3D; 1;i &lt; s.length(); i ++) &#123;
+            int num &#x3D; getValue(s.charAt(i));
+            if(preNum &lt; num) &#123;
+                sum -&#x3D; preNum;
+            &#125; else &#123;
+                sum +&#x3D; preNum;
             &#125;
-            else if(reset)&#123;  &#x2F;&#x2F; 指到了字母，且标志重置
-                reset &#x3D; false;  &#x2F;&#x2F; 标志转换
-                result &#x3D; 1;  &#x2F;&#x2F; 指向第一个
-            &#125;  &#x2F;&#x2F; 即单词第一个
-            else if(!reset)&#123;  &#x2F;&#x2F; 指向不是第一个字母
-                ++result;
-            &#125;
-            ++point;
+            preNum &#x3D; num;
         &#125;
-        return result;
+        sum +&#x3D; preNum;
+        return sum;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>时间复杂度：$O(n)$——遍历</p>
-<p>空间复杂度：$O(1)$</p>
-<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>倒序遍历</p>
-<p>先跳过空格</p>
-<p>到下一次遇到空格停止</p>
+    
+    private int getValue(char ch) &#123;
+        switch(ch) &#123;
+            case &#39;I&#39;: return 1;
+            case &#39;V&#39;: return 5;
+            case &#39;X&#39;: return 10;
+            case &#39;L&#39;: return 50;
+            case &#39;C&#39;: return 100;
+            case &#39;D&#39;: return 500;
+            case &#39;M&#39;: return 1000;
+            default: return 0;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>将字符串拆分为特殊的和一般的，然后利用字典去取值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int lengthOfLastWord(String s) &#123;
-        int result &#x3D; 0; &#x2F;&#x2F; 记录单词长度
-        int point &#x3D; s.length() - 1; &#x2F;&#x2F; 指向字符的指针
+    public int romanToInt(String s) &#123;
+        &#x2F;* 增添分隔符 *&#x2F;
+        s &#x3D; s.replace(&quot;IV&quot;, &quot; IV &quot;);
+        s &#x3D; s.replace(&quot;IX&quot;, &quot; IX &quot;);
+        s &#x3D; s.replace(&quot;XL&quot;, &quot; XL &quot;);
+        s &#x3D; s.replace(&quot;XC&quot;, &quot; XC &quot;);
+        s &#x3D; s.replace(&quot;CD&quot;, &quot; CD &quot;);
+        s &#x3D; s.replace(&quot;CM&quot;, &quot; CM &quot;);
+        s &#x3D; s.replace(&quot;  &quot;, &quot; &quot;);
+        &#x2F;* 分割字符串 *&#x2F;
+        String[] dict &#x3D; s.split(&quot; &quot;);
 
-        while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) &#x3D;&#x3D; &#39; &#39;) &#x2F;&#x2F; 从最后开始计数，跳过所有空格
-            --point;
-        do &#123;
-            ++result;
-            --point;
-        &#125; while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) !&#x3D; &#39; &#39;);
+        &#x2F;* 新建字典 *&#x2F;
+        Map&lt;String, Integer&gt; hashtable &#x3D; new HashMap&lt;String, Integer&gt;();
+        hashtable.put(&quot;I&quot;, 1);
+        hashtable.put(&quot;V&quot;, 5);
+        hashtable.put(&quot;X&quot;, 10);
+        hashtable.put(&quot;L&quot;, 50);
+        hashtable.put(&quot;C&quot;, 100);
+        hashtable.put(&quot;D&quot;, 500);
+        hashtable.put(&quot;M&quot;, 1000);
+        hashtable.put(&quot;IV&quot;, 4);
+        hashtable.put(&quot;IX&quot;, 9);
+        hashtable.put(&quot;XL&quot;, 40);
+        hashtable.put(&quot;XC&quot;, 90);
+        hashtable.put(&quot;CD&quot;, 400);
+        hashtable.put(&quot;CM&quot;, 900);
 
-        return result;
+        int num &#x3D; 0;
+
+        for(String item : dict)&#123;
+            if(hashtable.containsKey(item))
+                num +&#x3D; hashtable.get(item);
+            else&#123;
+                for(char ch : item.toCharArray())&#123;
+                    num +&#x3D; hashtable.get(String.valueOf(ch));
+                &#125;
+            &#125;
+                
+        &#125;
+        return num;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Java字符串操作"><a href="#Java字符串操作" class="headerlink" title="Java字符串操作"></a>Java字符串操作</h2><p><strong>字符串替换</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.replace(old_str, new_str);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>字符串转换字符数组</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.toCharArray();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>字符转化为字符串</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">String.valueOf(ch)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>字符串分割</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.split(grex);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -530,7 +596,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/58.%20%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6.html">http://jarrycow.top/posts/58.%20%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode13.html">http://jarrycow.top/posts/leetcode13.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,6 +640,10 @@
                             
                                 <a href="/tags/%E5%8A%9B%E6%89%A3/">
                                     <span class="chip bg-color">力扣</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
                         </div>
@@ -923,31 +993,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/configuration%20of%20the%20matery.html">
+                <a href="/posts/leetcode14.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="matery主题的配置">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="14. 最长公共前缀">
                         
-                        <span class="card-title">matery主题的配置</span>
+                        <span class="card-title">14. 最长公共前缀</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
                                 </a>
                             
                             
@@ -957,8 +1027,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
                     </a>
                     
                 </div>
@@ -972,25 +1046,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/35.%20%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE.html">
+                <a href="/posts/leetcode9.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="35. 搜索插入位置">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="9. 回文数">
                         
-                        <span class="card-title">35. 搜索插入位置</span>
+                        <span class="card-title">9. 回文数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
-请必须使用时间复杂度为 O(log n) 的算法。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
                             </span>
                         <span class="publish-author">
                             

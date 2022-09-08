@@ -4,16 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IP地址, Jarrycow&#39;s Blog">
-    <meta name="description" content="[toc]
-IP地址详解网络设备交换机：用来组建内网的局域网的设备（多个口）
-路由器：接外网（两个口）
-子网掩码
-局域网通信规则：所有人必须都在同一网段内才能通信
+    <meta name="keywords" content="58. 最后一个单词的长度, Jarrycow&#39;s Blog">
+    <meta name="description" content="题目描述给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
+单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
 
-IP 地址构成：网络位 + 主机位
 
-子网掩码：用来确定网络位，与 1 对">
+示例 1：
+
+输入：s = “Hello World”输出：5解释">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +23,7 @@ IP 地址构成：网络位 + 主机位
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IP地址 | Jarrycow&#39;s Blog</title>
+    <title>58. 最后一个单词的长度 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -349,12 +347,12 @@ IP 地址构成：网络位 + 主机位
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IP地址</h1>
+                    <h1 class="description center-align post-title">58. 最后一个单词的长度</h1>
                 </div>
             </div>
         </div>
@@ -376,12 +374,29 @@ IP 地址构成：网络位 + 主机位
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                力扣
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -390,14 +405,14 @@ IP 地址构成：网络位 + 主机位
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-16
+                    2022-08-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-06
                 </div>
                 
 
@@ -419,67 +434,76 @@ IP 地址构成：网络位 + 主机位
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<h1 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h1><h2 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h2><p>交换机：用来组建内网的局域网的设备（多个口）</p>
-<p>路由器：接外网（两个口）</p>
-<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><ul>
-<li><p><strong>局域网通信规则</strong>：所有人必须都在<strong>同一网段内</strong>才能通信</p>
-</li>
-<li><p>IP 地址构成：网络位 + 主机位</p>
-</li>
-<li><p><strong>子网掩码</strong>：用来确定网络位，与 1 对应的是网路位，与 0 对应的是主机位</p>
-</li>
-<li><p>ABCD 类 IP 地址：</p>
-<ul>
-<li>A 类：1-126 默认子网掩码：255.0.0.0</li>
-<li>B 类：128-191 默认子网掩码：255.255.0.0</li>
-<li>C 类：192-223 默认子网掩码：255.255.255.0</li>
-<li>D 类：224-239 组播地址（一个地址代表一组人）</li>
-<li>E 类：244-254 科研使用</li>
-</ul>
-</li>
-<li><p>几种特殊的 IP 地址：</p>
-<ul>
-<li><p>本机 IP ：127.0.0.1（回环地址）</p>
-</li>
-<li><p>广播地址：主机位全为 1（发送所有主机）</p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
+<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大子字符串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1：</strong></p>
 <blockquote>
-<p>主机位不能全为0和1</p>
+<p>输入：s = “Hello World”<br>输出：5<br>解释：最后一个单词是“World”，长度为5。</p>
 </blockquote>
-</li>
-<li><p>网段：主机位全为 0</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><p><strong>作用</strong>：局域网主机访问外网的出口IP地址（类比于出国时的海关）</p>
+<p><strong>示例 2：</strong></p>
+<blockquote>
+<p>输入：s = “   fly me   to   the moon  “<br>输出：4<br>解释：最后一个单词是“moon”，长度为4。</p>
+</blockquote>
+<p><strong>示例 3：</strong></p>
+<blockquote>
+<p>输入：s = “luffy is still joyboy”<br>输出：6<br>解释：最后一个单词是长度为6的“joyboy”。</p>
+</blockquote>
+<p><strong>提示：</strong></p>
 <ul>
-<li><p>一般网关是在<strong>路由器</strong>上</p>
+<li><p><code>1 &lt;= s.length &lt;= 10^4</code></p>
 </li>
-<li><p>常用网关地址为可用主机IP的<strong>第一个</strong>或<strong>最后一个</strong></p>
+<li><p><code>s</code> 仅有英文字母和空格 <code>&#39; &#39;</code> 组成</p>
+</li>
+<li><p><code>s</code> 中至少存在一个单词</p>
 </li>
 </ul>
-<h2 id="PC主机向外发送数据包过程"><a href="#PC主机向外发送数据包过程" class="headerlink" title="PC主机向外发送数据包过程"></a>PC主机向外发送数据包过程</h2><ol>
-<li>判断目标IP与自身是否同一网段（<strong>IP地址</strong>与<strong>子网掩码</strong>判断）</li>
-<li>若是，直接发出</li>
-<li>若不是，发给<strong>网关</strong></li>
-</ol>
-<h2 id="DNS（Domain-Name-Service-域名解析服务）"><a href="#DNS（Domain-Name-Service-域名解析服务）" class="headerlink" title="DNS（Domain Name Service 域名解析服务）"></a>DNS（Domain Name Service 域名解析服务）</h2><p><strong>作用</strong>：通过域名查询IP</p>
-<h3 id="查找DNS过程"><a href="#查找DNS过程" class="headerlink" title="查找DNS过程"></a>查找DNS过程</h3><ol>
-<li>若登录过该网站，先寻找本机DNS缓存</li>
-<li>查找DNS本地解析文件</li>
-<li>询问DNS服务器 $\star$</li>
-</ol>
-<p><strong>常用备用DNS</strong></p>
-<p>国内通用DNS：<code>114.114.114.114</code></p>
-<p>谷歌NDS：<code>8.8.8.8</code></p>
-<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ipconfig   # 查看IP地址基本信息
-ipconfig &#x2F;all  # 查看IP地址详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="PING"><a href="#PING" class="headerlink" title="PING"></a>PING</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping w # 测试联通,w为目标网址
-ping -l n w # 每次都发n个字节 在局域网内最大阈值为65500字节 
-ping -t w # 一直ping
-ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="手工解析域名"><a href="#手工解析域名" class="headerlink" title="手工解析域名"></a>手工解析域名</h3><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">nslookup w<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>设置标志记录“是否遇到空格”</p>
+<p>若遇到空格之后又遇到字母，则重新计数</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLastWord(String s) &#123;
+        if(s &#x3D;&#x3D; &quot;&quot;  ||  s &#x3D;&#x3D; null)
+            return 0;
+        int result &#x3D; 0;  &#x2F;&#x2F; 记录单词长度
+        int point &#x3D; 0;  &#x2F;&#x2F;  指向字符的指针
+        boolean reset &#x3D; true;  &#x2F;&#x2F; 重置指令：当接触到空格
+        while(point &lt; s.length())&#123;
+            if(s.charAt(point) &#x3D;&#x3D; &#39; &#39;)&#123;  &#x2F;&#x2F; 指到空格，标志重置
+                reset &#x3D; true;
+            &#125;
+            else if(reset)&#123;  &#x2F;&#x2F; 指到了字母，且标志重置
+                reset &#x3D; false;  &#x2F;&#x2F; 标志转换
+                result &#x3D; 1;  &#x2F;&#x2F; 指向第一个
+            &#125;  &#x2F;&#x2F; 即单词第一个
+            else if(!reset)&#123;  &#x2F;&#x2F; 指向不是第一个字母
+                ++result;
+            &#125;
+            ++point;
+        &#125;
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>时间复杂度：$O(n)$——遍历</p>
+<p>空间复杂度：$O(1)$</p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>倒序遍历</p>
+<p>先跳过空格</p>
+<p>到下一次遇到空格停止</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
+    public int lengthOfLastWord(String s) &#123;
+        int result &#x3D; 0; &#x2F;&#x2F; 记录单词长度
+        int point &#x3D; s.length() - 1; &#x2F;&#x2F; 指向字符的指针
+
+        while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) &#x3D;&#x3D; &#39; &#39;) &#x2F;&#x2F; 从最后开始计数，跳过所有空格
+            --point;
+        do &#123;
+            ++result;
+            --point;
+        &#125; while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) !&#x3D; &#39; &#39;);
+
+        return result;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -506,7 +530,7 @@ ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/IP%E5%9C%B0%E5%9D%80.html">http://jarrycow.top/posts/IP%E5%9C%B0%E5%9D%80.html</a>
+                    <a href="http://jarrycow.top/posts/leetcode58.html">http://jarrycow.top/posts/leetcode58.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -543,7 +567,15 @@ ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -891,32 +923,44 @@ ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/DOS%E5%91%BD%E4%BB%A4.html">
+                <a href="/posts/matery.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="DOS命令">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="matery主题的配置">
                         
-                        <span class="card-title">DOS命令</span>
+                        <span class="card-title">matery主题的配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -925,37 +969,53 @@ ping -n N # ping N个包<span aria-hidden="true" class="line-numbers-rows"><span
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/IP%E5%9C%B0%E5%9D%80.html">
+                <a href="/posts/leetcode35.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="IP地址">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="35. 搜索插入位置">
                         
-                        <span class="card-title">IP地址</span>
+                        <span class="card-title">35. 搜索插入位置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+请必须使用时间复杂度为 O(log n) 的算法。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

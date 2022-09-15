@@ -521,19 +521,19 @@
 <p>将<code>indexbtn:</code>下<code>url</code>修改</p>
 <h2 id="修改个人联系"><a href="#修改个人联系" class="headerlink" title="修改个人联系"></a>修改个人联系</h2><p>在<code>\themes\_config.yml</code>中，对<code>socialLink:</code>进行修改</p>
 <p>若想添加B站，在在<code>\themes\_config.yml</code> &gt; <code>socialLink:</code>下添加<code>bilibili: #https://space.bilibili.com/xxx</code>，并在<code>\themes\layout\_partial\social-link.ejs</code>添加</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;% if (theme.socialLink.bilibili) &#123; %&gt;
-    &lt;a href&#x3D;&quot;&lt;%&#x3D; theme.socialLink.bilibili %&gt;&quot; class&#x3D;&quot;tooltipped&quot; target&#x3D;&quot;_blank&quot; data-tooltip&#x3D;&quot;在B站上关注我&quot; data-position&#x3D;&quot;top&quot; data-delay&#x3D;&quot;50&quot;&gt;
-        &lt;i class&#x3D;&quot;fas fa-play-circle&quot;&gt;&lt;&#x2F;i&gt;
-    &lt;&#x2F;a&gt;
-&lt;% &#125; %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;% if (theme.socialLink.bilibili) <span class="token punctuation">&#123;</span> %<span class="token punctuation">></span>
+    &lt;a href="&lt;%= theme.socialLink.bilibili %<span class="token punctuation">></span>" class="tooltipped" target="_blank" data<span class="token punctuation">-</span>tooltip="在B站上关注我" data<span class="token punctuation">-</span>position="top" data<span class="token punctuation">-</span>delay="50"<span class="token punctuation">></span>
+        &lt;i class="fas fa<span class="token punctuation">-</span>play<span class="token punctuation">-</span>circle"<span class="token punctuation">></span>&lt;/i<span class="token punctuation">></span>
+    &lt;/a<span class="token punctuation">></span>
+&lt;% <span class="token punctuation">&#125;</span> %<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="添加友链"><a href="#添加友链" class="headerlink" title="添加友链"></a>添加友链</h2><p>在<code>source\_data\friend.json</code>中添加</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
-    &quot;avatar&quot;: &quot;图片链接&quot;,
-    &quot;name&quot;: &quot;友链名&quot;,
-    &quot;introduction&quot;: &quot;介绍&quot;,
-    &quot;url&quot;: &quot;友情链接&quot;,
-    &quot;title&quot;: &quot;按钮标题&quot;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"图片链接"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"友链名"</span><span class="token punctuation">,</span>
+    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"介绍"</span><span class="token punctuation">,</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"友情链接"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"按钮标题"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="主界面的修改"><a href="#主界面的修改" class="headerlink" title="主界面的修改"></a>主界面的修改</h1><h2 id="取消蒙版"><a href="#取消蒙版" class="headerlink" title="取消蒙版"></a>取消蒙版</h2><p>在<code>theme\source\css\matery.css</code>，注释</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.bg-cover:after</span> <span class="token punctuation">&#123;</span>
     <span class="token property">-webkit-animation</span><span class="token punctuation">:</span> rainbow 60s infinite<span class="token punctuation">;</span>
@@ -543,17 +543,17 @@
 <h2 id="主界面视频"><a href="#主界面视频" class="headerlink" title="主界面视频"></a>主界面视频</h2><p>主界面除了图片之外，还可以使用视频</p>
 <p>在<code>\themes\_config.yml</code>的<code>cover:</code>下的<code>video:</code>下的<code>enable:</code>改为<code>true</code>，并在其下的<code>src:</code>给出视频链接</p>
 <h1 id="菜单的设置"><a href="#菜单的设置" class="headerlink" title="菜单的设置"></a>菜单的设置</h1><p>在<code>\themes\_config.yml</code>中，对<code>menu:</code>进行修改</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">menu:
-  Index:
-    url: &#x2F;
-    icon: fas fa-home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Index</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> /
+    <span class="token key atrule">icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其中，<code>url</code>指目录指向链接，该链接生成需在<code>git bash</code>中用<code>hexo new page &quot;...&quot;</code>生成文件夹；<code>icon</code>使用Font Awesome</p>
 <p>若想要生成二级目录，可如下使用<code>children</code>    </p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">Index:
-	children:
-      - name: 关于我
-        url: &#x2F;about
-        icon: fas fa-user-circle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">Index</span><span class="token punctuation">:</span>
+	<span class="token key atrule">children</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> 关于我
+        <span class="token key atrule">url</span><span class="token punctuation">:</span> /about
+        <span class="token key atrule">icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>user<span class="token punctuation">-</span>circle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其中，<code>-</code>引领具体的二次目录；<code>name</code>为二级目录名称</p>
 <h1 id="404界面更改-未完成"><a href="#404界面更改-未完成" class="headerlink" title="404界面更改(未完成)"></a>404界面更改(未完成)</h1><p>在<code>source</code>文件夹下新建<code>404.md</code>，内容开头包括</p>
 <pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">title: 404
@@ -588,23 +588,23 @@ description: &quot;随便啥404界面的描述&quot;
         <span class="token comment">// 每天切换 banner 图. Switch banner image every day. </span>
         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(/medias/banner/'</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h1><p>下载hexo-prism-plugin 插件</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">npm i -S hexo-prism-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">npm i <span class="token punctuation">-</span>S hexo<span class="token punctuation">-</span>prism<span class="token punctuation">-</span>plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>修改根目录下<code>_config.yml</code></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">
-highlight: # 代码块的设置 
-    enable: false # 关闭自带代码高亮 
-    line_number: true # 自动检测编程语言 
-    auto_detect: false # 显示行数 
-    tab_replace: 4 # 用空格替换tabs
-    tabs wrap: true 
-    hljs: false 
+<span class="token key atrule">highlight</span><span class="token punctuation">:</span> <span class="token comment"># 代码块的设置 </span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 关闭自带代码高亮 </span>
+    <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 自动检测编程语言 </span>
+    <span class="token key atrule">auto_detect</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 显示行数 </span>
+    <span class="token key atrule">tab_replace</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token comment"># 用空格替换tabs</span>
+    <span class="token key atrule">tabs wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> 
+    <span class="token key atrule">hljs</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
 
-# 关闭原有的代码高亮，使用自己的 
-prism_plugin: 
-    mode: &#39;preprocess&#39; # realtime&#x2F;preprocess 
-    theme: &#39;tomorrow&#39; 
-    line_number: false # default false 
-    custom_css:
+<span class="token comment"># 关闭原有的代码高亮，使用自己的 </span>
+<span class="token key atrule">prism_plugin</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token string">'preprocess'</span> <span class="token comment"># realtime/preprocess </span>
+    <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'tomorrow'</span> 
+    <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># default false </span>
+    <span class="token key atrule">custom_css</span><span class="token punctuation">:</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="文章生成永久链接"><a href="#文章生成永久链接" class="headerlink" title="文章生成永久链接"></a>文章生成永久链接</h1><p>在博客目录执行</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cnpm install hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -619,16 +619,16 @@ prism_plugin:
 
 <p><strong><font color="red">注：之前所有博客必须在开头添加</font></strong></p>
 <h1 id="动态标题栏"><a href="#动态标题栏" class="headerlink" title="动态标题栏"></a>动态标题栏</h1><p>在<code>theme/matery/layout/layout.ejs</code></p>
-<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs">&lt;!--动态标题--&gt;
-&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt; var OriginTitile &#x3D; document.title, st; 
-    document.addEventListener(&quot;visibilitychange&quot;, function () &#123; 
-        document.hidden ? 
-        (document.title &#x3D; &quot;Σ(っ °Д °;)っ鳖走啊！&quot;, clearTimeout(st)) :
-        (document.title &#x3D; &quot;φ(゜▽゜*)♪爱你么么哒！&quot;, st &#x3D; setTimeout(function () &#123; 
-            document.title &#x3D; OriginTitile 
-        &#125;, 3e3)) 
-        &#125;) 
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token comment">&lt;!--动态标题--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"> <span class="token keyword">var</span> OriginTitile <span class="token operator">=</span> document<span class="token punctuation">.</span>title<span class="token punctuation">,</span> st<span class="token punctuation">;</span> 
+    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"visibilitychange"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+        document<span class="token punctuation">.</span>hidden <span class="token operator">?</span> 
+        <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"Σ(っ °Д °;)っ鳖走啊！"</span><span class="token punctuation">,</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">:</span>
+        <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"φ(゜▽゜*)♪爱你么么哒！"</span><span class="token punctuation">,</span> st <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+            document<span class="token punctuation">.</span>title <span class="token operator">=</span> OriginTitile 
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">3e3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> 
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="博客支持Mathjax数学公式"><a href="#博客支持Mathjax数学公式" class="headerlink" title="博客支持Mathjax数学公式"></a>博客支持Mathjax数学公式</h1><ol>
 <li><p>使用Kramed代替Marked</p>
 <p>在工程目录下执行命令</p>
@@ -1076,51 +1076,31 @@ function formatText(text) &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/I_Ching.html">
+                <a href="/posts/test.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/IChing.webp" class="responsive-img" alt="易经">
+                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="test">
                         
-                        <span class="card-title">易经</span>
+                        <span class="card-title">test</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学算卦！
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%93%B2%E5%AD%A6/" class="post-category">
-                                    哲学
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jarrycow
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%98%93%E7%BB%8F/">
-                        <span class="chip bg-color">易经</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/">
-                        <span class="chip bg-color">传统文化</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%A0%E5%8D%9C/">
-                        <span class="chip bg-color">占卜</span>
-                    </a>
-                    
                 </div>
                 
             </div>

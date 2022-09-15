@@ -445,57 +445,57 @@
 </ul>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>这题甚至比上题类似，也是双指针。</p>
 <p>从上题判断是否出现过变为是否等于某值</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int removeElement(int[] nums, int val) &#123;
-        int slow &#x3D; 0, fast &#x3D; 0;
-        while(fast &lt; nums.length)&#123;
-            if(nums[fast] &#x3D;&#x3D; val)&#123;
-                ++fast;
-            &#125;else&#123;
-                nums[slow] &#x3D; nums[fast];
-                ++slow;++fast;
-            &#125;
-        &#125;
-        return slow;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeElement</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> slow <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> fast <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span> <span class="token operator">==</span> val<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token operator">++</span>fast<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                nums<span class="token punctuation">[</span>slow<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token operator">++</span>slow<span class="token punctuation">;</span><span class="token operator">++</span>fast<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h4 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h4><p>右指针$\textit{right}$指向当前将要处理的元素<br>左指针$ \textit{left}$指向下一个将要赋值的位置</p>
 <ul>
 <li>如果右指针指向的元素不等于$ \textit{val}$，它一定是输出数组的一个元素，我们就将右指针指向的元素复制到左指针位置，然后将左右指针同时右移；</li>
 <li>如果右指针指向的元素等于$ \textit{val}$，它不能在输出数组里，此时左指针不动，右指针右移一位。</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int removeElement(int[] nums, int val) &#123;
-        int n &#x3D; nums.length;
-        int left &#x3D; 0;
-        for (int right &#x3D; 0; right &lt; n; right++) &#123;
-            if (nums[right] !&#x3D; val) &#123;
-                nums[left] &#x3D; nums[right];
-                left++;
-            &#125;
-        &#125;
-        return left;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeElement</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">!=</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                left<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> left<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 <h4 id="双指针优化"><a href="#双指针优化" class="headerlink" title="双指针优化"></a>双指针优化</h4><p>双指针从头尾向中间遍历，在序列$val$元素非常少时有效<sub>删除开头元素</sub></p>
 <p><strong>避免了需要保留的元素的重复赋值操作</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int removeElement(int[] nums, int val) &#123;
-        int left &#x3D; 0;
-        int right &#x3D; nums.length;
-        while (left &lt; right) &#123;
-            if (nums[left] &#x3D;&#x3D; val) &#123;
-                nums[left] &#x3D; nums[right - 1];
-                right--;
-            &#125; else &#123;
-                left++;
-            &#125;
-        &#125;
-        return left;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeElement</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>right <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                right<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                left<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> left<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 

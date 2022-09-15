@@ -760,12 +760,12 @@
 <li><strong>退出区：</strong>清除临界区访问标志</li>
 <li><strong>剩余区：</strong>其余代码</li>
 </ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">do&#123;
-    entry section;     &#x2F;&#x2F; 进入区
-    critical section;  &#x2F;&#x2F; 临界区
-    exit section;      &#x2F;&#x2F; 退出区
-    remainder section; &#x2F;&#x2F; 剩余区
-&#125;while(true)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">do</span><span class="token punctuation">&#123;</span>
+    entry section<span class="token punctuation">;</span>     <span class="token comment">// 进入区</span>
+    critical section<span class="token punctuation">;</span>  <span class="token comment">// 临界区</span>
+    exit section<span class="token punctuation">;</span>      <span class="token comment">// 退出区</span>
+    remainder section<span class="token punctuation">;</span> <span class="token comment">// 剩余区</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">while</span><span class="token punctuation">(</span>true<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>进程为协调工作次序等待</p>
 <h3 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h3><p>一个进程使用临界资源，另一个必须等待</p>
 <p><strong>遵循准则</strong></p>
@@ -778,42 +778,42 @@
 <h2 id="临界区互斥实现"><a href="#临界区互斥实现" class="headerlink" title="临界区互斥实现"></a>临界区互斥实现</h2><h3 id="软件实现方法"><a href="#软件实现方法" class="headerlink" title="软件实现方法"></a>软件实现方法</h3><p><strong>单标志法</strong></p>
 <p>设置公用变量<code>turn</code>，作为允许进入临界区进程编号</p>
 <p>但若$P_0$离开后$P_1$没有进入打算，<code>turn=1</code>恒成立，$P_0$无法再次进入</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;P0进程                   &#x2F;&#x2F;P1进程
-while(turn !&#x3D; 0);         while(turn !&#x3D; 1);    &#x2F;&#x2F; 进入区
-critical section;         critical section;    &#x2F;&#x2F; 临界区
-turn &#x3D; 1;                 turn &#x3D; 0;            &#x2F;&#x2F; 退出区
-remainder section;        remainder section;   &#x2F;&#x2F; 剩余区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//P0进程                   //P1进程</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>turn <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">while</span><span class="token punctuation">(</span>turn <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 进入区</span>
+critical section<span class="token punctuation">;</span>         critical section<span class="token punctuation">;</span>    <span class="token comment">// 临界区</span>
+turn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>                 turn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>            <span class="token comment">// 退出区</span>
+remainder section<span class="token punctuation">;</span>        remainder section<span class="token punctuation">;</span>   <span class="token comment">// 剩余区</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>双标志法先检查</strong></p>
 <p>进程访问前先检查临界资源是否正被访问</p>
 <p>设置<code>flag[i]</code>表示$P_i$进程是否进入临界区</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;Pi进程                   &#x2F;&#x2F;Pj进程
-while(flag[j]);   ①         while(falg[i]);  ②   &#x2F;&#x2F; 进入区
-flag[i] &#x3D; TRUE;   ③         flag[j] &#x3D; TURE;  ④   &#x2F;&#x2F; 进入区
-critical section;         critical section;      &#x2F;&#x2F; 临界区
-flag[i] &#x3D; FALSE;          flag[j] &#x3D; FALSE        &#x2F;&#x2F; 退出区
-remainder section;        remainder section;     &#x2F;&#x2F; 剩余区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//Pi进程                   //Pj进程</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   ①         <span class="token keyword">while</span><span class="token punctuation">(</span>falg<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  ②   <span class="token comment">// 进入区</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>   ③         flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> TURE<span class="token punctuation">;</span>  ④   <span class="token comment">// 进入区</span>
+critical section<span class="token punctuation">;</span>         critical section<span class="token punctuation">;</span>      <span class="token comment">// 临界区</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>          flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE        <span class="token comment">// 退出区</span>
+remainder section<span class="token punctuation">;</span>        remainder section<span class="token punctuation">;</span>     <span class="token comment">// 剩余区</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>优点：</strong>不用交替进入，可连续使用</li>
 <li><strong>缺点：</strong>$P_i$和$P_j$同时进入临界区，按①②③④顺序执行，会同时进入临界区<sub>检查对方<code>flag</code>和切换自己<code>flag</code>中间间隔</sub></li>
 </ul>
 <p><strong>双标志法后检查</strong></p>
 <p>先设置自己标志，再检测对方状态</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;Pi进程                   &#x2F;&#x2F;Pj进程
-flag[i] &#x3D; TRUE;           flag[j] &#x3D; TURE;    &#x2F;&#x2F; 进入区
-while(flag[j]);           while(falg[i]);    &#x2F;&#x2F; 进入区
-critical section;         critical section;  &#x2F;&#x2F; 临界区
-flag[i] &#x3D; FALSE;          flag[j] &#x3D; FALSE;   &#x2F;&#x2F; 退出区
-remainder section;        remainder section; &#x2F;&#x2F; 剩余区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//Pi进程                   //Pj进程</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>           flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> TURE<span class="token punctuation">;</span>    <span class="token comment">// 进入区</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token keyword">while</span><span class="token punctuation">(</span>falg<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 进入区</span>
+critical section<span class="token punctuation">;</span>         critical section<span class="token punctuation">;</span>  <span class="token comment">// 临界区</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>          flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>   <span class="token comment">// 退出区</span>
+remainder section<span class="token punctuation">;</span>        remainder section<span class="token punctuation">;</span> <span class="token comment">// 剩余区</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>双方进入临界区时，同时发现对方也要进入，造成饥饿现象</p>
 <p><strong>Peterson算法</strong></p>
 <p>先设置标志，再设置turn</p>
 <p>同时检测另一个进程标志和不许进入标志</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;Pi进程                   &#x2F;&#x2F;Pj进程
-flag[i] &#x3D; TRUE;turn &#x3D; j;  flag[j] &#x3D; TURE;turn &#x3D; i  &#x2F;&#x2F; 进入区
-while(flag[j]&amp;&amp;turn&#x3D;&#x3D;j);  while(falg[i]&amp;&amp; turn&#x3D;&#x3D;i);&#x2F;&#x2F; 进入区
-critical section;         critical section;  &#x2F;&#x2F; 临界区
-flag[i] &#x3D; FALSE;          flag[j] &#x3D; FALSE;   &#x2F;&#x2F; 退出区
-remainder section;        remainder section; &#x2F;&#x2F; 剩余区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//Pi进程                   //Pj进程</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>turn <span class="token operator">=</span> j<span class="token punctuation">;</span>  flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> TURE<span class="token punctuation">;</span>turn <span class="token operator">=</span> i  <span class="token comment">// 进入区</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>turn<span class="token operator">==</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">while</span><span class="token punctuation">(</span>falg<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span> turn<span class="token operator">==</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 进入区</span>
+critical section<span class="token punctuation">;</span>         critical section<span class="token punctuation">;</span>  <span class="token comment">// 临界区</span>
+flag<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>          flag<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>   <span class="token comment">// 退出区</span>
+remainder section<span class="token punctuation">;</span>        remainder section<span class="token punctuation">;</span> <span class="token comment">// 剩余区</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>请求资源前，先举起自己的Flag</li>
 <li>在资源上布置“另一个进程正在使用的标签”turn</li>
@@ -835,103 +835,103 @@ remainder section;        remainder section; &#x2F;&#x2F; 剩余区<span aria-hi
 <p>将关中断权限交予用户不安全</p>
 <p><strong>硬件指令方法</strong></p>
 <p>通过<code>TextAndSet</code>原子指令使得执行代码不得中断</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">boolean TestAndSet(boolean *lock)&#123;
-    boolean old;
-    old &#x3D; *lock;
-    *lock &#x3D; true;
-    return old;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">boolean <span class="token function">TestAndSet</span><span class="token punctuation">(</span>boolean <span class="token operator">*</span>lock<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    boolean old<span class="token punctuation">;</span>
+    old <span class="token operator">=</span> <span class="token operator">*</span>lock<span class="token punctuation">;</span>
+    <span class="token operator">*</span>lock <span class="token operator">=</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> old<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>即临界资源设置共享变量<code>lock</code>，<code>true</code>表示被占用</p>
 <p>实现互斥算法：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">while TestAndSet(&amp;lock);
-进程临界区代码段;
-lock &#x3D; false;
-进程其他代码;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span> <span class="token function">TestAndSet</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+进程临界区代码段<span class="token punctuation">;</span>
+lock <span class="token operator">=</span> false<span class="token punctuation">;</span>
+进程其他代码<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>自旋锁：通过<code>xchg</code>交换访问共享资源</p>
 <ul>
 <li><p>初始状态：共享资源区<code>key=1</code></p>
 </li>
 <li><p>原子操作<code>xchg</code>：将进程所持<code>key</code>与共享<code>key</code>互换</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">int xchg(volatile int *addr, int newval) &#123;
-  int result;
-  asm volatile (&quot;lock xchg %0, %1&quot;
-    : &quot;+m&quot;(*addr), &quot;&#x3D;a&quot;(result) : &quot;1&quot;(newval));
-  return result;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">xchg</span><span class="token punctuation">(</span><span class="token keyword">volatile</span> <span class="token keyword">int</span> <span class="token operator">*</span>addr<span class="token punctuation">,</span> <span class="token keyword">int</span> newval<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> result<span class="token punctuation">;</span>
+  <span class="token keyword">asm</span> <span class="token keyword">volatile</span> <span class="token punctuation">(</span><span class="token string">"lock xchg %0, %1"</span>
+    <span class="token operator">:</span> <span class="token string">"+m"</span><span class="token punctuation">(</span><span class="token operator">*</span>addr<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"=a"</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">(</span>newval<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>出临界区后，换回所持<code>key</code></p>
 </li>
 </ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">int table &#x3D; YES;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> table <span class="token operator">=</span> YES<span class="token punctuation">;</span>
 
-void lock() &#123;
-retry:
-  int got &#x3D; xchg(&amp;table, NOPE);
-  if (got &#x3D;&#x3D; NOPE)
-    goto retry;
-  assert(got &#x3D;&#x3D; YES);
-&#125;
+<span class="token keyword">void</span> <span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+retry<span class="token operator">:</span>
+  <span class="token keyword">int</span> got <span class="token operator">=</span> <span class="token function">xchg</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>table<span class="token punctuation">,</span> NOPE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>got <span class="token operator">==</span> NOPE<span class="token punctuation">)</span>
+    <span class="token keyword">goto</span> retry<span class="token punctuation">;</span>
+  <span class="token function">assert</span><span class="token punctuation">(</span>got <span class="token operator">==</span> YES<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-void unlock() &#123;
-  xchg(&amp;table, YES)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">xchg</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>table<span class="token punctuation">,</span> YES<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h2><p><strong>$P$操作</strong><code>wait(S)</code>：请求资源</p>
 <p><strong>$V$操作</strong><code>signal(S)</code>：释放资源</p>
 <h3 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h3><p><code>S</code>表示资源数目</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">wait(S)&#123;  &#x2F;&#x2F; 请求资源
-    while(s &lt;&#x3D; 0);  &#x2F;&#x2F; 资源耗尽
-    S &#x3D; S - 1;
-&#125;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">wait</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 请求资源</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>s <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 资源耗尽</span>
+    S <span class="token operator">=</span> S <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-signal(S)&#123;  &#x2F;&#x2F; 释放资源
-    S &#x3D; S + 1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">typedef struct&#123;
-    int value;  &#x2F;&#x2F; 整型资源数目
-    struct process *L;  &#x2F;&#x2F; 等待该资源进程链表
-&#125;semaphore;
+<span class="token function">signal</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 释放资源</span>
+    S <span class="token operator">=</span> S <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> value<span class="token punctuation">;</span>  <span class="token comment">// 整型资源数目</span>
+    <span class="token keyword">struct</span> <span class="token class-name">process</span> <span class="token operator">*</span>L<span class="token punctuation">;</span>  <span class="token comment">// 等待该资源进程链表</span>
+<span class="token punctuation">&#125;</span>semaphore<span class="token punctuation">;</span>
 
-void wait(semaphore S)&#123;  &#x2F;&#x2F; 申请资源
-    S.value--;
-    if(S.value &lt; 0)&#123;  &#x2F;&#x2F; 资源耗尽
-        add this process to S.L;
-    &#125;
-    block(S.L);  &#x2F;&#x2F; 自我阻塞，放弃处理机
-&#125;
+<span class="token keyword">void</span> <span class="token function">wait</span><span class="token punctuation">(</span>semaphore S<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 申请资源</span>
+    S<span class="token punctuation">.</span>value<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 资源耗尽</span>
+        add this process to S<span class="token punctuation">.</span>L<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">block</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 自我阻塞，放弃处理机</span>
+<span class="token punctuation">&#125;</span>
 
-void signal(semaphore)&#123;  &#x2F;&#x2F; 释放资源
-    S.value++;  &#x2F;&#x2F; 释放资源
-    if(S.value &lt;&#x3D; 0)&#123;  &#x2F;&#x2F; 仍有进程被阻塞
-        remove a process P from S.L;
-        wakeup(P);  &#x2F;&#x2F; 唤醒进程
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token function">signal</span><span class="token punctuation">(</span>semaphore<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 释放资源</span>
+    S<span class="token punctuation">.</span>value<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment">// 释放资源</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>value <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 仍有进程被阻塞</span>
+        remove a process P from S<span class="token punctuation">.</span>L<span class="token punctuation">;</span>
+        <span class="token function">wakeup</span><span class="token punctuation">(</span>P<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 唤醒进程</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="信号量实现同步"><a href="#信号量实现同步" class="headerlink" title="信号量实现同步"></a>信号量实现同步</h3><p><code>S</code>为$P_1、P_2$公共信号量，$P_2$要用$P_1$语句$x$的结果</p>
 <p>该方法亦可实现前驱</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore S &#x3D; 0;  &#x2F;&#x2F; 初始化信号量
-P1()&#123;
-    x;
-    V(S);  &#x2F;&#x2F; 告知x已完成
-&#125;
-P2()&#123;
-    P(S);  &#x2F;&#x2F; 阻塞，检查x是否完成
-    y;  &#x2F;&#x2F;执行y
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="信号量实现互斥"><a href="#信号量实现互斥" class="headerlink" title="信号量实现互斥"></a>信号量实现互斥</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore S &#x3D; 1;  &#x2F;&#x2F; 资源为1
-P1()&#123;
-    ...
-    P(S);  &#x2F;&#x2F; 准备访问，加锁
-    进程P1临界区;
-    V(S);  &#x2F;&#x2F; 访问结束，解锁
-    ...
-&#125;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore S <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化信号量</span>
+<span class="token function">P1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    x<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 告知x已完成</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">P2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 阻塞，检查x是否完成</span>
+    y<span class="token punctuation">;</span>  <span class="token comment">//执行y</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="信号量实现互斥"><a href="#信号量实现互斥" class="headerlink" title="信号量实现互斥"></a>信号量实现互斥</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore S <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 资源为1</span>
+<span class="token function">P1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 准备访问，加锁</span>
+    进程P1临界区<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 访问结束，解锁</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span>
 
-P2()&#123;
-    ...
-    P(S);  &#x2F;&#x2F; 准备访问，加锁
-    进程P2临界区;
-    V(S);  &#x2F;&#x2F; 访问结束，解锁
-    ...
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">P2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 准备访问，加锁</span>
+    进程P2临界区<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 访问结束，解锁</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h2><p>共享数据结构实施操作的一组过程</p>
 <h3 id="管程组成"><a href="#管程组成" class="headerlink" title="管程组成"></a>管程组成</h3><ul>
 <li>管程名称</li>
@@ -939,20 +939,20 @@ P2()&#123;
 <li>数据结构操作过程</li>
 <li>共享数据初始值</li>
 </ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">monitor Demo&#123;  &#x2F;&#x2F; 定义名称
-    &#x2F;&#x2F; 定义数据结构
-    init_code()&#123;  &#x2F;&#x2F; 数据初始值
-        S &#x3D; 5;
-    &#125;
-    take_away()&#123;  &#x2F;&#x2F; 申请资源
-        对共享数据结构x一系列处理;
-        S--;
-    &#125;
-    give_back()&#123;  &#x2F;&#x2F; 归还资源
-    	对共享数据结构x一系列处理;
-        S++;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">monitor Demo<span class="token punctuation">&#123;</span>  <span class="token comment">// 定义名称</span>
+    <span class="token comment">// 定义数据结构</span>
+    <span class="token function">init_code</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 数据初始值</span>
+        S <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">take_away</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 申请资源</span>
+        对共享数据结构x一系列处理<span class="token punctuation">;</span>
+        S<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">give_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 归还资源</span>
+    	对共享数据结构x一系列处理<span class="token punctuation">;</span>
+        S<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>管程把共享资源操作封装</li>
 <li>每次仅允许一个进程进入管程，实现进程互斥</li>
@@ -978,163 +978,163 @@ P2()&#123;
 <li>不同点：条件变量没有值，仅实现排队等待功能；信号量有值，反映剩余资源数</li>
 </ul>
 <p>需要等待条件满足时</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">mutex_lock(&amp;mutex);
-while (!cond) &#123;
-  wait(&amp;cv, &amp;mutex);
-&#125;
-assert(cond);
-&#x2F;&#x2F; ...
-&#x2F;&#x2F; 互斥锁保证了在此期间条件 cond 总是成立
-&#x2F;&#x2F; ...
-mutex_unlock(&amp;mutex);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>cond<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">wait</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cv<span class="token punctuation">,</span> <span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>cond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ...</span>
+<span class="token comment">// 互斥锁保证了在此期间条件 cond 总是成立</span>
+<span class="token comment">// ...</span>
+<span class="token function">mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其他线程条件可能被满足时</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">broadcast(&amp;cv);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">broadcast</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cv<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 <h2 id="同步问题"><a href="#同步问题" class="headerlink" title="同步问题"></a>同步问题</h2><h3 id="生产者-消费者问题"><a href="#生产者-消费者问题" class="headerlink" title="生产者-消费者问题"></a>生产者-消费者问题</h3><p>同步互斥问题</p>
 <p><strong>问题描述</strong></p>
 <p>一组生产者和一组消费者共享一个初始为空、大小为$n$的缓冲区，<br>只有缓冲区没满时，生产者才能把消息放入缓冲区，否则必须等待<br>只有缓冲区不空时，消费者才能从中取出消息，否则必须等待<br>缓冲区是临界资源，它只允许一个生产者放入消息，或一个消费者从中取出消息。</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore mutex &#x3D; 1;  &#x2F;&#x2F; 临界区互斥信号量
-semaphore empty &#x3D; n;  &#x2F;&#x2F; 空闲缓冲区
-semaphore full &#x3D; 0;  &#x2F;&#x2F; 缓冲区初始化为空
-producer()&#123;  &#x2F;&#x2F; 生产者进程
-    while(1)&#123;
-        produce a item in nextp;  &#x2F;&#x2F; 生产数据
-        P(empty);  &#x2F;&#x2F; 获取缓冲区单元
-        P(mutex);  &#x2F;&#x2F; 互斥，进入临界区
-        add nextp to buffer;  &#x2F;&#x2F; 数据放入缓冲区
-        V(mutex);  &#x2F;&#x2F; 离开临界区，释放互斥
-        V(full);  &#x2F;&#x2F; 释放缓冲区
-    &#125;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore mutex <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 临界区互斥信号量</span>
+semaphore empty <span class="token operator">=</span> n<span class="token punctuation">;</span>  <span class="token comment">// 空闲缓冲区</span>
+semaphore full <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 缓冲区初始化为空</span>
+<span class="token function">producer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 生产者进程</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        produce a item in nextp<span class="token punctuation">;</span>  <span class="token comment">// 生产数据</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>empty<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 获取缓冲区单元</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 互斥，进入临界区</span>
+        add nextp to buffer<span class="token punctuation">;</span>  <span class="token comment">// 数据放入缓冲区</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 离开临界区，释放互斥</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>full<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 释放缓冲区</span>
+    <span class="token punctuation">&#125;</span>
     
-consumer()&#123;  &#x2F;&#x2F; 消费者进程
-    while(1)&#123;
-        P(full);  &#x2F;&#x2F; 获取缓冲区单元
-        P(mutex);  &#x2F;&#x2F; 互斥，进入临界区
-        remove an item from buffer;  &#x2F;&#x2F; 缓冲区取出数据
-        V(mutex);  &#x2F;&#x2F; 离开临界区，释放互斥
-        V(empty);  &#x2F;&#x2F; 空缓冲区++
-        consume the item;  &#x2F;&#x2F; 消费数据
-    &#125;
-&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">consumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 消费者进程</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>full<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 获取缓冲区单元</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 互斥，进入临界区</span>
+        remove an item from buffer<span class="token punctuation">;</span>  <span class="token comment">// 缓冲区取出数据</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 离开临界区，释放互斥</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>empty<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 空缓冲区++</span>
+        consume the item<span class="token punctuation">;</span>  <span class="token comment">// 消费数据</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h3><p><strong>问题描述：</strong><br>读者和写者两组并发共享一个文件<br>允许多个读者可以同时对文件执行读操作<br>只允许一个写者往文件中写信息<br>任一写者在完成写操作之前不允许其他读者或写着工作<br>写者执行写操作前，应让已有的读者和写者全部退出。</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">int count &#x3D; 0;  &#x2F;&#x2F; 当前读者数量
-semaphore mutex &#x3D; 1;  &#x2F;&#x2F; 更新count互斥
-semaphore rw &#x3D; 1;  &#x2F;&#x2F; 保证读者写者互斥访问
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 当前读者数量</span>
+semaphore mutex <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 更新count互斥</span>
+semaphore rw <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 保证读者写者互斥访问</span>
 
-write()&#123;  &#x2F;&#x2F; 写者进程
-	while(1)&#123;
-		P(rw);  &#x2F;&#x2F; 互斥访问共享文件
-		writing;  &#x2F;&#x2F; 写入
-		V(rw);  &#x2F;&#x2F; 释放共享文件
-	&#125;
-&#125;
+<span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 写者进程</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">P</span><span class="token punctuation">(</span>rw<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 互斥访问共享文件</span>
+		writing<span class="token punctuation">;</span>  <span class="token comment">// 写入</span>
+		<span class="token function">V</span><span class="token punctuation">(</span>rw<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 释放共享文件</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-reader()&#123;  &#x2F;&#x2F; 读者进程
-	while(1)&#123;
-		P(mutex);  &#x2F;&#x2F; 互斥访问count变量
-		if(count &#x3D;&#x3D; 0)  &#x2F;&#x2F; 第一个读进程读共享文件
-			P(rw);  &#x2F;&#x2F; 阻止写进程写
-		count++;  &#x2F;&#x2F; 读者计数器++
-		V(mutex);  &#x2F;&#x2F; 释放互斥变量
-		reading; &#x2F;&#x2F; 读取
-		P(mutex);  &#x2F;&#x2F; 互斥访问count变量
-		count--;
-		if(count &#x3D;&#x3D; 0)  &#x2F;&#x2F; 当最后一个读进程读完共享文件
-			V(rw);  &#x2F;&#x2F; 允许写进程
-		V(mutex);  &#x2F;&#x2F; 释放互斥变量
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">reader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 读者进程</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 互斥访问count变量</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment">// 第一个读进程读共享文件</span>
+			<span class="token function">P</span><span class="token punctuation">(</span>rw<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 阻止写进程写</span>
+		count<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment">// 读者计数器++</span>
+		<span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 释放互斥变量</span>
+		reading<span class="token punctuation">;</span> <span class="token comment">// 读取</span>
+		<span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 互斥访问count变量</span>
+		count<span class="token operator">--</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment">// 当最后一个读进程读完共享文件</span>
+			<span class="token function">V</span><span class="token punctuation">(</span>rw<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 允许写进程</span>
+		<span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 释放互斥变量</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h3><p><strong>问题描述：</strong></p>
 <p>一张桌坐着5名哲学家<br>每两名哲学家之间桌上摆一根筷子<br>当哲学家饥饿时，才试图拿起左、右两根筷子<br>若筷子已在他人手上，则需等待<br>只有当哲学家同时拿起两根筷子才可进餐</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore chopsticks[5] &#x3D; &#123;1,1,1,1,1&#125;;  &#x2F;&#x2F; 初始化信号量
-semaphore mutex &#x3D; 1;  &#x2F;&#x2F; 设置取筷子信号量
-Pi()&#123;  &#x2F;&#x2F; i号哲学家进程
-    P(mutex);  &#x2F;&#x2F; 取筷子前获得互斥
-    P(chopsticks[i]);  &#x2F;&#x2F; 取左筷子
-    P(chopsticks[(i + 1) &amp; 5]);  &#x2F;&#x2F; 取右边筷子
-    V(mutex);  &#x2F;&#x2F; 释放取筷子信号量
-    eat;  &#x2F;&#x2F; 进餐
-    V(chopsticks[i]);  &#x2F;&#x2F; 放回左边筷子
-    V(chopsticks[(i + 1) &amp; 5]);  &#x2F;&#x2F; 放回右边筷子
-    think;  &#x2F;&#x2F; 继续思考
-&#125;while(1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore chopsticks<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化信号量</span>
+semaphore mutex <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 设置取筷子信号量</span>
+<span class="token function">Pi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// i号哲学家进程</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 取筷子前获得互斥</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>chopsticks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 取左筷子</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>chopsticks<span class="token punctuation">[</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 取右边筷子</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 释放取筷子信号量</span>
+    eat<span class="token punctuation">;</span>  <span class="token comment">// 进餐</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>chopsticks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 放回左边筷子</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>chopsticks<span class="token punctuation">[</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 放回右边筷子</span>
+    think<span class="token punctuation">;</span>  <span class="token comment">// 继续思考</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当一名哲学家左右筷子均可用，才允许抓起筷子</p>
 <ul>
 <li>避免贪心，多考虑一步</li>
 </ul>
 <p>万能方法</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">mutex_lock(&amp;mutex);
-while (!(avail[lhs] &amp;&amp; avail[rhs])) &#123;
-  wait(&amp;cv, &amp;mutex);
-&#125;
-avail[lhs] &#x3D; avail[rhs] &#x3D; false;
-mutex_unlock(&amp;mutex);
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>avail<span class="token punctuation">[</span>lhs<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> avail<span class="token punctuation">[</span>rhs<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">wait</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cv<span class="token punctuation">,</span> <span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+avail<span class="token punctuation">[</span>lhs<span class="token punctuation">]</span> <span class="token operator">=</span> avail<span class="token punctuation">[</span>rhs<span class="token punctuation">]</span> <span class="token operator">=</span> false<span class="token punctuation">;</span>
+<span class="token function">mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-mutex_lock(&amp;mutex);
-avail[lhs] &#x3D; avail[rhs] &#x3D; true;
-broadcast(&amp;cv);
-mutex_unlock(&amp;mutex);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+avail<span class="token punctuation">[</span>lhs<span class="token punctuation">]</span> <span class="token operator">=</span> avail<span class="token punctuation">[</span>rhs<span class="token punctuation">]</span> <span class="token operator">=</span> true<span class="token punctuation">;</span>
+<span class="token function">broadcast</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>管理者</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">void Tphilosopher(int id) &#123;
-  send_request(id, EAT);
-  P(allowed[id]); &#x2F;&#x2F; waiter 会把叉子递给哲学家
-  philosopher_eat();
-  send_request(id, DONE);
-&#125;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Tphilosopher</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">send_request</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> EAT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">P</span><span class="token punctuation">(</span>allowed<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// waiter 会把叉子递给哲学家</span>
+  <span class="token function">philosopher_eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">send_request</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> DONE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-void Twaiter() &#123;
-  while (1) &#123;
-    (id, status) &#x3D; receive_request();
-    if (status &#x3D;&#x3D; EAT) &#123; ... &#125;
-    if (status &#x3D;&#x3D; DONE) &#123; ... &#125;
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token function">Twaiter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span>id<span class="token punctuation">,</span> status<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">receive_request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">==</span> EAT<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">==</span> DONE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h3><p><strong>问题描述</strong></p>
 <p>有三个抽烟者和一个供应者进程<br>每个抽烟者不停卷烟并抽掉<br>但要卷起并抽掉一支烟，抽烟者需要有烟草、纸、胶水<br>三个抽烟者中，第一个拥有烟草，第二个拥有纸，第三个拥有胶水<br>供应者进程无限地提供三种材料<br>供应者每次将两种材料放到桌子上<br>拥有剩下那种材料的抽烟者卷一根烟并抽掉它<br>并给供应者一个信号告诉已完成<br>此时供应者就会将另外两种材料放到桌上<br>如此重复（让三个抽烟者轮流地抽烟)</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">int num &#x3D; 0;  &#x2F;&#x2F; 存储随机数
-semaphore offer1 &#x3D; 0;  &#x2F;&#x2F; 定义烟草和纸组合
-semaphore offer2 &#x3D; 0;  &#x2F;&#x2F; 定义烟草和胶水组合
-semaphore offer3 &#x3D; 0;  &#x2F;&#x2F; 定义纸和胶水组合
-process finish &#x3D; 0;  &#x2F;&#x2F; 表示抽烟是否完成
-process P1()&#123;  &#x2F;&#x2F; 供应者
-    while(1)&#123;
-        num++;
-        num &#x3D; num % 3;
-        if(num &#x3D;&#x3D; 0)
-            V(offer1);  &#x2F;&#x2F; 提供烟草和纸
-        else if(num &#x3D;&#x3D; 1)
-            V(offer2);  &#x2F;&#x2F; 提供烟草和胶水
-        else
-            V(offer3);  &#x2F;&#x2F; 提供纸和胶水
-        任意两种材料放在桌上;
-        P(finish);
-    &#125;
-    process P2()&#123;  &#x2F;&#x2F; 拥有烟草者
-        while(1)&#123;
-            P(offer3);  
-            取走纸和胶水，卷烟;
-            V(finish);
-        &#125;
-    &#125;
-    process P3()&#123;  &#x2F;&#x2F; 拥有纸者
-        while(1)&#123;
-            P(offer2);
-            取走烟草和胶水，卷烟;
-            V(finish);
-        &#125;
-    &#125;
-    process P4()&#123;  &#x2F;&#x2F; 拥有胶水者
-        while(1)&#123;
-            P(offer1);
-            取走烟草和纸，卷烟;
-            V(finish);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 存储随机数</span>
+semaphore offer1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 定义烟草和纸组合</span>
+semaphore offer2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 定义烟草和胶水组合</span>
+semaphore offer3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 定义纸和胶水组合</span>
+process finish <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 表示抽烟是否完成</span>
+process <span class="token function">P1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 供应者</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        num<span class="token operator">++</span><span class="token punctuation">;</span>
+        num <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>offer1<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 提供烟草和纸</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>offer2<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 提供烟草和胶水</span>
+        <span class="token keyword">else</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>offer3<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 提供纸和胶水</span>
+        任意两种材料放在桌上<span class="token punctuation">;</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>finish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    process <span class="token function">P2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 拥有烟草者</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">P</span><span class="token punctuation">(</span>offer3<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+            取走纸和胶水，卷烟<span class="token punctuation">;</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>finish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    process <span class="token function">P3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 拥有纸者</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">P</span><span class="token punctuation">(</span>offer2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            取走烟草和胶水，卷烟<span class="token punctuation">;</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>finish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    process <span class="token function">P4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 拥有胶水者</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">P</span><span class="token punctuation">(</span>offer1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            取走烟草和纸，卷烟<span class="token punctuation">;</span>
+            <span class="token function">V</span><span class="token punctuation">(</span>finish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>多个进程竞争资源造成互相等待</p>
 <h3 id="死锁原因"><a href="#死锁原因" class="headerlink" title="死锁原因"></a>死锁原因</h3><ul>
 <li>系统资源竞争</li>

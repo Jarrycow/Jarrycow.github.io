@@ -461,49 +461,49 @@
 </ul>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><p>设置标志记录“是否遇到空格”</p>
 <p>若遇到空格之后又遇到字母，则重新计数</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int lengthOfLastWord(String s) &#123;
-        if(s &#x3D;&#x3D; &quot;&quot;  ||  s &#x3D;&#x3D; null)
-            return 0;
-        int result &#x3D; 0;  &#x2F;&#x2F; 记录单词长度
-        int point &#x3D; 0;  &#x2F;&#x2F;  指向字符的指针
-        boolean reset &#x3D; true;  &#x2F;&#x2F; 重置指令：当接触到空格
-        while(point &lt; s.length())&#123;
-            if(s.charAt(point) &#x3D;&#x3D; &#39; &#39;)&#123;  &#x2F;&#x2F; 指到空格，标志重置
-                reset &#x3D; true;
-            &#125;
-            else if(reset)&#123;  &#x2F;&#x2F; 指到了字母，且标志重置
-                reset &#x3D; false;  &#x2F;&#x2F; 标志转换
-                result &#x3D; 1;  &#x2F;&#x2F; 指向第一个
-            &#125;  &#x2F;&#x2F; 即单词第一个
-            else if(!reset)&#123;  &#x2F;&#x2F; 指向不是第一个字母
-                ++result;
-            &#125;
-            ++point;
-        &#125;
-        return result;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLastWord</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token string">""</span>  <span class="token operator">||</span>  s <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 记录单词长度</span>
+        <span class="token keyword">int</span> point <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">//  指向字符的指针</span>
+        <span class="token keyword">boolean</span> reset <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// 重置指令：当接触到空格</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>point <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指到空格，标志重置</span>
+                reset <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指到了字母，且标志重置</span>
+                reset <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// 标志转换</span>
+                result <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 指向第一个</span>
+            <span class="token punctuation">&#125;</span>  <span class="token comment">// 即单词第一个</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>reset<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指向不是第一个字母</span>
+                <span class="token operator">++</span>result<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token operator">++</span>point<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(n)$——遍历</p>
 <p>空间复杂度：$O(1)$</p>
 <h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>倒序遍历</p>
 <p>先跳过空格</p>
 <p>到下一次遇到空格停止</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int lengthOfLastWord(String s) &#123;
-        int result &#x3D; 0; &#x2F;&#x2F; 记录单词长度
-        int point &#x3D; s.length() - 1; &#x2F;&#x2F; 指向字符的指针
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLastWord</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 记录单词长度</span>
+        <span class="token keyword">int</span> point <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 指向字符的指针</span>
 
-        while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) &#x3D;&#x3D; &#39; &#39;) &#x2F;&#x2F; 从最后开始计数，跳过所有空格
-            --point;
-        do &#123;
-            ++result;
-            --point;
-        &#125; while (point &gt;&#x3D; 0 &amp;&amp; s.charAt(point) !&#x3D; &#39; &#39;);
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token comment">// 从最后开始计数，跳过所有空格</span>
+            <span class="token operator">--</span>point<span class="token punctuation">;</span>
+        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+            <span class="token operator">++</span>result<span class="token punctuation">;</span>
+            <span class="token operator">--</span>point<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        return result;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

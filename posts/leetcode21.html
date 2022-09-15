@@ -454,55 +454,55 @@
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 <li><code>l1</code> 和 <code>l2</code> 均按 <strong>非递减顺序</strong> 排列</li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) &#123;
-        if(list1 &#x3D;&#x3D; null)    return list2;
-        if(list2 &#x3D;&#x3D; null)    return list1;
-        ListNode head &#x3D; new ListNode();  &#x2F;&#x2F; 生成的结果
-        ListNode p &#x3D; list1, q &#x3D; list2, node &#x3D; head;  &#x2F;&#x2F; 指向l1，l2的指针
-        while(p !&#x3D; null  &amp;&amp;  q !&#x3D; null)&#123;
-            node.next &#x3D; new ListNode();
-            node &#x3D; node.next;
-            if(p.val &lt; q.val)&#123;
-                node.val &#x3D; p.val;
-                p &#x3D; p.next;
-            &#125;else&#123;
-                node.val &#x3D; q.val;
-                q &#x3D; q.next;
-            &#125;
-        &#125;
-        if(p !&#x3D; null)&#123;
-            node.next &#x3D; p;
-        &#125;
-        if(q !&#x3D; null)&#123;
-            node.next &#x3D; q;
-        &#125;
-        return head.next;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="自己"><a href="#自己" class="headerlink" title="自己"></a>自己</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>    <span class="token keyword">return</span> list2<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>list2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>    <span class="token keyword">return</span> list1<span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 生成的结果</span>
+        <span class="token class-name">ListNode</span> p <span class="token operator">=</span> list1<span class="token punctuation">,</span> q <span class="token operator">=</span> list2<span class="token punctuation">,</span> node <span class="token operator">=</span> head<span class="token punctuation">;</span>  <span class="token comment">// 指向l1，l2的指针</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token keyword">null</span>  <span class="token operator">&amp;&amp;</span>  q <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> q<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>val <span class="token operator">=</span> p<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+                p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>val <span class="token operator">=</span> q<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+                q <span class="token operator">=</span> q<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>q <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ul>
 <li>终止条件：当两个链表都为空时，表示我们对链表已合并完成。</li>
 <li>如何递归：我们判断 <code>l1</code> 和 <code>l2</code> 头结点哪个更小，然后较小结点的 <code>next</code> 指针指向<strong>其余结点的合并结果。（调用递归）</strong></li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;
-        if (l1 &#x3D;&#x3D; null) &#123;
-            return l2;
-        &#125;
-        else if (l2 &#x3D;&#x3D; null) &#123;
-            return l1;
-        &#125;
-        else if (l1.val &lt; l2.val) &#123;
-            l1.next &#x3D; mergeTwoLists(l1.next, l2);
-            return l1;
-        &#125;
-        else &#123;
-            l2.next &#x3D; mergeTwoLists(l1, l2.next);
-            return l2;
-        &#125;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> l1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> l2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> l2<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> l1<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            l1<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> l1<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            l2<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> l2<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
 
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度：$O(m+n)$</p>
 <p>空间复杂度：$O(m+n)$</p>
 

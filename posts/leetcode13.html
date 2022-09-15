@@ -485,91 +485,91 @@ M             1000<span aria-hidden="true" class="line-numbers-rows"><span></spa
 </ul>
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><p>若小值在大值左边，就做减法</p>
 <p><strong>case比字典块很多</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int romanToInt(String s) &#123;
-        int sum &#x3D; 0;
-        int preNum &#x3D; getValue(s.charAt(0));
-        for(int i &#x3D; 1;i &lt; s.length(); i ++) &#123;
-            int num &#x3D; getValue(s.charAt(i));
-            if(preNum &lt; num) &#123;
-                sum -&#x3D; preNum;
-            &#125; else &#123;
-                sum +&#x3D; preNum;
-            &#125;
-            preNum &#x3D; num;
-        &#125;
-        sum +&#x3D; preNum;
-        return sum;
-    &#125;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> preNum <span class="token operator">=</span> <span class="token function">getValue</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token function">getValue</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>preNum <span class="token operator">&lt;</span> num<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                sum <span class="token operator">-=</span> preNum<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                sum <span class="token operator">+=</span> preNum<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            preNum <span class="token operator">=</span> num<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        sum <span class="token operator">+=</span> preNum<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
     
-    private int getValue(char ch) &#123;
-        switch(ch) &#123;
-            case &#39;I&#39;: return 1;
-            case &#39;V&#39;: return 5;
-            case &#39;X&#39;: return 10;
-            case &#39;L&#39;: return 50;
-            case &#39;C&#39;: return 100;
-            case &#39;D&#39;: return 500;
-            case &#39;M&#39;: return 1000;
-            default: return 0;
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token string">'I'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'V'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'X'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'L'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'C'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">100</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'D'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">500</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'M'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>将字符串拆分为特殊的和一般的，然后利用字典去取值</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution &#123;
-    public int romanToInt(String s) &#123;
-        &#x2F;* 增添分隔符 *&#x2F;
-        s &#x3D; s.replace(&quot;IV&quot;, &quot; IV &quot;);
-        s &#x3D; s.replace(&quot;IX&quot;, &quot; IX &quot;);
-        s &#x3D; s.replace(&quot;XL&quot;, &quot; XL &quot;);
-        s &#x3D; s.replace(&quot;XC&quot;, &quot; XC &quot;);
-        s &#x3D; s.replace(&quot;CD&quot;, &quot; CD &quot;);
-        s &#x3D; s.replace(&quot;CM&quot;, &quot; CM &quot;);
-        s &#x3D; s.replace(&quot;  &quot;, &quot; &quot;);
-        &#x2F;* 分割字符串 *&#x2F;
-        String[] dict &#x3D; s.split(&quot; &quot;);
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/* 增添分隔符 */</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"IV"</span><span class="token punctuation">,</span> <span class="token string">" IV "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"IX"</span><span class="token punctuation">,</span> <span class="token string">" IX "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"XL"</span><span class="token punctuation">,</span> <span class="token string">" XL "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"XC"</span><span class="token punctuation">,</span> <span class="token string">" XC "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"CD"</span><span class="token punctuation">,</span> <span class="token string">" CD "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"CM"</span><span class="token punctuation">,</span> <span class="token string">" CM "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"  "</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/* 分割字符串 */</span>
+        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dict <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        &#x2F;* 新建字典 *&#x2F;
-        Map&lt;String, Integer&gt; hashtable &#x3D; new HashMap&lt;String, Integer&gt;();
-        hashtable.put(&quot;I&quot;, 1);
-        hashtable.put(&quot;V&quot;, 5);
-        hashtable.put(&quot;X&quot;, 10);
-        hashtable.put(&quot;L&quot;, 50);
-        hashtable.put(&quot;C&quot;, 100);
-        hashtable.put(&quot;D&quot;, 500);
-        hashtable.put(&quot;M&quot;, 1000);
-        hashtable.put(&quot;IV&quot;, 4);
-        hashtable.put(&quot;IX&quot;, 9);
-        hashtable.put(&quot;XL&quot;, 40);
-        hashtable.put(&quot;XC&quot;, 90);
-        hashtable.put(&quot;CD&quot;, 400);
-        hashtable.put(&quot;CM&quot;, 900);
+        <span class="token comment">/* 新建字典 */</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> hashtable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"V"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"X"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"L"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"D"</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"M"</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"IV"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"IX"</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"XL"</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"XC"</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"CD"</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"CM"</span><span class="token punctuation">,</span> <span class="token number">900</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        int num &#x3D; 0;
+        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-        for(String item : dict)&#123;
-            if(hashtable.containsKey(item))
-                num +&#x3D; hashtable.get(item);
-            else&#123;
-                for(char ch : item.toCharArray())&#123;
-                    num +&#x3D; hashtable.get(String.valueOf(ch));
-                &#125;
-            &#125;
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> item <span class="token operator">:</span> dict<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>hashtable<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                num <span class="token operator">+=</span> hashtable<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span> item<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    num <span class="token operator">+=</span> hashtable<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
                 
-        &#125;
-        return num;
-    &#125;
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> num<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
     
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Java字符串操作"><a href="#Java字符串操作" class="headerlink" title="Java字符串操作"></a>Java字符串操作</h2><p><strong>字符串替换</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.replace(old_str, new_str);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>old_str<span class="token punctuation">,</span> new_str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>字符串转换字符数组</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.toCharArray();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>字符转化为字符串</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">String.valueOf(ch)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>字符串分割</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">s.split(grex);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span>grex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>

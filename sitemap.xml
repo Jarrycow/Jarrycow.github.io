@@ -436,13 +436,6 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/git/</loc>
-    <lastmod>2022-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jarrycow.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -451,6 +444,13 @@
   
   <url>
     <loc>http://jarrycow.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jarrycow.top/tags/git/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

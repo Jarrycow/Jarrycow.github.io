@@ -74,7 +74,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -570,7 +570,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
+                <span id="more"></span>
 
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>实现$x^n$</p>
 <p><strong>示例 1：</strong></p>
@@ -598,6 +598,7 @@
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="官方：快速幂"><a href="#官方：快速幂" class="headerlink" title="官方：快速幂"></a>官方：快速幂</h2><p>时间复杂度$O(\log_2n)$计算$x^n$</p>
 <p>每一步将$n$对半分进行平方计算</p>
 <h3 id="递归快速幂"><a href="#递归快速幂" class="headerlink" title="递归快速幂"></a>递归快速幂</h3><p>$$<br>a^n=\left{\begin{matrix}<br>a^{n-1}\cdot a &amp; n%2\ne0\<br>a^{\frac n2\cdot a^{\frac n2}}&amp;   n%2=0 &amp; \text{AND} &amp; n\ne 0\<br>1 &amp; n=0<br>\end{matrix}\right.<br>$$</p>
@@ -615,6 +616,7 @@
         <span class="token keyword">return</span> <span class="token class-name">N</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> y <span class="token operator">*</span> y <span class="token operator">:</span> y <span class="token operator">*</span> y <span class="token operator">*</span> x<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="迭代快速幂"><a href="#迭代快速幂" class="headerlink" title="迭代快速幂"></a>迭代快速幂</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">myPow</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">long</span> <span class="token class-name">N</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
@@ -639,6 +641,7 @@
         <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>

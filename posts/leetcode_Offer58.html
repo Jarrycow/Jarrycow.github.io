@@ -66,7 +66,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -566,7 +566,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
+                <span id="more"></span>
 
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串”abcdefg”和数字2，该函数将返回左旋转两位得到的结果”cdefgab”。</p>
 <p><strong>示例 1：</strong></p>
@@ -588,11 +588,13 @@
         <span class="token keyword">return</span> s1 <span class="token operator">+</span> s0<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="字符串切片"><a href="#字符串切片" class="headerlink" title="字符串切片"></a>字符串切片</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">reverseLeftWords</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$，实际效率最高</p>
 <p>空间复杂度：$O(n)$</p>
 <h3 id="列表遍历拼接"><a href="#列表遍历拼接" class="headerlink" title="列表遍历拼接"></a>列表遍历拼接</h3><ol>
@@ -611,6 +613,7 @@
         <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>可以利用求余简化代码</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">reverseLeftWords</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -620,6 +623,7 @@
         <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$，<code>StringBuilder</code>为可变对象，最终添加新的字符元素<strong>仅申请1次内存</strong></p>
 <p>空间复杂度：$O(n)$</p>
 <h3 id="字符串遍历拼接"><a href="#字符串遍历拼接" class="headerlink" title="字符串遍历拼接"></a>字符串遍历拼接</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -632,6 +636,7 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$，字符串为不可变对象，每轮拼接都要新建一个字符串，效率低下</p>
 <p>空间复杂度：$O(n)$</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><p><strong>字符串按位置切片</strong></p>

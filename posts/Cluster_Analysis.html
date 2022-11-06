@@ -65,7 +65,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -558,7 +558,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>物以类聚，人以群分</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h2><p>以模式样本特征向量之间的距离，来作为样本相似度的依据</p>
 <h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>$D(X_1X_2)=\left|X_1-X_2\right|=\sqrt{(X_1-X_2)^T(X_1-X_2)}\=\sqrt{(x_{11}-x_{21})^2+\cdots +(x_{1n}-x_{2n})^2}$</p>
@@ -578,6 +578,7 @@
         distance <span class="token operator">+=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span>data1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>data2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
     distance <span class="token operator">=</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>distance<span class="token punctuation">)</span>
     <span class="token keyword">return</span> distance<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h3><p>样本点到均值向量的距离</p>
 <p>聚类分析中经常使用的一个判定准则是样本的到均值向量的距离是否小于给定的阈值</p>
 <p>$X$——模式向量</p>
@@ -609,6 +610,7 @@
         data2 <span class="token operator">=</span> data<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment"># 样本均值</span>
     distance <span class="token operator">=</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>data1 <span class="token operator">-</span> data2<span class="token punctuation">,</span> inC<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data1 <span class="token operator">-</span> data2<span class="token punctuation">)</span><span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 根号&#123;(x-y)^T·S^&#123;-1&#125;·(x-y)&#125;</span>
     <span class="token keyword">return</span> distance<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>缺点</strong></p>
 <ul>
 <li>协方差矩阵必须满秩，即数据个数必须大于等于特征个数</li>

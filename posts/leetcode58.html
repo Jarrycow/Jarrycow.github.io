@@ -67,7 +67,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -565,7 +565,7 @@
             <div id="articleContent">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
 <p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大子字符串。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><strong>示例 1：</strong></p>
 <blockquote>
@@ -598,7 +598,7 @@
         <span class="token keyword">int</span> point <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">//  指向字符的指针</span>
         <span class="token keyword">boolean</span> reset <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// 重置指令：当接触到空格</span>
         <span class="token keyword">while</span><span class="token punctuation">(</span>point <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指到空格，标志重置</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指到空格，标志重置</span>
                 reset <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
             <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 指到了字母，且标志重置</span>
@@ -613,6 +613,7 @@
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$——遍历</p>
 <p>空间复杂度：$O(1)$</p>
 <h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>倒序遍历</p>
@@ -623,16 +624,17 @@
         <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 记录单词长度</span>
         <span class="token keyword">int</span> point <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 指向字符的指针</span>
 
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token comment">// 从最后开始计数，跳过所有空格</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">' '</span><span class="token punctuation">)</span> <span class="token comment">// 从最后开始计数，跳过所有空格</span>
             <span class="token operator">--</span>point<span class="token punctuation">;</span>
         <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
             <span class="token operator">++</span>result<span class="token punctuation">;</span>
             <span class="token operator">--</span>point<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>point <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>

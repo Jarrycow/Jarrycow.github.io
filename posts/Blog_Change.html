@@ -65,7 +65,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -562,7 +562,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>换了新电脑后，迁移博客</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>起初，我以为只要<code>clone</code>博客的Github就行，但是我们利用<code>hexo d</code>上传到GitHub中的是博客网页的相关文件，博客本身包括主题文件等并未上传。</p>
 <p>这里，就可以使用git的分支，来传输文件。每次打开不同电脑，只要在GitHub同步文件下来即可。</p>
@@ -582,11 +582,13 @@ Thumbs.db
 db.json
 *.log
 node_moudles&#x2F;
-public&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+public&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>提交到<code>branch</code>分支</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add .
 git commit -m &quot;add branch&quot;
 git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 
 </li>
 </ol>
@@ -595,19 +597,22 @@ git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <li><p>安装<code>git</code>、<code>nodeJS</code></p>
 </li>
 <li><p>安装<code>hexo</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>在目录下<code>git clone</code></p>
 </li>
 <li><p>进入该文件夹，初始化<code>hexo</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install
-npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>生成部署</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo g
 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre><code>
-</code></pre>
+
 </li>
 </ol>
+<pre><code>
+</code></pre>
 
                 
             </div>

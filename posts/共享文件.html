@@ -67,7 +67,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -562,14 +562,17 @@
 <p>cmd输入</p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">\\服务器ip
 \\服务器ip\共享名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="隐藏共享"><a href="#隐藏共享" class="headerlink" title="隐藏共享"></a>隐藏共享</h3><p>在共享名称会面加上$<br><img src="https://img-blog.csdnimg.cn/20200329164918531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>远程连接时必须加上共享名称<br><img src="https://img-blog.csdnimg.cn/20200329164936281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="共享命令"><a href="#共享命令" class="headerlink" title="共享命令"></a>共享命令</h3><pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">net share # 查看计算机当前共享的所有文件
 net share # 共享名 &#x2F;del    取消共享
 net share d$&#x3D;c:\    # 创建共享 d为共享名，c:\为共享文件路径
 net share d$ &#x2F;del   # 关闭共享<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="关闭共享"><a href="#关闭共享" class="headerlink" title="关闭共享"></a>关闭共享</h3><p><strong>作用</strong>：服务器默认打开盘共享，必须关闭，否则相当危险</p>
 <p>永久关闭默认共享，通过注册表来修改。使用windows+R键输入<code>regedit</code>调出注册表编辑器。<br>先通过命令删除</p>
 <pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">net share 共享名 &#x2F;del   # 关闭共享<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>修改注册表，不让其开机启动<br><img src="https://img-blog.csdnimg.cn/202003291707549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters<br>右键新建一个DWORD类型的Autoshareserver的键，值为0.<br><img src="https://img-blog.csdnimg.cn/20200329171428344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>关机重启 查看<code>net share</code><br><img src="https://img-blog.csdnimg.cn/20200329172217977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="关闭445服务"><a href="#关闭445服务" class="headerlink" title="关闭445服务"></a>关闭445服务</h3><p><strong>作用</strong>：网页服务器不打开共享服务</p>
 <p><strong>1）打开services.msc 停止并禁用server服务</strong><br>关闭IPC$ 远程IPC<br>Win + R – <code>services.msc</code><br>禁用server这个服务，关闭了445端口 不提供共享服务<br><img src="https://img-blog.csdnimg.cn/2020032917315949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>重启计算机<br>已经没有共享选项<br><img src="https://img-blog.csdnimg.cn/20200329173657592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>2）配置高级安全防火墙 – 入站规则</strong>（win7/win2008系统以上才有）</p>

@@ -61,7 +61,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -588,6 +588,7 @@
         <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h4 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h4><p>右指针$\textit{right}$指向当前将要处理的元素<br>左指针$ \textit{left}$指向下一个将要赋值的位置</p>
 <ul>
 <li>如果右指针指向的元素不等于$ \textit{val}$，它一定是输出数组的一个元素，我们就将右指针指向的元素复制到左指针位置，然后将左右指针同时右移；</li>
@@ -606,6 +607,7 @@
         <span class="token keyword">return</span> left<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 <h4 id="双指针优化"><a href="#双指针优化" class="headerlink" title="双指针优化"></a>双指针优化</h4><p>双指针从头尾向中间遍历，在序列$val$元素非常少时有效<sub>删除开头元素</sub></p>
@@ -625,6 +627,7 @@
         <span class="token keyword">return</span> left<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 

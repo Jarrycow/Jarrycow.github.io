@@ -66,7 +66,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -562,7 +562,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
+                <span id="more"></span>
 
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你两个整数，<code>n</code> 和 <code>start</code> 。</p>
 <p>数组 <code>nums</code> 定义为：<code>nums[i] = start + 2*i</code>（下标从 0 开始）且 <code>n == nums.length</code> 。</p>
@@ -598,6 +598,7 @@
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><p>$\forall i \in Z$，$4i\oplus(4i+1)\oplus(4i+2)\oplus(4i+3)=0$</p>
 <p>则$$sumXor\left( x \right) =\left{ \begin{array}{l}<br>    x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ x=4k\<br>    \left( x-1 \right) \oplus x=1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  x=4k+1\<br>    \left( x-2 \right) \oplus \left( x-1 \right) \oplus x=x+1\ \ \ \ \ \ \ \ \ \ \ \ \ x=4k+2\<br>    \left( x-3 \right) \oplus \left( x-2 \right) \oplus \left( x-1 \right) \oplus x=0\ \ \ \ x=4k+3\<br>\end{array} \right. $$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -620,6 +621,7 @@
         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度：$O(1)$</p>
 <p>空间复杂度：$O(1)$</p>
 

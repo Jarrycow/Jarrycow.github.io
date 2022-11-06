@@ -67,7 +67,7 @@ C ">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 
@@ -576,6 +576,7 @@ L             50
 C             100
 D             500
 M             1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>例如， 罗马数字 <code>2</code> 写做 <code>II</code> ，即为两个并列的 1 。<code>12</code> 写做 <code>XII</code> ，即为 <code>X</code> + <code>II</code> 。 <code>27</code> 写做 <code>XXVII</code>, 即为 <code>XX</code> + <code>V</code> + <code>II</code> 。</p>
 <p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <code>IIII</code>，而是 <code>IV</code>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <code>IX</code>。这个特殊的规则只适用于以下六种情况：</p>
 <ul>
@@ -633,17 +634,18 @@ M             1000<span aria-hidden="true" class="line-numbers-rows"><span></spa
     
     <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">switch</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">case</span> <span class="token string">'I'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'V'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'X'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'L'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'C'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">100</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'D'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">500</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">'M'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'I'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'V'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'X'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'L'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'C'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">100</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'D'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">500</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token char">'M'</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span>
             <span class="token keyword">default</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>将字符串拆分为特殊的和一般的，然后利用字典去取值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -691,14 +693,19 @@ M             1000<span aria-hidden="true" class="line-numbers-rows"><span></spa
 
     
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Java字符串操作"><a href="#Java字符串操作" class="headerlink" title="Java字符串操作"></a>Java字符串操作</h2><p><strong>字符串替换</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>old_str<span class="token punctuation">,</span> new_str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>字符串转换字符数组</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>字符转化为字符串</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>字符串分割</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span>grex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 
                 
             </div>

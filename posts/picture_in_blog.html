@@ -5,11 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="博客插入图片">
-    <meta name="description" content="
+    <meta name="description" content="博客的图片始终让人头疼，有时候神奇的成功了，有时候又神奇的不成功
 
 
-
-">
+最为无脑的方式，一定是图片路径选择\images\路径，但博客图片多起来之后会非常乱。因此，将 _config.yml 文件中修改post_asset_folder，使得">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -474,7 +473,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/picture_in_blog.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -522,7 +521,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-06
+                    2022-11-07
                 </div>
                 
 
@@ -544,10 +543,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <span id="more"></span>
+                <p>博客的图片始终让人头疼，有时候神奇的成功了，有时候又神奇的不成功</p>
+<span id="more"></span>
 
-<p><img src="pictureinblog/qm.jpg"></p>
-<p><img src="test/test.jpg"></p>
+<p>最为无脑的方式，一定是图片路径选择<code>\images\</code>路径，但博客图片多起来之后会非常乱。因此，将 _config.yml 文件中修改<code>post_asset_folder</code>，使得使用<code>hexo new &quot;&#123;name&#125;&quot;</code>新建博客文章时，也会在<code>_post</code>目录下自动生成<code>[name]</code>文件夹。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">post_asset_folder: true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这样，理论上来说，只需要在博客中使用<code>![](/&#123;name&#125;/&#123;pic.name&#125;)</code>即可上传图片。但是实际操作时，在本地Markdown文件都是可以显示，但是上传到博客之后却无法显示。</p>
+<p><img src="%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/logo.png"></p>
+<p>可以看到，在资源这里，包含图片的文件夹压根就没有上传上来</p>
+<p><img src="images/%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/F12.png"></p>
+<p>略微测试了下，猜测有以下原因：</p>
+<ul>
+<li>标题用的中文，生成的文件夹自然是中文，可能对中文不兼容</li>
+<li>因此，我习惯性将文件夹和abbrlink对应，这样导致<code>&#123;post.name&#125;</code>和文件夹不同名而不会上传</li>
+</ul>
+<p>因此，我新建了一个博客<code>images</code>，之后所有路径都放置在<code>images\&#123;postname&#125;\</code>下</p>
+<p><img src="images/%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/logo.png"></p>
+<h2 id="文件隐藏"><a href="#文件隐藏" class="headerlink" title="文件隐藏"></a>文件隐藏</h2><p>接下来其实想把images博客隐藏掉，但是不能让他不上传，否则文件夹会一起不上传，导致又无法显示</p>
 
                 
             </div>
@@ -963,7 +976,7 @@
                 <a href="/posts/picture_in_blog.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="博客插入图片">
+                        <img src="/medias/featureimages/picture_in_blog.png" class="responsive-img" alt="博客插入图片">
                         
                         <span class="card-title">博客插入图片</span>
                     </div>
@@ -971,7 +984,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            博客的图片始终让人头疼，有时候神奇的成功了，有时候又神奇的不成功
                         
                     </div>
                     <div class="publish-info">

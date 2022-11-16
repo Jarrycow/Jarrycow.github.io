@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="matery主题的配置, Jarrycow&#39;s Blog">
-    <meta name="description" content="matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置">
+    <meta name="keywords" content="next主题搭建, Jarrycow&#39;s Blog">
+    <meta name="description" content="设置菜单 
+
+打开themes/next下的_config.yml
+menu:
+  home: / || home                      #首页
+  archives: /archives/ || archive    ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>matery主题的配置 | Jarrycow&#39;s Blog</title>
+    <title>next主题搭建 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -84,7 +89,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/" class="waves-effect waves-light">
+    <a href="/index" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -275,7 +280,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/" class="waves-effect waves-light">
+		<a href="/index" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -470,12 +475,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/matery.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/next.jfif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">matery主题的配置</h1>
+                    <h1 class="description center-align post-title">next主题搭建</h1>
                 </div>
             </div>
         </div>
@@ -524,14 +529,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-07-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-30
+                    2022-11-07
                 </div>
                 
 
@@ -553,263 +558,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置</p>
-<span id="more"></span>
+                <h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2> <span id="more"></span>
 
-<h1 id="文章开头format格式"><a href="#文章开头format格式" class="headerlink" title="文章开头format格式"></a>文章开头format格式</h1><table>
-<thead>
-<tr>
-<th align="left">配置选项</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>title</code></td>
-<td align="left">文件标题</td>
-<td align="left">文章标题</td>
-</tr>
-<tr>
-<td align="left"><code>date</code></td>
-<td align="left">创建时间</td>
-<td align="left">发布时间</td>
-</tr>
-<tr>
-<td align="left"><code>author</code></td>
-<td align="left"><code>_config.yml</code>  &gt; <code>author</code></td>
-<td align="left">文章作者</td>
-</tr>
-<tr>
-<td align="left"><code>img</code></td>
-<td align="left"><code>featureImages</code> 中的某个值</td>
-<td align="left">文章封面图(默认在<code>/medias/featureimages/xxx.png</code>)</td>
-</tr>
-<tr>
-<td align="left"><code>top</code></td>
-<td align="left"><code>true</code></td>
-<td align="left">首页推荐文章</td>
-</tr>
-<tr>
-<td align="left"><code>cover</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">文章加入首页轮播</td>
-</tr>
-<tr>
-<td align="left"><code>coverImg</code></td>
-<td align="left"><code>featureImages</code></td>
-<td align="left">首页轮播封面显示图片</td>
-</tr>
-<tr>
-<td align="left"><code>password</code></td>
-<td align="left"></td>
-<td align="left">文章阅读密码</td>
-</tr>
-<tr>
-<td align="left"><code>toc</code></td>
-<td align="left"><code>true</code></td>
-<td align="left">开启 TOC</td>
-</tr>
-<tr>
-<td align="left"><code>mathjax</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">开启数学公式</td>
-</tr>
-<tr>
-<td align="left"><code>summary</code></td>
-<td align="left"></td>
-<td align="left">文章摘要(我喜欢在正文用<code>&lt;!-- more --&gt;</code>)</td>
-</tr>
-<tr>
-<td align="left"><code>categories</code></td>
-<td align="left"></td>
-<td align="left">文章分类</td>
-</tr>
-<tr>
-<td align="left"><code>tags</code></td>
-<td align="left"></td>
-<td align="left">文章标签</td>
-</tr>
-<tr>
-<td align="left"><code>keywords</code></td>
-<td align="left">文章标题</td>
-<td align="left">SEO关键字</td>
-</tr>
-<tr>
-<td align="left"><code>reprintPolicy</code></td>
-<td align="left"><code>cc_by</code></td>
-<td align="left">文章转载规则， 可以是<code>cc_by</code>、<code>cc_by_nd</code>、<code>cc_by_sa</code>、<code>cc_by_nc</code>、 <code>cc_by_nc_nd</code>、<code>cc_by_nc_sa</code>、<code>cc0</code>、<code>noreprint</code>、<code>pay</code></td>
-</tr>
-</tbody></table>
-<p>可以在<code>\scaffolds\post.md</code>中修改模板</p>
-<h1 id="基础修改"><a href="#基础修改" class="headerlink" title="基础修改"></a>基础修改</h1><h2 id="修改网站图标"><a href="#修改网站图标" class="headerlink" title="修改网站图标"></a>修改网站图标</h2><p><code>\themes\source\favicon.png</code></p>
-<p><code>\themes\source\medias</code></p>
-<h2 id="修改副标题"><a href="#修改副标题" class="headerlink" title="修改副标题"></a>修改副标题</h2><p>修改<code>themes\_config.yml</code> &gt; <code>subtitle:</code></p>
-<p>在<code>sub</code>下添加语句</p>
-<h2 id="修改网站背景图"><a href="#修改网站背景图" class="headerlink" title="修改网站背景图"></a>修改网站背景图</h2><p>修改<code>themes\_config.yml</code> &gt; <code>background:</code></p>
-<p>将<code>enable</code>修改为<code>true</code>，<code>url</code>修改</p>
-<p>将<code>indexbtn:</code>下<code>url</code>修改</p>
-<h2 id="修改个人联系"><a href="#修改个人联系" class="headerlink" title="修改个人联系"></a>修改个人联系</h2><p>在<code>\themes\_config.yml</code>中，对<code>socialLink:</code>进行修改</p>
-<p>若想添加B站，在在<code>\themes\_config.yml</code> &gt; <code>socialLink:</code>下添加<code>bilibili: #https://space.bilibili.com/xxx</code>，并在<code>\themes\layout\_partial\social-link.ejs</code>添加</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;% if (theme.socialLink.bilibili) <span class="token punctuation">&#123;</span> %<span class="token punctuation">></span>
-    &lt;a href="&lt;%= theme.socialLink.bilibili %<span class="token punctuation">></span>" class="tooltipped" target="_blank" data<span class="token punctuation">-</span>tooltip="在B站上关注我" data<span class="token punctuation">-</span>position="top" data<span class="token punctuation">-</span>delay="50"<span class="token punctuation">></span>
-        &lt;i class="fas fa<span class="token punctuation">-</span>play<span class="token punctuation">-</span>circle"<span class="token punctuation">></span>&lt;/i<span class="token punctuation">></span>
-    &lt;/a<span class="token punctuation">></span>
-&lt;% <span class="token punctuation">&#125;</span> %<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="添加友链"><a href="#添加友链" class="headerlink" title="添加友链"></a>添加友链</h2><p>在<code>source\_data\friend.json</code>中添加</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"图片链接"</span><span class="token punctuation">,</span>
-    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"友链名"</span><span class="token punctuation">,</span>
-    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"介绍"</span><span class="token punctuation">,</span>
-    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"友情链接"</span><span class="token punctuation">,</span>
-    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"按钮标题"</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="主界面的修改"><a href="#主界面的修改" class="headerlink" title="主界面的修改"></a>主界面的修改</h1><h2 id="取消蒙版"><a href="#取消蒙版" class="headerlink" title="取消蒙版"></a>取消蒙版</h2><p>在<code>theme\source\css\matery.css</code>，注释</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.bg-cover:after</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">-webkit-animation</span><span class="token punctuation">:</span> rainbow 60s infinite<span class="token punctuation">;</span>
-    <span class="token property">animation</span><span class="token punctuation">:</span> rainbow 60s infinite<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="更改图片"><a href="#更改图片" class="headerlink" title="更改图片"></a>更改图片</h2><p>在<code>\themes\source\medias\banner</code>下替换图片(命名为0~7)</p>
-<h2 id="主界面视频"><a href="#主界面视频" class="headerlink" title="主界面视频"></a>主界面视频</h2><p>主界面除了图片之外，还可以使用视频</p>
-<p>在<code>\themes\_config.yml</code>的<code>cover:</code>下的<code>video:</code>下的<code>enable:</code>改为<code>true</code>，并在其下的<code>src:</code>给出视频链接</p>
-<h1 id="菜单的设置"><a href="#菜单的设置" class="headerlink" title="菜单的设置"></a>菜单的设置</h1><p>在<code>\themes\_config.yml</code>中，对<code>menu:</code>进行修改</p>
+<p>打开<code>themes/next</code>下的<code>_config.yml</code></p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
-  <span class="token key atrule">Index</span><span class="token punctuation">:</span>
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> /
-    <span class="token key atrule">icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> home                      <span class="token comment">#首页</span>
+  <span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> archive      <span class="token comment">#归档</span>
+  <span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> th       <span class="token comment">#分类</span>
+  <span class="token key atrule">tags</span><span class="token punctuation">:</span> /tags/ <span class="token punctuation">|</span><span class="token punctuation">|</span> tags                 <span class="token comment">#标签</span>
+  <span class="token key atrule">about</span><span class="token punctuation">:</span> /about/ <span class="token punctuation">|</span><span class="token punctuation">|</span> user               <span class="token comment">#关于</span>
+  <span class="token comment">#schedule: /schedule/ || calendar    #日历</span>
+  <span class="token comment">#sitemap: /sitemap.xml || sitemap    #站点地图，供搜索引擎爬取</span>
+  <span class="token comment">#commonweal: /404/ || heartbeat      #腾讯公益404</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>其中，<code>url</code>指目录指向链接，该链接生成需在<code>git bash</code>中用<code>hexo new page &quot;...&quot;</code>生成文件夹；<code>icon</code>使用Font Awesome</p>
-<p>若想要生成二级目录，可如下使用<code>children</code>    </p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">Index</span><span class="token punctuation">:</span>
-	<span class="token key atrule">children</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> 关于我
-        <span class="token key atrule">url</span><span class="token punctuation">:</span> /about
-        <span class="token key atrule">icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>user<span class="token punctuation">-</span>circle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>英文名称:  /目标地址/  ||  图标(Font Awesome)</code></p>
+<p>将对应英文翻译中文，打开<code>theme/next/languages/zh-CN.yml</code>，在<code>menu</code>下编辑翻译</p>
+<p>在根目录下打开Git Bash，添加页面，会在根目录的<code>sources</code>文件夹下会生成<code>categories</code>、<code>tags</code>、<code>about</code>子文件夹</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page &quot;categories&quot;
+hexo new page &quot;tags&quot;
+hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>其中，<code>-</code>引领具体的二次目录；<code>name</code>为二级目录名称</p>
-<p>最后，在<code>\themes\languages\zh-CN.yml</code>下替换翻译</p>
-<h1 id="404界面更改-未完成"><a href="#404界面更改-未完成" class="headerlink" title="404界面更改(未完成)"></a>404界面更改(未完成)</h1><p>在<code>source</code>文件夹下新建<code>404.md</code>，内容开头包括</p>
-<pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">title: 404
-date: 20xx-xx-xx xx:xx:xx
-type: &quot;404&quot;
-layout: &quot;404&quot;
-description: &quot;随便啥404界面的描述&quot;
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"> 
-    <span class="token comment">/* don't remove. */</span> 
-    <span class="token selector">.about-cover</span> <span class="token punctuation">&#123;</span> 
-        <span class="token property">height</span><span class="token punctuation">:</span> 90.2vh<span class="token punctuation">;</span> 
-    <span class="token punctuation">&#125;</span> 
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-cover pd-header about-cover<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col s10 offset-s1 m8 offset-m2 l8 offset-l2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>brand<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title center-align<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-                        404 
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>description center-align<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-                        &lt;%= page.description %> 
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"> 
-        <span class="token comment">// 每天切换 banner 图. Switch banner image every day. </span>
-        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(/medias/banner/'</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="设置建站时间"><a href="#设置建站时间" class="headerlink" title="设置建站时间"></a>设置建站时间</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">footer</span><span class="token punctuation">:</span>
+  <span class="token comment"># Specify the date when the site was setup. If not defined, current year will be used.</span>
+  <span class="token key atrule">since</span><span class="token punctuation">:</span> 2020<span class="token punctuation">-</span><span class="token number">02</span>   <span class="token comment">#建站时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h1><p>下载hexo-prism-plugin 插件</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">npm i <span class="token punctuation">-</span>S hexo<span class="token punctuation">-</span>prism<span class="token punctuation">-</span>plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Sidebar Avatar</span>
+<span class="token key atrule">avatar</span><span class="token punctuation">:</span>
+  <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar.gif   <span class="token comment">#头像图片的位置</span>
+  <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token comment">#头像展示在圈里</span>
+  <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment">#头像随光标旋转</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>修改根目录下<code>_config.yml</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">
-<span class="token key atrule">highlight</span><span class="token punctuation">:</span> <span class="token comment"># 代码块的设置 </span>
-    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 关闭自带代码高亮 </span>
-    <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 自动检测编程语言 </span>
-    <span class="token key atrule">auto_detect</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 显示行数 </span>
-    <span class="token key atrule">tab_replace</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token comment"># 用空格替换tabs</span>
-    <span class="token key atrule">tabs wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> 
-    <span class="token key atrule">hljs</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
+<h2 id="网站图标设置"><a href="#网站图标设置" class="headerlink" title="网站图标设置"></a>网站图标设置</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/sast<span class="token punctuation">-</span>16×16.jpg
+  <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/sast<span class="token punctuation">-</span>32×32.jpg
+  <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">safari_pinned_tab</span><span class="token punctuation">:</span> /images/logo.svg
+  <span class="token comment">#android_manifest: /images/manifest.json</span>
+  <span class="token comment">#ms_browserconfig: /images/browserconfig.xml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment"># 关闭原有的代码高亮，使用自己的 </span>
-<span class="token key atrule">prism_plugin</span><span class="token punctuation">:</span> 
-    <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token string">'preprocess'</span> <span class="token comment"># realtime/preprocess </span>
-    <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'tomorrow'</span> 
-    <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># default false </span>
-    <span class="token key atrule">custom_css</span><span class="token punctuation">:</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改<code>small</code>和<code>medium</code>到图片路径，我在<a target="_blank" rel="noopener" href="https://www.zhizuotu.com/msize">制作图</a>网站将手边的图片裁剪为$16\times 16$像素以及$32\times 32$像素</p>
+<h2 id="设置动态背景"><a href="#设置动态背景" class="headerlink" title="设置动态背景"></a>设置动态背景</h2><h3 id="canvas-nest-风格"><a href="#canvas-nest-风格" class="headerlink" title="canvas nest 风格"></a>canvas nest 风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="文章生成永久链接"><a href="#文章生成永久链接" class="headerlink" title="文章生成永久链接"></a>文章生成永久链接</h1><p>在博客目录执行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cnpm install hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>打开主题配置文件<code>themes/next/_config.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Canvas-nest</span>
+<span class="token comment"># Dependencies: https://github.com/theme-next/theme-next-canvas-nest</span>
+<span class="token comment"># For more information: https://github.com/hustcc/canvas-nest.js</span>
+<span class="token key atrule">canvas_nest</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">onmobile</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># Display on mobile or not</span>
+  <span class="token key atrule">color</span><span class="token punctuation">:</span> <span class="token string">"255,255,255"</span> <span class="token comment"># RGB values, use `,` to separate</span>
+  <span class="token key atrule">opacity</span><span class="token punctuation">:</span> <span class="token number">0.5</span> <span class="token comment"># The opacity of line: 0~1</span>
+  <span class="token key atrule">zIndex</span><span class="token punctuation">:</span> <span class="token number">-1</span> <span class="token comment"># z-index property of the background</span>
+  <span class="token key atrule">count</span><span class="token punctuation">:</span> <span class="token number">99</span> <span class="token comment"># The number of lines</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在<code>\_congig.yml</code>中添加</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">abbrlink: 
-    alg: crc16 #算法： 
-    crc16(default) and crc32 rep: hex #进制： dec(default) and hex: dec #输出进制：十进制和十六进制，默认为10进制。丨dec为十进制，hex为十六进制
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="JavaScript-3D-library风格"><a href="#JavaScript-3D-library风格" class="headerlink" title="JavaScript 3D library风格"></a>JavaScript 3D library风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three source&#x2F;lib&#x2F;three<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>其中，<code>permalink: </code>更改为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">permalink: posts&#x2F;:abbrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>打开主题配置文件<code>themes/next/_config.yml</code></p>
+<p>将想要的风格后的<code>false</code>改为<code>true</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># JavaScript 3D library.</span>
+<span class="token comment"># Dependencies: https://github.com/theme-next/theme-next-three</span>
+<span class="token key atrule">three</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">three_waves</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">canvas_lines</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">canvas_sphere</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="设置背景图片-失败"><a href="#设置背景图片-失败" class="headerlink" title="设置背景图片(失败)"></a>设置背景图片(失败)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，取消<code>style</code>前的注释</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">custom_file_path</span><span class="token punctuation">:</span>
+  <span class="token key atrule">style</span><span class="token punctuation">:</span> source/_data/styles.styl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<h2 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h2><p>在<code>themes/next</code>目录下打开Git Bash</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace source&#x2F;lib&#x2F;pace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong><font color="red">注：之前所有博客必须在开头添加</font></strong></p>
-<h1 id="动态标题栏"><a href="#动态标题栏" class="headerlink" title="动态标题栏"></a>动态标题栏</h1><p>在<code>theme/matery/layout/layout.ejs</code></p>
-<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token comment">&lt;!--动态标题--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"> <span class="token keyword">var</span> OriginTitile <span class="token operator">=</span> document<span class="token punctuation">.</span>title<span class="token punctuation">,</span> st<span class="token punctuation">;</span> 
-    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"visibilitychange"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
-        document<span class="token punctuation">.</span>hidden <span class="token operator">?</span> 
-        <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"Σ(っ °Д °;)っ鳖走啊！"</span><span class="token punctuation">,</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">:</span>
-        <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"φ(゜▽゜*)♪爱你么么哒！"</span><span class="token punctuation">,</span> st <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
-            document<span class="token punctuation">.</span>title <span class="token operator">=</span> OriginTitile 
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">3e3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> 
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>打开主题配置文件<code>themes/next/_config.yml</code>，将<code>pace</code>下<code>enable</code>修改为<code>true</code>，并在<code>theme</code>后选择合适加载条</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># Themes list:</span>
+  <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
+  <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
+  <span class="token key atrule">theme</span><span class="token punctuation">:</span> bounce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="博客支持Mathjax数学公式"><a href="#博客支持Mathjax数学公式" class="headerlink" title="博客支持Mathjax数学公式"></a>博客支持Mathjax数学公式</h1><ol>
-<li><p>使用Kramed代替Marked</p>
-<p>在工程目录下执行命令</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-kramed --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>在<code>/node_modules/hexo-renderer-kramed/lib/renderer.js</code>下</p>
-<p>将<code>function formatText(text)</code>改为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;&#x2F; Change inline math rule
-function formatText(text) &#123;
-    return text;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>卸载<code>hexo-math</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm uninstall hexo-math --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置预览摘要"><a href="#设置预览摘要" class="headerlink" title="设置预览摘要"></a>设置预览摘要</h2><p>在正文摘要部分撰写</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!-- more --></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>安装<code>hexo-renderer-mathjax</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-renderer-mathjax --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>更新 Mathjax 的 CDN 链接，打开<code>/node_modules/hexo-renderer-mathjax/mathjax.html</code>，将<code>&lt;script&gt;</code>更改为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;mathjax&#x2F;2.7.1&#x2F;MathJax.js?config&#x3D;TeX-MML-AM_CHTML&quot;&gt;&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>更改默认转义规则，将<code>/node_modules/kramed/lib/rules/inline.js</code>下的<code>escape:</code>更改为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">escape: &#x2F;^\\([&#96;*\[\]()# +\-.!_&gt;])&#x2F;,<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置侧边栏显示效果"><a href="#设置侧边栏显示效果" class="headerlink" title="设置侧边栏显示效果(?)"></a>设置侧边栏显示效果(?)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>sidebar</code>下设置</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">sidebar</span><span class="token punctuation">:</span>
+  <span class="token comment"># Sidebar Position. #设置侧边栏位置</span>
+  <span class="token key atrule">position</span><span class="token punctuation">:</span> left
+  <span class="token comment">#position: right</span>
 
-<p><code>em:</code>更改为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">em: &#x2F;^\*((?:\*\*|[\s\S])+?)\*(?!\*)&#x2F;,<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>在<code>theme\_config.yml</code>下的<code>mathjax:</code>中，将<code>enable</code>改为<code>true</code></p>
-</li>
-<li><p>在博文开头加入<code>mathjax: true</code></p>
-</li>
-</ol>
-<p><strong><font color="red">注：如果第四步更改了CDN，那么在挂梯子情况下，查看博客时极大可能导致公式无法加载</font></strong></p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">matery官方文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://blinkfox.github.io/">闪烁之狐博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://hexo.cxy621.top/">cxy621的博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8d433a2c5b7?u_atoken=aab04d52-42a7-41a5-9ec1-2c34ec6d6f69&u_asession=018WKUdNnG6_0l5OUhdElYtB7eJNBsUu7y7hj0U4L8BdkJbHf4doxuopxnUSqptHk4X0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K9MNM_qjuacQ3mkmp1gywqfPIF6hypDqzN_tz02ZDuS7GBkFo3NEHBv0PZUm6pbxQU&u_asig=05GMhfeFGOEHiWf9nfeNuARXt-zBngi3Xqw0sW5R3YoPYfZVa2HJZISxVGhSPTjBzj4ABaWKZppfMpfBkxRD7FOXFKfCOrzNIxpptHDEVD4UvqsmpCDfMuq0Jv8fzxkL2FAocjyJqZg4HnC2gvSikzcpxZdCI5Yuxh3KtEGeMHlL39JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzbhcXECjnUb6gL2kRcEGNiinyW_M0vYYgvPfUuB1znrFHLC90DffcRgc58NhmjbgM-3h9VXwMyh6PgyDIVSG1W9ZaGEhvt5pul5kydz9r3VL4b7QbEBqQMpA6Yx2M9XqKdOAH52o8OX-2f2q1nKQ_uK4QcDqR514V8mTbtKIw_0SmWspDxyAEEo4kbsryBKb9Q&u_aref=N6e3Ir7eFMD4IMGCTOu7xEtpyKg=">MaosongRan简书</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43827595/article/details/104324443">白马金羁侠少年CSDN</a></p>
+  <span class="token comment">#  - post    默认显示模式</span>
+  <span class="token comment">#  - always  一直显示</span>
+  <span class="token comment">#  - hide    初始隐藏</span>
+  <span class="token comment">#  - remove  移除侧边栏</span>
+  <span class="token key atrule">display</span><span class="token punctuation">:</span> post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="侧边栏推荐链接"><a href="#侧边栏推荐链接" class="headerlink" title="侧边栏推荐链接"></a>侧边栏推荐链接</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>links</code>下设置</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
+  <span class="token key atrule">icon</span><span class="token punctuation">:</span> link
+  <span class="token key atrule">title</span><span class="token punctuation">:</span> 链接网站  <span class="token comment">#修改名称</span>
+
+<span class="token key atrule">links</span><span class="token punctuation">:</span>
+  <span class="token comment">#Title: http://yoursite.com</span>
+  <span class="token key atrule">我的网站</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//网站链接.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="添加社交链接"><a href="#添加社交链接" class="headerlink" title="添加社交链接"></a>添加社交链接</h2><p>这一块就是放置自己其他社交账号地方</p>
+<p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>social</code>下设置</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
+  <span class="token key atrule">GitHub</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/yourname <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
+  <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span>
+  <span class="token comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span>
+  <span class="token comment">#Google: https://plus.google.com/yourname || fab fa-google</span>
+  <span class="token comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span>
+  <span class="token comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span>
+  <span class="token comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span>
+  <span class="token comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span>
+  <span class="token comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span>
+  <span class="token comment">#Skype: skype:yourname?call|chat || fab fa-skype</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="文章末尾添加版权说明"><a href="#文章末尾添加版权说明" class="headerlink" title="文章末尾添加版权说明"></a>文章末尾添加版权说明</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>creative_commons</code>下设置</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">creative_commons</span><span class="token punctuation">:</span>
+  <span class="token key atrule">license</span><span class="token punctuation">:</span> by<span class="token punctuation">-</span>nc<span class="token punctuation">-</span>sa
+  <span class="token key atrule">sidebar</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 将post改为true</span>
+  language<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h2><p>在<a target="_blank" rel="noopener" href="http://livere.com/">来必利网站</a>注册登录，并获得uid</p>
+<p>打开主题配置文件<code>themes/next/_config.yml</code>，将<code>livere_uid</code>改为所获得uid</p>
 
                 
             </div>
@@ -1225,30 +1105,32 @@ function formatText(text) &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/I_Ching.html">
+                <a href="/posts/leetcode35.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/IChing.webp" class="responsive-img" alt="易经">
                         
-                        <span class="card-title">易经</span>
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="35. 搜索插入位置">
+                        
+                        <span class="card-title">35. 搜索插入位置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学算卦！
+                            题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+请必须使用时间复杂度为 O(log n) 的算法。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%93%B2%E5%AD%A6/" class="post-category">
-                                    哲学
+                            <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
                                 </a>
                             
                             
@@ -1258,16 +1140,12 @@ function formatText(text) &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%98%93%E7%BB%8F/">
-                        <span class="chip bg-color">易经</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/">
-                        <span class="chip bg-color">传统文化</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%A0%E5%8D%9C/">
-                        <span class="chip bg-color">占卜</span>
+                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                        <span class="chip bg-color">力扣</span>
                     </a>
                     
                 </div>
@@ -1281,25 +1159,24 @@ function formatText(text) &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/leetcode58.html">
+                <a href="/posts/leetcode27.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="58. 最后一个单词的长度">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="27. 移除元素">
                         
-                        <span class="card-title">58. 最后一个单词的长度</span>
+                        <span class="card-title">27. 移除元素</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            题目描述给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
-单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
                             </span>
                         <span class="publish-author">
                             

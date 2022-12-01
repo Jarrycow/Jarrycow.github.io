@@ -94,7 +94,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/index" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -285,7 +285,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/index" class="waves-effect waves-light">
+		<a href="/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -545,7 +545,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-07
+                    2022-11-17
                 </div>
                 
 
@@ -609,11 +609,120 @@
 <p><strong>位熵值：</strong>数据流可以取0/1，假设$p(0)=p\ \ p(1)=1-p$，则位熵值$H(b)$：<br>$$<br>H(b)=-\left(p\log_2p+(1-p)\log_2(1-p)\right)<br>$$<br>比特随机测度：$E=\dfrac{H(b)}{H_{\max}(b)}$</p>
 <p>当$p=\dfrac12$时，即$p(0)=p(1)$时取最大值</p>
 <p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E9%9A%8F%E6%9C%BA%E5%BA%A6%E6%B5%8B%E8%AF%95.png"></p>
-<p><strong>位流熵值：</strong>对于一个长度为$k$的比特流，一共有$$2^k$$种排列组合方式，第$$i$$种排列组合出现的概率为$p_i$，则该位流熵值为：<br>$$<br>H(k)=-\sum_{i=0}^{2^k-1}p_i\log_2p_i<br>$$<br>位流随机测度：$E=\dfrac{H(k)}{H_{\max}(k)}$，所有排列组合等概率出现取最大值</p>
+<p><strong>位流熵值：</strong>对于一个长度为$k$的比特流，一共有$2^k$种排列组合方式，第$i$种排列组合出现的概率为$p_i$，则该位流熵值为：<br>$$<br>H(k)=-\sum_{i=0}^{2^k-1}p_i\log_2p_i<br>$$<br>位流随机测度：$E=\dfrac{H(k)}{H_{\max}(k)}$，所有排列组合等概率出现取最大值</p>
 <p>随机测度取值$0\le E\le 1$，越接近1，随即性能越好</p>
 <h3 id="计算速度"><a href="#计算速度" class="headerlink" title="计算速度"></a>计算速度</h3><p>因素：硬件因素、函数因素</p>
 <p>$IPSX&lt;&lt;ROB&lt;&lt;CRC&lt;&lt;MD5$</p>
-<h3 id="均匀度测试"><a href="#均匀度测试" class="headerlink" title="均匀度测试"></a>均匀度测试</h3><h3 id="冲突率测度"><a href="#冲突率测度" class="headerlink" title="冲突率测度"></a>冲突率测度</h3><h3 id="活跃流测度"><a href="#活跃流测度" class="headerlink" title="活跃流测度"></a>活跃流测度</h3><h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><h3 id="IPSX算法"><a href="#IPSX算法" class="headerlink" title="IPSX算法"></a>IPSX算法</h3><h3 id="异或位移算法"><a href="#异或位移算法" class="headerlink" title="异或位移算法"></a>异或位移算法</h3><h1 id="数据流测量方法"><a href="#数据流测量方法" class="headerlink" title="数据流测量方法"></a>数据流测量方法</h1>
+<h3 id="均匀度测试"><a href="#均匀度测试" class="headerlink" title="均匀度测试"></a>均匀度测试</h3><p><strong>均匀性：</strong>所有可能出现的结果都应该尽可能均匀分布，不应该出现某几种输出聚焦的情况</p>
+<p>若将哈希函数的输出空间划分为$n$等分，对于$m$个实验对象，落入每一个区间的数量应该为$f_0=\dfrac mn$。假设第$k$个区间数量为$f_k$，则理想偏差：<br>$$<br>\chi^2=\dfrac{\sum_{k=1}^n\left(f_k-f_0\right)^2}{f_0}<br>$$<br>假设样本均匀数量为512，可信度0.99，则$\chi^2_{0.99}(511)=588.7$。若统计值$&gt;588.7$，则拒绝均匀分布假设。</p>
+<p>经过实践：</p>
+<ul>
+<li>MD5和IPSX均匀性不够好</li>
+<li>BOB和CRC具有较好的均匀性</li>
+</ul>
+<h3 id="冲突率测度"><a href="#冲突率测度" class="headerlink" title="冲突率测度"></a>冲突率测度</h3><p><strong>冲突：</strong>两个不同数据流被映射到同一区域，即对于$f_1\ne f_2$，但是$H(f_1)=H(f_2)$</p>
+<p><strong>冲突次数：</strong>最后函数的输出空间当中第$i$个槽的统计结果为$N_i$，则发生该槽的冲突次数：<br>$$<br>C^2_{N_i}=\dfrac{N_i(N_i-1)}2<br>$$<br><strong>冲突率：</strong>计算整个输出空间的冲突次数的总和，求出平均冲突次数来衡量该哈 希函数的冲突率：<br>$$<br>C=\dfrac1{\dfrac{N(N-1)}2}\sum_{i=1}^M\dfrac{N_i(N_i-1)}2<br>$$<br>其中，$\sum_{k=1}^MN_k=N$</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E5%86%B2%E7%AA%81%E7%8E%87%E6%AF%94%E8%BE%83.png"></p>
+<p>根据实验，CRC冲突率最小，IPSX和MD5接近</p>
+<h3 id="活跃流测度"><a href="#活跃流测度" class="headerlink" title="活跃流测度"></a>活跃流测度</h3><p><strong>活跃流：</strong>在属于该流的第一个报文分组到达后，在之后的每一个时间间隔里面，都至少有一个属于该数据流的报文分组到达</p>
+<p><strong>活跃流数：</strong>符合活跃流的数据流的总数</p>
+<p><strong>活跃流测度：</strong>可以提供算法完整的一致性刻画<br>$$<br>\hat n=m\ln\left(\dfrac m {m-n}\right) \<br>f=\dfrac{\left|\hat n-n\right|}n<br>$$<br>其中，$f$为活跃流测度，$m$为哈希函数输出空间总槽数，$n$为哈希函数实际映射到的总槽数，$\hat n$为为活跃流数量的最大似然估计值</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E6%B4%BB%E8%B7%83%E6%B5%81%E6%B5%8B%E5%BA%A6.png"></p>
+<h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><h3 id="IPSX-IP-Shift-and-XOR-算法"><a href="#IPSX-IP-Shift-and-XOR-算法" class="headerlink" title="IPSX(IP Shift and XOR)算法"></a>IPSX(IP Shift and XOR)算法</h3><ul>
+<li>为处理 IPv4 数据包而定制的</li>
+<li>利用 IP 分组不同字段可变性，使得减少IP分组之间相关性进行处理</li>
+<li>来自 IPv4 和 TCP/UDP 报头的字段用作输入 </li>
+<li>只要使用位移和异或的极少数指令</li>
+</ul>
+<p><strong>IPSX 组成</strong></p>
+<ol>
+<li><p>输入选择：其形式是从IP包的各个部分进行组合输入 </p>
+<p>从 IP 数据包头的前 20 个字节和IP负载的前8个字节中提取</p>
+</li>
+<li><p>计算组合上的散列</p>
+<p>$f_1\ =\ ip_{src}\ \ f_2\ =\ ip_{dst}\ \ f_3\ =\ port_{src}\ ||\ port_{dst}$</p>
+<p>$v_1\ =\ f_1 \wedge f_2 $</p>
+<p>$v_2\ =\ f_3$</p>
+<p>$h_1\ =\ v_1\ &lt;&lt;\ 8$</p>
+<p>$h_1\ \wedge=\ v_1&gt;&gt;4$</p>
+<p>$h_1\ \wedge= \ v_1\ &gt;&gt;\ 12$</p>
+<p>$h_1\ \wedge=\ v_1\ &gt;&gt;\ 16$</p>
+<p>$h_1\ \wedge=\ v_2\ &lt;&lt;\ 6$</p>
+<p>$h_1\ \wedge=\ v_2\ &lt;&lt;\ 10$</p>
+<p>$h_1\ \wedge=\ v_2\ &lt;&lt;\ 14$</p>
+<p>$h_1\ \wedge=\ v_2\ &gt;&gt;\ 7$</p>
+</li>
+</ol>
+<p>IPSX 哈希函数最后运算生成的结果为 32 比特，取其后 16 位，即输出$h_1$</p>
+<h3 id="异或位移算法"><a href="#异或位移算法" class="headerlink" title="异或位移算法"></a>异或位移算法</h3><p>比 IPSX 同等运算速率，但是随机性更好的</p>
+<p>$hash_1\ =\ ip_src[1]\ &lt;&lt;\ 3,\ \ hash_1\ =\ hash_1\ \wedge\ \ ip_dst[1],\ \ hash\ =\ hash_1 $</p>
+<p>$hash_1\ =\ ip_src[0]\ &lt;&lt;\ 3,\ \ hash_1\ =\ hash_1\ \wedge\ \ port_src,\ \ hash\ =\ hash_1 $</p>
+<p>$hash_1\ =\ ip_src[0]\ &lt;&lt;\ 3,\ \ hash_1\ =\ hash_1\ \wedge\ \ port_dst,\ \ hash\ =\ hash_1 $</p>
+<h1 id="数据流测量方法"><a href="#数据流测量方法" class="headerlink" title="数据流测量方法"></a>数据流测量方法</h1><h2 id="Bitmap-测量方法"><a href="#Bitmap-测量方法" class="headerlink" title="Bitmap 测量方法"></a>Bitmap 测量方法</h2><p><strong>数据结构</strong>：基于“位”的映射，使用一个bit位来标记某个元素对应的value，key是 元素，通过1为表示一个数，0表示不存在，1表示存在</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/bitmap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png"></p>
+<p><strong>Direct Bitmap：</strong>。在 流标识上使用Hash函数，将每个流映射到Bitmap的1个位。在测量间隔开始时，所有位都设置为零。 每当一个包进入时，它的流标识散列到的位被设置为1</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Direct_Bitmap.png"></p>
+<p><strong>Virtual Bitmap：</strong>仅存储Bitmap的一部分，用采样因子乘以估计值，但当很少有流活动时估计不准确</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Virtual_Bitmap.png"></p>
+<p><strong>Multiresolution Bitmap：</strong>将具有不同分辨率的区域称为 Multiresolution Bitmap 的组成部分合成，在计算时，基于每个组件中设置的比特数，选择其中一个”基”来估计、推断Hash到这个”基”和所有更高分辨率组件的流数量</p>
+<p>![](images/高速流量的测量方法/Multiresolution Bitmap.png)</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 找到最精确的组件
+base &#x3D; c - 1
+while base &gt; 0  and  bitsSet(component[base]) &lt;&#x3D; set_max
+    base &#x3D; base - 1
+end while
+base &#x3D; base + 1
+if  base &#x3D;&#x3D; c  and  bitsSet(component[c]) &gt; set_max
+    if  bitsSet(component[c]) &#x3D;&#x3D; b_last
+        return &quot;无法给出估计&quot;
+    else
+        warning &quot;估计不准确&quot;
+    end if
+end if
+# 估计Hash到它的流的数量
+m &#x3D; 0
+for  i &#x3D; base  to  c - 1
+    m &#x3D; m + b ln(b &#x2F; bitZero(component[i]))
+end for
+# 确定并使用比例因子
+m &#x3D; m + b_last ln(b &#x2F; bitZero(component[c]))
+factor &#x3D; k^&#123;base-1&#125;
+return factor * m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>bitmap</th>
+<th>流数估计</th>
+<th>平均标准误差$StdError\left(\dfrac{\hat n}n\right)$</th>
+<th>内存最小占用量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direct bitmap</td>
+<td>$\hat{n}=b\ln\left(\dfrac bz\right)$</td>
+<td>$\approx \dfrac{\sqrt{\text e^\rho-\rho-1}}{\rho\cdot\sqrt b}$</td>
+<td>$&lt;\dfrac N{\ln\left(N\varepsilon^2+1\right)}$</td>
+</tr>
+<tr>
+<td>Virtual bitmap</td>
+<td>$\hat{n}=\dfrac1\alpha\ln\left(\dfrac bz\right)\=h\ln\left(\dfrac bz\right)$</td>
+<td>$\approx \dfrac{\sqrt{\text e^\rho-1}}{\rho\cdot\sqrt b}$</td>
+<td>$\dfrac{1.5441}{\varepsilon^2}$</td>
+</tr>
+<tr>
+<td>Multiresolution bitmap</td>
+<td></td>
+<td>$\approx \dfrac{\sqrt{\frac{k-1}k\left(\text e^\rho-1\right)+\text e^{\frac \rho k}-1}}{\rho\sqrt{\frac{bk}{k-1}}}$</td>
+<td>$\dfrac{0.9186\ln\left(N\varepsilon^2\right)}{\varepsilon^2+ct}$</td>
+</tr>
+</tbody></table>
+<h2 id="Bloom-Fliter-测量方法"><a href="#Bloom-Fliter-测量方法" class="headerlink" title="Bloom Fliter 测量方法"></a>Bloom Fliter 测量方法</h2><p><strong>Bloom Fliter 设计：</strong>用多个 Hash 函数映射，有较高容错性，主要查找是否存在</p>
+<p>![](images/高速流量的测量方法/Bloom Filter.png)</p>
+<p>记 $m$ 位 Bloom Fliter 占用的总内存，$n$ 为综援素个数，$k$ 为 Hash 函数个数，$p$ 为 Bloom Fliter 中一位为 $0$ 的概率，假设 Hash 函数分布均匀，则任意一位为 $0$ 概率：<br>$$<br>p’=\left(1-\dfrac1m\right)^{nk}\approx\text e^{-\frac{kn}m}=p<br>$$<br> <strong>误判率：</strong><br>$$<br>f(m,k,n)=\left(1-p’\right)^k\approx\left(1-p\right)^k=\left(1-\text e^{-\frac{kn}m}\right)^k<br>$$<br>若给定误判率$f_0$，则 Bloom Fliter 可以最多表示元素个数：<br>$$<br>n_0=-\dfrac{\ln\left(1-\text e^{\ln \frac{f_0}k}\right)\cdot m}k<br>$$<br>若给定 m=10240bit, n=1000：当 k=7 ，有最小误判率</p>
+<h2 id="Sketch-测量方法"><a href="#Sketch-测量方法" class="headerlink" title="Sketch 测量方法"></a>Sketch 测量方法</h2><p>Bloom Fliter 是基于向量，而 Sketch 是基于矩阵</p>
+<p><img src="images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Sketch.png"></p>
+
                 
             </div>
             <hr/>
@@ -1028,29 +1137,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/High_Speed_Measurement.html">
+                <a href="/posts/Performance_Measurement.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/High_Speed_Measurement.webp" class="responsive-img" alt="高速流量测量方法">
+                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="性能测量方法">
                         
-                        <span class="card-title">高速流量测量方法</span>
+                        <span class="card-title">性能测量方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网络带宽已经达到了100Gbps甚至10Tbps，这么大数据量如何处理，主要可以从算法和硬件改进进行研究。
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1063,16 +1171,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
                         <span class="chip bg-color">网络测量</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">安全</span>
                     </a>
                     
                 </div>

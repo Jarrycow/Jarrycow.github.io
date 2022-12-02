@@ -592,14 +592,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E6%95%B0%E8%AE%BA/</loc>
+    <loc>http://jarrycow.top/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <loc>http://jarrycow.top/tags/%E6%95%B0%E8%AE%BA/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -614,6 +614,13 @@
   
   <url>
     <loc>http://jarrycow.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jarrycow.top/tags/AI/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -635,13 +642,6 @@
   
   <url>
     <loc>http://jarrycow.top/tags/%E6%96%87%E5%AD%97/</loc>
-    <lastmod>2022-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jarrycow.top/tags/AI/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -725,14 +725,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E5%AE%89%E5%85%A8/</loc>
+    <loc>http://jarrycow.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
+    <loc>http://jarrycow.top/tags/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -769,14 +769,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/</loc>
+    <loc>http://jarrycow.top/categories/AI/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/AI/</loc>
+    <loc>http://jarrycow.top/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

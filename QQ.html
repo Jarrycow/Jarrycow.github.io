@@ -61,21 +61,38 @@
       padding-top: 5px;
       padding-bottom: 10px;
       margin: 0 auto;
+      vertical-align: center;
     }
     .check{
       text-align: center;
-      padding-top: 50px;
-      
+      padding-top: 40px;
+      font-size: 12px;
+      vertical-align: center;
     }
     .checkbox{
       border: 1px solid #c8d3de;
       border-radius: 2px;
-      height: 16px;
-      width: 16px;
+      height: 14px;
+      width: 14px;
     }
     .pic{
       width: 50%;
       margin: 4px;
+    }
+    .button_web{
+      width: 498px;
+      height: 16px;
+      right: 12px;
+      left: 12px;
+      color: #225592;
+    }
+    .bott{
+      font-size: 12px;
+      width: 100px;
+      color: #225592;
+      border-right: 1px solid gray;
+      text-align: center;
+      vertical-align: center;
     }
   </style>
 </head>
@@ -109,8 +126,9 @@
               <div class="pp"><input class="input_text" type="password" name="" id="" placeholder="QQ密码" /></div>
               <div style="height: 20px;"></div>
               <div class="pp"><input class="button" type="submit" name="登录" value="登录" action /></div>
-              <div class="check"><input type="checkbox" name="" id="">下次自动登录<img class="pic" src="https://rescdn.qqmail.com/qqmail/images/notice.png" alt="" style="width: 13px; margin-left: 3px;"></div>
-              <div class="bottom" id="bottom_web" ><a href="#" class="link" id="forgetpwd" target="_blank">找回密码</a><span class="dotted">|</span> <a href="#" class="link" target="_blank">注册帐号</a><span class="dotted">|</span> <a class="link" id="feedback_web" href="http://support.qq.com/discuss/350_1.shtml" target="_blank">意见反馈</a></div>
+              <div class="check"><input class="checkbox" type="checkbox" name="" id="">下次自动登录<img class="pic" src="https://rescdn.qqmail.com/qqmail/images/notice.png" alt="" style="width: 13px; margin-left: 3px;"></div>
+              <div style="height: 20px;"></div>
+              <table class="bottom_web" ><tr><td class="bott">找回密码</td><td class="bott">注册帐号</td><td class="bott" style="border-right: 0;">意见反馈</td></tr></table>
             </form>
             </div>
           </div>

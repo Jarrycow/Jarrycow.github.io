@@ -17,6 +17,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -568,7 +569,7 @@
 <span id="more"></span>
 
 <h1 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h1><p>DNS延迟被认为是网络运营商一个关键性能指标，例如CDN的存在可以减少用户的服务延迟，但也必须依赖于全球DNS的可达性和负载均衡的情况。DNS的部署经常使用IP广播，一个DNS服务器通常由多个权威服务器<sub>依据上级DNS授权向下分发域名的DNS服务器</sub>提供，而BGP选择哪些用户去哪些站点。一般DNS用户会选择延迟最低的权威服务器。</p>
-<h1 id="验证DNS-TCP检测RTT的可行性"><a href="#验证DNS-TCP检测RTT的可行性" class="headerlink" title="验证DNS/TCP检测RTT的可行性"></a>验证DNS/TCP检测RTT的可行性</h1><p>DNS首选UCP协议作为传输层协议，但也一直需要TCP处理大型回复。首先假设：</p>
+<h1 id="验证DNS-x2F-TCP检测RTT的可行性"><a href="#验证DNS-x2F-TCP检测RTT的可行性" class="headerlink" title="验证DNS&#x2F;TCP检测RTT的可行性"></a>验证DNS&#x2F;TCP检测RTT的可行性</h1><p>DNS首选UCP协议作为传输层协议，但也一直需要TCP处理大型回复。首先假设：</p>
 <ol>
 <li>TCP在空间和时间上的使用有足够的覆盖;</li>
 <li>TCP和UDP发送查询的RTT相同</li>
@@ -576,7 +577,7 @@
 <h2 id="足够覆盖"><a href="#足够覆盖" class="headerlink" title="足够覆盖"></a>足够覆盖</h2><p>首先，文章检测了两个权威服务器的一周流量，发现TCP流量占比不到7%。但是这些7%的流量可以代表21%的DNS解析器以及44%的自治系统。虽然比例仍然不到一半。不过通常情况下，一个TCP可以代表其所在AS（自治系统），对于所有递归解析器在同一个地点的自治系统，到一个的延迟和到其他的是相同的。最终发现，较少的TCP可以覆盖流量的95%~98%.</p>
 <h3 id="诱导性覆盖"><a href="#诱导性覆盖" class="headerlink" title="诱导性覆盖"></a>诱导性覆盖</h3><p>不过，这样TCP的覆盖同样是不完整的。因此可以通过主动的流量管理来诱导TCP查询进而获得完整的覆盖。DNS报文中的标志位中包含TC位：即通过TCP重试的截断回复。DNS接收者可以通过限制速率强制使用这种机制。</p>
 <h3 id="时间上的覆盖"><a href="#时间上的覆盖" class="headerlink" title="时间上的覆盖"></a>时间上的覆盖</h3><p>验证了每个自治系统的流量具有一定时间精度，可以支持一天中接近实时监测。</p>
-<h2 id="DNS-UDP-vs-DNS-TCP"><a href="#DNS-UDP-vs-DNS-TCP" class="headerlink" title="DNS/UDP vs DNS/TCP"></a>DNS/UDP vs DNS/TCP</h2><p>测量DNS/UDP和DNS/TCP查询响应时间，DNS/UDP中是直接提出请求并得到响应；而在DNS/TCP中，要先建立TCP连接，因此需要2个RTT。</p>
+<h2 id="DNS-x2F-UDP-vs-DNS-x2F-TCP"><a href="#DNS-x2F-UDP-vs-DNS-x2F-TCP" class="headerlink" title="DNS&#x2F;UDP vs DNS&#x2F;TCP"></a>DNS&#x2F;UDP vs DNS&#x2F;TCP</h2><p>测量DNS&#x2F;UDP和DNS&#x2F;TCP查询响应时间，DNS&#x2F;UDP中是直接提出请求并得到响应；而在DNS&#x2F;TCP中，要先建立TCP连接，因此需要2个RTT。</p>
 <h1 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h1><p>不管是网络问题的检测还是解决，都是劳动密集型的——检测需要确定具体问题和潜在根源；解决需要新站点部署或路由改变。</p>
 <p>因此，通过两种策略分析问题：</p>
 <ul>
@@ -1327,7 +1328,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

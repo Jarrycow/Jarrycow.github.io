@@ -10,15 +10,13 @@
 题目描述实现$x^n$
 示例 1：
 
-输入：x = 2.00000, n = 10输出：1024.00000
+输入：x &amp;#x3D; 2.00000, n &amp;#x3D; 10输出：1024.00000
 
 示例 2：
 
-输入：x = 2.10000, n = 3输出：9.26100
+输入：x &amp;#x3D; 2.10000, n &amp;#x3D; 3输出：9.26100
 
-示例 3：
-
-输入：x = 2.00000,">
+示例">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,6 +25,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -575,15 +574,15 @@
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>实现$x^n$</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：x = 2.00000, n = 10<br>输出：1024.00000</p>
+<p>输入：x &#x3D; 2.00000, n &#x3D; 10<br>输出：1024.00000</p>
 </blockquote>
 <p><strong>示例 2：</strong></p>
 <blockquote>
-<p>输入：x = 2.10000, n = 3<br>输出：9.26100</p>
+<p>输入：x &#x3D; 2.10000, n &#x3D; 3<br>输出：9.26100</p>
 </blockquote>
 <p><strong>示例 3：</strong></p>
 <blockquote>
-<p>输入：x = 2.00000, n = -2<br>输出：0.25000<br>解释：2-2 = 1/22 = 1/4 = 0.25</p>
+<p>输入：x &#x3D; 2.00000, n &#x3D; -2<br>输出：0.25000<br>解释：2-2 &#x3D; 1&#x2F;22 &#x3D; 1&#x2F;4 &#x3D; 0.25</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
@@ -601,7 +600,7 @@
 
 <h2 id="官方：快速幂"><a href="#官方：快速幂" class="headerlink" title="官方：快速幂"></a>官方：快速幂</h2><p>时间复杂度$O(\log_2n)$计算$x^n$</p>
 <p>每一步将$n$对半分进行平方计算</p>
-<h3 id="递归快速幂"><a href="#递归快速幂" class="headerlink" title="递归快速幂"></a>递归快速幂</h3><p>$$<br>a^n=\left{\begin{matrix}<br>a^{n-1}\cdot a &amp; n%2\ne0\<br>a^{\frac n2\cdot a^{\frac n2}}&amp;   n%2=0 &amp; \text{AND} &amp; n\ne 0\<br>1 &amp; n=0<br>\end{matrix}\right.<br>$$</p>
+<h3 id="递归快速幂"><a href="#递归快速幂" class="headerlink" title="递归快速幂"></a>递归快速幂</h3><p>$$<br>a^n&#x3D;\left{\begin{matrix}<br>a^{n-1}\cdot a &amp; n%2\ne0\<br>a^{\frac n2\cdot a^{\frac n2}}&amp;   n%2&#x3D;0 &amp; \text{AND} &amp; n\ne 0\<br>1 &amp; n&#x3D;0<br>\end{matrix}\right.<br>$$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">myPow</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">long</span> <span class="token class-name">N</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
@@ -1368,7 +1367,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

@@ -15,6 +15,7 @@ git clone https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;theme-next&amp;#x2F;hexo
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -558,27 +559,27 @@ git clone https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;theme-next&amp;#x2F;hexo
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打开根目录下的<code>_config.yml</code>，修改<code># Extensions</code>下内容</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Extensions</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Extensions</span>
 <span class="token comment">## Plugins: https://hexo.io/plugins/</span>
 <span class="token comment">## Themes: https://hexo.io/themes/</span>
 <span class="token key atrule">theme</span><span class="token punctuation">:</span> next   <span class="token comment">#主题改为next</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>next提供了4种主题，只需将 <strong><code>themes\next\_config.yml</code></strong> 中<code># Schemes</code>下内容中，想选择的主题前<code>#</code>删除即可</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Schemes</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
 <span class="token comment">#scheme: Muse</span>
 <span class="token comment">#scheme: Mist</span>
 <span class="token comment">#scheme: Pisces</span>
 <span class="token key atrule">scheme</span><span class="token punctuation">:</span> Gemini    <span class="token comment">#这是我选的主题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>回到根目录打开Git Bash，输入如下三条命令：</p>
-<pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">hexo clean
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">hexo clean
 hexo g
 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="博客页面空白"><a href="#博客页面空白" class="headerlink" title="博客页面空白"></a>博客页面空白</h1><p><strong>问题：</strong>安装好主题之后，预览本地页面正常，但博客显示空白</p>
 <p><strong>原因：</strong><code>next</code>默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架</p>
 <p><strong>解决：</strong>打开 **<code>themes\next\_config.yml</code>**，将<code># FancyBox</code>以下修改为</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># FancyBox</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># FancyBox</span>
 <span class="token comment"># jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js</span>
 <span class="token comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span>
 <span class="token comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span>
@@ -1306,7 +1307,7 @@ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

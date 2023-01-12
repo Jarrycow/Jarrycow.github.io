@@ -19,6 +19,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -577,14 +578,14 @@
 <ul>
 <li><strong>运行态：</strong>进程在处理机上运行</li>
 <li><strong>就绪态：</strong>进程获得了除处理机外所有资源，得到处理机立即运行<sub>排成队列</sub></li>
-<li><strong>阻塞态：</strong>等待某事件暂停运行<sub>资源、I/O</sub></li>
+<li><strong>阻塞态：</strong>等待某事件暂停运行<sub>资源、I&#x2F;O</sub></li>
 <li><strong>创建态：</strong>进程正在被创建</li>
 <li><strong>结束态：</strong>进程从系统消失</li>
 </ul>
 <p><img src="https://note.youdao.com/yws/public/resource/184d98d8660f6c8c5e0ceb402e6f6258/xmlnote/E296C0365BA348F6B7B0D610D5BC6AD2/69245"></p>
 <ul>
 <li><strong>就绪态$\rightarrow$运行态：</strong>获得处理机资源<sub>分派处理机时间片</sub></li>
-<li><strong>运行态$\rightarrow$就绪态：</strong>时间片用完/更高优先级进程就绪</li>
+<li><strong>运行态$\rightarrow$就绪态：</strong>时间片用完&#x2F;更高优先级进程就绪</li>
 <li><strong>运行态$\rightarrow$阻塞态：</strong>进程请求资源或等待某一事件</li>
 <li><strong>阻塞态$\rightarrow$就绪态：</strong>进程等待事件到来</li>
 </ul>
@@ -712,7 +713,7 @@
 </ul>
 </li>
 <li><p><strong>资源分配清单</strong></p>
-<p>说明有关内存地址和虚拟地址状况，所打开文件列表和I/O信息</p>
+<p>说明有关内存地址和虚拟地址状况，所打开文件列表和I&#x2F;O信息</p>
 </li>
 <li><p><strong>处理机相关信息</strong></p>
 <p>处理集中各寄存器值<sub>进程切换保存</sub></p>
@@ -791,7 +792,7 @@
 <ul>
 <li><strong>特点：</strong>集两者所长</li>
 </ul>
-<h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><h3 id="为什么要处理机调度"><a href="#为什么要处理机调度" class="headerlink" title="为什么要处理机调度"></a>为什么要处理机调度</h3><p>进程时常等待I/O输入<br>若总是处理机等待外部设备，则处理机资源极大浪费<br>处理机调度可在等待外部设备时，将处理机调度其他资源<br>提高处理机利用效率</p>
+<h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><h3 id="为什么要处理机调度"><a href="#为什么要处理机调度" class="headerlink" title="为什么要处理机调度"></a>为什么要处理机调度</h3><p>进程时常等待I&#x2F;O输入<br>若总是处理机等待外部设备，则处理机资源极大浪费<br>处理机调度可在等待外部设备时，将处理机调度其他资源<br>提高处理机利用效率</p>
 <h3 id="调度层次"><a href="#调度层次" class="headerlink" title="调度层次"></a>调度层次</h3><p><strong>作业调度</strong>(高级调度)：外存后备作业分配资源，进入就绪队列</p>
 <p><strong>中级调度</strong>(高级调度)：挂起队列调入内存，进入就绪队列<sub>暂时不用的挂起</sub></p>
 <p><strong>进程调度</strong>(低级调度)：就绪队列分配给处理机，进入运行态</p>
@@ -814,7 +815,7 @@
 <ul>
 <li><p>当一个进程执行时，即使更重要进程进入就绪队列，仍然让进程继续执行直到完成或进入阻塞态，才分配处理机给就绪进程</p>
 </li>
-<li><p> CPU分配给进程，该进程即保持CPU直到终止或等待态。</p>
+<li><p>CPU分配给进程，该进程即保持CPU直到终止或等待态。</p>
 </li>
 <li><p><strong>优点</strong>：实现简单、系统开销小，适用于大多数批处理系统</p>
 </li>
@@ -828,15 +829,15 @@
 </ul>
 <h2 id="调度基本准则"><a href="#调度基本准则" class="headerlink" title="调度基本准则"></a>调度基本准则</h2><p><strong>CPU利用率：</strong>尽可能使CPU利用率最高</p>
 <p><strong>系统吞吐量：</strong>单位时间CPU完成作业数量</p>
-<p><strong>周转时间：</strong>作业提交到作业完成总时间<br>$$<br>周转时间=作业完成时间-作业提交时间<br>$$</p>
-<p>$$<br>带权周转时间=\dfrac{作业周转时间}{作业运行时间}<br>$$</p>
-<p><strong>等待时间：</strong>进程处于等待状态总和<sub>不影响执行或I/O时间</sub></p>
+<p><strong>周转时间：</strong>作业提交到作业完成总时间<br>$$<br>周转时间&#x3D;作业完成时间-作业提交时间<br>$$</p>
+<p>$$<br>带权周转时间&#x3D;\dfrac{作业周转时间}{作业运行时间}<br>$$</p>
+<p><strong>等待时间：</strong>进程处于等待状态总和<sub>不影响执行或I&#x2F;O时间</sub></p>
 <p><strong>响应时间：</strong>用户提交请求到首次响应时间</p>
 <h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><h3 id="先来先服务调度算法FCFS"><a href="#先来先服务调度算法FCFS" class="headerlink" title="先来先服务调度算法FCFS"></a>先来先服务调度算法FCFS</h3><p>选择最先进入该队列进程</p>
 <ul>
 <li>不可剥夺算法</li>
 <li><strong>优点：</strong>算法简单，对长作业有利，有利于CPU繁忙型作业</li>
-<li><strong>缺点：</strong>效率低下，对短作业不利，不利于I/O繁忙型作业</li>
+<li><strong>缺点：</strong>效率低下，对短作业不利，不利于I&#x2F;O繁忙型作业</li>
 </ul>
 <h3 id="短作业优先调度算法SJF"><a href="#短作业优先调度算法SJF" class="headerlink" title="短作业优先调度算法SJF"></a>短作业优先调度算法SJF</h3><p>选择运行时间最短的作业</p>
 <ul>
@@ -853,9 +854,9 @@
 <ul>
 <li>系统进程$&gt;$用户进程</li>
 <li>交互进程$&gt;$非交互进程</li>
-<li>I/O进程$&gt;$计算进程</li>
+<li>I&#x2F;O进程$&gt;$计算进程</li>
 </ul>
-<h3 id="高响应比优先调度算法"><a href="#高响应比优先调度算法" class="headerlink" title="高响应比优先调度算法"></a>高响应比优先调度算法</h3><p>$$<br>响应比R_P=\dfrac{等待时间+要求服务时间}{要求服务时间}<br>$$</p>
+<h3 id="高响应比优先调度算法"><a href="#高响应比优先调度算法" class="headerlink" title="高响应比优先调度算法"></a>高响应比优先调度算法</h3><p>$$<br>响应比R_P&#x3D;\dfrac{等待时间+要求服务时间}{要求服务时间}<br>$$</p>
 <ul>
 <li>平衡FCFS和SJF</li>
 <li>属于先来先服务</li>
@@ -1348,7 +1349,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
 <p>分配矩阵$Allocation_{m\times n}$：每类资源当前分配给每个进程的资源数</p>
 <p>需求举证$Need_{m\times n}$：每个进程接下来最多还需要多少资源</p>
 <p><strong>算法描述</strong></p>
-<p>设$Request_i[j]=K$即进程$P_i$需要$j$类资源$K$个</p>
+<p>设$Request_i[j]&#x3D;K$即进程$P_i$需要$j$类资源$K$个</p>
 <p>当$P_i$发出资源请求后，按下述步骤检查</p>
 <ol>
 <li><p>$Request_i[j]\le Need[i,j]$，转向②；否则认为出错<sub>所需资源超过最大值</sub></p>
@@ -1356,13 +1357,13 @@ process <span class="token function">P1</span><span class="token punctuation">(<
 <li><p>$Request_i[j]\le Available[j]$，转向步骤③；$P_i$须等待<sub>尚无足够资源</sub></p>
 </li>
 <li><p>系统试探将资源分配给进程$P_i$，并修改数据结构数值</p>
-<p>$Available=Available-Request_i;\Allocation[i,j]=Allocation[i,j]+Request_i[j];\Need[i,j]=Need[i,j]-Request_i[j]$</p>
+<p>$Available&#x3D;Available-Request_i;\Allocation[i,j]&#x3D;Allocation[i,j]+Request_i[j];\Need[i,j]&#x3D;Need[i,j]-Request_i[j]$</p>
 </li>
 <li><p>系统执行安全性算法，判断是否安全<br>安全则正式分配资源给进程$P_i$<br>否则将本次试探作废</p>
 </li>
 </ol>
 <p><strong>安全性算法</strong></p>
-<p>工作向量$Work$：系统中剩余可用资源数，初始$Work=Available$</p>
+<p>工作向量$Work$：系统中剩余可用资源数，初始$Work&#x3D;Available$</p>
 <ol>
 <li><p>初始时安全序列为空</p>
 </li>
@@ -1372,7 +1373,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
 <p>找不到执行步骤④</p>
 </li>
 <li><p>进程$P_i$进入安全序列后可顺利执行，直到完成，并释放资源</p>
-<p>$Work=Work+Allocation[i]$</p>
+<p>$Work&#x3D;Work+Allocation[i]$</p>
 </li>
 <li><p>若此时安全序列中已有所有进程，则系统处于安全状态</p>
 </li>
@@ -2118,7 +2119,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

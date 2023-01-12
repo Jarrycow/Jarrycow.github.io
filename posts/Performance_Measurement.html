@@ -19,6 +19,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -596,7 +597,7 @@
 </li>
 <li><p>基于 TCP 协议的网络时延测量</p>
 <ul>
-<li> 主要针对ICMP、UDP这两种报文被路由器或防火墙过滤的情况，应用最广</li>
+<li>主要针对ICMP、UDP这两种报文被路由器或防火墙过滤的情况，应用最广</li>
 <li>TCP 测量难点：TCP 协议设置有发送缓冲窗口，探测数 据包并不是即时发送</li>
 <li>发送方记录发送时间远远早于时间发送时间，而使得时延测量的结果大于实际值的现象</li>
 </ul>
@@ -657,7 +658,7 @@
 </tr>
 <tr>
 <td>qperf</td>
-<td>网络性能测试工具，测量两个节点之间的带宽和延迟，可以通过 TCP/IP 以及 RDMA 传输进行工作</td>
+<td>网络性能测试工具，测量两个节点之间的带宽和延迟，可以通过 TCP&#x2F;IP 以及 RDMA 传输进行工作</td>
 <td><a target="_blank" rel="noopener" href="https://pkgs.org/download/qperf">https://pkgs.org/download/qperf</a></td>
 </tr>
 <tr>
@@ -696,7 +697,7 @@
 <h2 id="PTP-协议"><a href="#PTP-协议" class="headerlink" title="PTP 协议"></a>PTP 协议</h2><p><strong>普通时钟 OC</strong>：一般意义上的时钟，只有一个用于 PTP 同步的端口，可作为主时钟源或从时钟</p>
 <p><strong>边界时钟 BC</strong>：有多个用于精准同步的端口，可以对系统进行简化分解 ， 降低拓扑结构难度</p>
 <p><strong>透明时钟 TC</strong>：对边界时钟进行了优化， 减少级联间的时间延迟累积</p>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E7%BA%A7%E8%81%94%E6%97%B6%E9%92%9F.png"></p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E7%BA%A7%E8%81%94%E6%97%B6%E9%92%9F.png"></p>
 <h3 id="PTP-协议同步原理"><a href="#PTP-协议同步原理" class="headerlink" title="PTP 协议同步原理"></a><strong>PTP 协议同步原理</strong></h3><ol>
 <li><p>主时钟周期性向从时钟发送 <strong>Sync 同步报文</strong>，发送时刻 $t_1$ 与 <strong>Follow_UP 跟随报文</strong>发送给从时钟</p>
 </li>
@@ -708,7 +709,7 @@
 </li>
 </ol>
 <p>主从时钟之间的时钟偏差 Offset，主时钟到从时钟的传输时延：</p>
-<p>$Delay = t_2-t_1-Offset\ \ Delay = t_4-t_3+Offset$<br>$$<br>Offset=\dfrac{\left(t_2-t_1\right)-\left(t_4-t_3\right)}2<br>$$</p>
+<p>$Delay &#x3D; t_2-t_1-Offset\ \ Delay &#x3D; t_4-t_3+Offset$<br>$$<br>Offset&#x3D;\dfrac{\left(t_2-t_1\right)-\left(t_4-t_3\right)}2<br>$$</p>
 <h2 id="时钟频差测量方法"><a href="#时钟频差测量方法" class="headerlink" title="时钟频差测量方法"></a>时钟频差测量方法</h2><table>
 <thead>
 <tr>
@@ -738,33 +739,33 @@
 <h2 id="建立-Linux-时钟同步服务器"><a href="#建立-Linux-时钟同步服务器" class="headerlink" title="建立 Linux 时钟同步服务器"></a>建立 Linux 时钟同步服务器</h2><ol>
 <li>检查是否安装 ntp 和 ntpdate</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rpm –qa | grep ntp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> –qa <span class="token operator">|</span> <span class="token function">grep</span> ntp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="2">
 <li>修改 ntp 配置文件</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vi &#x2F;etc&#x2F;ntp.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/ntp.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png"></p>
 <ol start="3">
 <li>启动 ntp 服务，并设置开机自启动</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start ntpd
- systemctl enable ntpd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start ntpd
+ systemctl <span class="token builtin class-name">enable</span> ntpd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ol start="4">
 <li>向设置的 NTP 服务器同步本地主机的时间，并查看同步状态</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ntpdate -u ntp1.aliyun.com 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ntpdate <span class="token parameter variable">-u</span> ntp1.aliyun.com 
 ntpstat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F.png"></p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F.png"></p>
 <ol start="5">
-<li>使用 crontab 定时同步，添加定时任务<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start crond
-systemctl enable crond
-crontab -e #添加定时任务
-0 *&#x2F;2 * * * ntpdate ntp1.aliyun.com &amp;&amp; hwclock -w #该命令在新建的crontab文件中添加，2个小时同步一次
-crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>查看ntp服务器与上层ntp的状态<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ntpq -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/NTP%E6%97%B6%E9%97%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%88%90%E5%8A%9F.png"></li>
+<li>使用 crontab 定时同步，添加定时任务<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start crond
+systemctl <span class="token builtin class-name">enable</span> crond
+<span class="token function">crontab</span> <span class="token parameter variable">-e</span> <span class="token comment">#添加定时任务</span>
+<span class="token number">0</span> */2 * * * ntpdate ntp1.aliyun.com <span class="token operator">&amp;&amp;</span> hwclock <span class="token parameter variable">-w</span> <span class="token comment">#该命令在新建的crontab文件中添加，2个小时同步一次</span>
+<span class="token function">crontab</span> –l <span class="token comment">#查看定时任务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>查看ntp服务器与上层ntp的状态<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ntpq <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/NTP%E6%97%B6%E9%97%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%88%90%E5%8A%9F.png"></li>
 </ol>
 <ul>
 <li>remote：本机和上层ntp的ip或主机名 </li>
@@ -778,8 +779,8 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 <li>jitter：系统时间与bios时间差</li>
 </ul>
 <h1 id="丢包测量方法"><a href="#丢包测量方法" class="headerlink" title="丢包测量方法"></a>丢包测量方法</h1><p><strong>丢包率：</strong>一段时间内，终端未成功接收的报文总数占源端发送报文总数的比例</p>
-<p><strong>通信双方观测到丢包率：</strong>通常情况下，丢失的数据包的数量非可以直接统计的量，因此引入终端接收的数据包的量$N_{rec}$，则丢包率：$R=1-\dfrac{N_{rec}}{N_{all}}$</p>
-<p><strong>中间结点观测到丢包率：</strong>$N_{rec}$表示实际通过观测结点的数据包的数量，可实际统计；$N_loss$表示在到达观测结点之前丢包总数，可估计：$R=\dfrac{N_{loss}}{N_{loss}+N_{rec}}$</p>
+<p><strong>通信双方观测到丢包率：</strong>通常情况下，丢失的数据包的数量非可以直接统计的量，因此引入终端接收的数据包的量$N_{rec}$，则丢包率：$R&#x3D;1-\dfrac{N_{rec}}{N_{all}}$</p>
+<p><strong>中间结点观测到丢包率：</strong>$N_{rec}$表示实际通过观测结点的数据包的数量，可实际统计；$N_loss$表示在到达观测结点之前丢包总数，可估计：$R&#x3D;\dfrac{N_{loss}}{N_{loss}+N_{rec}}$</p>
 <h2 id="丢包测量的问题"><a href="#丢包测量的问题" class="headerlink" title="丢包测量的问题"></a>丢包测量的问题</h2><ul>
 <li><strong>不参与通信的丢包测量</strong><ul>
 <li>对于网络服务提供商而言，从不参与通信的中间结点测量丢包十分困难</li>
@@ -913,7 +914,7 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 </ul>
 </li>
 </ul>
-<h2 id="链路-路径带宽测量"><a href="#链路-路径带宽测量" class="headerlink" title="链路/路径带宽测量"></a>链路/路径带宽测量</h2><table>
+<h2 id="链路-x2F-路径带宽测量"><a href="#链路-x2F-路径带宽测量" class="headerlink" title="链路&#x2F;路径带宽测量"></a>链路&#x2F;路径带宽测量</h2><table>
 <thead>
 <tr>
 <th>技术分类</th>
@@ -938,8 +939,8 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 <td>Bprobe， pathrate， CapProbe， nettimer， SigMon等</td>
 </tr>
 </tbody></table>
-<h3 id="包间隔模型"><a href="#包间隔模型" class="headerlink" title="包间隔模型"></a>包间隔模型</h3><p><strong>PGM 算法思想：</strong>自源端向目的端发送测量包，当测量包的速率大于可用带宽时，在瓶颈链路上的探测包就会发生排队现象，测量包之间的间隔就会发生变化。通过研究这种变化，就能得到链路可用带宽值。PGM 算法通常假设窄链路和紧链路为同一链路，且窄链路容量已知。<br>$$<br>A=C\times\left(1-\dfrac{\triangle_{out}-\triangle_{in}}{\triangle_{in}}\right)<br>$$<br>其中，A 为可用带宽，C 为链路带宽， $\triangle_{𝑜𝑢𝑡}$为输出时间间隔， $\triangle_{𝑖𝑛}$为输入时间间隔</p>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PGM.png"></p>
+<h3 id="包间隔模型"><a href="#包间隔模型" class="headerlink" title="包间隔模型"></a>包间隔模型</h3><p><strong>PGM 算法思想：</strong>自源端向目的端发送测量包，当测量包的速率大于可用带宽时，在瓶颈链路上的探测包就会发生排队现象，测量包之间的间隔就会发生变化。通过研究这种变化，就能得到链路可用带宽值。PGM 算法通常假设窄链路和紧链路为同一链路，且窄链路容量已知。<br>$$<br>A&#x3D;C\times\left(1-\dfrac{\triangle_{out}-\triangle_{in}}{\triangle_{in}}\right)<br>$$<br>其中，A 为可用带宽，C 为链路带宽， $\triangle_{𝑜𝑢𝑡}$为输出时间间隔， $\triangle_{𝑖𝑛}$为输入时间间隔</p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PGM.png"></p>
 <ul>
 <li>优点：<ul>
 <li>PGM 算法单次测量时间较短，注入网络的流量较小，因此通常不会对网络造成较大负载</li>
@@ -955,9 +956,9 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 <ul>
 <li>当所发送的探测流速率高于实际待测链路可用带宽时，则该探测流的单向时延将表现出一种递增趋势</li>
 <li>如果发送速率小于可用带宽，则探测流的单向时延呈现相对平稳趋势</li>
-<li>通过对时延变化趋势的判断，寻找 发送速率和到达速率开始匹配的转折点，将对应探测流的平均速率作为路径可用带宽的测量值 </li>
+<li>通过对时延变化趋势的判断，寻找 发送速率和到达速率开始匹配的转折点，将对应探测流的平均速率作为路径可用带宽的测量值</li>
 </ul>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PRM.png"></p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PRM.png"></p>
 <ul>
 <li>缺点：<ul>
 <li>其不可避免地会引入较多的测量负载，从而造成路径的短暂拥塞</li>
@@ -969,12 +970,12 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 <li>若发送速率 &gt; 可用带宽，探测包会在链路队列积累，单向时延增大</li>
 <li>若发送速率 &lt; 可用带宽，单向时延呈现出的平稳趋势</li>
 </ul>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/SLoPS.png"></p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/SLoPS.png"></p>
 <p>通过发送端和接收端的协作，Pathload能交互式调整发送端的速率，使得发送速率 逐步趋向于可用带宽</p>
 <p>算法结束条件：测量发送速率收敛于某个区间，所以测量返回的结果是个区间</p>
 <p><strong>探测包序列</strong></p>
 <p>在 pathload 算法执行中发送 N 个探测包列，每个探测包列速率都相同， 每个探测包列都含 K 个等长等间隔的探测包，也可以说这 N 个探测包列是完全相同的探测包列。将以上发送 N 个探测包列的过程称为一轮探测</p>
-<p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E6%8E%A2%E6%B5%8B%E5%8C%85%E5%88%97.png"><br>$$<br>PCT=\dfrac{\sum_{k=2}^HI\left(D_k-D_{k-1}\right)}{H-1}\<br>RDT=\dfrac{D_H-D_1}{\sum_{k=2}^HI\left(D_k-D_{k-1}\right)}<br>$$<br>其中，$I(X)=\left{\matrix{1\ \ if\ X\ is\ true\0\ \ if\ X\ is\ false}\right.$</p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E6%8E%A2%E6%B5%8B%E5%8C%85%E5%88%97.png"><br>$$<br>PCT&#x3D;\dfrac{\sum_{k&#x3D;2}^HI\left(D_k-D_{k-1}\right)}{H-1}\<br>RDT&#x3D;\dfrac{D_H-D_1}{\sum_{k&#x3D;2}^HI\left(D_k-D_{k-1}\right)}<br>$$<br>其中，$I(X)&#x3D;\left{\matrix{1\ \ if\ X\ is\ true\0\ \ if\ X\ is\ false}\right.$</p>
 <ul>
 <li><strong>PCT：</strong>连续的探测包是否呈现递增趋势<ul>
 <li>$0\le PCT\le 1$</li>
@@ -992,8 +993,8 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 </ul>
 <p><strong>发送速率调整</strong></p>
 <p>通过二分搜索的方法改变发送探测包的速率，逐步收敛到可用带宽</p>
-<p>若$R(n)&lt;A$，则$R_{\min}=R(n)$，$R(n+1)=\dfrac{R_{\max}+R_{\min}}2$</p>
-<p>若$R(n)&gt;A$，则$R_{\max}=R(n)$，$R(n+1)=\dfrac{R_{\max}+R_{\min}}2$</p>
+<p>若$R(n)&lt;A$，则$R_{\min}&#x3D;R(n)$，$R(n+1)&#x3D;\dfrac{R_{\max}+R_{\min}}2$</p>
+<p>若$R(n)&gt;A$，则$R_{\max}&#x3D;R(n)$，$R(n+1)&#x3D;\dfrac{R_{\max}+R_{\min}}2$</p>
 <h3 id="Spruce-方法"><a href="#Spruce-方法" class="headerlink" title="Spruce 方法"></a>Spruce 方法</h3><p>Spruce 在测量的准确性和鲁棒性最优</p>
 <p><strong>算法假设前提</strong></p>
 <ul>
@@ -1008,8 +1009,8 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
 </ol>
 <p>其中，$g_{in}$ 和 $g_{out}$ 分别表示在发送端和接收端探测包对中两个包的包间间隔</p>
 <h2 id="带宽测量工具"><a href="#带宽测量工具" class="headerlink" title="带宽测量工具"></a>带宽测量工具</h2><p><a target="_blank" rel="noopener" href="https://www.caida.org/tools/taxonomy/performance.xml">https://www.caida.org/tools/taxonomy/performance.xml</a></p>
-<h3 id="Pathload"><a href="#Pathload" class="headerlink" title="Pathload"></a>Pathload</h3><p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Pathload.png"></p>
-<h3 id="iperf3"><a href="#iperf3" class="headerlink" title="iperf3"></a>iperf3</h3><p><img src="images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/iperf3.png"></p>
+<h3 id="Pathload"><a href="#Pathload" class="headerlink" title="Pathload"></a>Pathload</h3><p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Pathload.png"></p>
+<h3 id="iperf3"><a href="#iperf3" class="headerlink" title="iperf3"></a>iperf3</h3><p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/iperf3.png"></p>
 
                 
             </div>
@@ -1735,7 +1736,7 @@ crontab –l #查看定时任务<span aria-hidden="true" class="line-numbers-row
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

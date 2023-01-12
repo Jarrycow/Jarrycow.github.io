@@ -19,6 +19,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -569,19 +570,19 @@
 <p>请返回 <code>nums</code> 中所有元素按位异或（<strong>XOR</strong>）后得到的结果。</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：n = 5, start = 0<br>输出：8<br>解释：数组 nums 为 [0, 2, 4, 6, 8]，其中 (0 ^ 2 ^ 4 ^ 6 ^ 8) = 8 。<br>     “^” 为按位异或 XOR 运算符。</p>
+<p>输入：n &#x3D; 5, start &#x3D; 0<br>输出：8<br>解释：数组 nums 为 [0, 2, 4, 6, 8]，其中 (0 ^ 2 ^ 4 ^ 6 ^ 8) &#x3D; 8 。<br>     “^” 为按位异或 XOR 运算符。</p>
 </blockquote>
 <p><strong>示例 2：</strong></p>
 <blockquote>
-<p>输入：n = 4, start = 3<br>输出：8<br>解释：数组 nums 为 [3, 5, 7, 9]，其中 (3 ^ 5 ^ 7 ^ 9) = 8.</p>
+<p>输入：n &#x3D; 4, start &#x3D; 3<br>输出：8<br>解释：数组 nums 为 [3, 5, 7, 9]，其中 (3 ^ 5 ^ 7 ^ 9) &#x3D; 8.</p>
 </blockquote>
 <p><strong>示例 3：</strong></p>
 <blockquote>
-<p>输入：n = 1, start = 7<br>输出：7</p>
+<p>输入：n &#x3D; 1, start &#x3D; 7<br>输出：7</p>
 </blockquote>
 <p><strong>示例 4：</strong></p>
 <blockquote>
-<p>输入：n = 10, start = 5<br>输出：2</p>
+<p>输入：n &#x3D; 10, start &#x3D; 5<br>输出：2</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
@@ -599,8 +600,8 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><p>$\forall i \in Z$，$4i\oplus(4i+1)\oplus(4i+2)\oplus(4i+3)=0$</p>
-<p>则$$sumXor\left( x \right) =\left{ \begin{array}{l}<br>    x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ x=4k\<br>    \left( x-1 \right) \oplus x=1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  x=4k+1\<br>    \left( x-2 \right) \oplus \left( x-1 \right) \oplus x=x+1\ \ \ \ \ \ \ \ \ \ \ \ \ x=4k+2\<br>    \left( x-3 \right) \oplus \left( x-2 \right) \oplus \left( x-1 \right) \oplus x=0\ \ \ \ x=4k+3\<br>\end{array} \right. $$</p>
+<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><p>$\forall i \in Z$，$4i\oplus(4i+1)\oplus(4i+2)\oplus(4i+3)&#x3D;0$</p>
+<p>则$$sumXor\left( x \right) &#x3D;\left{ \begin{array}{l}<br>    x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ x&#x3D;4k\<br>    \left( x-1 \right) \oplus x&#x3D;1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  x&#x3D;4k+1\<br>    \left( x-2 \right) \oplus \left( x-1 \right) \oplus x&#x3D;x+1\ \ \ \ \ \ \ \ \ \ \ \ \ x&#x3D;4k+2\<br>    \left( x-3 \right) \oplus \left( x-2 \right) \oplus \left( x-1 \right) \oplus x&#x3D;0\ \ \ \ x&#x3D;4k+3\<br>\end{array} \right. $$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">xorOperation</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> s <span class="token operator">=</span> start <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">,</span> e <span class="token operator">=</span> n <span class="token operator">&amp;</span> start <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1366,7 +1367,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

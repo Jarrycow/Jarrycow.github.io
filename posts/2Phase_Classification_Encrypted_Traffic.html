@@ -18,6 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -598,7 +599,7 @@
 <li><p>使用更多的数据包来进行流量分类</p>
 </li>
 </ol>
-<p><img src="images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TaTic%E6%9E%B6%E6%9E%84.png" alt="TaTic架构"></p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TaTic%E6%9E%B6%E6%9E%84.png" alt="TaTic架构"></p>
 <p><strong>TaTic 模块：</strong>训练模块、分类模块</p>
 <ul>
 <li>训练模块：利用标记的流量建立两个流量分类模型<ol>
@@ -636,13 +637,14 @@
 <li><p><strong>TCP 窗口大小：</strong>$W^i_j$</p>
 </li>
 <li><p><strong>时间戳：</strong>$t^i_j$</p>
-<p>时间戳不可直接使用，要转换为其与前一个数据包的间隔时间$T^i_j$<sub>实践中时间间隔呈梯形函数</sub><br>$$<br>T^i_j=<br>\left\{\begin{matrix}<br>\lfloor t_j^i \times 100 \rfloor +1 &amp; 0s\le t^i_j&lt;0.1s\\<br>\lfloor t_j^i \times 200 \rfloor +1 &amp; 0.1s\le t^i_j&lt;1s\\<br>\lfloor t_j^i \times 1000 \rfloor +1 &amp; 1s\le t^i_j\\<br>\end{matrix}\right.<br>$$</p>
+<p>时间戳不可直接使用，要转换为其与前一个数据包的间隔时间$T^i_j$<sub>实践中时间间隔呈梯形函数</sub></p>
 </li>
 </ul>
 </li>
-<li><p>得到分类特征向量$x’_i=[L^i_j,\ W^i_j,\ T^i_j]$</p>
-</li>
-<li><p>假设有 $M$ 个训练流，将得到训练样本集 $D_{easy}=\left{\left(x’_i,y’<em>i\right)\right}^M</em>{i=1}$</p>
+</ol>
+<p>$$<br>T^i_j&#x3D;<br>\left\{\begin{matrix}<br> \lfloor t_j^i \times 100 \rfloor +1 &amp; 0s\le t^i_j&lt;0.1s\\<br> \lfloor t_j^i \times 200 \rfloor +1 &amp; 0.1s\le t^i_j&lt;1s\\<br> \lfloor t_j^i \times 1000 \rfloor +1 &amp; 1s\le t^i_j\\<br>\end{matrix}\right.<br>$$<br>4. 得到分类特征向量$x’_i&#x3D;[L^i_j,\ W^i_j,\ T^i_j]$</p>
+<ol start="5">
+<li><p>假设有 $M$ 个训练流，将得到训练样本集 $D_{easy}&#x3D;\left{\left(x’_i,y’<em>i\right)\right}^M</em>{i&#x3D;1}$</p>
 <p>其中，$y’_i$ 表示 $flow_i$ 对应应用标签</p>
 </li>
 <li><p>送入短序训练器</p>
@@ -656,7 +658,7 @@
 <li>分类树构建（Classification Tree Building）</li>
 <li>规则生成（Rule Generation）</li>
 </ul>
-<p><img src="images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/%E7%9F%AD%E5%BA%8F%E5%88%97%E8%AE%AD%E7%BB%83%E5%99%A8%E6%AD%A5%E9%AA%A4.png" alt="短序列训练器步骤"></p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/%E7%9F%AD%E5%BA%8F%E5%88%97%E8%AE%AD%E7%BB%83%E5%99%A8%E6%AD%A5%E9%AA%A4.png" alt="短序列训练器步骤"></p>
 <p><strong>子集构建（Subset Construction）：</strong></p>
 <ul>
 <li><p>目的：对 $D_{easy}$ 进行多次随机抽样，形成几个不同的训练子集</p>
@@ -665,10 +667,10 @@
 </li>
 <li><p>操作：</p>
 <ol>
-<li><p>从 $D_{easy}$ 中抽取 $M’=\alpha\times M$ 样本，组成集合$Set_i$</p>
-<p>其中，$\alpha$ 为抽样率，遵循 “632+Bootstrap “方法，$\alpha=0.632$</p>
+<li><p>从 $D_{easy}$ 中抽取 $M’&#x3D;\alpha\times M$ 样本，组成集合$Set_i$</p>
+<p>其中，$\alpha$ 为抽样率，遵循 “632+Bootstrap “方法，$\alpha&#x3D;0.632$</p>
 </li>
-<li><p>重复上述操作 $T$ 次，得到新集合 $D’_{easy}={Set_1, \cdots , Set_i,\cdots, Set_T }$</p>
+<li><p>重复上述操作 $T$ 次，得到新集合 $D’_{easy}&#x3D;{Set_1, \cdots , Set_i,\cdots, Set_T }$</p>
 </li>
 </ol>
 </li>
@@ -689,7 +691,7 @@
 </ol>
 </li>
 </ul>
-<p><img src="images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/Ruleset.png" alt="Ruleset"></p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/Ruleset.png" alt="Ruleset"></p>
 <h2 id="难流建模阶段"><a href="#难流建模阶段" class="headerlink" title="难流建模阶段"></a>难流建模阶段</h2><p><strong>目的：</strong>流中使用相对较多的数据包并构建这些数据包之间的时间关系来实现对难流量的准确分类</p>
 <p><strong>使用有效载荷长度作为其特征：</strong></p>
 <ul>
@@ -704,21 +706,21 @@
 </ol>
 <h3 id="长序列预处理"><a href="#长序列预处理" class="headerlink" title="长序列预处理"></a>长序列预处理</h3><ol>
 <li>保留流 $flow_i$ 前 $H$ 个数据包，提取有效载荷长度信息</li>
-<li>按照流量数据包顺序排列为有效载荷长度 $x’’_i=\left[L^i_j\right]$</li>
-<li>对于 $M$ 个标记的训练流，得到训练数据集 $ D_{hard} = ( ( x’’_i$, $y’’<em>i ))^M</em>{i=1}$ </li>
+<li>按照流量数据包顺序排列为有效载荷长度 $x’’_i&#x3D;\left[L^i_j\right]$</li>
+<li>对于 $M$ 个标记的训练流，得到训练数据集 $ D_{hard} &#x3D; ( ( x’’_i$, $y’’<em>i ))^M</em>{i&#x3D;1}$ </li>
 <li>将 $D_{hard}$ 送入长序列训练器</li>
 </ol>
 <h3 id="长序列训练器"><a href="#长序列训练器" class="headerlink" title="长序列训练器"></a>长序列训练器</h3><p><strong>算法：</strong>HFC 模型，同时考虑了计算效率和计算效果</p>
-<p><img src="images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/HFC%E6%A8%A1%E5%9E%8B.png" alt="HFC 模型"></p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/HFC%E6%A8%A1%E5%9E%8B.png" alt="HFC 模型"></p>
 <p><strong>一热编码层：</strong></p>
 <ul>
 <li><p><strong>目的：</strong>将每个有效载荷长度的分类意义与它的数字值分开，转换为离散向量，使神经网络更容易训练</p>
 </li>
 <li><p><strong>步骤：</strong></p>
-<p>将 $x’’_{i}=[L_j^i]$ 转换为稀疏矩阵 $\mathbf{o^i}$ </p>
-<p>$\mathbf{o^i}=[o_1^i,o_2^i,\cdots,o^i_j,\cdots,o^i_H],\ \ \mathbf{o^i}\in R^{H\times d}$</p>
+<p>将 $x’’_{i}&#x3D;[L_j^i]$ 转换为稀疏矩阵 $\mathbf{o^i}$ </p>
+<p>$\mathbf{o^i}&#x3D;[o_1^i,o_2^i,\cdots,o^i_j,\cdots,o^i_H],\ \ \mathbf{o^i}\in R^{H\times d}$</p>
 <p>其中 $o^i_j$ 对应于 $x’’_i$ 的第 $j$ 个有效载荷长度 $L^i_j$，它是一个 $d$ 维向量（$d$ 即最大有效载荷长度）</p>
-<p>具体来说，$o^i_j = [0, 0, \cdots , 1, \cdots , 0]$，其中$L^i_j$的值的维度为 “$1$”，其他维度为 “$0$”</p>
+<p>具体来说，$o^i_j &#x3D; [0, 0, \cdots , 1, \cdots , 0]$，其中$L^i_j$的值的维度为 “$1$”，其他维度为 “$0$”</p>
 </li>
 </ul>
 <p><strong>二维卷积层：</strong></p>
@@ -750,7 +752,7 @@
 <li>$ReLU$ 层</li>
 <li>$DropOut$ 层</li>
 </ul>
-<p><img src="images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TCN.png" alt="TCN"></p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TCN.png" alt="TCN"></p>
 </li>
 <li><p><strong>膨胀卷积层：</strong>核心功能层</p>
 <ul>
@@ -781,7 +783,7 @@
 </li>
 <li><p>每层的输出神经元数量：$64$ 和 $R$</p>
 </li>
-<li><p>最后一全连接层激活函数：softmax </p>
+<li><p>最后一全连接层激活函数：softmax</p>
 </li>
 </ul>
 <h1 id="Tatic-分类模块"><a href="#Tatic-分类模块" class="headerlink" title="Tatic 分类模块"></a>Tatic 分类模块</h1><ol>
@@ -1530,7 +1532,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

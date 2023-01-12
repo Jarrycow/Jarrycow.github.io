@@ -20,6 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -575,7 +576,7 @@ net share d$ &#x2F;del   # 关闭共享<span aria-hidden="true" class="line-numb
 
 <p>修改注册表，不让其开机启动<br><img src="https://img-blog.csdnimg.cn/202003291707549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters<br>右键新建一个DWORD类型的Autoshareserver的键，值为0.<br><img src="https://img-blog.csdnimg.cn/20200329171428344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>关机重启 查看<code>net share</code><br><img src="https://img-blog.csdnimg.cn/20200329172217977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h3 id="关闭445服务"><a href="#关闭445服务" class="headerlink" title="关闭445服务"></a>关闭445服务</h3><p><strong>作用</strong>：网页服务器不打开共享服务</p>
-<p><strong>1）打开services.msc 停止并禁用server服务</strong><br>关闭IPC$ 远程IPC<br>Win + R – <code>services.msc</code><br>禁用server这个服务，关闭了445端口 不提供共享服务<br><img src="https://img-blog.csdnimg.cn/2020032917315949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>重启计算机<br>已经没有共享选项<br><img src="https://img-blog.csdnimg.cn/20200329173657592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>2）配置高级安全防火墙 – 入站规则</strong>（win7/win2008系统以上才有）</p>
+<p><strong>1）打开services.msc 停止并禁用server服务</strong><br>关闭IPC$ 远程IPC<br>Win + R – <code>services.msc</code><br>禁用server这个服务，关闭了445端口 不提供共享服务<br><img src="https://img-blog.csdnimg.cn/2020032917315949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>重启计算机<br>已经没有共享选项<br><img src="https://img-blog.csdnimg.cn/20200329173657592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>2）配置高级安全防火墙 – 入站规则</strong>（win7&#x2F;win2008系统以上才有）</p>
 <p>控制面板 &gt; 系统和安全 &gt; 防火墙 &gt; 高级设置 &gt; 入站规则<br>右键 &gt; 新建规则 &gt; 端口 &gt; 阻止被访问445(UDP+TCP) &gt; 阻止</p>
 <p><img src="https://img-blog.csdnimg.cn/2020032917441198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAzMjIzMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
@@ -1266,7 +1267,7 @@ net share d$ &#x2F;del   # 关闭共享<span aria-hidden="true" class="line-numb
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

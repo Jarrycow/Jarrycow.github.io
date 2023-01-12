@@ -9,11 +9,9 @@
 如果不存在公共前缀，返回空字符串 &amp;quot;&amp;quot;。
 示例 1：
 
-输入：strs = [“flower”,”flow”,”flight”]输出：”fl”
+输入：strs &amp;#x3D; [“flower”,”flow”,”flight”]输出：”fl”
 
-示例 2：
-
-输入">
+示例 2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,6 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -569,11 +568,11 @@
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：strs = [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
+<p>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
 </blockquote>
 <p><strong>示例 2：</strong></p>
 <blockquote>
-<p>输入：strs = [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+<p>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
@@ -608,7 +607,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><p>以$LCP(S_1\cdots S_n)$表示字符串$S_1\cdots S_n$最长公共前缀</p>
-<h3 id="横向扫描"><a href="#横向扫描" class="headerlink" title="横向扫描"></a>横向扫描</h3><p>$LCP(S_1\cdots S_n)=LCP(LCP(LCP(S_1, S_2), S_3), S_4)$</p>
+<h3 id="横向扫描"><a href="#横向扫描" class="headerlink" title="横向扫描"></a>横向扫描</h3><p>$LCP(S_1\cdots S_n)&#x3D;LCP(LCP(LCP(S_1, S_2), S_3), S_4)$</p>
 <p>依次遍历字符串数组中的每个字符串，对于每个遍历到的字符串，更新最长公共前缀</p>
 <p>如果在尚未遍历完所有的字符串时，最长公共前缀已经是空串，则最长公共前缀一定是空串</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1396,7 +1395,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

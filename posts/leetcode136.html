@@ -23,6 +23,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -581,9 +582,9 @@
 </blockquote>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>最先想到的一定是暴力求解，或者哈希表。但要求空间复杂度$O(1)$且时间复杂度$O(n)$</p>
 <p>因此考虑使用异或</p>
-<p>$a\oplus 0=a$</p>
-<p>$a\oplus a=0$</p>
-<p>$a\oplus b\oplus a=b$</p>
+<p>$a\oplus 0&#x3D;a$</p>
+<p>$a\oplus a&#x3D;0$</p>
+<p>$a\oplus b\oplus a&#x3D;b$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">singleNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> single <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -1321,7 +1322,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

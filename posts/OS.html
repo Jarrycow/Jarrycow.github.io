@@ -18,6 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -585,7 +586,7 @@
 <p><strong>并发 &amp; 并行</strong></p>
 <ul>
 <li>并发微观上<strong>交替进行</strong>，通过<strong>分时</strong>实现</li>
-<li>并行<strong>同时</strong>完成多种工作，需要<strong>硬件支持</strong><sub>多流水线/多处理机</sub></li>
+<li>并行<strong>同时</strong>完成多种工作，需要<strong>硬件支持</strong><sub>多流水线&#x2F;多处理机</sub></li>
 </ul>
 <blockquote>
 <p>多道程序设计特征</p>
@@ -616,7 +617,7 @@
 <h2 id="操作系统目标-amp-功能"><a href="#操作系统目标-amp-功能" class="headerlink" title="操作系统目标 &amp; 功能"></a>操作系统目标 &amp; 功能</h2><h3 id="计算机系统管理者"><a href="#计算机系统管理者" class="headerlink" title="计算机系统管理者"></a>计算机系统管理者</h3><p><strong>处理机管理：</strong>对进程管理</p>
 <p><strong>存储器管理：</strong>给并发运行提供环境</p>
 <p><strong>文件管理：</strong>负责文件管理</p>
-<p><strong>设备管理：</strong>I/O请求</p>
+<p><strong>设备管理：</strong>I&#x2F;O请求</p>
 <h3 id="用户和硬件系统接口"><a href="#用户和硬件系统接口" class="headerlink" title="用户和硬件系统接口"></a>用户和硬件系统接口</h3><p><strong>命令接口：</strong>进行作业控制</p>
 <ul>
 <li><strong>联机命令接口：</strong>（交互式命令接口）输入命令，做出反馈</li>
@@ -661,13 +662,13 @@
 <li><strong>顺序性</strong></li>
 <li><strong>单道性</strong></li>
 </ul>
-<p><strong>缺点：</strong>运行期间发出I/O请求后，高速CPU处于等待低速I/O状态</p>
+<p><strong>缺点：</strong>运行期间发出I&#x2F;O请求后，高速CPU处于等待低速I&#x2F;O状态</p>
 <blockquote>
 <p><strong>中断 &amp; 通道对多道程序作用</strong></p>
-<p>多道程序并发即有的程序在CPU执行，有的在I/O设备传输，必须中断和通道技术支持</p>
+<p>多道程序并发即有的程序在CPU执行，有的在I&#x2F;O设备传输，必须中断和通道技术支持</p>
 <ul>
-<li><strong>通道：</strong>控制外部设备的硬件机构，独立于CPU运行，因而可以使得CPU与I/O并行工作</li>
-<li><strong>中断：</strong>I/O结束或硬件故障时，由中断机构告知CPU停止工作，处理中断请求，待处理完中断再继续工作</li>
+<li><strong>通道：</strong>控制外部设备的硬件机构，独立于CPU运行，因而可以使得CPU与I&#x2F;O并行工作</li>
+<li><strong>中断：</strong>I&#x2F;O结束或硬件故障时，由中断机构告知CPU停止工作，处理中断请求，待处理完中断再继续工作</li>
 </ul>
 </blockquote>
 <h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><p><strong>特点</strong></p>
@@ -680,7 +681,7 @@
 <ul>
 <li>处理器分配</li>
 <li>内存分配</li>
-<li>I/O设备分配</li>
+<li>I&#x2F;O设备分配</li>
 <li>组织和存放大量程序和数据，保证安全性和一致性</li>
 </ul>
 <p><strong>优点</strong></p>
@@ -778,7 +779,7 @@
 <li>设备管理</li>
 </ul>
 <h2 id="中断-amp-异常"><a href="#中断-amp-异常" class="headerlink" title="中断 &amp; 异常"></a>中断 &amp; 异常</h2><p>用户态$\rightarrow$内核<br>$$<br>\text{中断}\left{ \begin{array}{l}<br>    \text{内中断}\left{ \begin{array}{l}<br>    \text{自愿中断}——\text{指令中断}\<br>    \text{强迫中断}\left{ \begin{array}{l}<br>    \text{硬件故障}\<br>    \text{软件中断}\<br>\end{array} \right.\<br>\end{array} \right.\<br>    \text{外中断}\left( \text{强迫中断} \right) \left{ \begin{array}{l}<br>    \text{外设请求}\<br>    \text{人为干预}\<br>\end{array} \right.\<br>\end{array} \right.<br>$$<br><strong>中断</strong>（外中断）：来自CPU执行指令以外事情发生</p>
-<p><strong>异常</strong>（内中断/陷入）：CPU执行内部事件引起</p>
+<p><strong>异常</strong>（内中断&#x2F;陷入）：CPU执行内部事件引起</p>
 <h3 id="中断处理"><a href="#中断处理" class="headerlink" title="中断处理"></a>中断处理</h3><ol>
 <li>关中断</li>
 <li>保存断点<sub>PC &amp; PSW</sub></li>
@@ -1546,7 +1547,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

@@ -9,7 +9,7 @@
 
 
 距离以模式样本特征向量之间的距离，来作为样本相似度的依据
-欧氏距离$D(X_1X_2)=\left|X_1-X_2\right|=\sqrt{(X_1-X_2)^T(X_1-X_2)}\=\sqrt{(x_{11}-">
+欧氏距离$D(X_1X_2)&amp;#x3D;\left|X_1-X_2\right|&amp;#x3D;\sqrt{(X_1-X_2)^T(X_1-X_2)}\&amp;#x3D">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,6 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -561,7 +562,7 @@
 <span id="more"></span>
 
 <h2 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h2><p>以模式样本特征向量之间的距离，来作为样本相似度的依据</p>
-<h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>$D(X_1X_2)=\left|X_1-X_2\right|=\sqrt{(X_1-X_2)^T(X_1-X_2)}\=\sqrt{(x_{11}-x_{21})^2+\cdots +(x_{1n}-x_{2n})^2}$</p>
+<h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>$D(X_1X_2)&#x3D;\left|X_1-X_2\right|&#x3D;\sqrt{(X_1-X_2)^T(X_1-X_2)}\&#x3D;\sqrt{(x_{11}-x_{21})^2+\cdots +(x_{1n}-x_{2n})^2}$</p>
 <p><strong><font color="red">注：要对数据标准化，以防单位不同导致量纲不同</font></strong></p>
 <p><strong>代码</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">EuclidDistance</span><span class="token punctuation">(</span>data1<span class="token punctuation">,</span> data2<span class="token punctuation">)</span><span class="token punctuation">:</span>  
@@ -583,12 +584,12 @@
 <p>聚类分析中经常使用的一个判定准则是样本的到均值向量的距离是否小于给定的阈值</p>
 <p>$X$——模式向量</p>
 <p>$M$——均值向量</p>
-<p>$C$——协方差矩阵<br>$$<br>D(X)=\sqrt{\left(X-M\right)^TC^{-1}\left(X-M\right)}\<br>D(X_i,X_j)<br>$$<br>其中</p>
-<p>$C=E{(X-M)(X-M)^T}<br>=E \left{ \begin{bmatrix}<br> x_1-m_1 \ x_2-m_2 \ \vdots  \ x_n-m_n<br>\end{bmatrix}\begin{bmatrix}<br> (x_1-m_1) &amp; (x_2-m_2) &amp; \cdots  &amp; (x_n-m_n)<br>\end{bmatrix} \right}\==\begin{bmatrix}<br>E(x_1-m_1)(x_1-m_1) &amp; E(x_1-m_1)(x_2-m_2) &amp; \cdots &amp; E(x_1-m_1)(x_n-m_n)\<br>E(x_2-m_2)(x_1-m_1) &amp; E(x_2-m_2)(x_2-m_2) &amp; \cdots &amp; E(x_2-m_2)(x_n-m_n)\<br>\vdots &amp; \vdots &amp; \vdots &amp; \vdots\<br>E(x_n-m_n)(x_1-m_1) &amp; E(x_n-m_n)(x_2-m_2) &amp; \cdots &amp; E(x_n-m_n)(x_n-m_n)<br>\end{bmatrix}<br>\= \begin{bmatrix}<br>\sigma^2_{11} &amp; \sigma^2_{12} &amp; \cdots &amp; \sigma^2_{1n}\<br>\sigma^2_{21} &amp; \ddots &amp; \sigma^2_{jk} &amp; \vdots \<br>\vdots &amp; \vdots &amp; \sigma_{kk}^2 \vdots\<br>\sigma^2_{n1} &amp;\cdots &amp; \cdots &amp; \sigma^2_{nn}<br>\end{bmatrix}$</p>
-<p><img src="%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%5C%E6%AC%A7%E6%B0%8F%E5%92%8C%E9%A9%AC%E6%B0%8F.png"></p>
+<p>$C$——协方差矩阵<br>$$<br>D(X)&#x3D;\sqrt{\left(X-M\right)^TC^{-1}\left(X-M\right)}\<br>D(X_i,X_j)<br>$$<br>其中</p>
+<p>$C&#x3D;E{(X-M)(X-M)^T}<br>&#x3D;E \left{ \begin{bmatrix}<br> x_1-m_1 \ x_2-m_2 \ \vdots  \ x_n-m_n<br>\end{bmatrix}\begin{bmatrix}<br> (x_1-m_1) &amp; (x_2-m_2) &amp; \cdots  &amp; (x_n-m_n)<br>\end{bmatrix} \right}\&#x3D;&#x3D;\begin{bmatrix}<br>E(x_1-m_1)(x_1-m_1) &amp; E(x_1-m_1)(x_2-m_2) &amp; \cdots &amp; E(x_1-m_1)(x_n-m_n)\<br>E(x_2-m_2)(x_1-m_1) &amp; E(x_2-m_2)(x_2-m_2) &amp; \cdots &amp; E(x_2-m_2)(x_n-m_n)\<br>\vdots &amp; \vdots &amp; \vdots &amp; \vdots\<br>E(x_n-m_n)(x_1-m_1) &amp; E(x_n-m_n)(x_2-m_2) &amp; \cdots &amp; E(x_n-m_n)(x_n-m_n)<br>\end{bmatrix}<br>\&#x3D; \begin{bmatrix}<br>\sigma^2_{11} &amp; \sigma^2_{12} &amp; \cdots &amp; \sigma^2_{1n}\<br>\sigma^2_{21} &amp; \ddots &amp; \sigma^2_{jk} &amp; \vdots \<br>\vdots &amp; \vdots &amp; \sigma_{kk}^2 \vdots\<br>\sigma^2_{n1} &amp;\cdots &amp; \cdots &amp; \sigma^2_{nn}<br>\end{bmatrix}$</p>
+<p><img src="/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%5C%E6%AC%A7%E6%B0%8F%E5%92%8C%E9%A9%AC%E6%B0%8F.png"></p>
 <p>马氏距离的计算是建立在总体样本的基础上的。即相同的两个样本，放入两个不同的总体中，最后计算得出的两个样本间的马氏距离通常是不相同的</p>
 <p>虽然标准化欧氏距离的数据可以消除维度差异，但是若维度间不独立同分布，样本之间并非越近概率越大。</p>
-<p>比如样本服从$f(x) = x$的分布,A与B相对于原点的距离依旧相等，显然A更像是一个离群点。因此要对其主成分分析中的主成分进行标准化，将变量按照主成分进行旋转，让维度相互独立并标准化。</p>
+<p>比如样本服从$f(x) &#x3D; x$的分布,A与B相对于原点的距离依旧相等，显然A更像是一个离群点。因此要对其主成分分析中的主成分进行标准化，将变量按照主成分进行旋转，让维度相互独立并标准化。</p>
 <p><img src="https://pic3.zhimg.com/80/v2-3cee35b79d272dda86e2604c160934ee_720w.webp"><br><strong>代码</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">MaharanobisDistance</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> data1<span class="token punctuation">,</span> data2 <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
     <span class="token triple-quoted-string string">'''
@@ -617,29 +618,29 @@
 <li>只对线性空间有效，对于流线型只能局部定义</li>
 </ul>
 <h3 id="明氏距离"><a href="#明氏距离" class="headerlink" title="明氏距离"></a>明氏距离</h3><p>多维连续空间的距离</p>
-<p>$n$维模式样本向量$X_i$、$X_j$之间明氏距离<br>$$<br>D_m(X_i,X_j)=\left[\sum_{k=1}^n \left|x_{ik}-x_{jk}\right|^m\right]^\frac1m<br>$$</p>
+<p>$n$维模式样本向量$X_i$、$X_j$之间明氏距离<br>$$<br>D_m(X_i,X_j)&#x3D;\left[\sum_{k&#x3D;1}^n \left|x_{ik}-x_{jk}\right|^m\right]^\frac1m<br>$$</p>
 <p><strong>缺点：</strong></p>
 <ul>
-<li>$m=2$为欧氏距离</li>
-<li>$m=1$为曼哈顿距离</li>
+<li>$m&#x3D;2$为欧氏距离</li>
+<li>$m&#x3D;1$为曼哈顿距离</li>
 <li>$m\rightarrow \infty$为切比雪夫距离</li>
 </ul>
 <img src="https://pic3.zhimg.com/80/v2-d988aba5a9490f66b1c8e91c84d7b102_720w.webp" style="zoom:67%;" />
 
 
 
-<h3 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a>汉明距离</h3><p>设$X_i,X_j$为$n$维二值($1$或$-1$)模式样本向量<br>$$<br>D_h(X_i,X_j)=\dfrac12\left(n-\sum^n_{k=1}x_{ik}\cdot x_{jk}\right)<br>$$<br>其中$x_{ik}$、$x_{jk}$分别表示$X_i$和$X_j$的第$k$个分量</p>
-<h3 id="角度相似性函数"><a href="#角度相似性函数" class="headerlink" title="角度相似性函数"></a>角度相似性函数</h3><p>$S(X_i,X_j)=\dfrac{X_i^TX_j}{||X_i||\cdot||X_j||}$</p>
+<h3 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a>汉明距离</h3><p>设$X_i,X_j$为$n$维二值($1$或$-1$)模式样本向量<br>$$<br>D_h(X_i,X_j)&#x3D;\dfrac12\left(n-\sum^n_{k&#x3D;1}x_{ik}\cdot x_{jk}\right)<br>$$<br>其中$x_{ik}$、$x_{jk}$分别表示$X_i$和$X_j$的第$k$个分量</p>
+<h3 id="角度相似性函数"><a href="#角度相似性函数" class="headerlink" title="角度相似性函数"></a>角度相似性函数</h3><p>$S(X_i,X_j)&#x3D;\dfrac{X_i^TX_j}{||X_i||\cdot||X_j||}$</p>
 <p>为模式向量$X_i$和$X_j$之间夹角的余弦</p>
 <h2 id="基于距离阈值的聚类算法"><a href="#基于距离阈值的聚类算法" class="headerlink" title="基于距离阈值的聚类算法"></a>基于距离阈值的聚类算法</h2><h3 id="近邻聚类法"><a href="#近邻聚类法" class="headerlink" title="近邻聚类法"></a>近邻聚类法</h3><ol>
-<li><p>任取样本$X_i$作为第一个聚类中心的初始值，令$Z_1=X_1$</p>
+<li><p>任取样本$X_i$作为第一个聚类中心的初始值，令$Z_1&#x3D;X_1$</p>
 </li>
-<li><p>计算样本$X_2$到$Z_1$的欧氏距离$D_{21}=\left|\left|X_2-Z_1\right|\right|$</p>
-<p>若$D_{21}&gt;T$，定义新聚类中心$Z_2=X_2$</p>
+<li><p>计算样本$X_2$到$Z_1$的欧氏距离$D_{21}&#x3D;\left|\left|X_2-Z_1\right|\right|$</p>
+<p>若$D_{21}&gt;T$，定义新聚类中心$Z_2&#x3D;X_2$</p>
 <p>否则$X_2\in Z_1$为中心的聚类</p>
 </li>
 <li><p>若已有聚类中心$Z_1、Z_2$，计算$D_{31}、D_{32}$</p>
-<p>若$D_{31}&gt;T$切$D_{32}&gt;T$，则建立第三个聚类中心$Z_3=X_3$</p>
+<p>若$D_{31}&gt;T$切$D_{32}&gt;T$，则建立第三个聚类中心$Z_3&#x3D;X_3$</p>
 <p>否则$X_3\in \min\left{Z_1,Z_3\right}$为中心的聚类</p>
 </li>
 <li><p>依此类推，直到将所有的$N$个样本都进行分类</p>
@@ -1380,7 +1381,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

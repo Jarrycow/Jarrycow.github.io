@@ -19,6 +19,7 @@ menu:
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -561,7 +562,7 @@ menu:
                 <h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2> <span id="more"></span>
 
 <p>打开<code>themes/next</code>下的<code>_config.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
   <span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> home                      <span class="token comment">#首页</span>
   <span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> archive      <span class="token comment">#归档</span>
   <span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> th       <span class="token comment">#分类</span>
@@ -574,24 +575,24 @@ menu:
 <p><code>英文名称:  /目标地址/  ||  图标(Font Awesome)</code></p>
 <p>将对应英文翻译中文，打开<code>theme/next/languages/zh-CN.yml</code>，在<code>menu</code>下编辑翻译</p>
 <p>在根目录下打开Git Bash，添加页面，会在根目录的<code>sources</code>文件夹下会生成<code>categories</code>、<code>tags</code>、<code>about</code>子文件夹</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page &quot;categories&quot;
-hexo new page &quot;tags&quot;
-hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"categories"</span>
+hexo new page <span class="token string">"tags"</span>
+hexo new page <span class="token string">"about"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="设置建站时间"><a href="#设置建站时间" class="headerlink" title="设置建站时间"></a>设置建站时间</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">footer</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">footer</span><span class="token punctuation">:</span>
   <span class="token comment"># Specify the date when the site was setup. If not defined, current year will be used.</span>
   <span class="token key atrule">since</span><span class="token punctuation">:</span> 2020<span class="token punctuation">-</span><span class="token number">02</span>   <span class="token comment">#建站时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Sidebar Avatar</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Sidebar Avatar</span>
 <span class="token key atrule">avatar</span><span class="token punctuation">:</span>
   <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar.gif   <span class="token comment">#头像图片的位置</span>
   <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token comment">#头像展示在圈里</span>
   <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment">#头像随光标旋转</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="网站图标设置"><a href="#网站图标设置" class="headerlink" title="网站图标设置"></a>网站图标设置</h2><p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
   <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/sast<span class="token punctuation">-</span>16×16.jpg
   <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/sast<span class="token punctuation">-</span>32×32.jpg
   <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
@@ -601,10 +602,10 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
 
 <p>修改<code>small</code>和<code>medium</code>到图片路径，我在<a target="_blank" rel="noopener" href="https://www.zhizuotu.com/msize">制作图</a>网站将手边的图片裁剪为$16\times 16$像素以及$32\times 32$像素</p>
 <h2 id="设置动态背景"><a href="#设置动态背景" class="headerlink" title="设置动态背景"></a>设置动态背景</h2><h3 id="canvas-nest-风格"><a href="#canvas-nest-风格" class="headerlink" title="canvas nest 风格"></a>canvas nest 风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打开主题配置文件<code>themes/next/_config.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># Canvas-nest</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Canvas-nest</span>
 <span class="token comment"># Dependencies: https://github.com/theme-next/theme-next-canvas-nest</span>
 <span class="token comment"># For more information: https://github.com/hustcc/canvas-nest.js</span>
 <span class="token key atrule">canvas_nest</span><span class="token punctuation">:</span>
@@ -616,11 +617,11 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
   <span class="token key atrule">count</span><span class="token punctuation">:</span> <span class="token number">99</span> <span class="token comment"># The number of lines</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="JavaScript-3D-library风格"><a href="#JavaScript-3D-library风格" class="headerlink" title="JavaScript 3D library风格"></a>JavaScript 3D library风格</h3><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three source&#x2F;lib&#x2F;three<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-three source/lib/three<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打开主题配置文件<code>themes/next/_config.yml</code></p>
 <p>将想要的风格后的<code>false</code>改为<code>true</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># JavaScript 3D library.</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># JavaScript 3D library.</span>
 <span class="token comment"># Dependencies: https://github.com/theme-next/theme-next-three</span>
 <span class="token key atrule">three</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -629,14 +630,14 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
   <span class="token key atrule">canvas_sphere</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="设置背景图片-失败"><a href="#设置背景图片-失败" class="headerlink" title="设置背景图片(失败)"></a>设置背景图片(失败)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，取消<code>style</code>前的注释</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">custom_file_path</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">custom_file_path</span><span class="token punctuation">:</span>
   <span class="token key atrule">style</span><span class="token punctuation">:</span> source/_data/styles.styl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h2><p>在<code>themes/next</code>目录下打开Git Bash</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace source&#x2F;lib&#x2F;pace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-pace source/lib/pace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打开主题配置文件<code>themes/next/_config.yml</code>，将<code>pace</code>下<code>enable</code>修改为<code>true</code>，并在<code>theme</code>后选择合适加载条</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token comment"># Themes list:</span>
   <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
@@ -647,7 +648,7 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!-- more --></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="设置侧边栏显示效果"><a href="#设置侧边栏显示效果" class="headerlink" title="设置侧边栏显示效果(?)"></a>设置侧边栏显示效果(?)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>sidebar</code>下设置</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">sidebar</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">sidebar</span><span class="token punctuation">:</span>
   <span class="token comment"># Sidebar Position. #设置侧边栏位置</span>
   <span class="token key atrule">position</span><span class="token punctuation">:</span> left
   <span class="token comment">#position: right</span>
@@ -659,7 +660,7 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
   <span class="token key atrule">display</span><span class="token punctuation">:</span> post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="侧边栏推荐链接"><a href="#侧边栏推荐链接" class="headerlink" title="侧边栏推荐链接"></a>侧边栏推荐链接</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>links</code>下设置</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
   <span class="token key atrule">icon</span><span class="token punctuation">:</span> link
   <span class="token key atrule">title</span><span class="token punctuation">:</span> 链接网站  <span class="token comment">#修改名称</span>
 
@@ -669,7 +670,7 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
 
 <h2 id="添加社交链接"><a href="#添加社交链接" class="headerlink" title="添加社交链接"></a>添加社交链接</h2><p>这一块就是放置自己其他社交账号地方</p>
 <p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>social</code>下设置</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
   <span class="token key atrule">GitHub</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/yourname <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
   <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span>
   <span class="token comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span>
@@ -682,7 +683,7 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
   <span class="token comment">#Skype: skype:yourname?call|chat || fab fa-skype</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="文章末尾添加版权说明"><a href="#文章末尾添加版权说明" class="headerlink" title="文章末尾添加版权说明"></a>文章末尾添加版权说明</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>creative_commons</code>下设置</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">creative_commons</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">creative_commons</span><span class="token punctuation">:</span>
   <span class="token key atrule">license</span><span class="token punctuation">:</span> by<span class="token punctuation">-</span>nc<span class="token punctuation">-</span>sa
   <span class="token key atrule">sidebar</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
   <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 将post改为true</span>
@@ -1415,7 +1416,7 @@ hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2019-2023</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

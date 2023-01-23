@@ -4,15 +4,22 @@ menu:
   Index:
     url: /
     icon: fas fa-home
-  Tags:
+  Statistics:
     url: /tags
-    icon: fas fa-tags
-  Categories:
-    url: /categories
-    icon: fas fa-bookmark
-  Archives:
-    url: /archives
-    icon: fas fa-archive
+    icon: fa fa-th-list
+    children: 
+    - name: 标签
+      # Tags:
+      url: /tags
+      icon: fas fa-tags
+    - name: 分类
+      # Categories:
+      url: /categories
+      icon: fas fa-bookmark
+    - name: 归档
+      Archives:
+      url: /archives
+      icon: fas fa-archive
   About:
     url: /about
     icon: fas fa-user-circle
@@ -23,6 +30,22 @@ menu:
       - name: 关于网站
         url: /about-website
         icon: fa fa-user-secret
+  Sources: 
+    url: /resources
+    icon: fa fa-inbox
+    children:
+      - name: 视频
+        url: /resources/video
+        icon: fa fa-film
+      - name: 音乐
+        url: /resources/music
+        icon: fa fa-music
+      - name: 图片
+        url: /resources/picture
+        icon: fa fa-image
+      - name: 文件
+        url: /resources/file
+        icon: fa fa-file
   Contact:
     url: /contact
     icon: fas fa-comments

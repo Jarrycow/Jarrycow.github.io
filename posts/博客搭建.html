@@ -4,16 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="test">
-    <meta name="description" content="
-
-$$\dfrac{1}{2}1_2$$$1_2$
+    <meta name="keywords" content="博客搭建">
+    <meta name="description" content=" 这是安装博客第一步
 
 
+安装 Hexo
+前往 NodeJS官网下载并安装
+在命令行使用命令 git --version 查看
 
+前往 Git 下载并安装
+在命令行使用命令 node -v、npm -v 查看
 
-
-
+新建文件夹用于存储博客文件
 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +29,7 @@ $$\dfrac{1}{2}1_2$$$1_2$
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>test | Jarrycow&#39;s Blog</title>
+    <title>博客搭建 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -514,12 +516,12 @@ $$\dfrac{1}{2}1_2$$$1_2$
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">test</h1>
+                    <h1 class="description center-align post-title">博客搭建</h1>
                 </div>
             </div>
         </div>
@@ -541,12 +543,29 @@ $$\dfrac{1}{2}1_2$$$1_2$
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
+                            </a>
+                        
+                            <a href="/tags/git/">
+                                <span class="chip bg-color">git</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                博客
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -555,7 +574,7 @@ $$\dfrac{1}{2}1_2$$$1_2$
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-09-03
+                    2023-01-24
                 </div>
                 
 
@@ -584,15 +603,85 @@ $$\dfrac{1}{2}1_2$$$1_2$
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <span id="more"></span>
+                <p> 这是安装博客第一步</p>
+<span id="more"></span>
 
-<p>$$<br>\dfrac{1}{2}1_2<br>$$<br>$1_2$</p>
-<p><img src="/test/test.jpg"></p>
-<p><img src="/images/%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/qm.jpg"></p>
-<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/img/%E5%8F%8D%E8%AF%88%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.png"></p>
-<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/img/%E5%8F%8D%E8%AF%88%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.png"></p>
-<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/img/%E5%B1%B1%E6%B0%B4%E7%94%BB%E8%83%8C%E6%99%AF.jpg"></p>
-<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/master/img/123.png"></p>
+<h1 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h1><ol>
+<li><p>前往 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">NodeJS官网</a>下载并安装</p>
+<p>在命令行使用命令 <code>git --version</code> 查看</p>
+</li>
+<li><p>前往 <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a> 下载并安装</p>
+<p>在命令行使用命令 <code>node -v</code>、<code>npm -v</code> 查看</p>
+</li>
+<li><p>新建文件夹用于存储博客文件</p>
+</li>
+<li><p>右击文件夹，选择 <kbd>Git Bash Here</kbd>，进入 Git Bash</p>
+</li>
+<li><p>安装 hexo</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">npm install hexo-cli -g  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>安装 hexo 部署到 git page 的 deployer</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>初始化配置 hexo</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>完成安装，Hexo 文件夹下的目录如下：<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/hexo目录结构.png" alt="hexo目录结构" style="zoom:50%;" /></p>
+<p>可以执行以下命令后，进入<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 查看效果：</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo g 
+hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/hexo%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="hexo初始界面"></p>
+</li>
+</ol>
+<h1 id="博客部署到-Github-Pages"><a href="#博客部署到-Github-Pages" class="headerlink" title="博客部署到 Github Pages"></a>博客部署到 Github Pages</h1><h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击 <kbd>New repository</kbd> 创建代码项目库</p>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li>项目名必须为 <code>&quot;用户名&quot;.github.io</code></li>
+<li>勾选 <kbd> Initialize this repository with a README</kbd></li>
+</ol>
+</blockquote>
+<h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><p>只有配置好 SSH 密钥后，才可以通过 git 操作实现本地代码库与 Github 代码库同步</p>
+<ol>
+<li><p>在 Git Bash 输入以下命令</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ssh-keygen -t rsa -C &quot;your email@example.com&quot;  &#x2F;&#x2F;引号里面填写你的邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>会出现:</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">Generating public&#x2F;private rsa key pair.  
+Enter file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa):  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>直接回车即可,然后会出现:</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">Enter passphrase (empty for no passphrase):  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>要你输入密码，其实不需要输什么密码，直接回车就行 </p>
+<p>接下来屏幕会显示：</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.  
+Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.pub.  
+The key fingerprint is:  
+&#x2F;&#x2F; 这里是各种字母数字组成的字符串，结尾是你的邮箱  
+The key&#39;s randomart image is:  
+&#x2F;&#x2F; 这里也是各种字母数字符号组成的字符串  
+   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行 <code>clip &lt; ~/.ssh/id_rsa.pub</code> 将代码复制到剪贴板</p>
+</li>
+<li><p>在 GitHub 账户中添加你的公钥</p>
+<ol>
+<li>登陆 GitHub，进入 <kbd>Settings</kbd>：<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/picHostCreation/个人设置.png" style="zoom:50%;" /></li>
+</ol>
+</li>
+<li><p>点击 <kbd>SSH and GPG Keys</kbd>：<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/SSH_GPG.png" alt="SSH_GPG" style="zoom:67%;" /></p>
+</li>
+<li><p>选择 <kbd>New SSH key</kbd>：<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/aHR0cHM6Ly9pLmxvbGkubmV0LzIwMTkvMDMvMjUvNWM5OGY2M2ViMWFiMi5wbmc" alt="img"></p>
+</li>
+<li><p>添加 SSH<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/addSSH.png" alt="addSSH"></p>
+<p><kbd>Title</kbd> 可以随便取, <kbd>Key</kbd> 即粘贴板值 </p>
+</li>
+<li><p>在 Git Bash 上输入 <code>ssh -T git@github.com</code></p>
+<p>输入 <code>yes</code> 后若显示 “Hi  XXX!…” 即配置成功</p>
+</li>
+</ol>
 
                 
             </div>
@@ -619,7 +708,7 @@ $$\dfrac{1}{2}1_2$$$1_2$
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/test.html">http://jarrycow.top/posts/test.html</a>
+                    <a href="http://jarrycow.top/posts/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">http://jarrycow.top/posts/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -656,7 +745,15 @@ $$\dfrac{1}{2}1_2$$$1_2$
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
+                                </a>
+                            
+                                <a href="/tags/git/">
+                                    <span class="chip bg-color">git</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1000,10 +1097,9 @@ $$\dfrac{1}{2}1_2$$$1_2$
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/posts/test.html">
                     <div class="card-image">
@@ -1020,9 +1116,9 @@ $$\dfrac{1}{2}1_2$$$1_2$
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1031,7 +1127,6 @@ $$\dfrac{1}{2}1_2$$$1_2$
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1042,18 +1137,18 @@ $$\dfrac{1}{2}1_2$$$1_2$
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">
+                <a href="/posts/picHostCreation.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="博客搭建">
+                        <img src="/medias/featureimages/picture_in_blog.png" class="responsive-img" alt="图床创建">
                         
-                        <span class="card-title">博客搭建</span>
+                        <span class="card-title">图床创建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             这是安装博客第一步
+                            博客图片也是折磨了我好长一段时间了，今天终于使用 Github+PicGo+jsdelivr 把图床搞起来了
                         
                     </div>
                     <div class="publish-info">
@@ -1079,8 +1174,8 @@ $$\dfrac{1}{2}1_2$$$1_2$
                         <span class="chip bg-color">博客</span>
                     </a>
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
                     </a>
                     
                 </div>

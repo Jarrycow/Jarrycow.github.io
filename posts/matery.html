@@ -638,7 +638,24 @@ layout: "tags"             # 如：layout: "tags"</span>
 
 <p>其中，<code>-</code>引领具体的二次目录；<code>name</code>为二级目录名称</p>
 <p>最后，在<code>\themes\languages\zh-CN.yml</code>下替换翻译</p>
-<h1 id="视觉美化"><a href="#视觉美化" class="headerlink" title="视觉美化"></a>视觉美化</h1><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h1 id="基础修改"><a href="#基础修改" class="headerlink" title="基础修改"></a>基础修改</h1><h2 id="修改个人联系"><a href="#修改个人联系" class="headerlink" title="修改个人联系"></a>修改个人联系</h2><p>在<code>\themes\_config.yml</code>中，对<code>socialLink:</code>进行修改</p>
+<h1 id="视觉美化"><a href="#视觉美化" class="headerlink" title="视觉美化"></a>视觉美化</h1><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>本来担心图床的稳定性，试图将所有图片保存至本地，但太麻烦了。因此使用 PicGo+Github 构建图床。</p>
+<p>详见：<a href="https://jarrycow.top/posts/picHostCreation.html">图床创建</a></p>
+<h2 id="新建文章自动打开本地-Markdown-编辑器"><a href="#新建文章自动打开本地-Markdown-编辑器" class="headerlink" title="新建文章自动打开本地 Markdown 编辑器"></a>新建文章自动打开本地 Markdown 编辑器</h2><p>每次使用 <code>hexo new &quot;文章&quot; </code>时都需要进入 <code>_post</code> 文件夹手动打开，非常麻烦可以设置在生成之后自动打开</p>
+<p>在根目录下新建 <code>scripts</code> 目录，然后在新建<code>auto_open.js</code>：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+
+<span class="token comment">// Hexo 2.x 用户复制这段</span>
+<span class="token comment">//hexo.on('new', function(path)&#123;</span>
+  <span class="token comment">//spawn('start  "markdown编辑器绝对路径.exe" ' + path);</span>
+<span class="token comment">//&#125;);</span>
+
+<span class="token comment">// Hexo 3 用户复制这段</span>
+hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\Program Files\Typora\Typora.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中<code>D:\Program Files\Typora\Typora.exe</code> 为本地 Typora 编辑器的路径</p>
+<h1 id="基础修改"><a href="#基础修改" class="headerlink" title="基础修改"></a>基础修改</h1><h2 id="修改个人联系"><a href="#修改个人联系" class="headerlink" title="修改个人联系"></a>修改个人联系</h2><p>在<code>\themes\_config.yml</code>中，对<code>socialLink:</code>进行修改</p>
 <p>若想添加B站，在在<code>\themes\_config.yml</code> &gt; <code>socialLink:</code>下添加<code>bilibili: #https://space.bilibili.com/xxx</code>，并在<code>\themes\layout\_partial\social-link.ejs</code>添加</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;% if (theme.socialLink.bilibili) <span class="token punctuation">&#123;</span> %<span class="token punctuation">></span>
     &lt;a href="&lt;%= theme.socialLink.bilibili %<span class="token punctuation">></span>" class="tooltipped" target="_blank" data<span class="token punctuation">-</span>tooltip="在B站上关注我" data<span class="token punctuation">-</span>position="top" data<span class="token punctuation">-</span>delay="50"<span class="token punctuation">></span>
@@ -1352,7 +1369,9 @@ description: "随便啥404界面的描述"
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            设置菜单
+                            博客页面空白问题：安装好主题之后，预览本地页面正常，但博客显示空白
+原因：next默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架
+解决：打开 **themes\next\_config.yml**，将# FancyBox
                         
                     </div>
                     <div class="publish-info">

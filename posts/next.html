@@ -5,12 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="next主题搭建, Jarrycow&#39;s Blog">
-    <meta name="description" content="设置菜单 
-
-打开themes/next下的_config.yml
-menu:
-  home: / || home                      #首页
-  archives: /archives/ || archive    ">
+    <meta name="description" content="博客页面空白问题：安装好主题之后，预览本地页面正常，但博客显示空白
+原因：next默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架
+解决：打开 **themes\next\_config.yml**，将# FancyBox">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -571,7 +568,7 @@ menu:
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-23
+                    2023-01-24
                 </div>
                 
 
@@ -593,7 +590,40 @@ menu:
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2> <span id="more"></span>
+                <h1 id="博客页面空白"><a href="#博客页面空白" class="headerlink" title="博客页面空白"></a>博客页面空白</h1><p><strong>问题：</strong>安装好主题之后，预览本地页面正常，但博客显示空白</p>
+<p><strong>原因：</strong><code>next</code>默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架</p>
+<p><strong>解决：</strong>打开 **<code>themes\next\_config.yml</code>**，将<code># FancyBox</code>以下修改为</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># FancyBox</span>
+<span class="token comment"># jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js</span>
+<span class="token comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span>
+<span class="token comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span>
+<span class="token key atrule">jquery</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js
+<span class="token key atrule">fancybox</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js
+<span class="token key atrule">fancybox_css</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重新部署即可</p>
+<h1 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h1><p>在Blog根目录文件夹下，用GitBash下载</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打开根目录下的<code>_config.yml</code>，修改<code># Extensions</code>下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Extensions</span>
+<span class="token comment">## Plugins: https://hexo.io/plugins/</span>
+<span class="token comment">## Themes: https://hexo.io/themes/</span>
+<span class="token key atrule">theme</span><span class="token punctuation">:</span> next   <span class="token comment">#主题改为next</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>next提供了4种主题，只需将 <strong><code>themes\next\_config.yml</code></strong> 中<code># Schemes</code>下内容中，想选择的主题前<code>#</code>删除即可</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
+<span class="token comment">#scheme: Muse</span>
+<span class="token comment">#scheme: Mist</span>
+<span class="token comment">#scheme: Pisces</span>
+<span class="token key atrule">scheme</span><span class="token punctuation">:</span> Gemini    <span class="token comment">#这是我选的主题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>回到根目录打开Git Bash，输入如下三条命令：</p>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">hexo clean
+hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h1><h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2> <span id="more"></span>
 
 <p>打开<code>themes/next</code>下的<code>_config.yml</code></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
@@ -663,7 +693,7 @@ hexo new page <span class="token string">"about"</span><span aria-hidden="true" 
   <span class="token key atrule">canvas_lines</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
   <span class="token key atrule">canvas_sphere</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="设置背景图片-失败"><a href="#设置背景图片-失败" class="headerlink" title="设置背景图片(失败)"></a>设置背景图片(失败)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，取消<code>style</code>前的注释</p>
+<h2 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，取消<code>style</code>前的注释</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">custom_file_path</span><span class="token punctuation">:</span>
   <span class="token key atrule">style</span><span class="token punctuation">:</span> source/_data/styles.styl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -681,7 +711,7 @@ hexo new page <span class="token string">"about"</span><span aria-hidden="true" 
 <h2 id="设置预览摘要"><a href="#设置预览摘要" class="headerlink" title="设置预览摘要"></a>设置预览摘要</h2><p>在正文摘要部分撰写</p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!-- more --></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="设置侧边栏显示效果"><a href="#设置侧边栏显示效果" class="headerlink" title="设置侧边栏显示效果(?)"></a>设置侧边栏显示效果(?)</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>sidebar</code>下设置</p>
+<h2 id="设置侧边栏显示效果"><a href="#设置侧边栏显示效果" class="headerlink" title="设置侧边栏显示效果"></a>设置侧边栏显示效果</h2><p>打开主题配置文件<code>themes/next/_config.yml</code>，修改<code>sidebar</code>下设置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">sidebar</span><span class="token punctuation">:</span>
   <span class="token comment"># Sidebar Position. #设置侧边栏位置</span>
   <span class="token key atrule">position</span><span class="token punctuation">:</span> left

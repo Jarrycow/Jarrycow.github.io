@@ -151,3 +151,12 @@ hide_posts:
   host: jarrycow.top         # 在百度站长平台中添加的域名
   token:  32oeknu5aNnFxmDk   # 秘钥
   path: baidu_urls.txt
+
+# 番剧
+  bangumi:
+  enable: true #是否开启
+  vmid: 255904543 #输入你番剧的uid，登录网址https://space.bilibili.com/1234567，后面数字就是你的uid
+  title: '追番列表' # 标题
+  quote: '生命不息，追番不止！' # 简介
+  show: 1 # 初始显示页面：0: 想看 , 1: 在看 , 2: 看过，默认为 1
+  loading: '/img/bangumi-loading.gif' # 图片加载完成前的 loading 图片

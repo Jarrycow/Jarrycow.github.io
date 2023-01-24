@@ -9,6 +9,63 @@ img: /medias/featureimages/next.jfif
 abbrlink: next
 ---
 
+# 博客页面空白
+
+**问题：**安装好主题之后，预览本地页面正常，但博客显示空白
+
+**原因：**`next`默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架
+
+**解决：**打开 **`themes\next\_config.yml`**，将`# FancyBox`以下修改为
+
+```yml
+# FancyBox
+# jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+# fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
+# fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
+jquery: https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js
+fancybox: https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js
+fancybox_css: https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox
+```
+
+重新部署即可
+
+# 修改主题
+
+在Blog根目录文件夹下，用GitBash下载
+
+```cmd
+git clone https://github.com/theme-next/hexo-theme-next themes/next
+```
+
+打开根目录下的```_config.yml```，修改`# Extensions`下内容
+
+```yml
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next   #主题改为next
+```
+
+next提供了4种主题，只需将 **`themes\next\_config.yml`** 中`# Schemes`下内容中，想选择的主题前`#`删除即可
+
+```yml
+# Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini    #这是我选的主题
+```
+
+回到根目录打开Git Bash，输入如下三条命令：
+
+```tex
+hexo clean
+hexo g
+hexo d
+```
+
+# 博客美化
+
 ## 设置菜单
 
  <!-- more -->
@@ -124,7 +181,7 @@ three:
   canvas_sphere: false
 ```
 
-## 设置背景图片(失败)
+## 设置背景图片
 
 打开主题配置文件`themes/next/_config.yml`，取消`style`前的注释
 
@@ -160,7 +217,7 @@ pace:
  <!-- more -->
 ```
 
-## 设置侧边栏显示效果(?)
+## 设置侧边栏显示效果
 
 打开主题配置文件`themes/next/_config.yml`，修改`sidebar`下设置
 

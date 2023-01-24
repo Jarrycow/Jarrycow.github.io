@@ -32,8 +32,6 @@ matery主题感觉看上去蛮好看的，跟cxy要过来搞一波配置
 
 ## 基础配置
 
-
-
 1. 修改网站图标
 
 修改`\themes\source\favicon.png`文件
@@ -104,13 +102,56 @@ Index:
 
 最后，在`\themes\languages\zh-CN.yml`下替换翻译
 
+
+
 # 视觉美化
 
 # 博客优化
 
+# CDN 加速
 
+因为博客部署到了国外的Github上，国内访问速度很慢，可以使用 CDN 来实现全站加速
 
+在主题配置文件_config.yml中搜索`jsDelivr`，填写url为自己的博客仓库即可
 
+```yml
+jsDelivr:
+  url: https://cdn.jsdelivr.net/gh/"用户名"/"用户名".github.io
+```
+
+重新`hexo cl && hexo g && hexo d`部署
+
+## 部署到 Coding (还没做)
+
+博客部署到国内Coding、Gitee仓库上，可以提高一些网站访问的速度
+
+## 图床设置
+
+本来担心图床的稳定性，试图将所有图片保存至本地，但太麻烦了。因此使用 PicGo+Github 构建图床。
+
+详见：[图床创建](https://jarrycow.top/posts/picHostCreation.html)
+
+## 新建文章自动打开本地 Markdown 编辑器
+
+每次使用 ```hexo new "文章" ```时都需要进入 `_post` 文件夹手动打开，非常麻烦可以设置在生成之后自动打开
+
+在根目录下新建 `scripts` 目录，然后在新建`auto_open.js`：
+
+```js
+var spawn = require('child_process').exec;
+
+// Hexo 2.x 用户复制这段
+//hexo.on('new', function(path){
+  //spawn('start  "markdown编辑器绝对路径.exe" ' + path);
+//});
+
+// Hexo 3 用户复制这段
+hexo.on('new', function(data){
+  spawn('start  "D:\Program Files\Typora\Typora.exe" ' + data.path);
+});
+```
+
+其中`D:\Program Files\Typora\Typora.exe` 为本地 Typora 编辑器的路径
 
 # 基础修改
 
@@ -354,24 +395,4 @@ permalink: posts/:abbrlink.html
 
 [小苏的博客](https://fenghen0918.github.io/)
 
-# 文章开头format格式
-
-| 配置选项        | 默认值                     | 描述                                                         |
-| :-------------- | :------------------------- | :----------------------------------------------------------- |
-| `title`         | 文件标题                   | 文章标题                                                     |
-| `date`          | 创建时间                   | 发布时间                                                     |
-| `author`        | `_config.yml`  > `author`  | 文章作者                                                     |
-| `img`           | `featureImages` 中的某个值 | 文章封面图(默认在`/medias/featureimages/xxx.png`)            |
-| `top`           | `true`                     | 首页推荐文章                                                 |
-| `cover`         | `false`                    | 文章加入首页轮播                                             |
-| `coverImg`      | `featureImages`            | 首页轮播封面显示图片                                         |
-| `password`      |                            | 文章阅读密码                                                 |
-| `toc`           | `true`                     | 开启 TOC                                                     |
-| `mathjax`       | `false`                    | 开启数学公式                                                 |
-| `summary`       |                            | 文章摘要(我喜欢在正文用`<!-- more -->`)                      |
-| `categories`    |                            | 文章分类                                                     |
-| `tags`          |                            | 文章标签                                                     |
-| `keywords`      | 文章标题                   | SEO关键字                                                    |
-| `reprintPolicy` | `cc_by`                    | 文章转载规则， 可以是`cc_by`、`cc_by_nd`、`cc_by_sa`、`cc_by_nc`、 `cc_by_nc_nd`、`cc_by_nc_sa`、`cc0`、`noreprint`、`pay` |
-
-可以在`\scaffolds\post.md`中修改模板
+# 

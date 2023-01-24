@@ -46,6 +46,9 @@ menu:
       - name: 文件
         url: /resources/file
         icon: fa fa-file
+      - name: 
+        url: /bangumis
+        icon: fa fa-film
   Contact:
     url: /contact
     icon: fas fa-comments

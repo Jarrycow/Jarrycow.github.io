@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/resources/picture/index.html</loc>
+    <loc>http://jarrycow.top/resources/music/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/resources/music/index.html</loc>
+    <loc>http://jarrycow.top/resources/picture/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/posts/I_Ching.html</loc>
+    <loc>http://jarrycow.top/posts/OS.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/posts/OS.html</loc>
+    <loc>http://jarrycow.top/posts/I_Ching.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -353,7 +353,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/posts/next.html</loc>
+    <loc>http://jarrycow.top/posts/matery.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -362,7 +362,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/posts/matery.html</loc>
+    <loc>http://jarrycow.top/posts/next.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -497,6 +497,13 @@
   </url>
   
   <url>
+    <loc>http://jarrycow.top/tags/latex/</loc>
+    <lastmod>2023-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://jarrycow.top/tags/github/</loc>
     <lastmod>2023-01-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -504,7 +511,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/latex/</loc>
+    <loc>http://jarrycow.top/tags/%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2023-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jarrycow.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -526,20 +540,6 @@
   
   <url>
     <loc>http://jarrycow.top/tags/BBO%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-01-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jarrycow.top/tags/%E8%AE%BA%E6%96%87/</loc>
-    <lastmod>2023-01-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jarrycow.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

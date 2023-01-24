@@ -74,6 +74,21 @@ $A\B$
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -228,6 +243,15 @@ $A\B$
           <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
         </a>
       </li>
       
@@ -428,6 +452,16 @@ $A\B$
                   </a>
                 </li>
               
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
             </ul>
           
         </li>
@@ -548,7 +582,7 @@ $A\B$
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-07
+                    2023-01-23
                 </div>
                 
 
@@ -1008,32 +1042,47 @@ $A\B$
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/undefined.html">
+                <a href="/posts/picHostCreation.html">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/picture_in_blog.png" class="responsive-img" alt="图床创建">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">图床创建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            博客图片也是折磨了我好长一段时间了，今天终于使用 Github+PicGo+jsdelivr 把图床搞起来了
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-24
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
                 </div>
                 
             </div>

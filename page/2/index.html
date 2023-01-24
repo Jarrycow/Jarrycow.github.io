@@ -58,6 +58,21 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -212,6 +227,15 @@
           <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
         </a>
       </li>
       
@@ -412,6 +436,16 @@
                   </a>
                 </li>
               
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
             </ul>
           
         </li>
@@ -511,6 +545,59 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/Performance_Measurement.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="性能测量方法">
+                            
+                            <span class="card-title">性能测量方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+时延测量方法时延测量研究现状
+往返时延的测量简单易行：开始与结束时间都由测量发起端时钟记录
+单向时延更能准确的评估网络的质量如视频点播服务，视频数据流通常是在服务器端到客户端的方向上传输
+可用 $RTT$ 估算出单向时延，但由于网络的不
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                            <span class="chip bg-color">网络测量</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -615,54 +702,6 @@
                         
                         <a href="/tags/%E5%AE%89%E5%85%A8/">
                             <span class="chip bg-color">安全</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/picture_in_blog.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/picture_in_blog.png" class="responsive-img" alt="博客插入图片">
-                            
-                            <span class="card-title">博客插入图片</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                博客的图片始终让人头疼，有时候神奇的成功了，有时候又神奇的不成功
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                            <span class="chip bg-color">博客</span>
                         </a>
                         
                     </div>
@@ -836,7 +875,7 @@ Agent智能：
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 10</div>
+            <div class="center-align b-text-gray">2 / 5</div>
         </div>
         <div class="col s6 m4 l4">
             

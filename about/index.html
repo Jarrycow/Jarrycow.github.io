@@ -62,6 +62,21 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -216,6 +231,15 @@
           <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
         </a>
       </li>
       
@@ -416,6 +440,16 @@
                   </a>
                 </li>
               
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
             </ul>
           
         </li>
@@ -520,21 +554,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">56</a></span>
+    <span class="count"><a href="/">26</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">12</a></span>
+    <span class="count"><a href="/categories">10</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">27</a></span>
+    <span class="count"><a href="/tags">22</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -550,21 +584,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">56</a></span>
+    <span class="count"><a href="/">26</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">12</a></span>
+    <span class="count"><a href="/categories">10</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">27</a></span>
+    <span class="count"><a href="/tags">22</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -720,7 +754,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,15,3,7,10,9,3,0],
+                data: [0,0,0,0,0,0,4,1,5,4,8,2,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -762,7 +796,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"力扣","value":20},{"name":"博客","value":6},{"name":"AI","value":2},{"name":"多媒体","value":2},{"name":"计算机基础","value":3},{"name":"网络测量","value":6},{"name":"数学建模","value":1},{"name":"机器学习","value":1},{"name":"哲学","value":1},{"name":"机器学习","value":3},{"name":"数学","value":2},{"name":"模式识别","value":1}],
+                data: [{"name":"博客","value":5},{"name":"多媒体","value":2},{"name":"AI","value":2},{"name":"计算机基础","value":3},{"name":"网络测量","value":6},{"name":"数学建模","value":1},{"name":"哲学","value":1},{"name":"机器学习","value":3},{"name":"机器学习","value":1},{"name":"模式识别","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -786,7 +820,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["算法","力扣","博客","网络测量","AI","机器学习","计算机基础","操作系统","数论","字符串"]
+                data: ["网络测量","博客","AI","机器学习","计算机基础","操作系统","AE","论文","安全","多媒体"]
             }
         ],
         yAxis: [
@@ -799,7 +833,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [20,15,6,6,5,5,3,3,2,2],
+                data: [6,5,5,5,3,3,2,2,2,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -917,40 +951,8 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%8A%9B%E6%89%A3/">
-                <span class="chip center-align waves-effect waves-light chip-default">力扣</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                <span class="chip center-align waves-effect waves-light chip-default">数论</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-                <span class="chip center-align waves-effect waves-light chip-default">字符串</span>
-            </a>
-            
-            
-            
-            
-            
             <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                 <span class="chip center-align waves-effect waves-light chip-default">博客</span>
-            </a>
-            
-            
-            
-            <a href="/tags/AI/">
-                <span class="chip center-align waves-effect waves-light chip-default">AI</span>
             </a>
             
             
@@ -965,6 +967,12 @@
             
             <a href="/tags/%E6%96%87%E5%AD%97/">
                 <span class="chip center-align waves-effect waves-light chip-default">文字</span>
+            </a>
+            
+            
+            
+            <a href="/tags/AI/">
+                <span class="chip center-align waves-effect waves-light chip-default">AI</span>
             </a>
             
             
@@ -989,6 +997,12 @@
             
             <a href="/tags/git/">
                 <span class="chip center-align waves-effect waves-light chip-default">git</span>
+            </a>
+            
+            
+            
+            <a href="/tags/github/">
+                <span class="chip center-align waves-effect waves-light chip-default">github</span>
             </a>
             
             
@@ -1043,12 +1057,6 @@
             
             <a href="/tags/%E5%8D%A0%E5%8D%9C/">
                 <span class="chip center-align waves-effect waves-light chip-default">占卜</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                <span class="chip center-align waves-effect waves-light chip-default">数学</span>
             </a>
             
             

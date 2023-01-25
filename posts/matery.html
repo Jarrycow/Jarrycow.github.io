@@ -566,7 +566,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-24
+                    2023-01-25
                 </div>
                 
 
@@ -604,8 +604,6 @@
 </ol>
 <p>修改<code>\themes\source\favicon.png</code>文件</p>
 <p>修改<code>\themes\source\medias</code>文件</p>
-<h2 id="修改副标题"><a href="#修改副标题" class="headerlink" title="修改副标题"></a>修改副标题</h2><p>修改<code>themes\_config.yml</code> &gt; <code>subtitle:</code></p>
-<p>在<code>sub</code>下添加语句</p>
 <h2 id="修改网站背景图"><a href="#修改网站背景图" class="headerlink" title="修改网站背景图"></a>修改网站背景图</h2><p>修改<code>themes\_config.yml</code> &gt; <code>background:</code></p>
 <p>将<code>enable</code>修改为<code>true</code>，<code>url</code>修改</p>
 <p>将<code>indexbtn:</code>下<code>url</code>修改</p>
@@ -638,7 +636,27 @@ layout: "tags"             # 如：layout: "tags"</span>
 
 <p>其中，<code>-</code>引领具体的二次目录；<code>name</code>为二级目录名称</p>
 <p>最后，在<code>\themes\languages\zh-CN.yml</code>下替换翻译</p>
-<h1 id="视觉美化"><a href="#视觉美化" class="headerlink" title="视觉美化"></a>视觉美化</h1><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>本来担心图床的稳定性，试图将所有图片保存至本地，但太麻烦了。因此使用 PicGo+Github 构建图床。</p>
+<h1 id="视觉美化"><a href="#视觉美化" class="headerlink" title="视觉美化"></a>视觉美化</h1><h2 id="副标题"><a href="#副标题" class="headerlink" title="副标题"></a>副标题</h2><p>修改<code>themes\_config.yml</code> &gt; <code>subtitle:</code></p>
+<p>在<code>sub</code>下添加语句</p>
+<h2 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h2><h2 id="自定义鼠标样式"><a href="#自定义鼠标样式" class="headerlink" title="自定义鼠标样式"></a>自定义鼠标样式</h2><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h2 id="gulp-代码压缩-未实现"><a href="#gulp-代码压缩-未实现" class="headerlink" title="gulp 代码压缩(未实现)"></a>gulp 代码压缩(未实现)</h2><p>hexo 生成的  html、css、js等都有很多的空格或者换行，而空格和换行也是占用字节的，所以需要将空格换行去掉也就是我要进行的“压缩”，减小一点资源文件的大小也是对访问速度有那么一点提升</p>
+<p>1. </p>
+<h2 id="CDN-加速"><a href="#CDN-加速" class="headerlink" title="CDN 加速"></a>CDN 加速</h2><p>因为博客部署到了国外的 Github上，国内访问速度很慢，可以使用 CDN 来实现全站加速</p>
+<p>在主题配置文件_config.yml中搜索<code>jsDelivr</code>，填写url为自己的博客仓库即可</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">jsDelivr</span><span class="token punctuation">:</span>
+  <span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/"用户名"/"用户名".github.io<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>重新<code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>部署</p>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li>配置了此项，就代表着 <code>hexo s</code>本地调试的时候，网站依然会去 GitHub 请求原来的资源，所以本地调试的时候将此项配置注释掉</li>
+<li>在 <code>hexo s</code> 本地调试好之后，需要 <code>hexo d</code> 部署到网上，要先配置到 <code>url</code>，之后再<code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code> 进行部署，否则不生效</li>
+<li>使用了 matery 提供的全局CDN加速，有可能一些特效会消失</li>
+<li>jsDelivr 似乎国内备案到期了, 有失效风险</li>
+</ol>
+</blockquote>
+<h2 id="部署到-Coding-还没做"><a href="#部署到-Coding-还没做" class="headerlink" title="部署到 Coding (还没做)"></a>部署到 Coding (还没做)</h2><p>博客部署到国内Coding仓库上，可以提高一些网站访问的速度</p>
+<h2 id="图床设置"><a href="#图床设置" class="headerlink" title="图床设置"></a>图床设置</h2><p>本来担心图床的稳定性，试图将所有图片保存至本地，但太麻烦了。因此使用 PicGo+Github 构建图床。</p>
 <p>详见：<a href="https://jarrycow.top/posts/picHostCreation.html">图床创建</a></p>
 <h2 id="新建文章自动打开本地-Markdown-编辑器"><a href="#新建文章自动打开本地-Markdown-编辑器" class="headerlink" title="新建文章自动打开本地 Markdown 编辑器"></a>新建文章自动打开本地 Markdown 编辑器</h2><p>每次使用 <code>hexo new &quot;文章&quot; </code>时都需要进入 <code>_post</code> 文件夹手动打开，非常麻烦可以设置在生成之后自动打开</p>
 <p>在根目录下新建 <code>scripts</code> 目录，然后在新建<code>auto_open.js</code>：</p>
@@ -802,92 +820,7 @@ description: "随便啥404界面的描述"
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8d433a2c5b7?u_atoken=aab04d52-42a7-41a5-9ec1-2c34ec6d6f69&u_asession=018WKUdNnG6_0l5OUhdElYtB7eJNBsUu7y7hj0U4L8BdkJbHf4doxuopxnUSqptHk4X0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K9MNM_qjuacQ3mkmp1gywqfPIF6hypDqzN_tz02ZDuS7GBkFo3NEHBv0PZUm6pbxQU&u_asig=05GMhfeFGOEHiWf9nfeNuARXt-zBngi3Xqw0sW5R3YoPYfZVa2HJZISxVGhSPTjBzj4ABaWKZppfMpfBkxRD7FOXFKfCOrzNIxpptHDEVD4UvqsmpCDfMuq0Jv8fzxkL2FAocjyJqZg4HnC2gvSikzcpxZdCI5Yuxh3KtEGeMHlL39JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzbhcXECjnUb6gL2kRcEGNiinyW_M0vYYgvPfUuB1znrFHLC90DffcRgc58NhmjbgM-3h9VXwMyh6PgyDIVSG1W9ZaGEhvt5pul5kydz9r3VL4b7QbEBqQMpA6Yx2M9XqKdOAH52o8OX-2f2q1nKQ_uK4QcDqR514V8mTbtKIw_0SmWspDxyAEEo4kbsryBKb9Q&u_aref=N6e3Ir7eFMD4IMGCTOu7xEtpyKg=">MaosongRan简书</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43827595/article/details/104324443">白马金羁侠少年CSDN</a></p>
 <p><a target="_blank" rel="noopener" href="https://fenghen0918.github.io/">小苏的博客</a></p>
-<h1 id="文章开头format格式"><a href="#文章开头format格式" class="headerlink" title="文章开头format格式"></a>文章开头format格式</h1><table>
-<thead>
-<tr>
-<th align="left">配置选项</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>title</code></td>
-<td align="left">文件标题</td>
-<td align="left">文章标题</td>
-</tr>
-<tr>
-<td align="left"><code>date</code></td>
-<td align="left">创建时间</td>
-<td align="left">发布时间</td>
-</tr>
-<tr>
-<td align="left"><code>author</code></td>
-<td align="left"><code>_config.yml</code>  &gt; <code>author</code></td>
-<td align="left">文章作者</td>
-</tr>
-<tr>
-<td align="left"><code>img</code></td>
-<td align="left"><code>featureImages</code> 中的某个值</td>
-<td align="left">文章封面图(默认在<code>/medias/featureimages/xxx.png</code>)</td>
-</tr>
-<tr>
-<td align="left"><code>top</code></td>
-<td align="left"><code>true</code></td>
-<td align="left">首页推荐文章</td>
-</tr>
-<tr>
-<td align="left"><code>cover</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">文章加入首页轮播</td>
-</tr>
-<tr>
-<td align="left"><code>coverImg</code></td>
-<td align="left"><code>featureImages</code></td>
-<td align="left">首页轮播封面显示图片</td>
-</tr>
-<tr>
-<td align="left"><code>password</code></td>
-<td align="left"></td>
-<td align="left">文章阅读密码</td>
-</tr>
-<tr>
-<td align="left"><code>toc</code></td>
-<td align="left"><code>true</code></td>
-<td align="left">开启 TOC</td>
-</tr>
-<tr>
-<td align="left"><code>mathjax</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">开启数学公式</td>
-</tr>
-<tr>
-<td align="left"><code>summary</code></td>
-<td align="left"></td>
-<td align="left">文章摘要(我喜欢在正文用<code>&lt;!-- more --&gt;</code>)</td>
-</tr>
-<tr>
-<td align="left"><code>categories</code></td>
-<td align="left"></td>
-<td align="left">文章分类</td>
-</tr>
-<tr>
-<td align="left"><code>tags</code></td>
-<td align="left"></td>
-<td align="left">文章标签</td>
-</tr>
-<tr>
-<td align="left"><code>keywords</code></td>
-<td align="left">文章标题</td>
-<td align="left">SEO关键字</td>
-</tr>
-<tr>
-<td align="left"><code>reprintPolicy</code></td>
-<td align="left"><code>cc_by</code></td>
-<td align="left">文章转载规则， 可以是<code>cc_by</code>、<code>cc_by_nd</code>、<code>cc_by_sa</code>、<code>cc_by_nc</code>、 <code>cc_by_nc_nd</code>、<code>cc_by_nc_sa</code>、<code>cc0</code>、<code>noreprint</code>、<code>pay</code></td>
-</tr>
-</tbody></table>
-<p>可以在<code>\scaffolds\post.md</code>中修改模板</p>
-
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
                 
             </div>
             <hr/>

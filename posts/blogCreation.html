@@ -516,7 +516,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/blogCreation.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -574,7 +574,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-24
+                    2022-01-24
                 </div>
                 
 
@@ -681,6 +681,128 @@ The key&#39;s randomart image is:
 <li><p>在 Git Bash 上输入 <code>ssh -T git@github.com</code></p>
 <p>输入 <code>yes</code> 后若显示 “Hi  XXX!…” 即配置成功</p>
 </li>
+<li><p>配置 Git 个人信息</p>
+<pre class="line-numbers language-code" data-language="code"><code class="language-code">git config --global user.name &quot;此处填你的用户名&quot;  
+git config --global user.email  &quot;此处填你的邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="本地-Hexo-文件更新到-Github-中"><a href="#本地-Hexo-文件更新到-Github-中" class="headerlink" title="本地 Hexo 文件更新到 Github 中"></a>本地 Hexo 文件更新到 Github 中</h1><ol>
+<li><p>登录 Github 打开自己的项目 <code>&quot;your name&quot;.github.io</code></p>
+</li>
+<li><p>点击 <kbd>Clone or download</kbd> ，选择 <kbd>Use SSH</kbd>,并复制地址</p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/blogBuild/20190816220246218.png" alt="img"></p>
+</li>
+<li><p>打开 Hexo 根目录下的 <code>_config.yml</code> 并修改</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Deployment</span>
+<span class="token comment">## Docs: https://hexo.io/docs/deployment.html</span>
+<span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> git  <span class="token comment"># 注意冒号后有一格空格</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span><span class="token string">"用户名/用户名.github.io.git"</span>  <span class="token comment"># 粘贴板内容</span>
+  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>执行命令</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>即成功,可以通过 <code>https://你的用户名.github.io</code> 访问博客了</p>
+</li>
+</ol>
+<h1 id="在博客上发表文章"><a href="#在博客上发表文章" class="headerlink" title="在博客上发表文章"></a>在博客上发表文章</h1><ol>
+<li><p>执行命令 <code>hexo n &quot;文章标题&quot;</code> 新建文章</p>
+</li>
+<li><p>文章以 Markdown 格式存储在 <code>\Hexo\source\_posts</code> 中, 使用 Typora 打开</p>
+</li>
+<li><p>文章开头可以以 format 格式设置文章参数</p>
+<p>文章开头format格式</p>
+<table>
+<thead>
+<tr>
+<th align="left">配置选项</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>title</code></td>
+<td align="left">文件标题</td>
+<td align="left">文章标题</td>
+</tr>
+<tr>
+<td align="left"><code>date</code></td>
+<td align="left">创建时间</td>
+<td align="left">发布时间</td>
+</tr>
+<tr>
+<td align="left"><code>author</code></td>
+<td align="left"><code>_config.yml</code>  &gt; <code>author</code></td>
+<td align="left">文章作者</td>
+</tr>
+<tr>
+<td align="left"><code>img</code></td>
+<td align="left"><code>featureImages</code> 中的某个值</td>
+<td align="left">文章封面图(默认在<code>/medias/featureimages/xxx.png</code>)</td>
+</tr>
+<tr>
+<td align="left"><code>top</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">首页推荐文章</td>
+</tr>
+<tr>
+<td align="left"><code>cover</code></td>
+<td align="left"><code>false</code></td>
+<td align="left">文章加入首页轮播</td>
+</tr>
+<tr>
+<td align="left"><code>coverImg</code></td>
+<td align="left"><code>featureImages</code></td>
+<td align="left">首页轮播封面显示图片</td>
+</tr>
+<tr>
+<td align="left"><code>password</code></td>
+<td align="left"></td>
+<td align="left">文章阅读密码</td>
+</tr>
+<tr>
+<td align="left"><code>toc</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">开启 TOC</td>
+</tr>
+<tr>
+<td align="left"><code>mathjax</code></td>
+<td align="left"><code>false</code></td>
+<td align="left">开启数学公式</td>
+</tr>
+<tr>
+<td align="left"><code>summary</code></td>
+<td align="left"></td>
+<td align="left">文章摘要(我喜欢在正文用<code>&lt;!-- more --&gt;</code>)</td>
+</tr>
+<tr>
+<td align="left"><code>categories</code></td>
+<td align="left"></td>
+<td align="left">文章分类</td>
+</tr>
+<tr>
+<td align="left"><code>tags</code></td>
+<td align="left"></td>
+<td align="left">文章标签</td>
+</tr>
+<tr>
+<td align="left"><code>keywords</code></td>
+<td align="left">文章标题</td>
+<td align="left">SEO关键字</td>
+</tr>
+<tr>
+<td align="left"><code>reprintPolicy</code></td>
+<td align="left"><code>cc_by</code></td>
+<td align="left">文章转载规则， 可以是<code>cc_by</code>、<code>cc_by_nd</code>、<code>cc_by_sa</code>、<code>cc_by_nc</code>、 <code>cc_by_nc_nd</code>、<code>cc_by_nc_sa</code>、<code>cc0</code>、<code>noreprint</code>、<code>pay</code></td>
+</tr>
+</tbody></table>
+<p>可以在<code>\scaffolds\post.md</code>中修改模板</p>
+</li>
+<li><p>编写好后执行命令即可发布</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo clean
+hexo d
+hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -708,7 +830,7 @@ The key&#39;s randomart image is:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jarrycow.top/posts/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">http://jarrycow.top/posts/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html</a>
+                    <a href="http://jarrycow.top/posts/blogCreation.html">http://jarrycow.top/posts/blogCreation.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1101,12 +1223,13 @@ The key&#39;s randomart image is:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/test.html">
+                <a href="/posts/OS.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="test">
                         
-                        <span class="card-title">test</span>
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="操作系统概述">
+                        
+                        <span class="card-title">操作系统概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1117,15 +1240,31 @@ The key&#39;s randomart image is:
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1134,26 +1273,26 @@ The key&#39;s randomart image is:
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/posts/picHostCreation.html">
+                <a href="/posts/blogCreation.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/picture_in_blog.png" class="responsive-img" alt="图床创建">
+                        <img src="/medias/featureimages/blogCreation.jpg" class="responsive-img" alt="博客搭建">
                         
-                        <span class="card-title">图床创建</span>
+                        <span class="card-title">博客搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客图片也是折磨了我好长一段时间了，今天终于使用 Github+PicGo+jsdelivr 把图床搞起来了
+                             这是安装博客第一步
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-24
                             </span>
                         <span class="publish-author">
                             
@@ -1167,6 +1306,7 @@ The key&#39;s randomart image is:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1174,8 +1314,8 @@ The key&#39;s randomart image is:
                         <span class="chip bg-color">博客</span>
                     </a>
                     
-                    <a href="/tags/github/">
-                        <span class="chip bg-color">github</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>

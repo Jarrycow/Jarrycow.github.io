@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/about/index.html</loc>
+    <loc>http://jarrycow.top/about-website/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/about-website/index.html</loc>
+    <loc>http://jarrycow.top/about/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -414,13 +414,6 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/AI/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jarrycow.top/tags/AE/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -442,7 +435,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/</loc>
+    <loc>http://jarrycow.top/tags/AI/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -463,6 +456,13 @@
   </url>
   
   <url>
+    <loc>http://jarrycow.top/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://jarrycow.top/tags/git/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -471,13 +471,6 @@
   
   <url>
     <loc>http://jarrycow.top/tags/latex/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jarrycow.top/tags/github/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -499,6 +492,13 @@
   
   <url>
     <loc>http://jarrycow.top/tags/BBO%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jarrycow.top/tags/github/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -554,14 +554,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>http://jarrycow.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>http://jarrycow.top/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -577,13 +577,6 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/AI/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jarrycow.top/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -591,7 +584,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/</loc>
+    <loc>http://jarrycow.top/categories/AI/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -605,6 +598,13 @@
   </url>
   
   <url>
+    <loc>http://jarrycow.top/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://jarrycow.top/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -612,7 +612,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://jarrycow.top/categories/%E5%93%B2%E5%AD%A6/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -626,7 +626,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E5%93%B2%E5%AD%A6/</loc>
+    <loc>http://jarrycow.top/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

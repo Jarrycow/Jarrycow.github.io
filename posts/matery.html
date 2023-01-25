@@ -638,7 +638,40 @@ layout: "tags"             # 如：layout: "tags"</span>
 <p>最后，在<code>\themes\languages\zh-CN.yml</code>下替换翻译</p>
 <h1 id="视觉美化"><a href="#视觉美化" class="headerlink" title="视觉美化"></a>视觉美化</h1><h2 id="副标题"><a href="#副标题" class="headerlink" title="副标题"></a>副标题</h2><p>修改<code>themes\_config.yml</code> &gt; <code>subtitle:</code></p>
 <p>在<code>sub</code>下添加语句</p>
-<h2 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h2><h2 id="自定义鼠标样式"><a href="#自定义鼠标样式" class="headerlink" title="自定义鼠标样式"></a>自定义鼠标样式</h2><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h2 id="gulp-代码压缩-未实现"><a href="#gulp-代码压缩-未实现" class="headerlink" title="gulp 代码压缩(未实现)"></a>gulp 代码压缩(未实现)</h2><p>hexo 生成的  html、css、js等都有很多的空格或者换行，而空格和换行也是占用字节的，所以需要将空格换行去掉也就是我要进行的“压缩”，减小一点资源文件的大小也是对访问速度有那么一点提升</p>
+<h2 id="自定义字体（未完成）"><a href="#自定义字体（未完成）" class="headerlink" title="自定义字体（未完成）"></a>自定义字体（未完成）</h2><ol>
+<li><p>在站点目录下 <code>source</code> 文件夹创建 <code>font</code> 文件夹存放字体</p>
+</li>
+<li><p>将字体存放于文件夹</p>
+</li>
+<li><p>在 <code>/themes/matery/source/css/my.css</code> 下填入</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span><span class="token punctuation">&#123;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'myFont'</span><span class="token punctuation">;</span>
+    <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'../font/myFont.ttf'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">body</span><span class="token punctuation">&#123;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'myFont'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我选择了<a target="_blank" rel="noopener" href="https://space.bilibili.com/38053181">六个蛋老师</a>设计的<a href="atelier-anchor.com/typefaces/smiley-sans/">得意黑</a>字体，这是一套完全开源免费的字体。不过 u1s1，用在正文似乎因为都是斜体，不甚美观。尤其因为诸如公式、行内代码还是原来的字体，显得不是很协调<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E4%BD%BF%E7%94%A8%E4%BA%86%E5%BE%97%E6%84%8F%E9%BB%91%E7%9A%84%E6%96%87%E7%AB%A0.png" alt="使用了得意黑的文章"></p>
+<p>因此，考虑只对部分内容使用得意黑字体</p>
+<ol>
+<li><p>将  <code>/themes/matery/source/css/my.css</code> 修改为</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span><span class="token punctuation">&#123;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'myFont'</span><span class="token punctuation">;</span>
+    <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'../font/myFont.ttf'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.fontSmileySans</span><span class="token punctuation">&#123;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'myFont'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>然后对着想修改的地方加入该 class 即可</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="自定义鼠标样式"><a href="#自定义鼠标样式" class="headerlink" title="自定义鼠标样式"></a>自定义鼠标样式</h2><h1 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h1><h2 id="gulp-代码压缩-未实现"><a href="#gulp-代码压缩-未实现" class="headerlink" title="gulp 代码压缩(未实现)"></a>gulp 代码压缩(未实现)</h2><p>hexo 生成的  html、css、js等都有很多的空格或者换行，而空格和换行也是占用字节的，所以需要将空格换行去掉也就是我要进行的“压缩”，减小一点资源文件的大小也是对访问速度有那么一点提升</p>
 <p>1. </p>
 <h2 id="CDN-加速"><a href="#CDN-加速" class="headerlink" title="CDN 加速"></a>CDN 加速</h2><p>因为博客部署到了国外的 Github上，国内访问速度很慢，可以使用 CDN 来实现全站加速</p>
 <p>在主题配置文件_config.yml中搜索<code>jsDelivr</code>，填写url为自己的博客仓库即可</p>

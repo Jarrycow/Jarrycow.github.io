@@ -1,0 +1,2080 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="知识图谱的表示和建模">
+    <meta name="description" content="知识图谱表示指的是用什么语言对知识图谱进行建模">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>知识图谱的表示和建模 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">知识图谱的表示和建模</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                <span class="chip bg-color">知识图谱</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                                <span class="chip bg-color">人工智能</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                人工智能
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-02-02
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h1><p><strong>知识表示特点</strong></p>
+<ul>
+<li>需要定义客观实体的机器指代</li>
+<li>需要定义用于描述客观事物的概念和类别体系</li>
+<li>需要提供机器推理的模型与方法</li>
+<li>也是一种用于高效计算的数据结构</li>
+<li>必须接近人的认知</li>
+</ul>
+<h1 id="人工智能早期知识表示方式"><a href="#人工智能早期知识表示方式" class="headerlink" title="人工智能早期知识表示方式"></a>人工智能早期知识表示方式</h1><p>知识是只能的基础，人工智能往往依赖有意或无意运用已知的知识。</p>
+<p><strong>核心问题：</strong></p>
+<ul>
+<li>怎么表示知识</li>
+<li>怎样在计算机中高效存储与处理知识</li>
+</ul>
+<h2 id="一阶谓词逻辑"><a href="#一阶谓词逻辑" class="headerlink" title="一阶谓词逻辑"></a>一阶谓词逻辑</h2><p>公理系统的标准形式逻辑。</p>
+<p>和命题逻辑不同，一阶逻辑支持量词和谓词。举例说明，“小王拿了国一”和“小张拿了国一”：在命题逻辑中，分别是 $p$ 和 $q$ 两个不相关的命题；在一阶逻辑中，$Award(x)$ 表示“ $x$ 拿了国一”，则若 $x$ 为小王，$Award(x)$ 为$p$，若 $x$ 为小张，$Award(x)$ 为 $q$。</p>
+<h3 id="一阶谓词逻辑优点"><a href="#一阶谓词逻辑优点" class="headerlink" title="一阶谓词逻辑优点"></a>一阶谓词逻辑优点</h3><ul>
+<li><strong>结构性：</strong>能把事物属性以及事物间各种语义显示表达</li>
+<li><strong>严密性：</strong>由形式化语法、语义、相关推理规则</li>
+<li><strong>可实现性：</strong>可转换为计算机内部形式，以算法实现</li>
+</ul>
+<h3 id="一阶谓词逻辑缺点"><a href="#一阶谓词逻辑缺点" class="headerlink" title="一阶谓词逻辑缺点"></a>一阶谓词逻辑缺点</h3><ul>
+<li><strong>可用性有限：</strong>只是半可判定性</li>
+<li><strong>无法表示不确定性知识</strong></li>
+</ul>
+<h2 id="霍恩子句和霍恩逻辑"><a href="#霍恩子句和霍恩逻辑" class="headerlink" title="霍恩子句和霍恩逻辑"></a>霍恩子句和霍恩逻辑</h2><p>霍恩子句是带有最多一个肯定文字<sub>没有否定符号</sub>的子句。霍恩逻辑是一阶逻辑的子集，基于霍恩逻辑的知识库是一个霍恩规则的集合。</p>
+<p>一个霍恩规则由原子公式构成：<br>$$<br>B_1 \wedge \cdots \wedge B_n \rightarrow H<br>$$<br>其中，$H$ 为头原子公式；$B_1, \cdots,B_n$ 为体原子公式。</p>
+<h3 id="霍恩逻辑优点"><a href="#霍恩逻辑优点" class="headerlink" title="霍恩逻辑优点"></a>霍恩逻辑优点</h3><ul>
+<li><strong>结构性：</strong>能把事物属性以及事物间各种语义显示表达</li>
+<li><strong>严密性：</strong>由形式化语法、语义、相关推理规则</li>
+<li><strong>易实现性：</strong>可判定，可转换为计算机内部形式以便算法实现</li>
+</ul>
+<h3 id="霍恩逻辑缺点"><a href="#霍恩逻辑缺点" class="headerlink" title="霍恩逻辑缺点"></a>霍恩逻辑缺点</h3><ul>
+<li><strong>表达能力有限：</strong>不能定义类表达式，不能任意使用量化</li>
+<li><strong>无法表示不确定性知识</strong></li>
+</ul>
+<h2 id="语义网络"><a href="#语义网络" class="headerlink" title="语义网络"></a>语义网络</h2><p>语义网络是表达人类语义只是并且支持推理，在形式上是带标识的有向图</p>
+<ul>
+<li>节点：事物、概念、情况、状态</li>
+<li>连接弧：语义联系、动作</li>
+<li>单元：三元组<code>(节点1，联想弧，节点2)</code></li>
+</ul>
+<h3 id="语义网络优点"><a href="#语义网络优点" class="headerlink" title="语义网络优点"></a>语义网络优点</h3><ul>
+<li><strong>联想性：</strong>最初是作为人类联想记忆模型提出</li>
+<li><strong>易用性：</strong>直观表示事物属性及语义，便于理解</li>
+<li><strong>结构性：</strong>语义网络是一种结构性知识表示方法，对数据子图特别有效</li>
+</ul>
+<h3 id="语义网络缺点"><a href="#语义网络缺点" class="headerlink" title="语义网络缺点"></a>语义网络缺点</h3><ul>
+<li><strong>无形式化语法：</strong>语义网络表示知识手段多样，导致表示形式不一致提高处理的复杂性</li>
+<li><strong>无形式化语义：</strong>与一阶谓词逻辑相比，没有公认的形式表示体系，不保证不存在二义性</li>
+</ul>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>框架是任务人们对现实世界的认识都以一种类似于框架的结构存储在记忆之中，当面临一个新事物时就从记忆中寻找一个合适框架并对细节进行修改，从而形成对新事物的认知。</p>
+<p>框架是一种描述对象属性的数据结构：</p>
+<ul>
+<li>类是知识表示基本单位</li>
+<li>每个类有一些槽，描述属性</li>
+<li>每个槽分为若干侧面，表示属性一个方面</li>
+</ul>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&lt;框架名>
+槽名A	
+	侧面名A1	值A11,值A12,...,值A1
+	侧面名A2	值A21,值A22,...,值A2n
+槽名B
+	侧面名B1	值B11,值B12,...,值B1n
+	侧面名B2	值B21,值B22,...,值B2n
+约束条件
+	约束条件1
+	约束条件2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="框架优点"><a href="#框架优点" class="headerlink" title="框架优点"></a>框架优点</h3><ul>
+<li><strong>结构性：</strong>能把事物属性以及事物间各种语义显示表达</li>
+<li>框架对于知识描述比较全面，支持默认值以及触发器</li>
+</ul>
+<h3 id="框架缺点"><a href="#框架缺点" class="headerlink" title="框架缺点"></a>框架缺点</h3><ul>
+<li>构建成本非常高，对知识库质量要求非常高</li>
+<li>默认值会增大推理复杂度</li>
+<li>无法表示不确定性知识</li>
+</ul>
+<h2 id="描述逻辑"><a href="#描述逻辑" class="headerlink" title="描述逻辑"></a>描述逻辑</h2><p>逻辑描述可可视作利用一阶逻辑对语义网络和框架进行形式化后的产物。描述逻辑一般支持一元谓词<sub>类</sub>和二元谓词<sub>关系</sub>。</p>
+<h3 id="描述逻辑优点"><a href="#描述逻辑优点" class="headerlink" title="描述逻辑优点"></a>描述逻辑优点</h3><ul>
+<li><strong>结构性：</strong>能把事物属性以及事物间各种语义显示表达</li>
+<li><strong>严密性：</strong>由形式化语法、语义、相关推理规则</li>
+<li><strong>多样性：</strong>具有大量可判断扩展，以满足不同应用场景需求</li>
+<li><strong>易实现性：</strong>可判定，可转换为计算机内部形式以便算法实现</li>
+</ul>
+<h3 id="描述逻辑缺点"><a href="#描述逻辑缺点" class="headerlink" title="描述逻辑缺点"></a>描述逻辑缺点</h3><ul>
+<li><strong>有限表达能力：</strong>不支持显式使用变量，不能够任意使用量化</li>
+<li>无法表示不确定性知识</li>
+</ul>
+<h1 id="互联网时代语义网知识表示框架"><a href="#互联网时代语义网知识表示框架" class="headerlink" title="互联网时代语义网知识表示框架"></a>互联网时代语义网知识表示框架</h1><p>语义网的发展作为契机为知识表示提供很好的应用场景，但需要提供一套标准语言可以用来描述 Web 的各种信息<sub>早期 Web 标准语言 HTML 和 XML 无法适应语义网对知识表示要求</sub>，故因此提出了新的标准语言 RDF、RDFS、OWL<sub>语法均可和 XML 兼容</sub></p>
+<h2 id="RDF-和-RDFS"><a href="#RDF-和-RDFS" class="headerlink" title="RDF 和 RDFS"></a>RDF 和 RDFS</h2><p><strong>语义网标准</strong></p>
+<ul>
+<li><strong>表示组：</strong><ul>
+<li>语法：XML</li>
+<li>标识符：URI&#x2F;IRI</li>
+<li>数据交换：RDF</li>
+<li>字符集：Unicode</li>
+</ul>
+</li>
+<li><strong>推理组：</strong><ul>
+<li>查询：SPARQL</li>
+<li>分类法：RDF-S</li>
+<li>本体：OWL</li>
+<li>规则：RIF</li>
+<li>统一逻辑</li>
+</ul>
+</li>
+<li><strong>信任组</strong><ul>
+<li>信任</li>
+<li>验证</li>
+<li>加密</li>
+</ul>
+</li>
+<li><strong>用户互动组</strong><ul>
+<li>用户界面</li>
+<li>应用程序</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/KnowledgeGraphs/aHR0cHM6Ly9pbWcubXVidS5jb20vZG9jdW1lbnRfaW1hZ2UvZGM1MjYzZWYtZDc4YS00NTBhLTkxNTEtYWFlZWJmYmZjZWUyLTczODg2NjAuanBn" alt="W3C 语义网标准栈和分组"></p>
+<p><strong>开放链接五星级原则步骤</strong></p>
+<ul>
+<li>使用 URIs 对事物命名</li>
+<li>使用 HTTP URIs 以便搜索</li>
+<li>使用 RDF 描述事物并提供 SPARQL 端点，方便对 RDF 图谱查询</li>
+<li>链接不同的图谱以便重用</li>
+</ul>
+<h3 id="RDF"><a href="#RDF" class="headerlink" title="RDF"></a>RDF</h3><ul>
+<li>RDF 中以三元组形式出现，每一份可分解为 <code>(subject, predicate, object)</code></li>
+<li>三元组主谓宾都有全局标识 URI</li>
+<li>可简化前缀 URI，允许没有全局标识的空白节点，前缀为<code>_</code></li>
+<li>RDF 作为抽象数据类型，支持不同序列化格式<sub>RDF&#x2F;XML、Turtle、N-Triple</sub></li>
+</ul>
+<h3 id="RDFS"><a href="#RDFS" class="headerlink" title="RDFS"></a>RDFS</h3><p>经典数据库采用封闭世界，而 RDF 采用开放世界假设——RDF 图谱里知识可能不完备，这符合 Web 开放性特点。这也意味着 RDF 可被分布式存储，且分布式定义的知识自动合并。</p>
+<p>RDF 采用类以及属性描述个体关系，类和属性由模式 RDFS<sub>RDF Schema</sub>定义，提供了对类和属性的简单描述。RDFS提供最基本描述元语：</p>
+<ul>
+<li><code>rdf: type</code>：个体的类</li>
+<li><code>rdfs: subClassOf</code>：类的父类</li>
+<li><code>rdfs: subPropertyOf</code>：属性的父属性</li>
+<li><code>rdfs: domain</code>：指定属性的定义域</li>
+<li><code>rdfs: range</code>：属性值域</li>
+</ul>
+<h2 id="OWL-和-OWL2-Fragments"><a href="#OWL-和-OWL2-Fragments" class="headerlink" title="OWL 和 OWL2 Fragments"></a>OWL 和 OWL2 Fragments</h2><p>RDF(S) 只可以标识简单语义，但更复杂的场景下 RDF(S) 表达能力显得太弱，缺少常用特征：</p>
+<ul>
+<li><p><strong>对于局部值域属性定义</strong></p>
+<p>RDF(S) 通过 <code>rdfs: range</code> 定义属性值域，值域是全局性的，无法说明属性应用于具体类时具有的特殊值域限制<sub>无法声明父母至少一个孩子</sub></p>
+</li>
+<li><p><strong>类、属性、个体的等价性</strong></p>
+<p>RDF(S) 无法声明多个类、属性、个体是否等价<sub>无法声明小王和小张是同一个人</sub></p>
+</li>
+<li><p><strong>不相交类的定义</strong></p>
+<p>RDF(S) 只能声明子类关系<sub>男人和女人都是人的子类，但无法声明两个类不相交</sub></p>
+</li>
+<li><p><strong>基数约束</strong></p>
+<p>对某属性值取值范围进行约束<sub>说明一个人有双亲至少两个人、一门课至少一名教师</sub></p>
+</li>
+<li><p><strong>关于属性特性的描述</strong></p>
+<p>声明属性某些特性<sub>传递性、函数性、对称性</sub></p>
+</li>
+</ul>
+<p>为了得到表达能力更强的本体语言，提出了 OWL 语言扩展RDF(S)</p>
+<h3 id="OWL-语言特征"><a href="#OWL-语言特征" class="headerlink" title="OWL 语言特征"></a>OWL 语言特征</h3><table>
+<thead>
+<tr>
+<th>子语言</th>
+<th>特征</th>
+<th>使用限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OWL Lite</td>
+<td>提供给只需要一个分类层次和简单的属性约束的用户</td>
+<td>支持基数但允许基数为 0 或 1</td>
+</tr>
+<tr>
+<td>OWL DL</td>
+<td>在 OW Lite 基础包括 OWL 语言的所有约束，在逻辑蕴涵上可判定</td>
+<td>当一个类可以是多个类的一个子类时被约束不能是另外一个类的实例</td>
+</tr>
+<tr>
+<td>OWL Full</td>
+<td>允许在预定义词汇表上增加词汇。从而任何推理软件均不能支持 OWL Full 所有 feature，在语言逻辑蕴涵通常不可判定</td>
+<td>一个类可被同时表达为许多个体的一个集合以及这个集合的一个个体，具有二阶逻辑特点</td>
+</tr>
+</tbody></table>
+<p><strong>选择原则：</strong></p>
+<ul>
+<li><strong>OWL Lite &amp; OWL DL：</strong>取决于用户需要整个语言多大程度给出约束的可表达性</li>
+<li><strong>OWL DL &amp; OWL Full：</strong>取决于用户在多大程度需要 RDF 的元模型机制<sub>定义类型的类型以及为类型赋予属性</sub></li>
+<li><strong>使用 OWL Full 而非 OWL DL：</strong>推理支持可能不能工作，因为还未能完全支持 OWL Full</li>
+</ul>
+<p><strong>OWL 子语言和 RDF 关系：</strong></p>
+<ul>
+<li>OWL Full 可视作 RDF 扩展</li>
+<li>OWL Lite 和 OWL Full 可视作约束化的 RDF 扩展</li>
+<li>所有 OWL 文档<sub>Lite、DL、Full</sub>都是RDF 文档，所有 RDF 文档都是 OWL Full 文档</li>
+<li>只有一些 RDF 文档是一个合法的 OWL Lite 和 OWL DL 文档</li>
+</ul>
+<h3 id="OWL-重要词汇"><a href="#OWL-重要词汇" class="headerlink" title="OWL 重要词汇"></a>OWL 重要词汇</h3><ol>
+<li><p><strong>等价性声明：</strong>声明两个类、属性和实例等价</p>
+<p>类等价：<code>exp:运动员 owl: equivalentClass exp:体育选手</code></p>
+<p>属性等价：<code>exp:获得 owl: equivalentClass exp:取得</code></p>
+<p>实例等价：<code>exp:运动员 owl: equivalentClass exp:小明</code></p>
+<pre class="line-numbers language-exp```" data-language="exp```"><div class="caption"><span>为命名空间 ```http://www.example.org``` 别称，命名空间是唯一识别一套名字，避免名字冲突，在 OWL 可为一个 URL。</span></div><code class="language-exp```">
+2. **属性传递声明：**声明一个属性是传递关系
+
+   若&#96;&#96;&#96;exp:ancestor rdf: type owl: TransitiveProperty&#96;&#96;&#96; 指的是 &#96;&#96;&#96;exp:ancestor&#96;&#96;&#96; 为传递关系
+
+   若某属性被声明为传递，则&#96;&#96;&#96;a exp:ancestor b&#96;&#96;&#96; 和 &#96;&#96;&#96;b exp:ancestor c&#96;&#96;&#96; 可推出&#96;&#96;&#96;a exp:ancestor c&#96;&#96;&#96;
+
+3. **属性互逆声明：**声明两个属性互逆
+
+   若 &#96;&#96;&#96;exp:ancestor owl: inverseOf exp:descendant&#96;&#96;&#96; 指的是 &#96;&#96;&#96;exp:ancestor&#96;&#96;&#96; 和 &#96;&#96;&#96;exp:descendant&#96;&#96;&#96; 互逆
+
+   若 &#96;&#96;&#96;exp:a exp:ancestor exp:b&#96;&#96;&#96;，则可以推出 &#96;&#96;&#96;exp:b exp:descendant exp:a&#96;&#96;&#96;
+
+4. **属性的函数性声明：**声明一个属性为函数
+
+   如 &#96;&#96;&#96;exp:f rdf: type owl: FunctionalProperty&#96;&#96;&#96; 指 &#96;&#96;&#96;exp:f&#96;&#96;&#96; 为函数
+
+5. **属性的对称性声明：**声明一个属性是对称的
+
+   若 &#96;&#96;&#96;exp:friend rdf: type owl: SymmetricProperty&#96;&#96;&#96; 指 &#96;&#96;&#96;exp:friend&#96;&#96;&#96; 为具有对称性属性
+
+   若 &#96;&#96;&#96;exp:a exp:friend exp:b&#96;&#96;&#96;，可推出 &#96;&#96;&#96;exp:b exp:friend exp:a&#96;&#96;&#96;
+
+6. **属性的全称限定声明：**声明一个属性全称限定
+
+   &#96;&#96;&#96;exp:a owl: allValuesFrom exp:b&#96;&#96;&#96;
+
+   &#96;&#96;&#96;exp:a owl: onProperty exp:c	&#96;&#96;&#96;
+
+   即 &#96;&#96;&#96;exp:c&#96;&#96;&#96; 在主语属于 &#96;&#96;&#96;exp:a&#96;&#96;&#96; 类条件下，宾语只能来自 &#96;&#96;&#96;exp:a&#96;&#96;&#96; 类
+
+7. **属性存在限定声明：**声明一个属性存在限定
+
+   &#96;&#96;&#96;exp:a owl: someValuesFrom exp:b&#96;&#96;&#96;
+
+   &#96;&#96;&#96;exp:a owl: onProperty exp:c&#96;&#96;&#96;
+
+   即&#96;&#96;&#96;exp:c&#96;&#96;&#96; 在主语属于 &#96;&#96;&#96;exp:a&#96;&#96;&#96; 类的条件下，存在宾语来自于 &#96;&#96;&#96;exp:b&#96;&#96;&#96;
+
+8. **属性基数限定声明：**声明一个属性基数
+
+   &#96;&#96;&#96;exp:a owl: cardinality &quot;1&quot; ^^xsd: integer&#96;&#96;&#96;
+
+   &#96;&#96;&#96;exp:a owl: onProperty exp:c&#96;&#96;&#96;
+
+   即 &#96;&#96;&#96;exp:c&#96;&#96;&#96; 在主语属于 &#96;&#96;&#96;exp:a&#96;&#96;&#96; 类条件下，宾语取值只能有一个，&#96;&#96;&#96;&quot;1&quot;&#96;&#96;&#96; 的数据类型被声明为 &#96;&#96;&#96;xsd: integer&#96;&#96;&#96;，这是基数约束&lt;sub&gt;属性的局部约束&lt;&#x2F;sub&gt;
+
+9. **相交的类声明：**声明一个类是两个类相交
+
+   &#96;&#96;&#96;exp:Mother owl: intersectionOf _tmp&#96;&#96;&#96;
+
+   &#96;&#96;&#96;_tmp rdf: type rdfs: Collection&#96;&#96;&#96;
+
+   &#96;&#96;&#96;_tmp rdfs: member exp:Person&#96;&#96;&#96;
+
+   &#96;&#96;&#96;_tmp rdfs: member exp:HasChildren&#96;&#96;&#96;
+
+   即 &#96;&#96;&#96;_tmp&#96;&#96;&#96; 为临时资源，属于&#96;&#96;&#96;Collection&#96;&#96;&#96; 类，是一个容器，其两个成员是 &#96;&#96;&#96;exp:Person&#96;&#96;&#96; 和 &#96;&#96;&#96;exp:HasChildren&#96;&#96;&#96;。&#96;&#96;&#96;exp:Mother&#96;&#96;&#96; 为 &#96;&#96;&#96;exp:Person&#96;&#96;&#96; 和 &#96;&#96;&#96;exp:HasChildren&#96;&#96;&#96; 的交集。
+
+| OWL 其他词汇                                           | 描述                                       |
+| ------------------------------------------------------ | ------------------------------------------ |
+| &#96;&#96;&#96;owl: oneOf&#96;&#96;&#96;                                       | 声明枚举类型                               |
+| &#96;&#96;&#96;owl: disjointWith&#96;&#96;&#96;                                | 声明两个类不相交                           |
+| &#96;&#96;&#96;owl: unionOf&#96;&#96;&#96;                                     | 声明类并集                                 |
+| &#96;&#96;&#96;owl: minCardinality&#96;&#96;&#96;&lt;br&gt;&#96;&#96;&#96;owl: maxCardinality&#96;&#96;&#96; | 最小基数限定&lt;br&gt;最大基数限定               |
+| &#96;&#96;&#96;owl: InverseFunctionalProperty&#96;&#96;&#96;                   | 声明互反类具有函数属性                     |
+| &#96;&#96;&#96;owl: hasValue&#96;&#96;&#96;                                    | 属性的局部约束时，声明所约束类必有一个取值 |
+
+## 知识图谱查询语言表示
+
+RDF 支持类数据库查询语言：SOARQL，提供查询 RDF 数据标准语法、查询规则、返回形式
+
+### SPARQL 知识图谱查询基本构成
+
+- 变量、RDF 中资源、以”?“或&quot;$&quot;指示
+- 三元组模板，在 &#96;&#96;&#96;WHERE&#96;&#96;&#96; 子句列出关联三元组模板
+- &#96;&#96;&#96;SELECT&#96;&#96;&#96; 子句中指示要查询目标变量
+
+例子：查询所有选修 CS 课程的学生，&#96;&#96;&#96;PREFIX&#96;&#96;&#96; 进行命名空间声明
+
+&#96;&#96;&#96;SPARQL
+PREFIX exp: http:&#x2F;&#x2F;www.example.org&#x2F;
+SELECT ?student
+WHERE&#123;
+	?student exp:studies exp:CS .
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="常见-SPARQL-查询算子"><a href="#常见-SPARQL-查询算子" class="headerlink" title="常见 SPARQL 查询算子"></a>常见 SPARQL 查询算子</h3><h4 id="OPTIONAL"><a href="#OPTIONAL" class="headerlink" title="OPTIONAL"></a>OPTIONAL</h4><p>可选算子，即在这个算子覆盖范围查询语句可选</p>
+<p>例子：查询所有选修 CS 课程的学生、邮箱。<code>OPTIONAL</code> 指若无邮箱，则依然返回学生姓名，邮箱空缺</p>
+<pre class="line-numbers language-SPARQL" data-language="SPARQL"><code class="language-SPARQL">SELECT ?student ?email
+WHERE&#123;
+	?student exp:studies exp:CS .
+OPTIONAL&#123;
+	?student foaf:mbox ?email .
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="FILTER"><a href="#FILTER" class="headerlink" title="FILTER"></a>FILTER</h4><p>过滤算子，即在这个算子覆盖范围 查询语句可用来过滤查询结果</p>
+<p>例子：查询学生姓名、选修、年龄；若有年龄，则必须大于 18</p>
+<pre class="line-numbers language-SPARQL" data-language="SPARQL"><code class="language-SPARQL">SELECT ?module ?name ?age
+WHERE&#123;
+	?student exp:studies exp:CS .
+OPTIONAL&#123;
+    ?student exp:age ?age .
+FILTER(?age &gt; 18)
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h4><p>并算子，即将两个查询结果合并</p>
+<p>例子：查询选修 CS 和 AI 的学生姓名、邮件<sub>这里没有邮件则不返回记录</sub></p>
+<pre class="line-numbers language-SPARQL" data-language="SPARQL"><code class="language-SPARQL">SELECT ?student ?email
+WHERE&#123;
+    ?student foaf:mbox ?email .
+    &#123; ?student exp:studies exp:CS &#125;
+    UNION
+    &#123; ?student exp:studies exp:AI &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="语义-Markup-表示语言"><a href="#语义-Markup-表示语言" class="headerlink" title="语义 Markup 表示语言"></a>语义 Markup 表示语言</h2><p>语义网进一步定义了在网页中嵌入语义 Markup 方法和表示语言。</p>
+<h3 id="JSON-LD"><a href="#JSON-LD" class="headerlink" title="JSON-LD"></a>JSON-LD</h3><p>基于 JSON 表示和传输链接数据的方法，描述如何通过 JSON 表示有向图以及如何在文档中混合表示链接数据及非链接数据。JSON-LD 语法和 JSON 兼容，处理算法和 API 描述了处理 JSON-LD 数据所需算法及编程接口<sub>在JS、Python、Ruby 直接对 JSON-LD 进行文档处理</sub></p>
+<p>例子：</p>
+<pre class="line-numbers language-JSON" data-language="JSON"><code class="language-JSON">&#123;
+    &quot;name&quot;: &quot;Jarrycow&quot;,
+    &quot;homepage&quot;: &quot;http:&#x2F;&#x2F;jarrycow.top&#x2F;&quot;,
+    &quot;img&quot;: &quot;http:&#x2F;&#x2F;jarrycow.top&#x2F;resources&#x2F;picture&#x2F;pic.png&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>人类很易明白姓名、主页、图片，但机器不理解。JSON-LD 通过引入术语统一规范化：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"http://schema.org/name"</span><span class="token operator">:</span> <span class="token string">"Jarrycow"</span><span class="token punctuation">,</span>
+    <span class="token property">"http://schema.org/url"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"@id"</span><span class="token operator">:</span> <span class="token string">"http://jarrycow.top/"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"http://schema.org/image"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"@id"</span><span class="token operator">:</span> <span class="token string">"http://jarrycow.top/resources/picture/pic.png"</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>JSON-LD 呈现语义网技术风格，围绕某类知识提供共享术语。但是，JSON-LD 实现未能选择大部分语义网技术栈，而以简单以及面向开发者方式推进。</p>
+<h3 id="RDFa"><a href="#RDFa" class="headerlink" title="RDFa"></a>RDFa</h3><p>早期语义标记语言，扩充 XHTML 属性，可利用这些属性在网页中添加可供机器读取的资源。与 RDF 关系可使 RDFa 将三元组嵌入 XHTML 文档。RDFa 通过引入命名空间的方法，在已有标签中加入 RDFa 相应属性，以便解析支持 RDFa 技术浏览器或搜索引擎，以达到优化目的。</p>
+<p>例子：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>dc</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>http://purl.org/dc/elements/1.1<span class="token punctuation">"</span></span>
+     <span class="token attr-name">about</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>http://jarrycow.top/books/mybook<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dc:title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>mybook<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dc:creator<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Jarrycow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dc:date<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2023-02-29<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例子中使用 <code>about</code> 以及 <code>property</code> 属性，表明这篇文章的相关信息<sub>标题、作者、日期</sub>，则支持 RDFa 的机器识别这些属性。</p>
+<h3 id="微数据-MicroData"><a href="#微数据-MicroData" class="headerlink" title="微数据 MicroData"></a>微数据 MicroData</h3><p>网页标记语言中嵌入机器可读属性数据。微数据使用自定义词汇表、带作用域键值对给 DOM 标记，给已在页面上可见的数据施加额外语义。在 HTML 词汇不够时，可以取得较好效果。</p>
+<p>例子：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">itemscope</span> <span class="token attr-name">itemtype</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>http://data-vocabulary.org/Person<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">itemprop</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Jarrycow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">itemprop</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>phote<span class="token punctuation">"</span></span> <span class="token attr-name">src</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>http://jarrycow.top/photo.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">itemprop</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">href</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>http://jarrycow.top/blog<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>该例子给出 Person 类下名为 Jarrycow 用户和其博客 URL</p>
+<h1 id="开放域知识图谱知识表示方法"><a href="#开放域知识图谱知识表示方法" class="headerlink" title="开放域知识图谱知识表示方法"></a>开放域知识图谱知识表示方法</h1><p>不同知识图谱项目会根据实际需求选择知识表示框架，但本质上相似</p>
+<h2 id="Freebase"><a href="#Freebase" class="headerlink" title="Freebase"></a>Freebase</h2><p><strong>框架包含要素：</strong></p>
+<ul>
+<li><strong>对象-Object：</strong>实体，每个对象有唯一 ID<sub>MID</sub>，可以有多个类型</li>
+<li><strong>事实-Facts</strong></li>
+<li><strong>类型-Type</strong></li>
+<li><strong>属性-Properties：</strong>用于描述事实</li>
+</ul>
+<h2 id="Wikidata"><a href="#Wikidata" class="headerlink" title="Wikidata"></a>Wikidata</h2><p><strong>框架包含要素：</strong></p>
+<ul>
+<li><strong>页面-Pages：</strong>基本组织单元</li>
+<li><strong>实体-Entities：</strong>最顶层对象，每个实体一个单独维基界面</li>
+<li><strong>条目-Items：</strong>实例对象</li>
+<li><strong>属性-Properties</strong></li>
+<li><strong>陈述-Statement</strong></li>
+<li><strong>修饰-Qualifiers：</strong>刻画多元关系</li>
+<li><strong>引用-Reference：</strong>来源</li>
+<li><strong>别名-aliases</strong></li>
+<li><strong>外部链接-Sitelinks</strong></li>
+</ul>
+<h2 id="ConceptNet5"><a href="#ConceptNet5" class="headerlink" title="ConceptNet5"></a>ConceptNet5</h2><p><strong>框架包含要素：</strong></p>
+<ul>
+<li><strong>概念-Concepts：</strong>由词、短语组成，构成图谱中节点，更接近自然语言描述</li>
+<li><strong>词-Words</strong></li>
+<li><strong>短语-Phrases</strong></li>
+<li><strong>断言-Assertions：</strong>陈述</li>
+<li><strong>关系-Relations</strong></li>
+<li><strong>边-Edges：</strong>属性</li>
+</ul>
+<p>ConceptNet5 对 URI 设计时考虑其类型<sub>关系、名称、词性、歧义</sub>，如 <code>run</code> 的 URI 为 <code>/c/en.run/n/basement</code>，其中 <code>n</code> 表示名词，<code>basement</code> 区分歧义</p>
+<h1 id="知识图谱向量表示"><a href="#知识图谱向量表示" class="headerlink" title="知识图谱向量表示"></a>知识图谱向量表示</h1><p>把知识图谱实体和关系映射到向量空间</p>
+<p><strong>知识图谱表示挑战</strong></p>
+<p>知识以离散符号形式表示，但符号无法在计算机中表达相应语义层面信息，也无法进行语义计算。且由于图数据结构，算法大多与图相关，有较高复杂度</p>
+<h2 id="词向量表示方法"><a href="#词向量表示方法" class="headerlink" title="词向量表示方法"></a>词向量表示方法</h2><p>离散符号化的表达词，有利运算。</p>
+<h3 id="独热编码-One-Hot"><a href="#独热编码-One-Hot" class="headerlink" title="独热编码 One-Hot"></a>独热编码 One-Hot</h3><p>将词表达为很长的向量，向量维度即词表大小，在该向量中，除表现词编号的维度为 1，其余均为0。</p>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/KnowledgeGraphs/%E7%8B%AC%E7%83%AD%E7%BC%96%E7%A0%81.jpg" alt="独热编码" style="zoom:50%;" />
+
+<h3 id="词袋模型-Bow"><a href="#词袋模型-Bow" class="headerlink" title="词袋模型 Bow"></a>词袋模型 Bow</h3><p>将文本想象为装词的袋子，不考虑词之间上下文关系和顺序，仅记录词在文本中出现次数。具体方法为将文本所有可见词汇组成词典再进行编号。因此每个文本可使用词出现次数向量表示，该向量每个维度表示该词在文本出现次数。</p>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/KnowledgeGraphs/%E8%AF%8D%E8%A2%8B%E6%A8%A1%E5%9E%8B.jpg" alt="词袋模型" style="zoom:50%;" />
+
+<h3 id="词向量嵌入"><a href="#词向量嵌入" class="headerlink" title="词向量嵌入"></a>词向量嵌入</h3><p>以上表示方法均和词语义信息无关，为了表示词之间语义相似，提出词分布式表示。</p>
+<h4 id="产生词向量手段"><a href="#产生词向量手段" class="headerlink" title="产生词向量手段"></a><strong>产生词向量手段</strong></h4><ul>
+<li><strong>Count-based：</strong>基于计数方法，即记录文本词出现次数</li>
+<li><strong>Predictive：</strong>基于预测方法，既可通过上下文预测中心词，也可通过中心词预测上下文</li>
+<li><strong>Task-based：</strong>基于任务，即通过任务驱动方法，通过词向量在具体任务表现效果对词向量学习</li>
+</ul>
+<h4 id="词向量嵌入模型"><a href="#词向量嵌入模型" class="headerlink" title="词向量嵌入模型"></a>词向量嵌入模型</h4><ul>
+<li>连续词袋模型 CBoW：用上下文预测中心词，从而使得词向量包含一定上下文信息。输出一维表达此词表每个词作为上下文中心词概率<ul>
+<li>上下文词独热编码与词向量矩阵相乘</li>
+<li>提取词向量并求和到投影层</li>
+<li>经过 Softmax 层得到输出</li>
+</ul>
+</li>
+<li>用中心词预测上下文词<ul>
+<li>通过中心词独热编码表示</li>
+<li>从词向量矩阵中得到中心词的词向量得到投影层。输出每一维表达此该词作为输入中心词的上下文出现概率</li>
+<li>经过 Softmax 层得到输出</li>
+</ul>
+</li>
+</ul>
+<h2 id="知识图谱嵌入"><a href="#知识图谱嵌入" class="headerlink" title="知识图谱嵌入"></a>知识图谱嵌入</h2><p>将知识图谱中实体和关系映射到连续空间向量。</p>
+<p><strong>词向量嵌入优点</strong></p>
+<ul>
+<li>提高计算效率</li>
+<li>增加下游设计多样性</li>
+<li>将知识图谱作为下游应用预训练向量输入</li>
+</ul>
+<h3 id="转移距离模型"><a href="#转移距离模型" class="headerlink" title="转移距离模型"></a>转移距离模型</h3><p><strong>思想：</strong>将衡量向量化后的知识图谱中的三元组合理性问题转换为亨利头实体和尾实体距离。</p>
+<p><strong>重点：</strong>如何设计得分函数</p>
+<p>将 <code>(head, relation, tail)</code>关系转为向量 <code>(Translation vector)</code>，满足关系：<br>$$<br>head+relation≈tail<br>$$</p>
+<h3 id="语义匹配模型"><a href="#语义匹配模型" class="headerlink" title="语义匹配模型"></a>语义匹配模型</h3><p>更注重挖掘向量化后实体和关系的潜在语义。</p>
+<p><strong>核心思想：</strong>将整个知识图谱编码为一个三维张量，由这个张量分解出一个核心张量和一个因子矩阵</p>
+<ul>
+<li>核心张量：每个二维矩阵切片代表一种关系</li>
+<li>因子矩阵：每一行代表一个实体</li>
+<li>核心张量和因子矩阵还原可视作对应三元组成立概率，若大于某值则对应三元组正确；否则不正确</li>
+</ul>
+<p><strong>得分函数：</strong><br>$$<br>f_r\left(h,t\right)&#x3D;h^TM_rt&#x3D;\underset{i&#x3D;0}{ \overset{d-1}\sum}\underset{j&#x3D;0}{ \overset{d-1}\sum}\left[M_r\right]_{ij}\cdot\left[h\right]_i\cdot\left[r\right]_j<br>$$</p>
+<h3 id="考虑附加模型"><a href="#考虑附加模型" class="headerlink" title="考虑附加模型"></a>考虑附加模型</h3><p>除了考虑三元组构造，还考虑额外信息。</p>
+<ul>
+<li><p><strong>实体类型</strong></p>
+<p>知识库中一般会给每个实体设定一定类别，如设定 <code>(A is B)</code>，这样在嵌入过程中，在向量表示上更为接近</p>
+</li>
+<li><p><strong>关系路径</strong></p>
+<p>实体之间多跳关系，如 <code>(A is C of B)</code>。可以考虑基于 RNN 方法遍历路径中的关系</p>
+</li>
+<li><p><strong>文本描述</strong></p>
+<p>对实体一些简要文本描述。</p>
+</li>
+<li><p><strong>逻辑规则</strong></p>
+<p>主要是霍恩子句</p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/showKnowledge.html">http://jarrycow.top/posts/showKnowledge.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                    <span class="chip bg-color">知识图谱</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                                    <span class="chip bg-color">人工智能</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/WWWDC.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="对一个大型数据中心网络中的广域网流量特征的检验">
+                        
+                        <span class="card-title">对一个大型数据中心网络中的广域网流量特征的检验</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            论文介绍了百度数据中心架构和数据获取，检验了大型数据中心的广域网流量特征
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/txtSecurity.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="评估网站security文件">
+                        
+                        <span class="card-title">评估网站security文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            公布漏洞披露作法标准
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

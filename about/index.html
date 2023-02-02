@@ -554,21 +554,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">36</a></span>
+    <span class="count"><a href="/">60</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">11</a></span>
+    <span class="count"><a href="/categories">18</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">23</a></span>
+    <span class="count"><a href="/tags">29</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -584,21 +584,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">36</a></span>
+    <span class="count"><a href="/">60</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">11</a></span>
+    <span class="count"><a href="/categories">18</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">23</a></span>
+    <span class="count"><a href="/tags">29</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -744,7 +744,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01"]
+            data: ["2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02"]
         },
         yAxis: {
             type: 'value',
@@ -754,7 +754,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [1,0,0,0,0,0,4,1,5,4,8,2,1],
+                data: [0,8,8,0,0,4,1,5,4,8,2,5,3],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -796,7 +796,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"博客","value":6},{"name":"AI","value":2},{"name":"多媒体","value":2},{"name":"计算机基础","value":3},{"name":"数学","value":10},{"name":"网络测量","value":6},{"name":"数学建模","value":1},{"name":"哲学","value":1},{"name":"机器学习","value":3},{"name":"机器学习","value":1},{"name":"模式识别","value":1}],
+                data: [{"name":"网络测量","value":10},{"name":"博客","value":6},{"name":"多媒体","value":2},{"name":"AI","value":2},{"name":"计算机网络","value":7},{"name":"操作系统","value":3},{"name":"数学","value":10},{"name":"数据结构","value":7},{"name":"Java","value":1},{"name":"数学建模","value":1},{"name":"机器学习","value":1},{"name":"无线网络","value":2},{"name":"算法","value":1},{"name":"机器学习","value":3},{"name":"哲学","value":1},{"name":"人工智能","value":1},{"name":"网络安全","value":1},{"name":"模式识别","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -820,7 +820,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["数学","博客","网络测量","AI","机器学习","计算机基础","操作系统","AE","git","论文"]
+                data: ["计算机网络","网络测量","数学","数据结构","论文","博客","机器学习","AI","操作系统","git"]
             }
         ],
         yAxis: [
@@ -833,7 +833,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [10,6,6,5,5,3,3,2,2,2],
+                data: [11,10,10,8,7,6,6,5,3,3],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -951,34 +951,40 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/%E8%AE%BA%E6%96%87/">
+                <span class="chip center-align waves-effect waves-light chip-default">论文</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">网络测量</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                 <span class="chip center-align waves-effect waves-light chip-default">博客</span>
             </a>
             
             
             
+            
+            
+            <a href="/tags/%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/">
+                <span class="chip center-align waves-effect waves-light chip-default">文字特效</span>
+            </a>
+            
+            
+            
             <a href="/tags/AI/">
                 <span class="chip center-align waves-effect waves-light chip-default">AI</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/">
-                <span class="chip center-align waves-effect waves-light chip-default">多媒体</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%96%87%E5%AD%97/">
-                <span class="chip center-align waves-effect waves-light chip-default">文字</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                <span class="chip center-align waves-effect waves-light chip-default">计算机基础</span>
             </a>
             
             
@@ -1001,20 +1007,22 @@
             
             
             
-            <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
-                <span class="chip center-align waves-effect waves-light chip-default">网络测量</span>
-            </a>
-            
-            
-            
-            <a href="/tags/github/">
-                <span class="chip center-align waves-effect waves-light chip-default">github</span>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据结构</span>
             </a>
             
             
             
             <a href="/tags/latex/">
                 <span class="chip center-align waves-effect waves-light chip-default">latex</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
             
             
@@ -1037,14 +1045,26 @@
             
             
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/">
-                <span class="chip center-align waves-effect waves-light chip-default">论文</span>
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                <span class="chip center-align waves-effect waves-light chip-default">机器学习</span>
             </a>
             
             
             
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                <span class="chip center-align waves-effect waves-light chip-default">机器学习</span>
+            <a href="/tags/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/">
+                <span class="chip center-align waves-effect waves-light chip-default">身份验证</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                <span class="chip center-align waves-effect waves-light chip-default">神经网络</span>
+            </a>
+            
+            
+            
+            <a href="/tags/CNN/">
+                <span class="chip center-align waves-effect waves-light chip-default">CNN</span>
             </a>
             
             
@@ -1067,20 +1087,32 @@
             
             
             
+            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">贝叶斯</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
                 <span class="chip center-align waves-effect waves-light chip-default">知识图谱</span>
             </a>
             
             
             
-            <a href="/tags/%E5%AE%89%E5%85%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">安全</span>
+            <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                <span class="chip center-align waves-effect waves-light chip-default">人工智能</span>
             </a>
             
             
             
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
+            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">网络安全</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">安全</span>
             </a>
             
             

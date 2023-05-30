@@ -573,7 +573,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-04
+                    2023-05-05
                 </div>
                 
 
@@ -659,8 +659,30 @@
 <blockquote>
 <p>在 哈希表 中，值域需要小到能够接受线性的空间与时间复杂度。</p>
 <p>在字符串哈希中，值域需要小到能够快速比较（$10^9$、$10^{18}$ 都是可以快速比较的）。</p>
-<p>同时，为了降低哈希冲突率，值域也不能太小。</p>
+<p>同时，为了降低哈希冲突率，值域也不能太小</p>
+<ol>
+<li>在 Hash 函数值不一样的时候，两个字符串一定不一样；</li>
+<li>在 Hash 函数值一样的时候，两个字符串不一定一样（但有大概率一样，且我们当然希望它们总是一样的</li>
+</ol>
 </blockquote>
+<p>对于一个长度为 $l$ 的字符串 $s$ 来说，我们可以这样定义多项式 Hash 函数：<br>$$<br>f(s) &#x3D; \sum_{i&#x3D;1}^{l} s[i] \times b^{l-i} \pmod M<br>$$</p>
+<p>$$<br>f(s) &#x3D; \sum_{i&#x3D;1}^{l} s[i] \times b^{i-1} \pmod M<br>$$</p>
+<p>以上两种 Hash 定义函数都可行，前一者更常用， $M$ 需要选择一个素数（至少要比最大的字符要大），$b$ 可以任意选择。</p>
+<p><strong>实现</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">M <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1e9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">)</span>
+B <span class="token operator">=</span> <span class="token number">233</span>
+
+<span class="token keyword">def</span> <span class="token function">get_hash</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    res <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> char <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token punctuation">(</span>res <span class="token operator">*</span> B <span class="token operator">+</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span> M
+    <span class="token keyword">return</span> res
+
+<span class="token keyword">def</span> <span class="token function">cmp</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> get_hash<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">==</span> get_hash<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><h1 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h1><h1 id="字典树-Trie"><a href="#字典树-Trie" class="headerlink" title="字典树 Trie"></a>字典树 Trie</h1><h1 id="前缀函数-amp-KMP"><a href="#前缀函数-amp-KMP" class="headerlink" title="前缀函数 &amp; KMP"></a>前缀函数 &amp; KMP</h1><h1 id="Boyer-Moore-算法"><a href="#Boyer-Moore-算法" class="headerlink" title="Boyer-Moore 算法"></a>Boyer-Moore 算法</h1><h1 id="Z-函数（扩展-KMP）"><a href="#Z-函数（扩展-KMP）" class="headerlink" title="Z 函数（扩展 KMP）"></a>Z 函数（扩展 KMP）</h1><h1 id="自动机"><a href="#自动机" class="headerlink" title="自动机"></a>自动机</h1><h1 id="AC-自动机"><a href="#AC-自动机" class="headerlink" title="AC 自动机"></a>AC 自动机</h1><h1 id="后缀数组-SA"><a href="#后缀数组-SA" class="headerlink" title="后缀数组 SA"></a>后缀数组 SA</h1><h1 id="后缀自动机-SAM"><a href="#后缀自动机-SAM" class="headerlink" title="后缀自动机 SAM"></a>后缀自动机 SAM</h1><h1 id="后缀平衡树"><a href="#后缀平衡树" class="headerlink" title="后缀平衡树"></a>后缀平衡树</h1><h1 id="广义后缀自动机"><a href="#广义后缀自动机" class="headerlink" title="广义后缀自动机"></a>广义后缀自动机</h1><h1 id="后缀树"><a href="#后缀树" class="headerlink" title="后缀树"></a>后缀树</h1><h1 id="Manacher"><a href="#Manacher" class="headerlink" title="Manacher"></a>Manacher</h1><h1 id="回文树"><a href="#回文树" class="headerlink" title="回文树"></a>回文树</h1><h1 id="序列自动机"><a href="#序列自动机" class="headerlink" title="序列自动机"></a>序列自动机</h1><h1 id="最小表示法"><a href="#最小表示法" class="headerlink" title="最小表示法"></a>最小表示法</h1><h1 id="Lyndon-分解"><a href="#Lyndon-分解" class="headerlink" title="Lyndon 分解"></a>Lyndon 分解</h1><h1 id="Main-Lorentz"><a href="#Main-Lorentz" class="headerlink" title="Main-Lorentz"></a>Main-Lorentz</h1>
                 
             </div>
@@ -1135,8 +1157,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            动态规划是一种通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。
-由于动态规划并不是某种具体的算法，而是一种解决特定问题的方法，因此它会出现在各式各样的数据结构中，与之相关的题目种类也更为繁杂。
+                            动态规划是通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法.
                         
                     </div>
                     <div class="publish-info">

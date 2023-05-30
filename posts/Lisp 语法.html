@@ -8,7 +8,19 @@
     <meta name="description" content="Lisp 编程语言的基本语法。
 
 
-">
+表达式Lisp 采用前缀表达式
+(操作 a b)
+
+前缀表达式优点
+
+完全适用于可能带有任意个实参的过程
+可以直接扩充，允许出现组合式嵌套
+
+前缀表达式缺点
+
+与常规数学表示差别很大
+
+命名 &amp;amp; ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -581,7 +593,19 @@
                 <p>Lisp 编程语言的基本语法。</p>
 <span id="more"></span>
 
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>Lisp 采用前缀表达式</p>
+<pre class="line-numbers language-lisp" data-language="lisp"><code class="language-lisp"><span class="token punctuation">(</span>操作 a b<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>前缀表达式优点</strong></p>
+<ul>
+<li>完全适用于可能带有任意个实参的过程</li>
+<li>可以直接扩充，允许出现组合式嵌套</li>
+</ul>
+<p><strong>前缀表达式缺点</strong></p>
+<ul>
+<li>与常规数学表示差别很大</li>
+</ul>
+<h1 id="命名-amp-环境"><a href="#命名-amp-环境" class="headerlink" title="命名 &amp; 环境"></a>命名 &amp; 环境</h1>
                 
             </div>
             <hr/>
@@ -988,38 +1012,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/Lisp%20%E8%AF%AD%E6%B3%95.html">
+                <a href="/posts/dPacks.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Lisp 语法">
+                        <img src="/medias/featureimages/dPacks.jpg" class="responsive-img" alt="背包问题">
                         
-                        <span class="card-title">Lisp 语法</span>
+                        <span class="card-title">背包问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Lisp 编程语言的基本语法。
+                            背包问题是一种组合优化的 NP 完全问题。但是可以利用动态规划，以伪多项式时间复杂度求解。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

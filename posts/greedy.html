@@ -5,11 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="贪心">
-    <meta name="description" content="贪心算法是用计算机来模拟一个「贪心」的人做出决策的过程。
+    <meta name="description" content="贪心算法是一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法。
 
 
-这个人十分贪婪，每一步行动总是按某种指标选取最优的操作。而且他目光短浅，总是只看眼前，并不考虑以后可能造成的影响。
-可想而知，并不是所有的时候贪心法都能获得最优解，所以一般使用贪">
+适用范围：局部最优策略能导致产生全局最优解实际上贪心算法使用的情况比较少，可以先选择该问题下的几个实际数据进行分析可以做出">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -509,7 +508,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/greddy.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -536,12 +535,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -557,7 +569,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-14
+                    2023-06-02
                 </div>
                 
 
@@ -579,17 +591,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>贪心算法是用计算机来模拟一个「贪心」的人做出决策的过程。</p>
+                <p>贪心算法是一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法。</p>
 <span id="more"></span>
 
-<p>这个人十分贪婪，每一步行动总是按某种指标选取最优的操作。而且他目光短浅，总是只看眼前，并不考虑以后可能造成的影响。</p>
-<p>可想而知，并不是所有的时候贪心法都能获得最优解，所以一般使用贪心法的时候，都要确保自己能证明其正确性。</p>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
-<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>贪心算法有两种证明方法：反证法和归纳法。一般情况下，一道题只会用到其中的一种方法来证明。</p>
+<p><strong>适用范围：</strong>局部最优策略能导致产生全局最优解<sub>实际上贪心算法使用的情况比较少，可以先选择该问题下的几个实际数据进行分析可以做出判断</sub></p>
+<ul>
+<li><p><strong>贪心选择：</strong>所求问题的整体最优解可以通过一系列局部最优的选择达到<br>采用从顶向下、以迭代的方法做出相继选择，每做一次贪心选择就将所求问题简化为一个规模更小的子问题</p>
+</li>
+<li><p><strong>最优子结构：</strong>原问题的最优解包含的子问题的最优解，而这些子问题可以独立求解</p>
+</li>
+</ul>
+<p><strong>证明：</strong>显然，贪心算法需要证明整体最优可以从局部最优得到</p>
+<ul>
+<li><p><strong>反证法</strong>：交换方案中任意两个元素&#x2F;相邻的两个元素后，答案不会变得更好，那么可以推定目前的解已经是最优解了</p>
+</li>
+<li><p><strong>归纳法</strong>：先算得出边界情况（例如 $n&#x3D;1$）的最优解 $F_1$ ，然后再证明：对于每个 $n$，$F_{n+1}$ 都可以由 $F_n$  推导出结果。</p>
+</li>
+</ul>
+<p><strong>基本步骤：</strong></p>
 <ol>
-<li>反证法：如果交换方案中任意两个元素&#x2F;相邻的两个元素后，答案不会变得更好，那么可以推定目前的解已经是最优解了。</li>
-<li>归纳法：先算得出边界情况（例如 $n&#x3D;1$）的最优解 $F_1$ ，然后再证明：对于每个 $n$，$F_{n+1}$ 都可以由 $F_n$  推导出结果。</li>
+<li>求解问题分解为若干子问题</li>
+<li>从某个初始解出发</li>
+<li>采用迭代的过程，当可以向目标前进一步时，就根据局部最优策略，得到一部分解，缩小问题规模</li>
+<li>将所有解综合起来</li>
 </ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">实现框架
+从问题的某一初始解出发；
+<span class="token keyword">while</span><span class="token punctuation">(</span>能朝给定总目标前进一步<span class="token punctuation">)</span><span class="token punctuation">&#123;</span> 
+  利用可行的决策，求出可行解的一个解元素；
+<span class="token punctuation">&#125;</span>
+由所有解元素组合成问题的一个可行解；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>贪心算法与动态规划的区别：</strong></p>
+<ul>
+<li>贪心算法对每个子问题的解决方案都做出选择，<strong>不能回退</strong>；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。</li>
+<li>贪心算法的每一次操作都<strong>对结果产生直接影响</strong>，而动态规划则不是</li>
+</ul>
 <h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="常见题型"><a href="#常见题型" class="headerlink" title="常见题型"></a>常见题型</h3><p>在提高组难度以下的题目中，最常见的贪心有两种。</p>
 <ul>
 <li>「我们将 XXX 按照某某顺序排序，然后按某种顺序（例如从小到大）选择。」。</li>
@@ -598,7 +637,11 @@
 <p>二者的区别在于一种是离线的，先处理后选择；一种是在线的，边处理边选择。</p>
 <h3 id="排序解法"><a href="#排序解法" class="headerlink" title="排序解法"></a>排序解法</h3><p>用排序法常见的情况是输入一个包含几个（一般一到两个）权值的数组，通过排序然后遍历模拟计算的方法求出最优值。</p>
 <h3 id="后悔解法"><a href="#后悔解法" class="headerlink" title="后悔解法"></a>后悔解法</h3><p>思路是无论当前的选项是否最优都接受，然后进行比较，如果选择之后不是最优了，则反悔，舍弃掉这个选项；否则，正式接受。如此往复。</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="与动态规划的区别"><a href="#与动态规划的区别" class="headerlink" title="与动态规划的区别"></a>与动态规划的区别</h3><p>贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://oi-wiki.org/basic/greedy/">OI-wiki 贪心</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72734416">做大饼馅儿的韭菜——《经典算法思想5——贪心（greedy algorithm）》</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html">博客园 五大常用算法之三：贪心算法</a></p>
+<p><a target="_blank" rel="noopener" href="https://kyonhuang.top/blog/greedy-algorithm/">Kyon Huang 的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://houbb.github.io/2020/01/23/data-struct-learn-07-base-greedy">五大基本算法之贪心算法 Greedy</a></p>
 
                 
             </div>
@@ -662,7 +705,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
                         </div>
                     
                 </div>

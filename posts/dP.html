@@ -514,7 +514,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/dP.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -575,7 +575,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-06-29
                 </div>
                 
 
@@ -615,23 +615,64 @@
 <li>子问题重叠：对于有大量重叠子问题，可以存储这些子问题的解，避免重复求解相同的子问题，从而提升效率</li>
 </ul>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><ol>
-<li><p><strong>定义状态：</strong>根据求解的目标状态来定义数组<sub>目标状态涵盖所有变量</sub> $DP[i][j]$。划分的阶段一定要是有序的或者是可排序的</p>
-</li>
-<li><p>**将原问题划分为若干子问题<sub>阶段</sub>**，提取这些子问题的特征<sub><strong>状态</strong></sub></p>
-</li>
-<li><p><strong>寻找状态转移方程：</strong>状态转移就是根据上一阶段的状态和决策来导出本阶段的状态</p>
-</li>
+<li><strong>定义状态：</strong>根据求解的目标状态来定义数组<code>&lt;sub&gt;</code>目标状态涵盖所有变量<code>&lt;/sub&gt;</code> $DP[i][j]$。划分的阶段一定要是有序的或者是可排序的</li>
+<li>**将原问题划分为若干子问题<code>&lt;sub&gt;</code>阶段<code>&lt;/sub&gt;</code>**，提取这些子问题的特征<code>&lt;sub&gt;</code><strong>状态</strong><code>&lt;/sub&gt;</code></li>
+<li><strong>寻找状态转移方程：</strong>状态转移就是根据上一阶段的状态和决策来导出本阶段的状态</li>
 </ol>
 <p>$$<br>DP[i][j] &#x3D; Operation\left(DP[i-1][j],DP[i][j-1],\cdots\right)<br>$$</p>
 <ol start="4">
-<li><p><strong>寻找边界条件：</strong>给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件</p>
-</li>
-<li><p><strong>按顺序求解每阶段</strong></p>
-</li>
+<li><strong>寻找边界条件：</strong>给出的状态转移方程是一个递推式，需要一个递推的终止条件或边界条件</li>
+<li><strong>按顺序求解每阶段</strong></li>
 </ol>
+<h1 id="线性-DP"><a href="#线性-DP" class="headerlink" title="线性 DP"></a>线性 DP</h1><p>具有「线性」阶段划分的动态规划方法统称为线性动态规划。背包问题、区间 DP、数位 DP 等都属于线性 DP。</p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/algorithms/202303122358154.png" alt="线性 DP 示例"></p>
 <h1 id="背包-DP"><a href="#背包-DP" class="headerlink" title="背包 DP"></a>背包 DP</h1><p>背包问题是一类经典的动态规划问题，是一种组合优化的 NP 完全问题。NP 完全问题无多项式时间复杂度的解法，但是可以利用动态规划，以伪多项式时间复杂度求解。<br><strong>问题描述：</strong>给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
 <p>背包问题类型：详见 <a href="./packs.html">背包问题</a></p>
-<h1 id="区间-DP"><a href="#区间-DP" class="headerlink" title="区间 DP"></a>区间 DP</h1><h1 id="DAG-上-DP"><a href="#DAG-上-DP" class="headerlink" title="DAG 上 DP"></a>DAG 上 DP</h1><h1 id="树形-DP"><a href="#树形-DP" class="headerlink" title="树形 DP"></a>树形 DP</h1><h1 id="状压-DP"><a href="#状压-DP" class="headerlink" title="状压 DP"></a>状压 DP</h1><h1 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h1><h1 id="插头-DP"><a href="#插头-DP" class="headerlink" title="插头 DP"></a>插头 DP</h1><h1 id="计数-DP"><a href="#计数-DP" class="headerlink" title="计数 DP"></a>计数 DP</h1><h1 id="动态-DP"><a href="#动态-DP" class="headerlink" title="动态 DP"></a>动态 DP</h1><h1 id="概率-DP"><a href="#概率-DP" class="headerlink" title="概率 DP"></a>概率 DP</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://oi-wiki.org/dp/basic/">OI- wiki</a></p>
+<h1 id="区间-DP"><a href="#区间-DP" class="headerlink" title="区间 DP"></a>区间 DP</h1><p>区间 DP 就是在一段区间上进行动态规划——并非以离散的点划分，而是以「区间长度」划分阶段，以两个坐标（区间的左、右端点）作为状态的维度。一个状态通常由被它包含且比它更小的区间状态转移而来。</p>
+<p><strong>主要思想：</strong>先在小区间内得到最优解，再利用小区间的最优解合并，从而得到大区间的最优解，最终得到整个区间的最优解。</p>
+<h2 id="从中间向两侧转移的区间-DP-问题"><a href="#从中间向两侧转移的区间-DP-问题" class="headerlink" title="从中间向两侧转移的区间 DP 问题"></a>从中间向两侧转移的区间 DP 问题</h2><p>单个区间从中间向两侧更大区间转移的区间 DP 问题。比如从区间 $[i+1,j-1]$ 转移到更大区间 $[i,j]$</p>
+<p><strong>状态转移方程：</strong></p>
+<p>$$<br>dp[i][j]&#x3D;\max\left{dp[i+1][j-1],dp[i+1][j],dp[i,j-1]\right}+cost[i][j],\ \ i\le j<br>$$</p>
+<ul>
+<li>$dp[i][j]$：区间 $[i,j]$ 上最大值</li>
+<li>$cost$：从小区间转移到区间 $[i,j]$ 的代价</li>
+</ul>
+<p><strong>基本步骤：</strong></p>
+<ol>
+<li>枚举区间的起点</li>
+<li>枚举区间的终点</li>
+<li>根据状态转移方程计算从小区间转移到更大区间后的最优值</li>
+</ol>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">for i in range(size - 1, -1, -1):       # 枚举区间起点
+    for j in range(i + 1, size):        # 枚举区间终点
+        dp[i][j] &#x3D; max(dp[i + 1][j - 1], dp[i + 1][j], dp[i][j - 1]) + cost[i][j]  # # 状态转移方程，计算转移到更大区间后的最优值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="多个小区间转到大区间的区间-DP-问题"><a href="#多个小区间转到大区间的区间-DP-问题" class="headerlink" title="多个小区间转到大区间的区间 DP 问题"></a>多个小区间转到大区间的区间 DP 问题</h2><p>多个小区间转移到大区间的区间 DP 问题。比如从区间 $[i,k]$ 和区间 $[k,j]$ 转移到区间 $[i,j]$</p>
+<p><strong>状态转移方程：</strong></p>
+<p>$$<br>dp[i][j] &#x3D; \max\left{dp[i,k]+dp[k+1][j]+cost[i][j]\right}\ \ i&lt;k&lt;j<br>$$</p>
+<ul>
+<li>$dp[i][j]$：区间 $[i,j]$ 上最大值</li>
+<li>$cost$：将两个区间 $[i,k]$ 与 $[k+1][j]$ 中的元素合并为区间 $[i,j]$ 中的元素的代价</li>
+</ul>
+<p><strong>基本步骤：</strong></p>
+<ol>
+<li>枚举区间长度</li>
+<li>枚举区间的起点，根据区间起点和区间长度得出区间终点</li>
+<li>枚举区间的分割点，根据状态转移方程计算合并区间后的最优值</li>
+</ol>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">for l in range(1, n):               # 枚举区间长度
+    for i in range(n):              # 枚举区间起点
+        j &#x3D; i + l - 1               # 根据起点和长度得到终点
+        if j &gt;&#x3D; n:
+            break
+        dp[i][j] &#x3D; float(&#39;-inf&#39;)    # 初始化 dp[i][j]
+        for k in range(i, j + 1):   # 枚举区间分割点
+            dp[i][j] &#x3D; max(dp[i][j], dp[i][k] + dp[k + 1][j] + cost[i][j])  # 状态转移方程，计算合并区间后的最优值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="DAG-上-DP"><a href="#DAG-上-DP" class="headerlink" title="DAG 上 DP"></a>DAG 上 DP</h1><h1 id="树形-DP"><a href="#树形-DP" class="headerlink" title="树形 DP"></a>树形 DP</h1><h1 id="状压-DP"><a href="#状压-DP" class="headerlink" title="状压 DP"></a>状压 DP</h1><h1 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h1><h1 id="插头-DP"><a href="#插头-DP" class="headerlink" title="插头 DP"></a>插头 DP</h1><h1 id="计数-DP"><a href="#计数-DP" class="headerlink" title="计数 DP"></a>计数 DP</h1><h1 id="动态-DP"><a href="#动态-DP" class="headerlink" title="动态 DP"></a>动态 DP</h1><h1 id="概率-DP"><a href="#概率-DP" class="headerlink" title="概率 DP"></a>概率 DP</h1><h1 id="滚动数组"><a href="#滚动数组" class="headerlink" title="滚动数组"></a>滚动数组</h1><p>滚动数组是DP中的一种编程思想。简单的理解就是让数组滚动起来，每次都使用固定的几个存储空间，来达到压缩，节省存储空间的作用。</p>
+<p>简单说来，线性 DP 是建立一个数组存储待使用的值。如果我们仅需要使用固定的值（比如斐波拉契数列只需要使用 $F(n-1)$ 和 $F(n-2)$，那么前面的解可以随着数组向后迭代省略）</p>
+<p>空间复杂度：$O(1)$</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://oi-wiki.org/dp/basic/">OI- wiki</a></p>
 <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">百度百科-动态规划</a></p>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">维基百科-动态规划</a></p>
 <p><a target="_blank" rel="noopener" href="https://houbb.github.io/2020/01/23/data-struct-learn-07-base-dp">老马啸西风的博客</a></p>
@@ -639,6 +680,7 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zw6161080123/article/details/80639932">zw6161080123 的 CSDN</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.showapi.com/book/view/2011/0">背包九讲</a></p>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">维基百科-背包问题</a></p>
+<p><a target="_blank" rel="noopener" href="https://algo.itcharge.cn/10.Dynamic-Programming/05.Interval-DP/01.Interval-DP/">算法通关手册《区间 DP》</a></p>
 
                 
             </div>

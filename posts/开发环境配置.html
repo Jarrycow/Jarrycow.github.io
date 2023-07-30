@@ -559,7 +559,7 @@ CentOS 安装原本安装的是最小化版本无可视化界面，但是发现 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-10
+                    2023-07-15
                 </div>
                 
 
@@ -644,7 +644,8 @@ CentOS 安装原本安装的是最小化版本无可视化界面，但是发现 
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>安装 Docker</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><font color="red">这里用和教程一样的版本，最新的版本似乎和 CentOS 不兼容</font></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> docker-ce docker-ce-19.03.2-3.e17<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>一直 <code>y</code></p>
 </li>
@@ -816,16 +817,13 @@ skip-name-resolve<span aria-hidden="true" class="line-numbers-rows"><span></span
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.target</span><span class="token punctuation">></span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.target</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.compilerVersion</span><span class="token punctuation">></span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.compilerVersion</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profile</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-</li>
-<li></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profile</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2017-07/145845.htm">在VMware中设置CentOS7的网络</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/522666319">vmware 安装 centos</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Docker 文档</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/rao991207823/article/details/118914715">Maven-CentOS安装</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenghu/p/13912969.html">java: 程序包org.springframework.boot不存在</a></p>
 
                 
             </div>

@@ -1010,7 +1010,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/about/index.html</loc>
+    <loc>http://jarrycow.top/about-website/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -1019,7 +1019,7 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/about-website/index.html</loc>
+    <loc>http://jarrycow.top/about/index.html</loc>
     
     <lastmod>2023-01-23</lastmod>
     
@@ -1640,14 +1640,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://jarrycow.top/categories/%E5%93%B2%E5%AD%A6/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E5%93%B2%E5%AD%A6/</loc>
+    <loc>http://jarrycow.top/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1668,14 +1668,14 @@
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
+    <loc>http://jarrycow.top/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jarrycow.top/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <loc>http://jarrycow.top/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

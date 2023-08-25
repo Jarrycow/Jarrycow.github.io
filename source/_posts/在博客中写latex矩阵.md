@@ -1,7 +1,7 @@
 ---
 title: 在博客中写latex矩阵
 author: Jarrycow
-img: /medias/featureimages/xxx.png
+img: /medias/featureimages/matrix_in_blog.png
 cover: false
 top: false
 mathjax: true
@@ -38,3 +38,5 @@ date: 2022-12-07 11:19:53
 2. `\\` 会被转义，要修改为 `\\\\`
 
    $A\\\\B$
+
+太麻烦了，直接写在 `{% raw %}` 并 `{% endraw %}`，将代码放在中间就会保留原内容了

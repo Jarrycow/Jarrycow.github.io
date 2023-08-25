@@ -108,9 +108,43 @@ Index:
 
 在`sub`下添加语句
 
-## 自定义字体
+## 自定义字体（未完成）
 
+1. 在站点目录下 `source` 文件夹创建 `font` 文件夹存放字体
 
+2. 将字体存放于文件夹
+
+3. 在 `/themes/matery/source/css/my.css` 下填入
+
+   ```css
+   @font-face{
+       font-family: 'myFont';
+       src: url('../font/myFont.ttf');
+   }
+   
+   body{
+       font-family: 'myFont';
+   }
+   ```
+
+   我选择了[六个蛋老师](https://space.bilibili.com/38053181)设计的[得意黑](atelier-anchor.com/typefaces/smiley-sans/)字体，这是一套完全开源免费的字体。不过 u1s1，用在正文似乎因为都是斜体，不甚美观。尤其因为诸如公式、行内代码还是原来的字体，显得不是很协调![使用了得意黑的文章](https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/使用了得意黑的文章.png)
+
+   因此，考虑只对部分内容使用得意黑字体
+
+   1. 将  `/themes/matery/source/css/my.css` 修改为
+
+      ```css
+      @font-face{
+          font-family: 'myFont';
+          src: url('../font/myFont.ttf');
+      }
+      
+      .fontSmileySans{
+          font-family: 'myFont';
+      }
+      ```
+
+   2. 然后对着想修改的地方加入该 class 即可
 
 ## 自定义鼠标样式
 

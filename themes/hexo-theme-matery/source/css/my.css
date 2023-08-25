@@ -3,6 +3,6 @@
     src: url('../font/myFont.ttf');
 }
 
-body{
+.fontSmileySans{
     font-family: 'myFont';
 }

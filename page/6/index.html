@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,24 +573,27 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/search.html">
+                    <a href="/posts/hashTable.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/search.jpg" class="responsive-img" alt="搜索">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="哈希表">
                             
-                            <span class="card-title">搜索</span>
+                            <span class="card-title">哈希表</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                搜索，也就是对状态空间进行枚举，通过穷尽所有的可能来找到最优解，或者统计合法解的个数。
+                                
+
+原地交换题义中 在一个长度为 n 的数组 nums 里的所有数字都在 0 ~ n-1 的范围内， 此说明含义：数组元素的 索引 和 值 是 一对多 的关系。
+可遍历数组并通过交换操作，使元素的 索引 与 值 一一对应（即 nums[i]
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-29
                             </span>
                             <span class="publish-author">
                                 
@@ -597,31 +624,73 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Lisp_install.html">
+                    <a href="/posts/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/Lisp_install.jpg" class="responsive-img" alt="Lisp 安装">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="开发环境配置">
                             
-                            <span class="card-title">Lisp 安装</span>
+                            <span class="card-title">开发环境配置</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Lisp 是描述计算过程的语言。
+                                
+
+CentOS 安装原本安装的是最小化版本无可视化界面，但是发现 VMWare 里最小化版本的复制粘贴简直是个坑，最后返回了图形化界面的怀抱。
+
+安装 VMWare 和 CentOS 步骤和其他在 VMWare 上安装系统步骤一致
+
+打开
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Jarrycow
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/linarSpace.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="线性空间和线性变换">
+                            
+                            <span class="card-title">线性空间和线性变换</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                线性空间也是其中一个较为常见的代数系统。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-09
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Lisp/" class="post-category">
-                                    Lisp
+                                <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
                                 </a>
                                 
                                 
@@ -632,8 +701,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Lisp/">
-                            <span class="chip bg-color">Lisp</span>
+                        <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                            <span class="chip bg-color">数学</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">
+                            <span class="chip bg-color">矩阵论</span>
                         </a>
                         
                     </div>
@@ -645,72 +718,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/processAbstract.html">
+                    <a href="/posts/algorithmicMaths.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="构造过程抽象">
+                            <img src="/medias/featureimages/algorithmicMaths" class="responsive-img" alt="算法数学">
                             
-                            <span class="card-title">构造过程抽象</span>
+                            <span class="card-title">算法数学</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                计算过程即在计算机中操作数据这一抽象事物。程序即指导这类过程进行的规则模式。
+                                
+
+$1\left( \begin{matrix}
+	1&		2\\
+	3&		4\\
+\end{matrix} \right) $
+位运算位运算就是基于整数的二进制表示进行的运算。由于计算机内部就是以二进制来存储数据，位运算是相当快的。
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%9E%84%E9%80%A0%E4%B8%8E%E8%A7%A3%E9%87%8A/" class="post-category">
-                                    计算机程序构造与解释
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%9E%84%E9%80%A0%E4%B8%8E%E8%A7%A3%E9%87%8A/">
-                            <span class="chip bg-color">计算机程序构造与解释</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/binary_lifting.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/binary_lifting.jpg" class="responsive-img" alt="倍增">
-                            
-                            <span class="card-title">倍增</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                倍增法，顾名思义就是翻倍。它能够使线性的处理转化为对数级的处理，大大地优化时间复杂度。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-02
                             </span>
                             <span class="publish-author">
                                 
@@ -741,24 +773,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/binarySearch.html">
+                    <a href="/posts/dPacks.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/binarySerach.jpg" class="responsive-img" alt="二分查找">
+                            <img src="/medias/featureimages/dPacks.jpg" class="responsive-img" alt="背包问题">
                             
-                            <span class="card-title">二分查找</span>
+                            <span class="card-title">背包问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                二分查找，也称折半搜索、对数搜索，是用来在一个有序数组中查找某一元素的算法。
+                                背包问题是一种组合优化的 NP 完全问题。但是可以利用动态规划，以伪多项式时间复杂度求解。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
                             </span>
                             <span class="publish-author">
                                 
@@ -789,50 +821,34 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/prefix_sum.html">
+                    <a href="/posts/Lisp%20%E8%AF%AD%E6%B3%95.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/prefix_sum.jpg" class="responsive-img" alt="前缀和 &amp; 差分">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Lisp 语法">
                             
-                            <span class="card-title">前缀和 &amp; 差分</span>
+                            <span class="card-title">Lisp 语法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-前缀和定义前缀和可以简单理解为「数列的前 $n$ 项的和」，是一种重要的预处理方式，能大大降低查询的时间复杂度。
-二维&#x2F;多维前缀和多维前缀和的普通求解方法几乎都是基于容斥原理。
-基于 DP 计算高维前缀和基于容斥原理来计算高维
+                                Lisp 编程语言的基本语法。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-05
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Jarrycow
                                 
                             </span>
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -855,7 +871,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">6 / 19</div>
+            <div class="center-align b-text-gray">6 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -924,7 +940,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

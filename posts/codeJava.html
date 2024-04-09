@@ -31,6 +31,8 @@ Arrays.sort(n">
 
     <title>在撸代码时的 Java 基础代码 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -93,6 +95,28 @@ Arrays.sort(n">
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -581,7 +605,7 @@ Arrays.sort(n">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-30
+                    2023-08-26
                 </div>
                 
 
@@ -622,6 +646,9 @@ Arrays.sort(n">
 <p><strong>数组切片</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOfRange</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> ibegin<span class="token punctuation">,</span> iend <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>数组最值</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAsInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="可变数组"><a href="#可变数组" class="headerlink" title="可变数组"></a>可变数组</h2><p><strong>初始化</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ans <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -642,6 +669,28 @@ Arrays.sort(n">
 
 <p><strong>排序</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><p><strong>初始化</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> nums <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>元素个数</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>链表中是否存在元素</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">contaions</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>尾部添加</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>头部添加</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>尾部删除</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>头部删除</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">nums<span class="token punctuation">.</span><span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p><strong>新建栈</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> st <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -684,6 +733,22 @@ Arrays.sort(n">
 <p><strong>取队尾元素</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">queue<span class="token punctuation">.</span><span class="token function">peekLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h2 id="堆（优先权队列）"><a href="#堆（优先权队列）" class="headerlink" title="堆（优先权队列）"></a>堆（优先权队列）</h2><p><strong>初始化小顶堆</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> heap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>初始化大顶堆</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> heap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">(</span>y <span class="token operator">-</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>添加元素</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">heap<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>出队元素</strong></p>
+<p>小根堆默认递增出队</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">heap<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>队顶元素</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">heap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p><strong>字符串替换</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>old_str<span class="token punctuation">,</span> new_str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -709,9 +774,26 @@ Arrays.sort(n">
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>s1 == s2</code> 有些时候在本地跑的通，但力扣不一定</p>
+<p><strong>字符串拼接</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">s1 <span class="token operator">+</span> s2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是效率并不高，并不建议在 for 循环中使用。如果需要进行频繁的字符串拼接，推荐使用 <code>StringBuilder/StringBuffer</code></p>
 <h2 id="可变字符串"><a href="#可变字符串" class="headerlink" title="可变字符串"></a>可变字符串</h2><p>在 Python 和 Java 等语言中，字符串都被设计成「不可变」的类型，即无法直接修改字符串的某一位字符，需要新建一个字符串实现。</p>
 <p><strong>新建字符串</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>字符串拼接</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">res<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>ch</code> 支持拼接字符、字符串、数字等类型</p>
+<p><strong>字符串删除</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">res<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>字符串替换</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">res<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> newStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 
 <p><strong>转换字符串</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">res<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -719,13 +801,29 @@ Arrays.sort(n">
 <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p><strong>新建哈希表</strong></p>
 <p><code>Map&lt;Integer, Integer&gt; hashtable = new HashMap&lt;Integer, Integer&gt;();</code></p>
 <p><strong>判断键值是否存在</strong></p>
-<p><code>hashtable.containsKey(key)</code></p>
+<pre class="line-numbers language-none"><code class="language-none">hashtable.containsKey(key);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>返回键所映射到的值</strong></p>
-<p><code>hashtable.get(key)</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果键不存在，返回默认值</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> defaultValue<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>哈希表插入</strong></p>
-<p><code>hashtable.put(key, value)</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>修改哈希表的值</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> hashtable<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>哈希表删除</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>哈希表的清理</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">hashtable<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>根据 Key 排序</strong></p>
+<p>直接默认 <code>hashtable.keySet()</code> 是按照将 Key 转换为字符串的字典序</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> keySet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>hashtable<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>keySet<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="哈希集合"><a href="#哈希集合" class="headerlink" title="哈希集合"></a>哈希集合</h2><p><strong>新建集合</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> hashset <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -736,8 +834,11 @@ Arrays.sort(n">
 <p><strong>批量添加元素</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashset <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>删除元素</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashset<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>元素存在</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashset<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hashset<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="有序哈希表"><a href="#有序哈希表" class="headerlink" title="有序哈希表"></a>有序哈希表</h2><p>有序哈希表中的键值对是 <strong>按照插入顺序排序</strong> 的。</p>
 <p><strong>新建哈希表</strong></p>
@@ -1472,7 +1573,7 @@ Arrays.sort(n">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

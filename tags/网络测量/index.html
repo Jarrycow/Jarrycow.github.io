@@ -20,6 +20,8 @@
 
     <title>标签: 网络测量 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -82,6 +84,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -569,20 +593,20 @@
                 </a>
                 
                 
-                <a href="/tags/AI/" title="AI: 13">
+                <a href="/tags/AI/" title="AI: 15">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="AI" style="background-color: #D5F5E3;">AI
-                        <span class="tag-length">13</span>
+                        <span class="tag-length">15</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/CNN/" title="CNN: 2">
+                <a href="/tags/CNN/" title="CNN: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="CNN" style="background-color: #E8F8F5;">CNN
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -614,10 +638,19 @@
                 </a>
                 
                 
+                <a href="/tags/LSTM/" title="LSTM: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="LSTM" style="background-color: #D7BDE2;">LSTM
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Lisp/" title="Lisp: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Lisp" style="background-color: #D7BDE2;">Lisp
+                            data-tagname="Lisp" style="background-color: #A3E4D7;">Lisp
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -626,7 +659,7 @@
                 <a href="/tags/Vue/" title="Vue: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Vue" style="background-color: #A3E4D7;">Vue
+                            data-tagname="Vue" style="background-color: #85C1E9;">Vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -635,17 +668,17 @@
                 <a href="/tags/JS/" title="JS: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="JS" style="background-color: #85C1E9;">JS
+                            data-tagname="JS" style="background-color: #F8C471;">JS
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 6">
+                <a href="/tags/nlp/" title="nlp: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="博客" style="background-color: #F8C471;">博客
-                        <span class="tag-length">6</span>
+                            data-tagname="nlp" style="background-color: #F9E79F;">nlp
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -653,7 +686,7 @@
                 <a href="/tags/%E5%90%8E%E7%AB%AF/" title="后端: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="后端" style="background-color: #F9E79F;">后端
+                            data-tagname="后端" style="background-color: #F9EBEA;">后端
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -677,11 +710,38 @@
                 </a>
                 
                 
+                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 6">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="博客" style="background-color: #F8F9F9;">博客
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/%E6%8B%89%E7%89%87/" title="拉片: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="拉片" style="background-color: #FFF;">拉片
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 23">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="算法" style="background-color: #F9EBEA;">算法
+                        <span class="tag-length">23</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 12">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数据结构" style="background-color: #F5EEF8;">数据结构
+                        <span class="tag-length">12</span>
                     </span>
                 </a>
                 
@@ -700,15 +760,6 @@
                              chip-default "
                             data-tagname="无线网络" style="background-color: #E8F8F5;">无线网络
                         <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 20">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="算法" style="background-color: #F9EBEA;">算法
-                        <span class="tag-length">20</span>
                     </span>
                 </a>
                 
@@ -749,15 +800,6 @@
                 </a>
                 
                 
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 9">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数据结构" style="background-color: #F5EEF8;">数据结构
-                        <span class="tag-length">9</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/git/" title="git: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -771,15 +813,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="latex" style="background-color: #D5F5E3;">latex
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Java/" title="Java: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Java" style="background-color: #FFF;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -825,6 +858,15 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="BBO算法" style="background-color: #A3E4D7;">BBO算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Java/" title="Java: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Java" style="background-color: #FFF;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -920,15 +962,6 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" title="矩阵论: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="矩阵论" style="background-color: #F9E79F;">矩阵论
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -943,6 +976,15 @@
                              chip-default "
                             data-tagname="安全" style="background-color: #F8C471;">安全
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/" title="矩阵论: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="矩阵论" style="background-color: #F9E79F;">矩阵论
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -1244,7 +1286,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

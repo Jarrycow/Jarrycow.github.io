@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,24 +573,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/%E8%AF%8D%E5%90%91%E9%87%8F.html">
+                    <a href="/posts/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%9A%8F%E6%9C%BA%E5%9C%BA.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="词向量">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="马尔可夫随机场">
                             
-                            <span class="card-title">词向量</span>
+                            <span class="card-title">马尔可夫随机场</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                NLP 绕不开的第一个概念就是词向量。
+                                马尔可夫随机场属于概率图模型，是典型的马尔可夫网，是一种无向图的生成模型，主要用于定义概率分布函数。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-28
                             </span>
                             <span class="publish-author">
                                 
@@ -576,8 +600,8 @@
                                     AI
                                 </a>
                                 
-                                <a href="/categories/AI/NLP/" class="post-category">
-                                    NLP
+                                <a href="/categories/AI/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                                 
                                 
@@ -592,8 +616,8 @@
                             <span class="chip bg-color">AI</span>
                         </a>
                         
-                        <a href="/tags/NLP/">
-                            <span class="chip bg-color">NLP</span>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                     </div>
@@ -605,60 +629,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Word2Vec.html">
+                    <a href="/posts/%E9%9A%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E6%A8%A1%E5%9E%8B.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Word2Vec">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="隐马尔科夫模型">
                             
-                            <span class="card-title">Word2Vec</span>
+                            <span class="card-title">隐马尔科夫模型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
+                                隐马尔科夫模型 HMM 是比较经典的机器学习模型了，它在语言识别，自然语言处理，模式识别等领域得到广泛的应用。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Jarrycow
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%20&%20%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="梯度消失 &amp; 梯度爆炸">
-                            
-                            <span class="card-title">梯度消失 &amp; 梯度爆炸</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                梯度消失问题和梯度爆炸问题一般随着网络层数的增加会变得越来越明显。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
                             </span>
                             <span class="publish-author">
                                 
@@ -693,24 +681,25 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/%E6%AD%A3%E5%88%99%E5%8C%96.html">
+                    <a href="/posts/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="正则化">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="贝叶斯网络">
                             
-                            <span class="card-title">正则化</span>
+                            <span class="card-title">贝叶斯网络</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                正则化是为了防止过拟合，在原来的 loss function 基础上，加上了一些正则化项或者称为模型复杂度惩罚项。
+                                概率图模型中我们用结点来表示随机变量，结点之间的边表示结点的概率依赖关系。贝叶斯网络 – 结点与结点之间是以有向箭头相连接，代表是这个结点会影响下一个结点。
+贝叶斯定理统计学中的贝叶斯学派认为概率是用已知的样本去推测的未知分布，即在给定样本
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
                             </span>
                             <span class="publish-author">
                                 
@@ -718,6 +707,10 @@
                                 
                                 <a href="/categories/AI/" class="post-category">
                                     AI
+                                </a>
+                                
+                                <a href="/categories/AI/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                                 
                                 
@@ -745,33 +738,33 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/DropOut.html">
+                    <a href="/posts/%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="DropOut">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="请求响应">
                             
-                            <span class="card-title">DropOut</span>
+                            <span class="card-title">请求响应</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
+                                请求简单参数在向服务器发起请求时，向服务器传递的是一些普通的请求数据。
 
-为什么要有 DropOut机器学习模型如果参数太多，样本太少，则训练结果很容易过拟合。为了解决过拟合问题，一般会采用模型集成的方法，即训练多个模型进行组合，但这样训练耗时就是大问题。2012年，Hinton 提出 DropOut——通过
+SpringBoot 接收参数在原始的Web程序当中，需要通过Servlet中提供的API：HttpServletRequest（请求对象），获取请求的相关信息。在S
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/AI/" class="post-category">
-                                    AI
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                                 
                                 
@@ -782,12 +775,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/AI/">
-                            <span class="chip bg-color">AI</span>
-                        </a>
-                        
-                        <a href="/tags/CNN/">
-                            <span class="chip bg-color">CNN</span>
+                        <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                            <span class="chip bg-color">后端</span>
                         </a>
                         
                     </div>
@@ -799,34 +788,110 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91.html">
+                    <a href="/posts/maven.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="快速开发">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="maven">
                             
-                            <span class="card-title">快速开发</span>
+                            <span class="card-title">maven</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
+                                Maven是apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-24
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                Jarrycow
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/java/">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                            <span class="chip bg-color">环境配置</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/monotonous_stack.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="单调栈">
+                            
+                            <span class="card-title">单调栈</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                单调栈即满足单调性的栈结构。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -849,7 +914,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">3 / 19</div>
+            <div class="center-align b-text-gray">3 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -918,7 +983,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

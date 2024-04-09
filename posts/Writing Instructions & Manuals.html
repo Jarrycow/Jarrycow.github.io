@@ -23,6 +23,8 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
 
     <title>Writing Instructions &amp; Manuals | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -85,6 +87,28 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -508,7 +532,7 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/Manuals.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -556,7 +580,7 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-19
+                    2024-03-04
                 </div>
                 
 
@@ -1223,7 +1247,7 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
                 <a href="/posts/DraftingEmailsforWork.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Drafting Emails for Work">
+                        <img src="/medias/featureimages/writingemail.jpg" class="responsive-img" alt="Drafting Emails for Work">
                         
                         <span class="card-title">Drafting Emails for Work</span>
                     </div>
@@ -1271,7 +1295,7 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
                 <a href="/posts/TechnicalCommunication.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Technical Communication">
+                        <img src="/medias/featureimages/TechnicalCommunication.jpg" class="responsive-img" alt="Technical Communication">
                         
                         <span class="card-title">Technical Communication</span>
                     </div>
@@ -1526,7 +1550,7 @@ Writing Instructions 写作说明Basic qualities of technical communication ⋆p
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

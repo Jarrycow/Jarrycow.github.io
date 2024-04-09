@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,36 +573,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/processManagement.html">
+                    <a href="/posts/%E5%A2%9E%E8%AE%BE%E5%8D%AB%E6%98%9F%E5%8E%85%E7%9A%84%E7%99%BB%E6%9C%BA%E5%8F%A3%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="进程管理">
+                            <img src="/medias/featureimages/%E5%A2%9E%E8%AE%BE%E5%8D%AB%E6%98%9F%E5%8E%85%E7%9A%84%E7%99%BB%E6%9C%BA%E5%8F%A3%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98.webp" class="responsive-img" alt="增设卫星厅的登机口分配问题">
                             
-                            <span class="card-title">进程管理</span>
+                            <span class="card-title">增设卫星厅的登机口分配问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                进程 &amp; 线程进程进程控制块：（PCB）描述进程基本情况和运行状态进程存在唯一标志
-进程映像(进程实体)：程序段、相关数据段、PCB
-进程：进程实体的运行过程，系统进行资源分配和调度的一个独立单位
-进程特征：
-
-动态性(最重要特点)
+                                借鉴借鉴十五届研究生数模F题的优秀论文
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-06
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
+                                <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="post-category">
+                                    数学建模
                                 </a>
                                 
                                 
@@ -589,8 +608,16 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
+                        <a href="/tags/%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92/">
+                            <span class="chip bg-color">目标规划</span>
+                        </a>
+                        
+                        <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">遗传算法</span>
+                        </a>
+                        
+                        <a href="/tags/BBO%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">BBO算法</span>
                         </a>
                         
                     </div>
@@ -602,35 +629,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/OS.html">
+                    <a href="/posts/Blog_Change.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="操作系统概述">
+                            <img src="/medias/featureimages/Blog_Change.webp" class="responsive-img" alt="博客迁移">
                             
-                            <span class="card-title">操作系统概述</span>
+                            <span class="card-title">博客迁移</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                操作系统定义操作系统：管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中最基本的系统软件
-
-是系统资源的管理者
-是最接近硬件的一层软件
-向上层提供方便易用的
+                                换了新电脑后，迁移博客
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-02
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
+                                <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
                                 </a>
                                 
                                 
@@ -641,8 +664,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                            <span class="chip bg-color">操作系统</span>
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/git/">
+                            <span class="chip bg-color">git</span>
                         </a>
                         
                     </div>
@@ -654,36 +681,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/streamingMedia.html">
+                    <a href="/posts/shadow_in_water.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/streamingMedia.png" class="responsive-img" alt="流媒体">
+                            <img src="/medias/featureimages/shadow_in_water.png" class="responsive-img" alt="水面倒影">
                             
-                            <span class="card-title">流媒体</span>
+                            <span class="card-title">水面倒影</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                多媒体多媒体信息特点内容：图像、声音
-
-信息量往往很大，传送多媒体信息采用各种信息压缩技术
-对时延和时延抖动均有较高的要求。
-
-解决非等时问题方法：在接收端设置适当大小的缓存。到达缓存的非等时的分组，经过缓存后再以恒定速率读出,就变成了等时
+                                好像很常见又很简单的效果
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-17
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
+                                <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" class="post-category">
+                                    多媒体
                                 </a>
                                 
                                 
@@ -694,8 +716,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                            <span class="chip bg-color">计算机网络</span>
+                        <a href="/tags/AE/">
+                            <span class="chip bg-color">AE</span>
                         </a>
                         
                     </div>
@@ -707,35 +729,35 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/netsecurity.html">
+                    <a href="/posts/Supervised_learning.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/netsecurity.png" class="responsive-img" alt="网络安全">
+                            <img src="/medias/featureimages/Supervised%20learning.jfif" class="responsive-img" alt="监督学习">
                             
-                            <span class="card-title">网络安全</span>
+                            <span class="card-title">监督学习</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                网络安全是计算机网络的安全基础
+                                
+
+寻找涵盖所有正例而不涵盖任何负例的描述
+不仅可以判断该例类别，也可以进行知识提取
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
-                                </a>
-                                
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="post-category">
-                                    网络安全
+                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                                 
                                 
@@ -746,12 +768,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                            <span class="chip bg-color">计算机网络</span>
+                        <a href="/tags/AI/">
+                            <span class="chip bg-color">AI</span>
                         </a>
                         
-                        <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                            <span class="chip bg-color">网络安全</span>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                     </div>
@@ -763,67 +785,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/appLayers.html">
+                    <a href="/posts/machine_learning.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/appLayers.png" class="responsive-img" alt="应用层">
+                            <img src="/medias/featureimages/machine_learning.png" class="responsive-img" alt="机器学习">
                             
-                            <span class="card-title">应用层</span>
+                            <span class="card-title">机器学习</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                绝大多数编程只涉及应用层，种类繁多
+                                炼丹！炼丹！
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Jarrycow
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/transportLayers.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/transportLayers.png" class="responsive-img" alt="传输层">
-                            
-                            <span class="card-title">传输层</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                传输层核心是 TCP/UDP，是很多码农接触的最底层
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
+                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                                 
                                 
@@ -834,8 +820,64 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                            <span class="chip bg-color">计算机网络</span>
+                        <a href="/tags/AI/">
+                            <span class="chip bg-color">AI</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/person_to_word.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/person_to_word.jpg" class="responsive-img" alt="人物变文字">
+                            
+                            <span class="card-title">人物变文字</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                狐妖小红娘OP中的人物变文字好像有点意思，试着学习一下
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" class="post-category">
+                                    多媒体
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/AE/">
+                            <span class="chip bg-color">AE</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/">
+                            <span class="chip bg-color">文字特效</span>
                         </a>
                         
                     </div>
@@ -861,7 +903,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">15 / 19</div>
+            <div class="center-align b-text-gray">15 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -930,7 +972,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

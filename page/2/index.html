@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,24 +573,288 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/monotonous_stack.html">
+                    <a href="/posts/LSTM.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="单调栈">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="LSTM">
                             
-                            <span class="card-title">单调栈</span>
+                            <span class="card-title">LSTM</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                单调栈即满足单调性的栈结构。
+                                
+
+LSTM 结构Memory
+LSTM 有 3 个 Gate：
+
+输入门 Input Gate：当外界的输出值想要写入到LSTM里面的时候，必须先通过一个闸门 Input Gate，并且只有当 Input Gate 打开的时候，才能把值写
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/AI/" class="post-category">
+                                    AI
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/AI/">
+                            <span class="chip bg-color">AI</span>
+                        </a>
+                        
+                        <a href="/tags/LSTM/">
+                            <span class="chip bg-color">LSTM</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%20CNN.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="卷积神经网络 CNN">
+                            
+                            <span class="card-title">卷积神经网络 CNN</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                卷积神经网络是一种专门用来处理具有类似网络结构的神剧的神经网络。例如时间序列数据（可以认为是在时间轴上有规律地采样形成的一维网格）和图像数据（可以看作二维的像素网格）。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/AI/" class="post-category">
+                                    AI
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/AI/">
+                            <span class="chip bg-color">AI</span>
+                        </a>
+                        
+                        <a href="/tags/CNN/">
+                            <span class="chip bg-color">CNN</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/%E7%BA%BF%E6%AE%B5%E6%A0%91.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="线段树">
+                            
+                            <span class="card-title">线段树</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                线段树是算法中常用的用来维护 区间信息 的数据结构。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/bst.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="二叉搜索树">
+                            
+                            <span class="card-title">二叉搜索树</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+二叉搜索树特性
+对于 BST 的每一个节点 node，左子树节点的值都比 node 的值要小，右子树节点的值都比 node 的值大。
+对于 BST 的每一个节点 node，它的左侧子树和右侧子树都是 BST。
+BST 的中序遍历结果是有
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/%E5%8C%BA%E9%97%B4%E6%9C%80%E5%80%BC%20RMQ.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="区间最值 RMQ">
+                            
+                            <span class="card-title">区间最值 RMQ</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                RMQ 是英文 Range Maximum&#x2F;Minimum Query 的缩写，表示依次寻找区间最值。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/%E3%80%8C%E5%8F%8C%E6%A0%88%E3%80%8D%E8%A7%A3%E5%86%B3%E3%80%8C%E7%A9%B6%E6%9E%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%E3%80%8D%E9%97%AE%E9%A2%98.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="「双栈」解决「究极表达式计算」问题">
+                            
+                            <span class="card-title">「双栈」解决「究极表达式计算」问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+双栈解法对于表达式，我们可以将其分为数字和符号，用栈 nums 和 ops 同时表示。
+从前向后迭代，对遍历的字符分类讨论：
+
+(：直接加入 ops，等待匹配的 )
+)：使用现有的 nums 和 ops 进行计算，直到遇到最近的 (，计
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -602,262 +890,6 @@
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="概率图模型">
-                            
-                            <span class="card-title">概率图模型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                概率图模型，简单说就是用 graph 来表示各参数的关系，用图的一些理论来简化公式上的推导。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/AI/" class="post-category">
-                                    AI
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/Ajax.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Ajax">
-                            
-                            <span class="card-title">Ajax</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Ajax 是异步的JavaScript和XML。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                            <span class="chip bg-color">前端</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/VueIntroduction.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Vue">
-                            
-                            <span class="card-title">Vue</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Vue 是很流行的一套前端框架。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                            <span class="chip bg-color">前端</span>
-                        </a>
-                        
-                        <a href="/tags/Vue/">
-                            <span class="chip bg-color">Vue</span>
-                        </a>
-                        
-                        <a href="/tags/JS/">
-                            <span class="chip bg-color">JS</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/automaton.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="确定有限状态自动机">
-                            
-                            <span class="card-title">确定有限状态自动机</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                自动机是 OI、计算机科学中被广泛使用的一个数学模型，其思想在许多字符串算法中都有涉及。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="梯度下降">
-                            
-                            <span class="card-title">梯度下降</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                梯度下降法是机器学习中一种常用到的算法。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/AI/" class="post-category">
-                                    AI
-                                </a>
-                                
-                                <a href="/categories/AI/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/AI/">
-                            <span class="chip bg-color">AI</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -875,7 +907,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 19</div>
+            <div class="center-align b-text-gray">2 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -944,7 +976,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

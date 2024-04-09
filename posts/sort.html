@@ -20,6 +20,8 @@
 
     <title>排序 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -82,6 +84,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -505,7 +529,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/sort.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -570,7 +594,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2024-03-04
                 </div>
                 
 
@@ -788,7 +812,8 @@
 </li>
 <li>稳定性：×</li>
 </ul>
-<h2 id="归并排序-amp-基数排序"><a href="#归并排序-amp-基数排序" class="headerlink" title="归并排序 &amp; 基数排序"></a>归并排序 &amp; 基数排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><strong>比较次数：</strong>$\left[N,2N-1\right]$</p>
+<h2 id="归并排序-amp-基数排序"><a href="#归并排序-amp-基数排序" class="headerlink" title="归并排序 &amp; 基数排序"></a>归并排序 &amp; 基数排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>将两个有序序列合并成一个有序序列则是利用了经典的「归并排序」。</p>
+<p><strong>比较次数：</strong>$\left[N,2N-1\right]$</p>
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>对$[\dfrac{n}{2^{i-1}}]$个有序序列，合并$(D[0],…,D[2^{i-1}-1])$和$(D[2^{i-1}],…,D[2^{i}-1])$</p>
 <ul>
 <li>若$[\dfrac{n}{2^{i-1}}]$是偶数，合并最后两个有序序列，否则最后一个序列不合并</li>
@@ -1743,7 +1768,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

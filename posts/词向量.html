@@ -23,6 +23,8 @@
 
     <title>词向量 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -85,6 +87,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -577,7 +601,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-20
+                    2023-08-06
                 </div>
                 
 
@@ -616,7 +640,13 @@
 <li>数值上每个字典序转换后有且只有一个 1，避免字典序的数值问题</li>
 <li>作为连续变量训练时，0~1可以代表出现概率，赋予了意义</li>
 </ul>
-<h1 id="词向量-embedding"><a href="#词向量-embedding" class="headerlink" title="词向量 embedding"></a>词向量 embedding</h1><p>one-hot 已经可以表达文本，为什么还需要词向量？one-hot 编码只是编码，没有其他的语义特征，仅仅是方便了处理。但我们在使用语言时是有好恶，褒义词、贬义词的。因此，embedding可以抽象的理解为：为了让one-hot 具有更强的语义特征而设计的描述one-hot不同维度的特征。</p>
+<h1 id="词向量-embedding"><a href="#词向量-embedding" class="headerlink" title="词向量 embedding"></a>词向量 embedding</h1><p>为嘛不直接用 one-hot 呢？</p>
+<ul>
+<li>one-hot 编码字典有多少字就要多少维向量，很容易计算爆炸</li>
+<li>one-hot 编码只是编码，没有其他的语义特征，仅仅是方便了处理。但我们在使用语言时是有好恶，褒义词、贬义词的。</li>
+</ul>
+<p>如何将语义融入到词表示中？Harris提出的<strong>分布假说</strong>为这一设想提供了理论基础：<strong>上下文相似的词，其语义也相似。</strong>而基于基于分布假说的词表示方法，根据建模的不同，主要可以分为三类：基于矩阵的分布表示、基于聚类的分布表示和基于神经网络的分布表示。word embedding一般来说就是一种基于神经网络的分布表示。</p>
+<p>向量空间将词汇嵌套在一个连续向量空间中，语义近似的词汇被映射为相邻的数据点。采用这一假设的研究方法大致分为以下两类：基于计数的方法 (e.g. 潜在语义分析， Glove)， 和 预测方法 (e.g. 神经概率化语言模型，word2vec)</p>
 <h2 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h2><h2 id="Embedding-Layer"><a href="#Embedding-Layer" class="headerlink" title="Embedding Layer"></a>Embedding Layer</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81032021">【白话NLP】什么是词向量</a></p>
 
                 
@@ -1113,11 +1143,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/nlp/" class="post-category">
+                                    nlp
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nlp/">
+                        <span class="chip bg-color">nlp</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1339,7 +1381,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

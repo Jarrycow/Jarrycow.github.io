@@ -26,6 +26,8 @@ CentOS 安装原本安装的是最小化版本无可视化界面，但是发现 
 
     <title>开发环境配置 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -88,6 +90,28 @@ CentOS 安装原本安装的是最小化版本无可视化界面，但是发现 
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -1283,31 +1307,47 @@ skip-name-resolve<span aria-hidden="true" class="line-numbers-rows"><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE.html">
+                <a href="/posts/linarSpace.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="谷粒商城项目">
+                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="线性空间和线性变换">
                         
-                        <span class="card-title">谷粒商城项目</span>
+                        <span class="card-title">线性空间和线性变换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            线性空间也是其中一个较为常见的代数系统。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-09
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jarrycow
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/">
+                        <span class="chip bg-color">矩阵论</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1529,7 +1569,7 @@ skip-name-resolve<span aria-hidden="true" class="line-numbers-rows"><span></span
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

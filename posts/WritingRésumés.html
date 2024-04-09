@@ -26,6 +26,8 @@ Photocopies of Certificates 证书复印">
 
     <title>Writing Résumés | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -88,6 +90,28 @@ Photocopies of Certificates 证书复印">
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -511,7 +535,7 @@ Photocopies of Certificates 证书复印">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/WritingResumes.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -572,7 +596,7 @@ Photocopies of Certificates 证书复印">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-19
+                    2024-03-04
                 </div>
                 
 
@@ -1183,7 +1207,7 @@ Photocopies of Certificates 证书复印">
                 <a href="/posts/academicPresentations.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Academic presentations">
+                        <img src="/medias/featureimages/Academic_presentations.webp" class="responsive-img" alt="Academic presentations">
                         
                         <span class="card-title">Academic presentations</span>
                     </div>
@@ -1231,7 +1255,7 @@ Photocopies of Certificates 证书复印">
                 <a href="/posts/DraftingMemos.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Drafting Memos">
+                        <img src="/medias/featureimages/DraftingMemos.webp" class="responsive-img" alt="Drafting Memos">
                         
                         <span class="card-title">Drafting Memos</span>
                     </div>
@@ -1486,7 +1510,7 @@ Photocopies of Certificates 证书复印">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

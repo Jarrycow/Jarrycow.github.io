@@ -25,6 +25,8 @@
 
     <title>进程管理 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -87,6 +89,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -510,7 +534,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/xxx.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/processManagement.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -571,7 +595,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2024-03-04
                 </div>
                 
 
@@ -1832,7 +1856,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
                 <a href="/posts/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="内存管理">
+                        <img src="/medias/featureimages/neicun.png" class="responsive-img" alt="内存管理">
                         
                         <span class="card-title">内存管理</span>
                     </div>
@@ -1880,7 +1904,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
                 <a href="/posts/OS.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="操作系统概述">
+                        <img src="/medias/featureimages/OS.jpg" class="responsive-img" alt="操作系统概述">
                         
                         <span class="card-title">操作系统概述</span>
                     </div>
@@ -2135,7 +2159,7 @@ process <span class="token function">P1</span><span class="token punctuation">(<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

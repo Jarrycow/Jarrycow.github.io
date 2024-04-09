@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,24 +573,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/greedy.html">
+                    <a href="/posts/geometry.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/greddy.jpg" class="responsive-img" alt="贪心">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="计算几何">
                             
-                            <span class="card-title">贪心</span>
+                            <span class="card-title">计算几何</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                贪心算法是一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法。
+                                
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
                             </span>
                             <span class="publish-author">
                                 
@@ -597,24 +621,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/divide_and_conquer.html">
+                    <a href="/posts/graph.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/divide_and_conquer.jpg" class="responsive-img" alt="递归 &amp; 分治">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="图论">
                             
-                            <span class="card-title">递归 &amp; 分治</span>
+                            <span class="card-title">图论</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                递归与分治算法的区别与结合运用
+                                
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
                             </span>
                             <span class="publish-author">
                                 
@@ -645,24 +669,25 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Simulation.html">
+                    <a href="/posts/string.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="模拟">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="字符串">
                             
-                            <span class="card-title">模拟</span>
+                            <span class="card-title">字符串</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                模拟就是用计算机来模拟题目中要求的操作。
+                                字符串，就是由字符连接而成的序列。
+常见的字符串问题包括字符串匹配问题、子串相关问题、前缀&#x2F;后缀相关问题、回文串相关问题、子序列相关问题等。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
                             </span>
                             <span class="publish-author">
                                 
@@ -693,24 +718,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Enumeration.html">
+                    <a href="/posts/dP.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/Enumeration.jpg" class="responsive-img" alt="枚举">
+                            <img src="/medias/featureimages/dP.jpg" class="responsive-img" alt="动态规划">
                             
-                            <span class="card-title">枚举</span>
+                            <span class="card-title">动态规划</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                枚举是基于已有知识来猜测答案的一种问题求解策略。
+                                动态规划是通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法.
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
                             </span>
                             <span class="publish-author">
                                 
@@ -741,28 +766,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/construction.html">
+                    <a href="/posts/search.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/construction.jpg" class="responsive-img" alt="构造">
+                            <img src="/medias/featureimages/search.jpg" class="responsive-img" alt="搜索">
                             
-                            <span class="card-title">构造</span>
+                            <span class="card-title">搜索</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-构造引入构造题是比赛中常见的一类题型。
-从形式上来看，问题的答案往往具有某种规律性，使得在问题规模迅速增大的时候，仍然有机会比较容易地得到答案。
-这要求解题时要思考问题规模增长对答案的影响，这种影响是否可以推广。例如，在设计动态规划方法
+                                搜索，也就是对状态空间进行枚举，通过穷尽所有的可能来找到最优解，或者统计合法解的个数。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
                             </span>
                             <span class="publish-author">
                                 
@@ -793,31 +814,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/academicPresentations.html">
+                    <a href="/posts/Lisp_install.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Academic presentations">
+                            <img src="/medias/featureimages/Lisp_install.jpg" class="responsive-img" alt="Lisp 安装">
                             
-                            <span class="card-title">Academic presentations</span>
+                            <span class="card-title">Lisp 安装</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                学术报告
+                                Lisp 是描述计算过程的语言。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
-                                    英语
+                                <a href="/categories/Lisp/" class="post-category">
+                                    Lisp
                                 </a>
                                 
                                 
@@ -828,8 +849,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%8B%B1%E8%AF%AD/">
-                            <span class="chip bg-color">英语</span>
+                        <a href="/tags/Lisp/">
+                            <span class="chip bg-color">Lisp</span>
                         </a>
                         
                     </div>
@@ -855,7 +876,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 19</div>
+            <div class="center-align b-text-gray">7 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -924,7 +945,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

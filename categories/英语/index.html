@@ -20,6 +20,8 @@
 
     <title>分类: 英语 | Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -82,6 +84,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -570,11 +594,11 @@
                 </a>
                 
                 
-                <a href="/categories/AI/" title="AI: 11">
+                <a href="/categories/AI/" title="AI: 13">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #D5F5E3;">AI
-                        <span class="tag-length">11</span>
+                        <span class="tag-length">13</span>
                     </span>
                 </a>
                 
@@ -597,11 +621,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 6">
+                <a href="/categories/nlp/" title="nlp: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8F9F9;">博客
-                        <span class="tag-length">6</span>
+                            style="background-color: #F8F9F9;">nlp
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -615,11 +639,29 @@
                 </a>
                 
                 
+                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 6">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">博客
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/%E6%8B%89%E7%89%87/" title="拉片: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">拉片
+                            style="background-color: #A3E4D7;">拉片
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法: 22">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">算法
+                        <span class="tag-length">22</span>
                     </span>
                 </a>
                 
@@ -627,17 +669,17 @@
                 <a href="/categories/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C/" title="无线网络: 6">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #A3E4D7;">无线网络
+                            style="background-color: #F8C471;">无线网络
                         <span class="tag-length">6</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法: 19">
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 9">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #85C1E9;">算法
-                        <span class="tag-length">19</span>
+                            style="background-color: #F9E79F;">数据结构
+                        <span class="tag-length">9</span>
                     </span>
                 </a>
                 
@@ -645,7 +687,7 @@
                 <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" title="多媒体: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8C471;">多媒体
+                            style="background-color: #D5F5E3;">多媒体
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -654,7 +696,7 @@
                 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络: 7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9E79F;">计算机网络
+                            style="background-color: #A3E4D7;">计算机网络
                         <span class="tag-length">7</span>
                     </span>
                 </a>
@@ -669,6 +711,15 @@
                 </a>
                 
                 
+                <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">数据结构
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/%E6%95%B0%E5%AD%A6/" title="数学: 11">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -678,20 +729,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 1">
+                <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" title="数学建模: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">数据结构
+                            style="background-color: #FFF;">数学建模
                         <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 7">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">数据结构
-                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
@@ -700,15 +742,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #FFF;">Java
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" title="数学建模: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FFF;">数学建模
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -759,20 +792,20 @@
                 </a>
                 
                 
-                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="人工智能: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D7BDE2;">人工智能
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="知识图谱: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #A3E4D7;">知识图谱
                         <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="人工智能: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">人工智能
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -786,19 +819,19 @@
                 </a>
                 
                 
-                <a href="/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/" title="模式识别: 1">
+                <a href="/categories/AI/NLP/" title="NLP: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9E79F;">模式识别
+                            style="background-color: #F8F9F9;">NLP
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/AI/NLP/" title="NLP: 1">
+                <a href="/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/" title="模式识别: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8F9F9;">NLP
+                            style="background-color: #F9E79F;">模式识别
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -820,7 +853,7 @@
                     <a href="/posts/academicPresentations.html">
                         <div class="card-image tag-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Academic presentations">
+                            <img src="/medias/featureimages/Academic_presentations.webp" class="responsive-img" alt="Academic presentations">
                             
                             <span class="card-title">Academic presentations</span>
                         </div>
@@ -871,7 +904,7 @@ a prepar
                     <a href="/posts/WritingR%C3%A9sum%C3%A9s.html">
                         <div class="card-image tag-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Writing Résumés">
+                            <img src="/medias/featureimages/WritingResumes.jpg" class="responsive-img" alt="Writing Résumés">
                             
                             <span class="card-title">Writing Résumés</span>
                         </div>
@@ -922,7 +955,7 @@ Photocopies of Certificates 证书复印
                     <a href="/posts/DraftingMemos.html">
                         <div class="card-image tag-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Drafting Memos">
+                            <img src="/medias/featureimages/DraftingMemos.webp" class="responsive-img" alt="Drafting Memos">
                             
                             <span class="card-title">Drafting Memos</span>
                         </div>
@@ -970,7 +1003,7 @@ Channels of communication at workplace ⋆信息在组织部门之间流通渠�
                     <a href="/posts/DraftingEmailsforWork.html">
                         <div class="card-image tag-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Drafting Emails for Work">
+                            <img src="/medias/featureimages/writingemail.jpg" class="responsive-img" alt="Drafting Emails for Work">
                             
                             <span class="card-title">Drafting Emails for Work</span>
                         </div>
@@ -1020,7 +1053,7 @@ circumstances under w
                     <a href="/posts/TechnicalCommunication.html">
                         <div class="card-image tag-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="Technical Communication">
+                            <img src="/medias/featureimages/TechnicalCommunication.jpg" class="responsive-img" alt="Technical Communication">
                             
                             <span class="card-title">Technical Communication</span>
                         </div>
@@ -1125,7 +1158,7 @@ the exchange of information, ideas, and knowledge betwee
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

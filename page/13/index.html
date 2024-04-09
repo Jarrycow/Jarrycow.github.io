@@ -20,6 +20,8 @@
 
     <title>Jarrycow&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <style>
         body{
@@ -78,6 +80,28 @@
 
 
 <body>
+    
+    <div id="loading-box">
+      <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div>
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+      </div>
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -549,180 +573,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Cluster_Analysis.html">
+                    <a href="/posts/matrix_in_blog.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="聚类分析">
+                            <img src="/medias/featureimages/matrix_in_blog.png" class="responsive-img" alt="在博客中写latex矩阵">
                             
-                            <span class="card-title">聚类分析</span>
+                            <span class="card-title">在博客中写latex矩阵</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                物以类聚，人以群分
+                                博客中的 mathjax 公式一旦遇到单边大括号即无法加载
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/" class="post-category">
-                                    模式识别
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/Pattern_Recognition.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/Pattern_Recognition.jpeg" class="responsive-img" alt="模式识别">
-                            
-                            <span class="card-title">模式识别</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Yolo!Yolo!
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/AI/">
-                            <span class="chip bg-color">AI</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/%E5%A2%9E%E8%AE%BE%E5%8D%AB%E6%98%9F%E5%8E%85%E7%9A%84%E7%99%BB%E6%9C%BA%E5%8F%A3%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/%E5%A2%9E%E8%AE%BE%E5%8D%AB%E6%98%9F%E5%8E%85%E7%9A%84%E7%99%BB%E6%9C%BA%E5%8F%A3%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98.webp" class="responsive-img" alt="增设卫星厅的登机口分配问题">
-                            
-                            <span class="card-title">增设卫星厅的登机口分配问题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                借鉴借鉴十五届研究生数模F题的优秀论文
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="post-category">
-                                    数学建模
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92/">
-                            <span class="chip bg-color">目标规划</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">遗传算法</span>
-                        </a>
-                        
-                        <a href="/tags/BBO%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">BBO算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/Blog_Change.html">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/Blog_Change.webp" class="responsive-img" alt="博客迁移">
-                            
-                            <span class="card-title">博客迁移</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                换了新电脑后，迁移博客
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-07
                             </span>
                             <span class="publish-author">
                                 
@@ -744,8 +612,8 @@
                             <span class="chip bg-color">博客</span>
                         </a>
                         
-                        <a href="/tags/git/">
-                            <span class="chip bg-color">git</span>
+                        <a href="/tags/latex/">
+                            <span class="chip bg-color">latex</span>
                         </a>
                         
                     </div>
@@ -757,31 +625,36 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/shadow_in_water.html">
+                    <a href="/posts/2Phase_Classification_Encrypted_Traffic.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/shadow_in_water.png" class="responsive-img" alt="水面倒影">
                             
-                            <span class="card-title">水面倒影</span>
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="对加密流量进行快速准确分类的两阶段方法">
+                            
+                            <span class="card-title">对加密流量进行快速准确分类的两阶段方法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                好像很常见又很简单的效果
+                                使用早期分类加密流量方法TaTic，减少观察待分类加密流量时间且保证准确性。简而言之，先使用简单的方法准确分类出简单流量，之后阶段再对复杂流量进行分类。
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-06
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%A4%9A%E5%AA%92%E4%BD%93/" class="post-category">
-                                    多媒体
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                                
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                                 
                                 
@@ -792,8 +665,16 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/AE/">
-                            <span class="chip bg-color">AE</span>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/">
+                            <span class="chip bg-color">论文</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                            <span class="chip bg-color">网络测量</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                     </div>
@@ -805,35 +686,31 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/Supervised_learning.html">
+                    <a href="/posts/KnowledgeGraphs.html">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/Supervised%20learning.jfif" class="responsive-img" alt="监督学习">
+                            <img src="/medias/featureimages/xxx.png" class="responsive-img" alt="知识图谱">
                             
-                            <span class="card-title">监督学习</span>
+                            <span class="card-title">知识图谱</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-寻找涵盖所有正例而不涵盖任何负例的描述
-不仅可以判断该例类别，也可以进行知识提取
-
+                                关系图吗？
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                                <a href="/categories/AI/" class="post-category">
+                                    AI
                                 </a>
                                 
                                 
@@ -848,8 +725,173 @@
                             <span class="chip bg-color">AI</span>
                         </a>
                         
-                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
+                        <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                            <span class="chip bg-color">知识图谱</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/enNetAnalysis.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/enNetAnalysis.jpg" class="responsive-img" alt="加密网络流量分析">
+                            
+                            <span class="card-title">加密网络流量分析</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+加密网络流量检测、分类与 识别研究现状加密流量研究背景与意义
+网络流量的加密化必然趋势
+国内外网络安全法律法规的完善
+用户网络安全意识的兴起
+用户隐私保护的需要
+数字信息的版权保护
+网络游戏的反作弊
+
+
+复杂新型网络协议的广泛应用
+新型
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                            <span class="chip bg-color">网络测量</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/Performance_Measurement.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/Performance_Measurement.jpeg" class="responsive-img" alt="性能测量方法">
+                            
+                            <span class="card-title">性能测量方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+时延测量方法时延测量研究现状
+往返时延的测量简单易行：开始与结束时间都由测量发起端时钟记录
+单向时延更能准确的评估网络的质量如视频点播服务，视频数据流通常是在服务器端到客户端的方向上传输
+可用 $RTT$ 估算出单向时延，但由于网络的不
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                            <span class="chip bg-color">网络测量</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/High_Speed_Measurement.html">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/High_Speed_Measurement.webp" class="responsive-img" alt="高速流量测量方法">
+                            
+                            <span class="card-title">高速流量测量方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                网络带宽已经达到了100Gbps甚至10Tbps，这么大数据量如何处理，主要可以从算法和硬件改进进行研究。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                            <span class="chip bg-color">网络测量</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AE%89%E5%85%A8/">
+                            <span class="chip bg-color">安全</span>
                         </a>
                         
                     </div>
@@ -875,7 +917,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">13 / 19</div>
+            <div class="center-align b-text-gray">13 / 21</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -944,7 +986,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Jarrycow</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

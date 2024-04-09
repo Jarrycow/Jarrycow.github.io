@@ -533,7 +533,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/search.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/search.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -594,7 +594,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-18
+                    2024-04-09
                 </div>
                 
 
@@ -700,10 +700,10 @@ dfs(n, 1, 1);<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li>访问 $x$ 的右孩子，即 $x &#x3D; x.right$</li>
 </ol>
 </li>
-<li><p>如果 $x$ 有左孩子：找到 $x$ 左子树最右节点 $predecessor$ </p>
+<li><p>如果 $x$ 有左孩子：找到 $x$ 左子树最右节点 $predecessor$</p>
 <ul>
 <li>如果 $predecessor$ 的右孩子为空：<ol>
-<li>右孩子指向 $x$ </li>
+<li>右孩子指向 $x$</li>
 <li>访问 $x$ 左孩子，即 $x&#x3D;x.left$</li>
 </ol>
 </li>
@@ -721,7 +721,7 @@ dfs(n, 1, 1);<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化答案数组</span>
         <span class="token class-name">TreeNode</span> predecessor <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化 predecessor</span>
-		
+	
         <span class="token comment">// predecessor 节点就是当前 root 节点向左走一步，然后一直向右走至无法走为止</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 根节点不存在</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>   <span class="token comment">// 存在左子树</span>
@@ -729,7 +729,7 @@ dfs(n, 1, 1);<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                 <span class="token keyword">while</span> <span class="token punctuation">(</span>predecessor<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> predecessor<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                     predecessor <span class="token operator">=</span> predecessor<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
                 <span class="token punctuation">&#125;</span>
-                
+              
                 <span class="token comment">// 让 predecessor 的右指针指向 root，继续遍历左子树</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>predecessor<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                     predecessor<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
@@ -1385,30 +1385,30 @@ end;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/Lisp_install.html">
+                <a href="/posts/binary_lifting.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/Lisp_install.jpg" class="responsive-img" alt="Lisp 安装">
+                        <img src="/medias/featureimages/binary_lifting.webp" class="responsive-img" alt="倍增">
                         
-                        <span class="card-title">Lisp 安装</span>
+                        <span class="card-title">倍增</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Lisp 是描述计算过程的语言。
+                            倍增法，顾名思义就是翻倍。它能够使线性的处理转化为对数级的处理，大大地优化时间复杂度。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Lisp/" class="post-category">
-                                    Lisp
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1418,8 +1418,8 @@ end;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Lisp/">
-                        <span class="chip bg-color">Lisp</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -1609,6 +1609,15 @@ end;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
         
         font-size: 15px;
         color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
     }
 
     

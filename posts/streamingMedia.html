@@ -1275,30 +1275,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/OS.html">
+                <a href="/posts/next.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/OS.jpg" class="responsive-img" alt="操作系统概述">
+                        <img src="/medias/featureimages/next.jfif" class="responsive-img" alt="next主题搭建">
                         
-                        <span class="card-title">操作系统概述</span>
+                        <span class="card-title">next主题搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            博客页面空白问题：安装好主题之后，预览本地页面正常，但博客显示空白
+原因：next默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架
+解决：打开 **themes\next\_config.yml**，将# FancyBox
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
                                 </a>
                             
                             
@@ -1308,8 +1310,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>
@@ -1555,6 +1557,15 @@
         
         font-size: 15px;
         color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
     }
 
     

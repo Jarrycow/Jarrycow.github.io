@@ -1,0 +1,1887 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="证明">
+    <meta name="description" content="数学中最难的证明
+
+
+中值定理闭区间四大定理条件：$f(x)\in \text{C}_{\left[ a,b \right]}$
+有界定理：$f(x)$在$[a,b]$上必有界开区间不成立
+最值定理：$f(x)$一定存在最大值$M$和最小值">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>证明 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/proveMaths.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">证明</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>数学中最难的证明</p>
+<span id="more"></span>
+
+<h1 id="中值定理"><a href="#中值定理" class="headerlink" title="中值定理"></a>中值定理</h1><h2 id="闭区间四大定理"><a href="#闭区间四大定理" class="headerlink" title="闭区间四大定理"></a>闭区间四大定理</h2><p><strong><font color="red">条件：</font></strong>$f(x)\in \text{C}_{\left[ a,b \right]}$</p>
+<p><strong>有界定理：</strong>$f(x)$在$[a,b]$上必有界<sub>开区间不成立</sub></p>
+<p><strong>最值定理：</strong>$f(x)$一定存在最大值$M$和最小值$m$<sub>开区间不成立</sub></p>
+<p><strong>介值定理：</strong>$\forall \mu \in[A,B]$，则$\exists \xi \in (a,b)$，使得$f(\xi)&#x3D;\mu$</p>
+<p><strong><font color="red"><strong>推论：</strong></font></strong> 标志——$\xi\in[a,b]$</p>
+<p><font color="blue">闭区间连续$\Rightarrow $最值定理$\Rightarrow$存在$M$和$m$\Rightarrow$介值定理</font></p>
+<p><strong>零点定理：</strong>标志——$\xi\in(a,b) $</p>
+<ul>
+<li>方程的根问题</li>
+<li>中值定理证明：零点定理+罗尔&#x2F;拉格朗日</li>
+</ul>
+<h2 id="三大中值定理"><a href="#三大中值定理" class="headerlink" title="三大中值定理"></a>三大中值定理</h2><p><strong><font color="red">条件：</font></strong>$f(x)\in \text{C}_{\left[ a,b \right]}$、$f(x)\in \text{D}_{\left( a,b \right)}$$</p>
+<p><strong>费马引理：</strong>$f(x)在x_0处\left\{ \begin{array}{l}
+	\text{可导}\\
+	\text{取极值}\\
+\end{array} \right. \Rightarrow f'(x_0)=0$<sub>证明罗尔</sub></p>
+<p><strong>罗尔中值定理：</strong>$f\left( a \right) &#x3D;f\left( b \right) \Rightarrow \exists\xi\in(a,b)$，$f’(\xi)&#x3D; 0$</p>
+<p><strong>拉格朗日中值定理：</strong>$\exists\xi\in(a,b)$，$f’(\xi)&#x3D;\dfrac{f(b)-f(a)}{b-a}$</p>
+<p>变式：$$f(b)-f(a)=f'(\xi)(b-a)\\f(b)-f(a)=f'\left[a+\theta(b-a)\right](b-a)，0<\theta<1\\f\left( x_0+\bigtriangleup x \right) -f\left( x_0 \right) =f'\left( x_0+\theta \bigtriangleup x \right) \cdot \bigtriangleup x$$</p>
+<p><strong>柯西中值定理：</strong>$\exists\xi\in(a,b) $，$\dfrac{f(b)-f(a)}{g(b)-g(a)}&#x3D;\dfrac{f’(\xi)}{g’(\xi)}$</p>
+<h2 id="泰勒中值定理"><a href="#泰勒中值定理" class="headerlink" title="泰勒中值定理"></a>泰勒中值定理</h2><p><strong>泰勒公式：</strong></p>
+<ul>
+<li><strong>拉格朗日余项：</strong>$f(x)&#x3D;f(x_0)+f’(x_0)(x-x_0)+…+\dfrac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$</li>
+<li><strong>佩亚诺余项：</strong>$f(x)&#x3D;f(x_0)+f’(x_0)(x-x_0)+…+\dfrac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\text o((x-x_0)^n)$</li>
+</ul>
+<p><strong>积分中值定理：</strong>$\exists \xi \in [a,b]$，$\int_a^b{f\left( x \right) dx&#x3D;f\left( \xi \right) \left( b-a \right)}\<br>\int_a^bf(x)g(x)dx&#x3D;f(\xi)\int_a^b   g(x)dx$</p>
+<h1 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h1><h2 id="最值定理-介值定理"><a href="#最值定理-介值定理" class="headerlink" title="最值定理+介值定理"></a>最值定理+介值定理</h2><p><font color="blue"><strong>标志</strong></font>：</p>
+<ul>
+<li><p>$\xi\in[a,b]$，没有导数，</p>
+</li>
+<li><p>题干出现$a&lt;x_1&lt;x_2&lt;\cdots&lt;x_n&lt;b$的多点问题</p>
+</li>
+</ul>
+<p><strong>步骤</strong></p>
+<p>由题意得$f(x)$在$[a,b]$连续</p>
+<p>根据最值定理，故有$m\le f(x)\le M$，$x\in[a,b]$</p>
+<p>其中$M$是$f(x)$在$[a,b]$上的最大值，$m$是$f(x)$在$[a,b]$上的最小值</p>
+<p>于是$m\le f(x_1)\le M \\\\ m\le f(x_2)\le M\\\\  \vdots \\\\ m\le f(x_n)\le M$</p>
+<p>故有$k_1m\le k_1f(x_1)\le k_1M\\\\k_1m\le k_1f(x_2)\le k_1M\\\\ \vdots\\k_1m\le k_1f(x_n)\le k_1M$</p>
+<p>进而可得$(k_1+k_2+\cdots+k_n)m\le k_1f(x_1)+k_2f(x_2)+\cdots+k_nf(x_n)\le(k_1+k_2+\cdots+k_n)M$
+
+整理得$m\le \dfrac{k_1f(x_1)+k_2f(x_2)+\cdots+k_nf(x_n)}{k_1+k_2+\cdots+k_n}\le M$
+
+即$m\le G(x)\le M$</p>
+<p>由介值定理可得，至少存在$\in\in[a,b]$，使得$f(\xi)&#x3D;G(x)$</p>
+<h2 id="结论有等式-不涉及求导-或者-f-xi-x3D-0"><a href="#结论有等式-不涉及求导-或者-f-xi-x3D-0" class="headerlink" title="结论有等式+不涉及求导  或者  $f(\xi)&#x3D;0$"></a>结论有等式+不涉及求导  或者  $f(\xi)&#x3D;0$</h2><p><strong>定理：</strong>零点定理</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>由题意构造函数$G(x)$</li>
+<li>故可知$G(x)$在$[a,b]$上连续</li>
+<li>且$G(a)&#x3D;\cdots$，$G(b)&#x3D;\cdots$</li>
+<li>即$G(a)G(b)&lt;0$</li>
+<li>故由零点定理，可知存在$\xi\in(a,b)$，使得$G(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="结论有-f’-xi-x3D-0-并涉及-f’-xi"><a href="#结论有-f’-xi-x3D-0-并涉及-f’-xi" class="headerlink" title="结论有$f’(\xi)&#x3D;0$并涉及$f’(\xi)$"></a><strong>结论有$f’(\xi)&#x3D;0$并涉及$f’(\xi)$</strong></h2><p><strong>定理：</strong>罗尔定理</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>由题意构造函数$F(x)$</li>
+<li>则$F(x)$在区间$[a,b]$上连续，在$(a,b)$内可导</li>
+<li>又已知$f(a)&#x3D;…$，$f(b)&#x3D;…$</li>
+<li>所以$F(a)&#x3D;F(b)$</li>
+<li>故由罗尔定理得，存在$\xi\in(a,b)$，使得$F’(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="结论中有-f’’-xi-x3D-0-或-涉及-f’’-xi"><a href="#结论中有-f’’-xi-x3D-0-或-涉及-f’’-xi" class="headerlink" title="结论中有$f’’(\xi)&#x3D;0$ 或 涉及 $f’’(\xi)$"></a><strong>结论中有$f’’(\xi)&#x3D;0$ 或 涉及 $f’’(\xi)$</strong></h2><p><strong>定理：</strong>优先两次罗尔定理</p>
+<p><strong>计算$f’’(\xi)&#x3D;0$步骤</strong></p>
+<ol>
+<li>由题意，$\varphi(x)$在$[a,b]$上连续，在$(a,b)$内可导</li>
+<li>且$\varphi(a)&#x3D;\varphi(b)$</li>
+<li>由罗尔定理得，存在$\eta\in(a,b)$，使得$\varphi’(\eta)&#x3D;0$</li>
+<li>又$\varphi’(x)&#x3D;…$</li>
+<li>所以$\varphi’(x_0)&#x3D;\varphi’(\eta)$</li>
+<li>再对$\varphi’(x)$在$[x_0,\eta]$上使用罗尔定理</li>
+<li>存在$\xi\in(x_0,\eta)\subset (a,b)$，使得$\varphi’’(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="证明-f-n-xi-x3D-k"><a href="#证明-f-n-xi-x3D-k" class="headerlink" title="证明$f^{(n)}(\xi)&#x3D;k$"></a>证明$f^{(n)}(\xi)&#x3D;k$</h2><p><strong>定理：</strong>拉格朗日</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>因为$f(x)$在$[0,+\infty]$上可导</li>
+<li>所以$f(x)$在$[a,\eta]$上符合拉格朗日中值定理的条件</li>
+<li>故存在$\xi \in(a,\eta)$，使得$f(\eta)-f(a)&#x3D;\eta f’(\xi)$成立</li>
+<li>又$f(a)&#x3D;…$，$f(\eta)&#x3D;…$</li>
+</ol>
+<h2 id="方程的根"><a href="#方程的根" class="headerlink" title="方程的根"></a>方程的根</h2><p><strong>定理：</strong>转化为$f^{(n)}(\xi)&#x3D;0$</p>
+<blockquote>
+<p>$n&#x3D;0$时，零点定理<br>$n&#x3D;1$时，罗尔定理<br>$n&#x3D;2$时，对$f’(x)$罗尔定理<br>$n&gt;2$时，多次对高阶导数罗尔</p>
+</blockquote>
+<h2 id="证明不等式"><a href="#证明不等式" class="headerlink" title="证明不等式"></a>证明不等式</h2><p><strong>原理</strong></p>
+<ol>
+<li><p>做差求导（$x_0 $）</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>求得$x_0$</li>
+<li>根据$f’$判定$x_0$范围</li>
+</ol>
+</li>
+<li><p>拉格朗日（连续不等 或 二阶导）</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li><p>由已知可得$\varphi(x)$大小关系</p>
+</li>
+<li><p>对$\varphi(x)$分别在区间$[a,b],[c,d]$上应用拉格朗日中值定理</p>
+</li>
+<li><p>存在两个不同点$\eta_1\in(a,b),\eta_2\in(c,d)$</p>
+<p>使得$\varphi’(\eta_1)&#x3D;\dfrac{\varphi(b)-\varphi(a)}{b-a}&gt;0$，$\varphi’(\eta_2)&#x3D;\dfrac{\varphi(c)-\varphi(d)}{c-d}&lt;0$</p>
+</li>
+<li><p>对$\varphi’(x)$在区间$[\eta_1,\eta_2]$上应用拉格朗日中值定理</p>
+</li>
+<li><p>至少存在$\xi\in(\eta_1,\eta_2)$，使得$\varphi’’(\xi)&#x3D;\dfrac{\varphi’(\eta_2)-\varphi’(\eta_1)}{\eta_2-\eta_1}$</p>
+</li>
+</ol>
+</li>
+<li><p>泰勒（出现阶差 或 三阶导）</p>
+<p><strong>泰勒公式证明等式与不等式</strong></p>
+<ol>
+<li>$f’’(\xi)$以及更高阶</li>
+<li>条件阶差$(f’,f’’,f’’’)$</li>
+<li>需要$n$阶导或$n$次方</li>
+</ol>
+<p><strong>步骤</strong></p>
+<ol>
+<li>函数$g(x)$在$x&#x3D;x_0$处展开成带有拉格朗日余项的$n$阶泰勒公式，得$…$</li>
+</ol>
+</li>
+</ol>
+<h2 id="证明有界"><a href="#证明有界" class="headerlink" title="证明有界"></a>证明有界</h2><p><strong>定理：</strong>泰勒</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>由泰勒公式，得</li>
+<li>$g(x)&#x3D;g(x_0)+g’(x_0)(x-x_0)+\dfrac{g’’(\xi)}{2!}(x-x_0)^2$，$\xi$在$x_0$与$x$之间</li>
+<li>则有$g(a)&#x3D;g(x)+g’(x)(a-x)+\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$，$\xi_1$在$a$与$x$之间</li>
+<li>则有则有$g(b)&#x3D;g(x)+g’(x)(b-x)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2$，$\xi_2$在$x$与$b$之间</li>
+<li>所以$g(b)-g(a)&#x3D;g’(x)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2-\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$，$\xi_1$在$a$与$x$之间，$\xi_2$在$x$与$b$之间</li>
+<li>经整理，得$g’(x)&#x3D;g(b)-g(a)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2-\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$</li>
+<li>$\left|g’(x)\right|&#x3D;\left|g(b)\right|+\left|g(a)\right|+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2+\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$</li>
+</ol>
+<h2 id="同一个函数有两个自变量"><a href="#同一个函数有两个自变量" class="headerlink" title="同一个函数有两个自变量"></a>同一个函数有两个自变量</h2><p><strong>标志：</strong>存在$\xi,\eta\in(a,b)$</p>
+<p><strong>定理：</strong></p>
+<ol>
+<li>两次拉格朗日</li>
+<li>一次拉格朗日+柯西<sub>除了$f(x)$外还有其他函数</sub></li>
+<li>两次柯西<sub>几乎不用</sub></li>
+</ol>
+<p><strong>两次拉格朗日步骤</strong>（及其对称）</p>
+<ol>
+<li><p>由题意构造函数$G(x) $</p>
+</li>
+<li><p>则有$G(a)&#x3D;G(b)$，且$G’(x)&#x3D;\cdots$</p>
+</li>
+<li><p>对于$G(x)$分别在$[a,c]$和$[c,b]$上使用拉格朗日中值定理</p>
+<p>得$G(c)-G(a)&#x3D;(c-a)G’(\xi_1)$，$\xi_1\in(a,c)$</p>
+<p>及$G(b)-G(c)&#x3D;(b-c)G’(\xi_2)$，$\xi_2\in(c,b)$</p>
+</li>
+<li><p>相加&#x2F;相减得$\cdots $</p>
+</li>
+</ol>
+<p><strong>拉格朗日+柯西步骤</strong></p>
+<ol>
+<li>由题意，令$\varphi(x)&#x3D;\cdots$，可得$f(x)$和$\varphi(x)$在$[a,b]$上连续，在$(a,b) $内可导，且$\varphi’(x)&#x3D;0$  $(x\in[a,b])$</li>
+<li>故满足柯西中值定理条件，存在$\eta\in(a,b)$，使得$\dfrac{f(b)-f(a)}{\varphi(b)-\varphi(a)}&#x3D;\dfrac{f’(\eta)}{\varphi’(\eta)}$，即$…①$</li>
+<li>又由拉格朗日中值定理可知，存在$\xi\in(a,b)$，使得$f’(\xi)&#x3D;\dfrac{f(b)-f(a)}{b-a}$</li>
+<li>整理得$f(b)-f(a)&#x3D;f’(\xi)(b-a)\cdots ②$</li>
+<li>将②代入①中，得$\dfrac{f’(\xi)(b-a)}{\varphi(b)-\varphi(a)}&#x3D;\dfrac{f’(\eta)}{\varphi’(\eta)}$</li>
+<li>即$…$，其中$\xi,\eta\in(a,b)$</li>
+</ol>
+<h2 id="结论中有两个函数但同一个自变量"><a href="#结论中有两个函数但同一个自变量" class="headerlink" title="结论中有两个函数但同一个自变量"></a>结论中有两个函数但同一个自变量</h2><p><strong>定理：</strong>柯西中值定理<br><strong>步骤</strong></p>
+<ol>
+<li>由题意，构造函数$F(x)$和$G(x)$</li>
+<li>则由柯西中值定理，得$\dfrac{F(m)-F(n)}{G(m)-G(n)}&#x3D;\dfrac{F’(\xi)}{G’(\xi)}$，$\xi\in(m,n)$</li>
+<li>即$…$</li>
+</ol>
+<h2 id="结论涉及某函数为常数"><a href="#结论涉及某函数为常数" class="headerlink" title="结论涉及某函数为常数"></a><strong>结论涉及某函数为常数</strong></h2><p><strong>定理：</strong>拉格朗日推论</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>由题意构造函数$G(x)$</li>
+<li>则$G’(x)$</li>
+<li>又$\cdots$，所以$G’(x)&#x3D;0$</li>
+<li>由拉格朗日中值定理的推论，得$G(x)&#x3D;\text C$（其中$\text C$为常数）</li>
+</ol>
+<h2 id="验证函数是否满足中值定理"><a href="#验证函数是否满足中值定理" class="headerlink" title="验证函数是否满足中值定理"></a>验证函数是否满足中值定理</h2><p><strong>步骤：</strong>分段点连续可导</p>
+<p>$f(a+)&#x3D;f(a-)$</p>
+<p>可导用定义证明</p>
+<p>综上所述，$f(x)$在$[a,b]$上满足XX的条件，因而满足XX定理</p>
+<h2 id="积分符号"><a href="#积分符号" class="headerlink" title="积分符号"></a>积分符号</h2><p><strong>定理：</strong>积分中值定理</p>
+<ol>
+<li>积分中值定理</li>
+<li>变上限积分求导<sub>不等式</sub></li>
+</ol>
+<h1 id="中值定理解题"><a href="#中值定理解题" class="headerlink" title="中值定理解题"></a>中值定理解题</h1><ol>
+<li>确定区间</li>
+<li>确定辅助函数<ul>
+<li>$f(x)+f’(x)\Rightarrow F(x)&#x3D;f(x)e^x$</li>
+<li>$f’(x)-f(x)\Rightarrow f(x)e^{-x}$</li>
+<li>$f’(x)+kf(x)\Rightarrow F(x)&#x3D;f(x)e^{kx}$</li>
+<li>$2F(x)f(x)\Rightarrow F(x)&#x3D;2f(x)f’(x)$</li>
+<li>$[f’(x)]^2+f(x)f’’(x)\Rightarrow F(x)&#x3D;f(x)f’(x)$</li>
+<li>$e^{\varphi (x)}[f’(x)+f(x)\varphi ‘(x)]\Rightarrow e^ {\varphi(x)}f(x)$</li>
+<li>$xf’(x)+kf(x)\Rightarrow x^kf(x)$</li>
+<li>$f’(x)+knx^{n-1}f(x)\Rightarrow \text e^{kx^{n-1}}f(x)$</li>
+<li>$xf’(x)-f(x)\Rightarrow \dfrac{f(x)}x$</li>
+<li>$f’g-gf’\Rightarrow\dfrac fg$</li>
+<li>$f’+P(x)f\Rightarrow \text {Ce}^{-\int P\text dx}$</li>
+</ul>
+</li>
+<li>确定使用定理<ul>
+<li><strong>零点定理：</strong>找$f(c)&#x3D;0【\left{ \begin{array}{l}<br>f\left( a \right) &#x3D;0\<br>  f\left( b \right) &#x3D;0\<br>\end{array}\Rightarrow f\left( c \right) &#x3D;0 \right. 】$</li>
+<li><strong>介值定理：</strong>找$f(c)&#x3D;\mu【\left{ \begin{array}{l}<br>f\left( a \right) &#x3D;A\<br>  f\left( b \right) &#x3D;B\<br>  A&lt;\mu &lt;B\<br>\end{array} \right. \Rightarrow f\left( c \right) &#x3D;\mu 】$</li>
+<li><strong>费马定理：</strong>证明$f’(\xi)&#x3D;0【\xi为可导极值点】$</li>
+<li><strong>罗尔定理：</strong><ul>
+<li>证明$F’(\xi)&#x3D;0$</li>
+<li>证明$F^{(n)}(\xi)&#x3D;0$</li>
+</ul>
+</li>
+<li><strong>拉格朗日中值定理：</strong><ul>
+<li>题设有$f$与$f’$关系或$f(b)-f(a)$</li>
+<li>证明$F’(\xi)&gt;0$</li>
+<li>证明$F^{(n)}(\xi)&gt;0$</li>
+<li>证明$F(f’(\eta ),f’(\tau))&#x3D;0$</li>
+<li>单调性</li>
+</ul>
+</li>
+<li><strong>泰勒公式：</strong></li>
+<li><ul>
+<li>题设包含$f$与$f^{n}$关系</li>
+<li>证明$F^{(n)}(\xi)&gt;0$</li>
+<li>$f’’(x)$考凹凸性</li>
+</ul>
+</li>
+<li><strong>柯西中值定理：</strong><ul>
+<li>两个具体函数</li>
+<li>一个具体函数与一个抽象函数</li>
+<li>与拉格朗日中值定理综合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E8%A7%A3%E9%A2%98.png" alt="中值定理解题"><br>出现端点为0与一阶导，或有三个点的值，尝试拉格朗日</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/proveMaths.html">http://jarrycow.top/posts/proveMaths.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/codeJava.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/codeJava.jpg" class="responsive-img" alt="在撸代码时的 Java 基础代码">
+                        
+                        <span class="card-title">在撸代码时的 Java 基础代码</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/inftySeriesMaths.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/inftySeriesMaths.webp" class="responsive-img" alt="无穷级数">
+                        
+                        <span class="card-title">无穷级数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数组无限求和
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

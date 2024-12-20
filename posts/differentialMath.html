@@ -1,0 +1,1901 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="导数与微分">
+    <meta name="description" content="求导微分即求函数的变化率变化趋势
+
+
+一元函数微分导数概念$$f’(x_0)&amp;#x3D;\underset{\bigtriangleup x \rightarrow 0}{\lim}\dfrac{\bigtriangleup  y}{\bi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>导数与微分 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/differentialMath.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">导数与微分</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>求导微分即求函数的变化率变化趋势</p>
+<span id="more"></span>
+
+<h1 id="一元函数微分"><a href="#一元函数微分" class="headerlink" title="一元函数微分"></a>一元函数微分</h1><h2 id="导数概念"><a href="#导数概念" class="headerlink" title="导数概念"></a>导数概念</h2><p>$$<br>f’(x_0)&#x3D;\underset{\bigtriangleup x \rightarrow 0}{\lim}\dfrac{\bigtriangleup  y}{\bigtriangleup x}&#x3D;\underset{\bigtriangleup x \rightarrow 0}{\lim}\dfrac{f(x+\bigtriangleup x_0)-f(x_0)}{\bigtriangleup x}<br>$$</p>
+<h3 id="导数性质"><a href="#导数性质" class="headerlink" title="导数性质"></a>导数性质</h3><ul>
+<li><p>可导一定连续；连续不一定可导</p>
+<p>可导一定可微；可微一定可导</p>
+<p>可微一定连续；连续不一定可微</p>
+</li>
+<li>$\left. \begin{array}{r}
+  	\exists f_+'\left( x_0 \right)\\
+    	\exists f_-'\left( x_0 \right)\\
+  \end{array} \right\} \Rightarrow f\left( x \right) \in \text{C}_{x=x_0}$
+</li>
+<li><p>对于$f(x)&#x3D;F(x)(x-a)^\alpha$在$x&#x3D;a$处导数</p>
+<ul>
+<li>$\alpha&gt;1$，导数存在且为$0$</li>
+<li>$\alpha&lt;1$，导数不存在</li>
+<li>$\alpha&#x3D;1$，无绝对值则可导，有绝对值$F(a)&#x3D;0$时也可导</li>
+</ul>
+</li>
+</ul>
+<h2 id="求导"><a href="#求导" class="headerlink" title="求导"></a>求导</h2><h3 id="基本求导公式"><a href="#基本求导公式" class="headerlink" title="基本求导公式"></a>基本求导公式</h3><p>$\left( x^a \right)’&#x3D;ax^{a-1}$</p>
+<p>$\left( a^x \right)’&#x3D;a^x\ln a$</p>
+<p>$\left( \text e^x \right)’&#x3D;\text e^x$</p>
+<p>$\left( \log_ax \right)’&#x3D;\dfrac{1}{x\ln a}$</p>
+<p>$\left( \ln\text{|}x| \right)’&#x3D;\dfrac{1}{x}$</p>
+<p>$\left( \sin x \right)’&#x3D;\cos x$</p>
+<p>$\left( \cos x \right)’&#x3D;-\sin x$</p>
+<p>$\left( \tan x \right)’&#x3D;\sec ^2x$</p>
+<p>$\left( \sec x \right)’&#x3D;\sec x\tan x$</p>
+<p>$\left( \csc x \right)’&#x3D;-\csc x\cot x$</p>
+<p>$\left( \cot x \right)’&#x3D;-csc^2x$</p>
+<p>$\left( \arcsin x \right)’&#x3D;\dfrac{1}{\sqrt{1-x^2}}$</p>
+<p>$\left( \arccos x \right)’&#x3D;-\dfrac{1}{\sqrt{1-x^2}}$</p>
+<p>$\left( \arctan x \right)’&#x3D;\dfrac{1}{1+x^2}$</p>
+<p>$\left( \text {arccot} x \right)’&#x3D;-\dfrac{1}{1+x^2}$</p>
+<p>$\ln \left( x+\sqrt{x^2+1} \right)’&#x3D;\dfrac{1}{\sqrt{x^2+1}}$</p>
+<p>$\ln \left( x-\sqrt{x^2+1} \right)’&#x3D;\dfrac{1}{\sqrt{x^2-1}}$</p>
+<p>$\ln \left( x+\sqrt{x^2+a} \right) &#x3D;\dfrac{1}{\sqrt{x^2+a^2}}$</p>
+<p><strong>反函数导数</strong></p>
+<p>$\dfrac{\text{d}x}{\text{d}y}&#x3D;\dfrac{1}{f’(x)}$</p>
+<p>$\dfrac{\text{d}^2x}{\text{d}y^2}&#x3D;-\dfrac{y’’}{(y’)^3}$</p>
+<p>$\dfrac{\text{d}^3x}{\text{d}y^3}&#x3D;\dfrac{3y’’^2-y’y’’’}{y’^5}$</p>
+<p><strong>参数方程导数</strong></p>
+<p>$\dfrac{\text dy}{\text dx}&#x3D;\dfrac{y’_t}{x’_t}$<br>$\dfrac{\text d^2y}{\text dx^2}&#x3D;\dfrac{\text d(\dfrac{\text dy}{\text dx})&#x2F;\text dt}{\text dx&#x2F;\text dt}&#x3D;\dfrac{y’’_tx’_t-y’_tx’’_t}{(x’_t)^3}$</p>
+<p><strong>隐函数求导</strong></p>
+<p>$F(x,y)&#x3D;0$，则$\dfrac{dy}{dx}&#x3D;-\dfrac{F_x’}{F_y’}$</p>
+<p><strong>对数求导</strong>：$\dfrac{y’}{y}&#x3D;y (\ln y)’$</p>
+<p><strong>幂指求导：</strong></p>
+<p>$(u^v)’&#x3D;u^v(v’\ln u+\dfrac {vu’}u)^2$</p>
+<p>$(u^v)’’’&#x3D;u^v(v’\ln u+\dfrac {vu’}u)^2+v’’’\ln u+\dfrac{2u’v’}{u}+\dfrac{v(uu’’-u’^2)}{u^2}$</p>
+<h2 id="导数应用"><a href="#导数应用" class="headerlink" title="导数应用"></a>导数应用</h2><h3 id="判断极值"><a href="#判断极值" class="headerlink" title="判断极值"></a>判断极值</h3>$\underset{x\rightarrow a}{\lim}\dfrac{f\left( x \right) -f\left( a \right)}{\left( x-a \right) ^2}\left\{ \begin{array}{l}>0\ \ \ \ \ \text{极小}\\ 
+	<0\ \ \ \ \ \text{极大}\\
+\end{array} \right. $
+
+<h3 id="判断不可导"><a href="#判断不可导" class="headerlink" title="判断不可导"></a>判断不可导</h3><p>$\underset{x\rightarrow 0}{\lim}\dfrac{f(x+h)-f(k-x)}{g(x)}$可能在$x&#x3D;k$处无定义</p>
+<p>$\underset{x\rightarrow 0}{\lim}\dfrac{f(k+\varphi(x))-f(k)}{g(x)} $若$\varphi(x)、g(x)\ge0$，则只能单侧可导</p>
+<h2 id="高阶导数"><a href="#高阶导数" class="headerlink" title="高阶导数"></a>高阶导数</h2><h3 id="性质-amp-求法"><a href="#性质-amp-求法" class="headerlink" title="性质 &amp; 求法"></a>性质 &amp; 求法</h3><ul>
+<li>$f(x)&#x3D;x^k|x|(k&gt;1)$，则使$f^{(n)}(0)$存在的最高阶数为$k$</li>
+<li>$f^{(k)}(0)&#x3D;k!a_k$ ($a_k$为第$k$项系数)</li>
+</ul>
+<p><strong>高阶求导公式(莱布尼茨公式)：</strong> $(u+v)^{(n)}=u^{(n)}+v^{(n)}\\
+(uv)^{(n)}=\sum ^{n} _{k=0} C_n^ku^{(n-k)}v^{(k)}$</p>
+<p><strong>泰勒公式(麦克劳林展开式)：</strong>$f(x)=\sum ^∞ _{n=0} \dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n\\
+f(x)=\sum ^∞ _{n=0} \dfrac{f^{(n)}(0)}{n!}x^n$</p>
+<p>$y&#x3D;x^nf(x)$求$y^{(n)}(0)$</p>
+<ol>
+<li>由于$y&#x3D;x^nf(x)$无穷阶可导，则可将其抽象展开为$y&#x3D;\sum_{n&#x3D;0}^{\infty}\dfrac{y^{(n)}(0)}{n!}x^n$</li>
+<li>又因为$y&#x3D;x^nf(x)&#x3D;$展开</li>
+<li>根据函数展开的唯一性，比较1、2公式中的系数，则$\dfrac{y^{(n)}(0)}{n!}&#x3D;(找2中展开的对应次项)$</li>
+</ol>
+<h3 id="常见高阶导数"><a href="#常见高阶导数" class="headerlink" title="常见高阶导数"></a>常见高阶导数</h3><p>$\left( \text{e}^x \right) ^{\left( n \right)}&#x3D;\text{e}^x$</p>
+<p>$\left( \text{e}^{f\left( x \right)} \right) ^{\left( n \right)}&#x3D;n!\text{e}^{nf\left( x \right)}$</p>
+<p>$\left( a^x \right) ^{\left( n \right)}&#x3D;a^x\left( \ln a \right) ^n$ </p>
+<p>$\left( \text{e}^{ax+b} \right) ^{\left( n \right)}&#x3D;a^n\text{e}^{ax+b}$</p>
+<p>$\left[ \sin \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;a^n\sin \left( ax+b+\dfrac{n\pi}{2} \right) $</p>
+<p>$\left[ \cos \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;a^n\cos \left( ax+b+\dfrac{n\pi}{2} \right) $</p>
+<p>$(\arctan x)^{(n)}&#x3D;(n-1)!\cos^ny\cos[ny+\dfrac{(n-1)\pi}2]$</p>
+<p>$\left[ \ln \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;\left( -1 \right) ^{n-1}a^n\dfrac{\left( n-1 \right) !}{\left( ax+b \right) ^n}$</p>
+<p>$\left( \dfrac{1}{ax+b} \right) ^{\left( n \right)}&#x3D;\left( -1 \right) ^na^n\dfrac{n!}{\left( ax+b \right) ^{n+1}}$</p>
+<p>$\left[ \left( x+x_0 \right) ^m \right] ^{\left( n \right)}&#x3D;m\left( m-1 \right) \left( m-2 \right) …\left( m-n+1 \right) \left( x+x_0 \right) ^{m-n}$</p>
+$f(x)=\alpha f_1(x)+\beta f_2(x) \Rightarrow f^{\left( n \right)}\left( x \right) =\alpha f_1^{\left( n \right)}\left( x \right) +\beta f_2^{\left( n \right)}\left( x \right) $
+
+
+
+<p>$\left( uv \right) ^{\left( n \right)}&#x3D;\sum{\text{C}_{n}^{k}u^{\left( n-k \right)}v^{\left( k \right)}}$</p>
+<h1 id="多元函数微分"><a href="#多元函数微分" class="headerlink" title="多元函数微分"></a>多元函数微分</h1><h2 id="连续-amp-偏导-amp-可微"><a href="#连续-amp-偏导-amp-可微" class="headerlink" title="连续 &amp; 偏导 &amp; 可微"></a>连续 &amp; 偏导 &amp; 可微</h2><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86.png"></p>
+$\text{偏导数连续}\Rightarrow \text{可微}\Rightarrow \left\{ \begin{array}{l}
+	\text{偏导数存在}\left( \text{某方向双侧} \right)\\
+	\text{连续}\Rightarrow \text{极限存在}\left( \text{全方向} \right)\\
+	\text{方向导数存在}\left( \text{某方向单侧} \right)\\
+\end{array} \right. $
+
+<p><strong>极限：</strong>$|f(x,y)-A|&lt;\varepsilon$</p>
+<p><strong>连续：</strong>$\underset{y\rightarrow y_0}{\underset{x\rightarrow x_0}{\lim}}f(x_0,y_0)&#x3D;f(x_0,y_0)$</p>
+<p><strong>偏导数：</strong>$f_x’(x_0,y_0)&#x3D;\left. \frac{\partial f}{\partial x} \right|\underset{y&#x3D;y_0}{_{x&#x3D;x_0}}&#x3D;\underset{\bigtriangleup x\rightarrow 0}{\lim}\dfrac{f\left( x_0+\bigtriangleup x,y_0 \right) -f\left( x_0,y_0 \right)}{\bigtriangleup x}$</p>
+<p><strong>可微：</strong>$\bigtriangleup S&#x3D;y \bigtriangleup x+ x \bigtriangleup y$</p>
+<h3 id="判断连续"><a href="#判断连续" class="headerlink" title="判断连续"></a>判断连续</h3><ul>
+<li><p>若有间断点$(0,0)$，可令$\left\{ \begin{array}{l}
+  x=\rho \cos \theta\\
+   	y=\rho \sin \theta\\
+  \end{array} \right. $</p>
+</li>
+<li>$f=\dfrac{x^py^q}{x^m+y^n}$
+
+  $\dfrac{p}{m}+\dfrac{q}{n}\left\{ \begin{array}{l}>1 \ \ \ \  f\left( 0,0 \right) =0\\
+  	\le 1 \ \ \ \  f\left( 0,0 \right) \text{不存在}\\
+  \end{array} \right. $
+
+
+</li>
+<li><p>凑$\dfrac{\sin \Box}\Box$</p>
+</li>
+<li><p>$\sin x&lt;x$</p>
+</li>
+<li>$\left. \begin{array}{r}
+  	x^2+y^2\\
+    	xy\\
+  \end{array} \right\} \Rightarrow x^2+y^2\ge 2xy$
+</li>
+<li><p><strong>积分不存在</strong></p>
+<ul>
+<li>找到两种不同趋近方式，使$\lim f(x,y)$存在但不相等</li>
+<li>特殊趋向：$y&#x3D;x$、$y&#x3D;x^2$</li>
+</ul>
+</li>
+</ul>
+<h3 id="求偏导"><a href="#求偏导" class="headerlink" title="求偏导"></a>求偏导</h3><p>求 $f(x_0,y_0)$ 偏导先带后求：$f'_{x_0}(x_0,y_0)=f'(x,y_0)|_{x=x_0}$</p>
+<h3 id="偏导数连续"><a href="#偏导数连续" class="headerlink" title="偏导数连续"></a>偏导数连续</h3><ol>
+<li>定义法求$f_x’(x_0,y_0)$，$f_y’(x_0,y_0)$</li>
+<li>公式法求$f_x’(x,y)$，$f_y’(x,y)$</li>
+<li>计算$\left\{ \begin{array}{l}
+   \underset{\begin{array}{c}
+     	\bigtriangleup x\rightarrow x_0\\
+     	\bigtriangleup y\rightarrow y_0\\
+   \end{array}}{\lim}f'_x\left( x,y \right) =f'_x\left( x_0,y_0 \right)\\
+   	\underset{\begin{array}{c}
+   	\bigtriangleup x\rightarrow x_0\\
+   	\bigtriangleup y\rightarrow y_0\\
+   \end{array}}{\lim}f'_y\left( x,y \right) =f'_y\left( x_0,y_0 \right)\\
+   \end{array} \right. $，若都成立，则$f(x,y)$在$(x_0,y_0)$偏导数连续</li>
+</ol>
+<h3 id="判断可微"><a href="#判断可微" class="headerlink" title="判断可微"></a>判断可微</h3><ol>
+<li>求$f_{x}^{‘}\left( x_0,y_0 \right) $与$f_{y}^{‘}\left( x_0,y_0 \right) $，若有一个不存在则直接不可微</li>
+<li>作全增量$\bigtriangleup z&#x3D;f\left( x_0+\bigtriangleup x,y_0+\bigtriangleup y \right) -f\left( x_0,y_0 \right) $</li>
+<li>表示为线性增量$A\bigtriangleup x+B\bigtriangleup y$，其中$A&#x3D;f_x’(x_0,y_0)$，$B&#x3D;f_y’(x_0,y_0)$</li>
+<li>作极限$\underset{\begin{array}{c}   \bigtriangleup x\rightarrow x_0\\     	\bigtriangleup y\rightarrow y_0\\   \end{array}}{\lim}\dfrac{\bigtriangleup z-\left( A\bigtriangleup x+B\bigtriangleup y \right)}{\sqrt{\left( \bigtriangleup x \right) ^2+\left( \bigtriangleup y \right) ^2}}\left\{ \begin{array}{l}   	=0\ z=f\left( x,y \right) \text{在}\left( x_0,y_0 \right) \text{可微}\\   	\ne 0\ z=f\left( x,y \right) \text{在}\left( x_0,y_0 \right) \text{不可微}\\   \end{array} \right. $</li>
+</ol>
+<ul>
+<li>$f=\dfrac{x^py^q}{x^m+y^n}\Rightarrow\dfrac{p+q}{m+1}=\left\{ \begin{array}{l}>1\left( 0,0 \right) \ \ \ \ \text{可微}\\
+  	\le 1\left( 0,0 \right) \  \text{不可微}\\
+  \end{array} \right. $</li>
+</ul>
+<h2 id="多元函数求导"><a href="#多元函数求导" class="headerlink" title="多元函数求导"></a>多元函数求导</h2><h3 id="链式求导"><a href="#链式求导" class="headerlink" title="链式求导"></a>链式求导</h3><p>设$z&#x3D;f(u,v),u&#x3D;\varphi(t),v&#x3D;\phi(t)，则\dfrac{dz}{dt}&#x3D;\dfrac{\partial z}{\partial u}\dfrac{du}{dt}+\dfrac{\partial z}{\partial v}\dfrac{dv}{dt}$</p>
+<h3 id="二阶导"><a href="#二阶导" class="headerlink" title="二阶导"></a>二阶导</h3><table>
+<thead>
+<tr>
+<th>原函数</th>
+<th>一阶导</th>
+<th>二阶导</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$f\left(u(x),v(x)\right)$</td>
+<td>$f'=u'f'_1+v'f'_2$ | $f''=u''f_1'+v''f'_2+u'^2f''_{11}+2u'v'f''_{12}+v'^2f''_{12}$</td>
+<td></td>
+</tr>
+<tr>
+<td>$f\left(u(x,y),v(x,y)\right)$</td>
+<td></td>
+<td>$f''_{xy}=u''_{xy}f_1'+v_{xy}f_2'\\+u_x'u_y'f''_{11}+(u_x'v_y'+u'_yv'_x)f''_{12}+v_x'v_y'f_{22}''$</td>
+</tr>
+</tbody></table>
+<h3 id="隐函数求导"><a href="#隐函数求导" class="headerlink" title="隐函数求导"></a>隐函数求导</h3><p>$\left| \begin{matrix}<br>    \dfrac{\partial F}{\partial u}&amp;		\dfrac{\partial F}{\partial v}\<br>    \dfrac{\partial G}{\partial u}&amp;		\dfrac{\partial G}{\partial v}\<br>\end{matrix} \right|&#x3D;\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}$</p>
+<p><strong>雅可比行列式</strong></p>
+<p>$\text{d}x\text{d}y&#x3D;|J|\text{d}u\text{d}v$<br>$\text{d}\alpha \text{d}\beta \text{d}\gamma &#x3D;|\dfrac{\partial \left( \alpha ,\beta ,\gamma \right)}{\partial \left( x,y,z \right)}|\text{d}x\text{d}y\text{d}z$</p>
+<p><strong>二元方程</strong>：$F(x,y,z)&#x3D;0$，则</p>
+
+$$
+\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_{\boldsymbol{z}}}\ \ \ \ \dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_{\boldsymbol{z}}}
+$$
+
+
+<p><strong>三元方程组：</strong>$\left\{ \begin{array}{l}
+	F\left( x,y,z \right) =0\\
+	G\left( x,y,z \right) =0\\
+\end{array} \right. $，则</p>
+
+$$
+\dfrac{\text{d}y}{\text{d}x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( x,z \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( y,z \right)}}\ \ \ \ \ \ \ \ \dfrac{\text{d}z}{\text{d}x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( y,x \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( y,z \right)}}
+$$
+
+<p><strong>四元方程组：</strong>$\left\{ \begin{array}{l}
+	F\left( x,y,u,v \right) =0\\
+	G\left( x,y,u,v \right) =0\\
+\end{array} \right. $，则</p>
+
+$$
+\dfrac{\partial u}{\partial x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( x,v \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}\ \ \ \ \ \ \ \  \dfrac{\partial v}{\partial x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( u,x \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}
+\\
+\dfrac{\partial u}{\partial y}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( y,v \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}\ \ \ \ \ \ \ \  \dfrac{\partial v}{\partial y}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( u,y \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}
+$$
+
+
+<h2 id="极值与最值"><a href="#极值与最值" class="headerlink" title="极值与最值"></a>极值与最值</h2><h3 id="多元函数泰勒公式"><a href="#多元函数泰勒公式" class="headerlink" title="多元函数泰勒公式"></a>多元函数泰勒公式</h3>
+$f\left( x,y \right) =f\left( x_0,\ y_0 \right) 
+\\
++f_{x}^{'}\left( x_0,\ y_0 \right) \left( x-x_0 \right) +f_{y}^{'}\left( x_0,\ y_0 \right) \left( y-y_0 \right) 
+\\
++\dfrac{1}{2}\left( f_{xx}^{''}\left( x_0,\,\,y_0 \right) \left( x-x_0 \right) ^2+2f_{xy}^{''}\left( x_0,\,\,y_0 \right) \left( x-x_0 \right) \left( y-y_0 \right) +f_{yy}^{''}\left( x_0,\,\,y_0 \right) \left( y-y_0 \right) ^2 \right) $
+
+<h3 id="无条件极值"><a href="#无条件极值" class="headerlink" title="无条件极值"></a>无条件极值</h3><p><strong>必要条件</strong></p>
+
+$\left\{ \begin{array}{l}
+	f_{x}^{'}\left( x_0,y_0 \right) =0\\
+	f_{y}^{'}\left( x_0,y_0 \right) =0\\
+\end{array} \right.$
+
+<p><strong>充分条件</strong></p>
+
+$\left\{ \begin{array}{l}
+	f_{xx}^{''}\left( x_0,y_0 \right) =A\\
+	f_{xy}^{''}\left( x_0,y_0 \right) =B\\
+	f_{yy}^{''}\left( x_0,y_0 \right) =C\\
+    \end{array} \right. $，则$\bigtriangleup =B^2-AC=\left\{ \begin{array}{l}
+<0\ \ \text{极值 }\left\{ \begin{array}{l}
+A<0,\ \text{极大值}\\
+A>0,\ \text{极小值}\\
+\end{array} \right.\\
+=0\ \ \text{失效，取特殊路径}\\>0\ \ \text{非极值}\\
+\end{array} \right.$
+
+<h3 id="条件极值"><a href="#条件极值" class="headerlink" title="条件极值"></a>条件极值</h3>
+求目标函数$u=f(x,y,z)$在条件$\left\{ \begin{array}{l}
+	\varphi \left( x,y,z \right) =0\\
+	\psi \left( x,y,z \right) =0\\
+\end{array} \right. $下的最值
+
+<ol>
+<li>构造辅助函数$F(x,y,z,\lambda,\mu)&#x3D;f(x,y,z)+\lambda \varphi(x,y,z)+\mu \psi(x,y,z)$</li>
+<li>令$\left\{ \begin{array}{l}
+   	\begin{array}{l}
+      	F_{x}^{'}\\
+   \end{array}=f_{x}^{'}+\lambda \varphi _{x}^{'}+\mu \psi _{x}^{'}=0\\
+   	\begin{array}{l}
+   	F_{y}^{'}\\
+   \end{array}=f_{y}^{'}+\lambda \varphi _{y}^{'}+\mu \psi _{y}^{'}=0\\
+   	\begin{array}{l}
+   	F_{z}^{'}\\
+   \end{array}=f_{z}^{'}+\lambda \varphi _{z}^{'}+\mu \psi _{z}^{'}=0\\
+   	\begin{array}{l}
+   	F_{\lambda}^{'}\\
+   \end{array}=\varphi \left( x,y,z \right) =0\\
+   	\begin{array}{l}
+   	F_{\mu}^{'}\\
+   \end{array}=\psi \left( x,y,z \right) =0\\
+   \end{array} \right.$</li>
+<li>解上述方程组得备选点$P_i$，并求$u_{max}&#x3D;max(P_i),u_{min}&#x3D;min(P_i)$</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/differentialMath.html">http://jarrycow.top/posts/differentialMath.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/integralMath.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/integralMath.webp" class="responsive-img" alt="积分">
+                        
+                        <span class="card-title">积分</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            积分是整个高等数学的核心内容
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/limitMath.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/limitMath.jpg" class="responsive-img" alt="极限">
+                        
+                        <span class="card-title">极限</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            极限可以说是高等数学的基础，其无限逼近但是不可达的样式奠定了微积分。因此学好极限乃重中之重。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

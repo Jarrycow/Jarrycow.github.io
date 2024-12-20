@@ -1,0 +1,2425 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="树">
+    <meta name="description" content="树我个人认为是在线性表之后更重要的数据结构">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>树 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/dataTree.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">树</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><img src="https://img-blog.csdnimg.cn/20200823012938696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="树" style="zoom:33%;" />
+
+<ul>
+<li><p>结点</p>
+</li>
+<li><p>边：根节点和子树跟之间</p>
+</li>
+<li><p>路径：从某个结点可达另一个结点(树有向：双亲$\rightarrow$孩子)</p>
+<p>树路径长度：路径总和</p>
+</li>
+</ul>
+<p><strong>结点关系</strong></p>
+<ul>
+<li><p>双亲：该结点上连的点</p>
+</li>
+<li><p>孩子：该结点下连的点</p>
+</li>
+<li><p>兄弟：有共同双亲的结点</p>
+</li>
+<li><p>堂兄弟：双亲为兄弟的结点</p>
+</li>
+<li><p>后裔：子树的所有结点</p>
+</li>
+<li><p>祖先：向上到根结点所有的点</p>
+</li>
+</ul>
+<p><strong>度</strong></p>
+<ul>
+<li><p>结点的度：结点的子树数</p>
+</li>
+<li><p>叶子：度为0的结点</p>
+</li>
+<li><p>分支节点：度不为0的结点</p>
+</li>
+<li><p>树的度：结点度最大值</p>
+</li>
+</ul>
+<p><strong>树的高度</strong></p>
+<ul>
+<li>树的层次：树根为第一层</li>
+<li>树的高度：最大层次</li>
+</ul>
+<p><strong>有序&#x2F;无序</strong></p>
+<ul>
+<li>左右子树可&#x2F;不可互换</li>
+</ul>
+<h2 id="树的性质"><a href="#树的性质" class="headerlink" title="树的性质"></a>树的性质</h2><p>结点数$n$、度数$m$、高度$h$、层数$i$，总分支$k$</p>
+<ul>
+<li>$n&#x3D;\sum m+1$</li>
+<li>$n(i)\le m^{i-1}$</li>
+<li>$h+m-1\le n\le\dfrac{m^h-1}{m-1}$</li>
+<li>$⌈\log_m(n(m-1)+1)⌉\le h\le n-m+1$</li>
+<li>$k&#x3D;n_1+2n_2+\cdots+mn_m&#x3D;n-1$</li>
+</ul>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200823015059529.png" alt="二叉树形态"></p>
+<h2 id="二叉树性质"><a href="#二叉树性质" class="headerlink" title="二叉树性质"></a>二叉树性质</h2><ol>
+<li>$n(i)\le2^{i-1}$</li>
+<li>$n\le 2^{h}-1$</li>
+<li>$⌈\log_2(n+1)⌉{\leq}h{\leq}n$</li>
+<li>$n_0&#x3D;n_2+1$</li>
+<li>有$n+1$个空指针</li>
+</ol>
+<h2 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h2><h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>高度为$h$，且$2^h-1$结点</p>
+<img src="https://img-blog.csdnimg.cn/20200823020014181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="满二叉树" style="zoom:33%;" />
+
+<ul>
+<li>满二叉树一定是完全二叉树，也是扩充二叉树</li>
+</ul>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><ul>
+<li>除最下面两层度小于$2$，其他层结点度均为$2$</li>
+<li>最下一层叶结点均依次集中在靠左若干位置</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200823020453954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="完全二叉树"></p>
+<ul>
+<li><p>完全二叉树高度$h&#x3D;[log_2(n+1)]$</p>
+</li>
+<li><p>所在层数：$i&#x3D;⌊\log_2n⌋$</p>
+</li>
+<li><p>由上到下、由左到右、从$0$编号</p>
+<p>根——$i&#x3D;0$</p>
+<p>双亲——$[\dfrac{i-1}{2}]$</p>
+<p>左孩子——$2i+1$</p>
+<p>右孩子——$2i+2$</p>
+</li>
+<li><p>$n_0&#x3D;n(i&gt;⌊\dfrac2n⌋)$</p>
+</li>
+<li><p>$n_1$只能取$0$或$1$</p>
+<p>若$n_1&#x3D;1$，则该结点有左子无右子</p>
+</li>
+</ul>
+<h3 id="扩充二叉树（2-树）"><a href="#扩充二叉树（2-树）" class="headerlink" title="扩充二叉树（2-树）"></a>扩充二叉树（2-树）</h3><ul>
+<li>除叶子结点，必须有两个孩子</li>
+<li>仅有度$2$和$0$的结点，不存在度为$1$的结点</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200823021232158.png" alt="扩充二叉树" style="zoom:33%;" />
+
+<h3 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h3><p>左结点 $&lt;$ 根结点 $&lt;$ 右结点</p>
+<h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><p>$\left|h_{左}-h_{右}\right|\le1$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="链接表示"><a href="#链接表示" class="headerlink" title="链接表示"></a>链接表示</h3><img src="https://img-blog.csdnimg.cn/20200823022545306.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="二叉树链接" style="zoom:33%;" />
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">BiTNode</span><span class="token punctuation">&#123;</span>
+    ElemType data<span class="token punctuation">;</span> <span class="token comment">// 数据域</span>
+    <span class="token keyword">struct</span> <span class="token class-name">BiTNode</span><span class="token operator">*</span> lChild<span class="token punctuation">;</span> <span class="token comment">// 左孩子指针</span>
+    <span class="token keyword">struct</span> <span class="token class-name">BiTNode</span><span class="token operator">*</span> rChild<span class="token punctuation">;</span> <span class="token comment">// 右孩子指针</span>
+<span class="token punctuation">&#125;</span>BiTNode<span class="token punctuation">,</span> <span class="token operator">*</span>BiTree<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>在$n$个结点的二叉链表中，有$n+1$个空链域</li>
+</ul>
+<h3 id="创建空二叉树"><a href="#创建空二叉树" class="headerlink" title="创建空二叉树"></a>创建空二叉树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Create</span><span class="token punctuation">(</span>BinaryTree <span class="token operator">*</span>bt<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    bt<span class="token operator">-></span>root <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建新结点"><a href="#创建新结点" class="headerlink" title="创建新结点"></a>创建新结点</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">BTNode<span class="token operator">*</span> <span class="token function">NewNode</span><span class="token punctuation">(</span>ElemType x<span class="token punctuation">,</span> BTNode <span class="token operator">*</span>ln<span class="token punctuation">,</span> BTNode <span class="token operator">*</span>rn<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    BTNode <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span>BTNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 申请空间</span>
+    p<span class="token operator">-></span>element <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token comment">// 结点内容赋值</span>
+    p<span class="token operator">-></span>lChild <span class="token operator">=</span> ln<span class="token punctuation">;</span> <span class="token comment">// 左子树赋值</span>
+    p<span class="token operator">-></span>rChild <span class="token operator">=</span> rn<span class="token punctuation">;</span> <span class="token comment">// 右子树赋值</span>
+    <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="返回根结点"><a href="#返回根结点" class="headerlink" title="返回根结点"></a>返回根结点</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">BOOL <span class="token function">Root</span><span class="token punctuation">(</span>BinaryTree <span class="token operator">*</span>bt<span class="token punctuation">,</span> ElemType <span class="token operator">*</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bt<span class="token operator">-></span>boot<span class="token punctuation">)</span> <span class="token comment">// 空树</span>
+        <span class="token keyword">return</span> FALSE<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token operator">*</span>x <span class="token operator">=</span> bt<span class="token operator">-></span>root<span class="token operator">-></span>element<span class="token punctuation">;</span> <span class="token comment">// 赋值</span>
+        <span class="token keyword">return</span> TRUE<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="构造二叉树"><a href="#构造二叉树" class="headerlink" title="构造二叉树"></a>构造二叉树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">MakeTree</span><span class="token punctuation">(</span>BinaryTree <span class="token operator">*</span>bt<span class="token punctuation">,</span> ElemType e<span class="token punctuation">,</span> BinaryTree <span class="token operator">*</span>left<span class="token punctuation">,</span> BinaryTree <span class="token operator">*</span>right<span class="token punctuation">)</span> <span class="token comment">// bt:根地址 e:根值 left:左子树 right:右子树</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>bt<span class="token operator">-></span>root <span class="token operator">||</span> left<span class="token operator">==</span>right<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    bt<span class="token operator">-></span>root <span class="token operator">=</span> <span class="token function">NewNode</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span>left<span class="token operator">-></span>root<span class="token punctuation">,</span>right<span class="token operator">-></span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    left<span class="token operator">-></span>root <span class="token operator">=</span> right<span class="token operator">-></span>root <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>先序遍历+后序遍历不可确定二叉树：$\left. \begin{array}{r}
+	\text{前序}XY\\
+	\text{后序}YX\\
+\end{array} \right\} \Rightarrow X$为$Y$祖先</p>
+<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><p><strong>步骤：</strong></p>
+<ol>
+<li><p>先访问根结点</p>
+</li>
+<li><p>先序遍历左子树</p>
+</li>
+<li><p>先序遍历右子树</p>
+</li>
+</ol>
+<p><strong>特性</strong></p>
+<ul>
+<li>最先访问的是根结点</li>
+<li>$n$个元素先序遍历二叉树共$\dfrac{\text C^n_{2n}}{n+1}$</li>
+</ul>
+<p><strong>递归代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">PreOrder</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span> <span class="token comment">// 先序遍历递归函数</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span> <span class="token comment">// 树空了直接返回</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">visit</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//访问根结点</span>
+    <span class="token function">PreOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先序遍历左子树</span>
+    <span class="token function">PreOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先序遍历右子树</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>时间复杂度：$O(n)$</p>
+<p><strong>非递归代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">PreOrder</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 中序遍历 </span>
+	<span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化栈 </span>
+	BiTree p <span class="token operator">=</span> T<span class="token punctuation">;</span>  <span class="token comment">// 结点指向根结点 </span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 当p存在且栈不空 </span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 若p存在，入栈且前往左孩子 </span>
+			<span class="token function">visit</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			p <span class="token operator">=</span> p<span class="token operator">-></span>lchild<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 若p不存在则出栈访问且前往右孩子 </span>
+			<span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			p <span class="token operator">=</span> p<span class="token operator">-></span>rchild<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p><strong>步骤</strong></p>
+<ol>
+<li>中序遍历左子树</li>
+<li>访问根结点</li>
+<li>中序遍历右子树</li>
+</ol>
+<p><strong>特性</strong></p>
+<ul>
+<li>左子树中所有结点先于根结点</li>
+<li>右子树中所有结点后于根结点</li>
+</ul>
+<p><strong>递归代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">InOrder</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span> <span class="token comment">// 中序遍历递归函数</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>t<span class="token punctuation">)</span> <span class="token comment">// 树空了直接返回</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">InOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 中序遍历左子树</span>
+    <span class="token function">visit</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//访问根结点</span>
+    <span class="token function">InOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 中序遍历右子树</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>时间复杂度：$O(n)$</p>
+<p><strong>非递归代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">InOrder</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 中序遍历 </span>
+	<span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 初始化栈 </span>
+	BiTree p <span class="token operator">=</span> T<span class="token punctuation">;</span>  <span class="token comment">// 结点指向根结点 </span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 当p存在且栈不空 </span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 若p存在，入栈且前往左孩子 </span>
+			<span class="token function">push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			p <span class="token operator">=</span> p<span class="token operator">-></span>lchild<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 若p不存在则出栈访问且前往右孩子 </span>
+			<span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">visit</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			p <span class="token operator">=</span> p<span class="token operator">-></span>rchild<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p><strong>步骤</strong></p>
+<ol>
+<li>后序遍历左子树</li>
+<li>后序遍历右子树</li>
+<li>访问根结点</li>
+</ol>
+<p><strong>特性</strong></p>
+<ul>
+<li>最后访问根结点</li>
+</ul>
+<p><strong>代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">PostOrder</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span> <span class="token comment">// 后序遍历递归函数</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>t<span class="token punctuation">)</span> <span class="token comment">// 树空了直接返回</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">PostOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 后序遍历左子树</span>
+    <span class="token function">PostOrder</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 后序遍历右子树</span>
+    <span class="token function">visit</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//访问根结点</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>时间复杂度：$O(n)$</p>
+<p><strong>非递归算法</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/**/</span>
+<span class="token keyword">void</span> <span class="token function">postOrder</span><span class="token punctuation">(</span>BTNode T<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 辅助遍历栈 </span>
+	BiNode p <span class="token operator">=</span> T<span class="token punctuation">;</span><span class="token comment">// p指向根结点</span>
+    r <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment">// 记录最近访问的结点</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 当p存在且栈不空</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        	<span class="token function">push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 根结点结点入栈</span>
+        	p <span class="token operator">=</span> p<span class="token operator">-></span>lChild<span class="token punctuation">;</span> <span class="token comment">// 访问左孩子</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token function">getTop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 读取栈顶元素（不出栈）</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-></span>rChild <span class="token operator">&amp;&amp;</span> p<span class="token operator">-></span>rChild <span class="token operator">!=</span> r<span class="token punctuation">)</span>  <span class="token comment">// 右子树存在且从未被访问</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>rChild<span class="token punctuation">;</span>  <span class="token comment">// 转向右子树</span>
+        <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token function">pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 出栈</span>
+            <span class="token function">visit</span><span class="token punctuation">(</span>p<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 访问该结点</span>
+            r <span class="token operator">=</span> p<span class="token punctuation">;</span>  
+            p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment">// 重置</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p><strong>步骤</strong></p>
+<ul>
+<li><p>若二叉树为空，直接退出</p>
+<p>否则，初始化队列</p>
+<p>再将根结点进队</p>
+</li>
+<li><p>若队列不为空</p>
+</li>
+<li><ol>
+<li>获取队头结点$p$，并将队头结点出队</li>
+<li>访问结点$p$中的数据</li>
+<li>$p$的左孩子进队</li>
+<li>$p$的右孩子进队</li>
+</ol>
+</li>
+</ul>
+<p><strong>代码</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">LevelOrderTree</span><span class="token punctuation">(</span>BiTree <span class="token operator">*</span>T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    Queue Q<span class="token punctuation">;</span> <span class="token comment">// 存储BTNode结点类型指针的队列</span>
+    BTNode p <span class="token operator">=</span> T<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span> <span class="token comment">// 二叉树为空</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">Create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化队列</span>
+    <span class="token function">EnQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 根结点进队</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">DeQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获取队头结点</span>
+        <span class="token function">visit</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 访问结点p</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-></span>lChild<span class="token punctuation">)</span> 
+            <span class="token function">EnQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span>p<span class="token operator">-></span>lChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//若左孩子存在，则进队</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-></span>rChild<span class="token punctuation">)</span> 
+            <span class="token function">EnQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span>p<span class="token operator">-></span>rChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//若右孩子存在，则进队</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">Destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 销毁队列</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h2><p><strong>目的：</strong>加快二叉树遍历（加快查找结点前驱后驱）</p>
+<ul>
+<li>先序线索二叉树：查找先序后继，<del>先序前驱</del></li>
+<li>后序线索二叉树：查找后序前驱，<del>后序后继</del></li>
+</ul>
+<p><strong>结构：</strong>物理结构（链表）</p>
+<p><strong>线索个数：</strong>$n+1$</p>
+<p><strong>空链域：</strong>$2$</p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><table><td>lChild</td><td>ltag</td><td>data</td><td>rtag</td><td>rchild</td></table>
+
+<ul>
+<li>$\text{ltag}=\left\{ \begin{array}{l}
+  	0\ \ \text{lchild指向左孩子}\\
+    	1\ \ \text{lchild指向前驱}\\
+  \end{array} \right. $</li>
+<li>$\text{rtag}=\left\{ \begin{array}{l}
+  	0\ \ \text{rchild指向右孩子}\\
+    	1\ \ \text{rchild指向后驱}\\
+  \end{array} \right. $</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">ThreadNode</span><span class="token punctuation">&#123;</span>
+	ElemType data<span class="token punctuation">;</span> <span class="token comment">//数据域</span>
+    <span class="token keyword">struct</span> <span class="token class-name">ThreadNode</span><span class="token operator">*</span> lchild<span class="token punctuation">;</span> <span class="token comment">// 左孩子 </span>
+    <span class="token keyword">struct</span> <span class="token class-name">ThreadNode</span><span class="token operator">*</span> rchild<span class="token punctuation">;</span> <span class="token comment">// 右孩子  </span>
+    <span class="token keyword">int</span> ltag<span class="token punctuation">;</span>  <span class="token comment">// 左指标</span>
+	<span class="token keyword">int</span> rtag<span class="token punctuation">;</span>  <span class="token comment">// 右指标 </span>
+<span class="token punctuation">&#125;</span>ThreadNode<span class="token punctuation">,</span> <span class="token operator">*</span>ThreadTree<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="前序遍历线索树"><a href="#前序遍历线索树" class="headerlink" title="前序遍历线索树"></a>前序遍历线索树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">preThread</span><span class="token punctuation">(</span>TBNode <span class="token operator">*</span>p<span class="token punctuation">,</span> ThreadTree <span class="token operator">&amp;</span>pre<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token operator">-></span>lchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 左子树为空，建立前驱结点 </span>
+			p<span class="token operator">-></span>lchild <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+			p<span class="token operator">-></span>ltag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>pre <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>pre<span class="token operator">-></span>rchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 建立前驱结点后继搜索 </span>
+			pre<span class="token operator">-></span>rchild <span class="token operator">=</span> p<span class="token punctuation">;</span>
+			pre<span class="token operator">-></span>rtag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		pre <span class="token operator">=</span> p<span class="token punctuation">;</span>  <span class="token comment">// 标记当前结点为刚刚访问的结点 </span>
+		<span class="token function">preThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>lchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">preThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>rchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="中序遍历线索树"><a href="#中序遍历线索树" class="headerlink" title="中序遍历线索树"></a>中序遍历线索树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">InThread</span><span class="token punctuation">(</span>ThreadTree <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> ThreadTree <span class="token operator">&amp;</span>pre<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// P：正在访问的结点；pre：刚刚访问的结点</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">InThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>lchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 递归线索化左子树 </span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token operator">-></span>lchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 左子树为空，建立前驱结点 </span>
+			p<span class="token operator">-></span>lchild <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+			p<span class="token operator">-></span>ltag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>pre <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>pre<span class="token operator">-></span>rchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 建立前驱结点后继搜索 </span>
+			pre<span class="token operator">-></span>rchild <span class="token operator">=</span> p<span class="token punctuation">;</span>
+			pre<span class="token operator">-></span>rtag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		pre <span class="token operator">=</span> p<span class="token punctuation">;</span>  <span class="token comment">// 标记当前结点为刚刚访问的结点 </span>
+		<span class="token function">InThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>rchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 线索化右子树 </span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">CreateInThread</span><span class="token punctuation">(</span>ThreadTree T<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	ThreadTree pre <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment">// 刚开始无刚访问的结点 </span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">InThread</span><span class="token punctuation">(</span>T<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 线索化非空二叉树 </span>
+		pre<span class="token operator">-></span>rchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment">// 处理最后一个结点 </span>
+		pre<span class="token operator">-></span>rtag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="后序遍历线索树"><a href="#后序遍历线索树" class="headerlink" title="后序遍历线索树"></a>后序遍历线索树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postThread</span><span class="token punctuation">(</span>ThreadTree <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> ThreadTree <span class="token operator">&amp;</span>pre<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">postThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>lchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 递归线索化左子树 </span>
+		<span class="token function">postThread</span><span class="token punctuation">(</span>p<span class="token operator">-></span>rchild<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token operator">-></span>lchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 左子树为空，建立前驱结点 </span>
+			p<span class="token operator">-></span>lchild <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+			p<span class="token operator">-></span>ltag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>pre <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>pre<span class="token operator">-></span>rchild<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 建立前驱结点后继搜索 </span>
+			pre<span class="token operator">-></span>rchild <span class="token operator">=</span> p<span class="token punctuation">;</span>
+			pre<span class="token operator">-></span>rtag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		pre <span class="token operator">=</span> p<span class="token punctuation">;</span>  <span class="token comment">// 标记当前结点为刚刚访问的结点 	</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h1><h2 id="森林遍历"><a href="#森林遍历" class="headerlink" title="森林遍历"></a>森林遍历</h2><p><img src="https://img-blog.csdnimg.cn/20200824094232641.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="森林与二叉树"></p>
+<h3 id="先序遍历-1"><a href="#先序遍历-1" class="headerlink" title="先序遍历"></a>先序遍历</h3><p>若森林为空，则结束</p>
+<ol>
+<li><p>访问第一棵树根</p>
+</li>
+<li><p>第一棵树的根结点子树构成的森林</p>
+</li>
+<li><p>先序遍历其他树</p>
+</li>
+</ol>
+<ul>
+<li>先序遍历等于每棵树先序遍历简单拼接</li>
+</ul>
+<h3 id="中序遍历-1"><a href="#中序遍历-1" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>若森林为空，则遍历结束;否则</p>
+<ol>
+<li>中序遍历第一棵树的根结点的子树构成的森林</li>
+<li>访问第一棵树的根</li>
+<li>中序遍历其他树</li>
+</ol>
+<ul>
+<li>中序遍历等于每棵树中序遍历简单拼接</li>
+</ul>
+<h3 id="后序遍历-1"><a href="#后序遍历-1" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>若森林为空，则遍历结束;否则</p>
+<ol>
+<li>后序遍历第一棵树的根结点的子树构成的森林</li>
+<li>后序遍历其他树</li>
+<li>访问第一棵树的根</li>
+</ol>
+<ul>
+<li>后序遍历不等于每棵树中序遍历简单拼接</li>
+<li>不常用</li>
+</ul>
+<h3 id="层次遍历-1"><a href="#层次遍历-1" class="headerlink" title="层次遍历"></a>层次遍历</h3><ol>
+<li>访问第一层所有结点</li>
+<li>访问第二层所有结点</li>
+<li>$……$</li>
+</ol>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200824095037296.png" alt="森林层次遍历" style="zoom:50%;" />
+
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><h3 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h3><ul>
+<li>最后一个叶子结点双亲位置——$[\dfrac{n-2}{2}]$</li>
+<li>根结点位置——$0$</li>
+</ul>
+<h4 id="最小堆"><a href="#最小堆" class="headerlink" title="最小堆"></a>最小堆</h4><p>每个结点数据<strong>小于等于</strong>孩子结点</p>
+<h4 id="最大堆"><a href="#最大堆" class="headerlink" title="最大堆"></a>最大堆</h4><p>每个结点数据<strong>大于等于</strong>孩子结点</p>
+<img src="https://img-blog.csdnimg.cn/20200824095651550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="最小堆最大堆" style="zoom:50%;" />
+
+<h3 id="堆的判断"><a href="#堆的判断" class="headerlink" title="堆的判断"></a>堆的判断</h3><img src="https://img-blog.csdnimg.cn/20200824095936710.png#pic_center" alt="堆顺序表示" style="zoom:33%;" />
+
+<h4 id="最小堆-1"><a href="#最小堆-1" class="headerlink" title="最小堆"></a>最小堆</h4><p>$k_i{\leq}k_{2i+1}$和$k_i{\leq}k_{2i+2}$</p>
+<h4 id="最大堆-1"><a href="#最大堆-1" class="headerlink" title="最大堆"></a>最大堆</h4><p>$k_i{\geq}k_{2i+1}$和$k_i{\geq}k_{2i+2}$</p>
+<h3 id="建堆运算"><a href="#建堆运算" class="headerlink" title="建堆运算"></a>建堆运算</h3><p>从最后叶子的双亲$k_{[\frac{n-2}{2}]}$<strong>反方向</strong>直到根结点$k_0$，依次对每个结点$k_i$</p>
+<ol>
+<li>若该结点小于（大于）或等于其孩子，则结束</li>
+<li>将该结点与与最小（大）孩子交换</li>
+</ol>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><h5 id="向下调整算法"><a href="#向下调整算法" class="headerlink" title="向下调整算法"></a>向下调整算法</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">AdjustDown</span><span class="token punctuation">(</span>ElemType heap<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> current<span class="token punctuation">,</span> <span class="token keyword">int</span> border<span class="token punctuation">)</span> <span class="token comment">// heap:存放序列数组 current:当前待调整序列中的位置 border:待调整序列的边界</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> p <span class="token operator">=</span> current<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> minChild<span class="token punctuation">;</span>
+    ElemType temp<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">&lt;=</span> border<span class="token punctuation">)</span> <span class="token comment">// 若p不是叶结点</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">2</span> <span class="token operator">&lt;=</span> border<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>heap<span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> heap<span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 右孩子存在 右孩子较小</span>
+            minChild <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token comment">// 右孩子不存在 或 右孩子较大</span>
+            minChild <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> 
+        
+        <span class="token keyword">if</span><span class="token punctuation">(</span>heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> heap<span class="token punctuation">[</span>minChild<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 若当前结点不大于其最小的孩子，结束</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token comment">// 否则将p和其最小孩子交换</span>
+        <span class="token punctuation">&#123;</span>
+            temp <span class="token operator">=</span> heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token punctuation">;</span> heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">=</span> heap<span class="token punctuation">[</span>minChild<span class="token punctuation">]</span> <span class="token punctuation">;</span> heap<span class="token punctuation">[</span>minChild<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            p <span class="token operator">=</span> minChild<span class="token punctuation">;</span> <span class="token comment">// 当前下移元素的位置</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="建堆算法"><a href="#建堆算法" class="headerlink" title="建堆算法"></a>建堆算法</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">CreateHeap</span><span class="token punctuation">(</span>ElemType heap<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span> <span class="token punctuation">;</span> i<span class="token operator">></span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token comment">// 从最后一个叶结点的双亲反向到根结点</span>
+        <span class="token function">AdjustDown</span><span class="token punctuation">(</span>heap<span class="token punctuation">,</span>i<span class="token punctuation">,</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 依次执行向下调整</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p><strong>建堆：</strong>$O(n)$</p>
+<p><strong>插入：</strong>$O(\log_2n)$</p>
+<p><strong>删除：</strong>$O(\log_2n)$</p>
+<h2 id="优先权队列"><a href="#优先权队列" class="headerlink" title="优先权队列"></a>优先权队列</h2><ul>
+<li>元素加入次序无关紧要</li>
+<li>出队只取最高优先级的元素</li>
+</ul>
+<h3 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h3><h4 id="进队"><a href="#进队" class="headerlink" title="进队"></a>进队</h4><ul>
+<li>将新元素放堆尾，并按照最小堆（或最大堆）进行调整$O(log_2n)$</li>
+</ul>
+<h4 id="出队"><a href="#出队" class="headerlink" title="出队"></a>出队</h4><ul>
+<li>直接取出堆顶元素$O(1)$</li>
+<li>按照最小堆（或最大堆）进行适当调整$O(log_2n)$</li>
+</ul>
+<h3 id="存储方式-1"><a href="#存储方式-1" class="headerlink" title="存储方式"></a>存储方式</h3><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200824124753933.png" alt="优先权队列存储方式"></p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">priorityQueue</span>
+<span class="token punctuation">&#123;</span>
+    ElemType <span class="token operator">*</span>element<span class="token punctuation">;</span> <span class="token comment">// 存储元素数据</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span> <span class="token comment">// 元素个数</span>
+    <span class="token keyword">int</span> maxSize<span class="token punctuation">;</span> <span class="token comment">// 优先队列容量</span>
+<span class="token punctuation">&#125;</span>PriorityQueue<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="向上调整AdjustUp"><a href="#向上调整AdjustUp" class="headerlink" title="向上调整AdjustUp"></a>向上调整AdjustUp</h3><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">AdjustUp</span><span class="token punctuation">(</span>ElemType heap<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> current<span class="token punctuation">)</span> <span class="token comment">// heap:最小堆数组 current:新元素位置</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> p <span class="token operator">=</span>current<span class="token punctuation">;</span> <span class="token comment">// 让p指向新元素位置</span>
+    ElemType temp<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// p指向根结点循环结束</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">&lt;</span> heap<span class="token punctuation">[</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// p指向元素小于其父节点，则与父节点交换</span>
+        <span class="token punctuation">&#123;</span>
+            temp<span class="token operator">=</span>heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token punctuation">;</span> heap<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token operator">=</span>heap<span class="token punctuation">[</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">;</span> heap<span class="token punctuation">[</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">;</span>
+            p <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// p向上移动至父节点位置</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token comment">// 若p指向结点不小于其父节点，则调整完毕</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><p>$O(log_2n)$</p>
+<h3 id="优先权队列实现"><a href="#优先权队列实现" class="headerlink" title="优先权队列实现"></a>优先权队列实现</h3><h4 id="创建空优先权队列"><a href="#创建空优先权队列" class="headerlink" title="创建空优先权队列"></a>创建空优先权队列</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">CreatePQ</span><span class="token punctuation">(</span>PriorityQueue <span class="token operator">*</span>PQ<span class="token punctuation">,</span> <span class="token keyword">int</span> mSize<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    PQ<span class="token operator">-></span>maxSize <span class="token operator">=</span> mSize<span class="token punctuation">;</span> <span class="token comment">// PQ最大容量赋值</span>
+    PQ<span class="token operator">-></span>n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// PQ元素个数为0</span>
+    PQ<span class="token operator">-></span>element <span class="token operator">=</span> <span class="token punctuation">(</span>ElemType<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>mSize<span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>ElemType<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 申请空间</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="销毁队列，释放空间"><a href="#销毁队列，释放空间" class="headerlink" title="销毁队列，释放空间"></a>销毁队列，释放空间</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Destroy</span><span class="token punctuation">(</span>PriorityQueue <span class="token operator">*</span>PQ<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>PQ<span class="token operator">-></span>element<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 释放数组空间</span>
+    PQ<span class="token operator">-></span>n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// PQ元素个数为0</span>
+    PQ<span class="token operator">-></span>maxSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// PQ容量清零</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="增加新元素"><a href="#增加新元素" class="headerlink" title="增加新元素"></a>增加新元素</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Append</span><span class="token punctuation">(</span>PriorityQueue <span class="token operator">*</span>PQ<span class="token punctuation">,</span> ElemType x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">IsFull</span><span class="token punctuation">(</span>PQ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//满队</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    PQ<span class="token operator">-></span>element<span class="token punctuation">[</span>PQ<span class="token operator">-></span>n<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token comment">// 优先权队列最后一个元素后面插入一个元素</span>
+    PQ<span class="token operator">-></span>n<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// 元素数量+1</span>
+    <span class="token function">AdjustUp</span><span class="token punctuation">(</span>PQ<span class="token operator">-></span>element<span class="token punctuation">,</span> PQ<span class="token operator">-></span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 新增元素向上调整</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>时间复杂度</strong>$O(log_2n)$</p>
+<h4 id="取出优先权最高队列"><a href="#取出优先权最高队列" class="headerlink" title="取出优先权最高队列"></a>取出优先权最高队列</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Serve</span><span class="token punctuation">(</span>PriorityQueue <span class="token operator">*</span>PQ<span class="token punctuation">,</span> ElemType <span class="token operator">*</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>PQ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 空队</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>x <span class="token operator">=</span> PQ<span class="token operator">-></span>element<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 栈顶元素赋值</span>
+    PQ<span class="token operator">-></span>n<span class="token operator">--</span><span class="token punctuation">;</span> <span class="token comment">// 元素个数-1</span>
+    PQ<span class="token operator">-></span>element<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> PQ<span class="token operator">-></span>element<span class="token punctuation">[</span>PQ<span class="token operator">-></span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 用堆尾替代堆顶元素</span>
+    <span class="token function">AdjustDown</span><span class="token punctuation">(</span>PQ<span class="token operator">-></span>element<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> PQ<span class="token operator">-></span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 向上调整</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>时间复杂度</strong>$O(log_2n)$</p>
+<h1 id="树的应用"><a href="#树的应用" class="headerlink" title="树的应用"></a>树的应用</h1><h2 id="二叉搜索树BST"><a href="#二叉搜索树BST" class="headerlink" title="二叉搜索树BST"></a>二叉搜索树BST</h2><h3 id="存储方式-2"><a href="#存储方式-2" class="headerlink" title="存储方式"></a>存储方式</h3><ul>
+<li>左子树小于根结点</li>
+<li>右子树大于根结点</li>
+<li>若以<strong>中序遍历</strong>二叉搜索树，将得到递增有序序列</li>
+</ul>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>高度(搜索次数)：$\lceil\log_2(n+1)\rceil\le h\le n$</li>
+</ul>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>查找关键字$x$</p>
+<ol>
+<li>二叉树为空，搜索失败</li>
+<li>将$x$与根结点比较<ul>
+<li>$k$小于该结点，搜索左子树</li>
+<li>$k$大于该结点，搜索右子树</li>
+<li>$k$等于该结点，搜索成功</li>
+</ul>
+</li>
+</ol>
+<p><strong>递归算法</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">BSTNode <span class="token operator">*</span><span class="token function">Find</span><span class="token punctuation">(</span>BSTNode <span class="token operator">*</span>T<span class="token punctuation">,</span>KeyType key<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 搜索失败</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">-></span>data <span class="token operator">==</span> key<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> T<span class="token punctuation">;</span> <span class="token comment">// 搜索成功</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">-></span>data <span class="token operator">&lt;</span> key<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token function">Find</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lChild<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">Find</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rChild<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>迭代算法</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">BOOL <span class="token function">BtSearch</span><span class="token punctuation">(</span>Btree Bt<span class="token punctuation">,</span>KeyType k<span class="token punctuation">,</span>T <span class="token operator">*</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    BTNode <span class="token operator">*</span>p <span class="token operator">=</span> Bt<span class="token punctuation">.</span>Root<span class="token punctuation">;</span> <span class="token comment">// 从根结点出发</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> p<span class="token operator">-></span>element<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token comment">// 从左分支继续向下搜索</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>lChild<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">></span> p<span class="token operator">-></span>element<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token comment">// 从右分支继续向下搜索</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>rChild<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token operator">*</span>x <span class="token operator">=</span> p<span class="token operator">-></span>element<span class="token punctuation">;</span> <span class="token comment">// 搜索成功</span>
+            <span class="token keyword">return</span> TRUE<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> FALSE<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><ul>
+<li>向下搜索$x$</li>
+<li>搜索失败处插入$x$</li>
+</ul>
+<p><strong>递归</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">BSTInsert</span><span class="token punctuation">(</span>BiTree <span class="token operator">&amp;</span>T<span class="token punctuation">,</span> KeyType key<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// 树为空，创造空间插入结点</span>
+        T <span class="token operator">=</span> <span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BSTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        T<span class="token operator">-></span>key <span class="token operator">=</span> k<span class="token punctuation">;</span>
+        T<span class="token operator">-></span>lchild <span class="token operator">=</span> T<span class="token operator">-></span>rchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 插入成功</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">==</span> T<span class="token punctuation">.</span>key<span class="token punctuation">)</span>  <span class="token comment">// 存在了相同关键字，插入失败</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+     <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> T<span class="token punctuation">.</span>key<span class="token punctuation">)</span>  <span class="token comment">// 插入到左子树</span>
+         <span class="token keyword">return</span> <span class="token function">BSTInsert</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lchild<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">else</span>  <span class="token comment">// 插入右子树</span>
+         <span class="token keyword">return</span> <span class="token function">BSTInsert</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rchild<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>非递归</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">BOOL <span class="token function">Insert</span><span class="token punctuation">(</span>Btree <span class="token operator">*</span>bt<span class="token punctuation">,</span> T x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    BTNode <span class="token operator">*</span>p <span class="token operator">=</span> bt<span class="token operator">-></span>root<span class="token punctuation">,</span> <span class="token operator">*</span>q<span class="token punctuation">,</span> <span class="token operator">*</span>r<span class="token punctuation">;</span> <span class="token comment">// p:从根节点向下搜索 q:记录搜索失败上一层结点</span>
+    KeyType k <span class="token operator">=</span> x<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        q <span class="token operator">=</span> p<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> p<span class="token operator">-></span>element<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>lChild<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">></span> p<span class="token operator">-></span>element<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>rChild<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            <span class="token keyword">return</span> FALSE<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h4 id="删除叶子结点"><a href="#删除叶子结点" class="headerlink" title="删除叶子结点"></a>删除叶子结点</h4><p><code>直接删</code></p>
+<ol>
+<li>将待删除结点双亲结点指向NULL</li>
+<li>释放待删除结点</li>
+</ol>
+<h4 id="删除有一个孩子结点"><a href="#删除有一个孩子结点" class="headerlink" title="删除有一个孩子结点"></a>删除有一个孩子结点</h4><p><code>爷带孙</code></p>
+<ol>
+<li>待删除结点的双亲结点指向待删除结点的孩子</li>
+<li>释放待删除结点</li>
+</ol>
+<h4 id="删除有两个孩子结点"><a href="#删除有两个孩子结点" class="headerlink" title="删除有两个孩子结点"></a>删除有两个孩子结点</h4><ol>
+<li>从后代选择一个覆盖待删除结点<ul>
+<li>保持二叉搜索树有序性&#x3D;&#x3D;左孩子$\leq$代替这$\leq$右孩子&#x3D;&#x3D;</li>
+<li>容易删除&#x3D;&#x3D;只有一个孩子或没有孩子&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li>删除重复的代替者</li>
+</ol>
+<h5 id="代替者选择方法"><a href="#代替者选择方法" class="headerlink" title="代替者选择方法"></a>代替者选择方法</h5><ul>
+<li>选择其中序遍历的<strong>直接前驱</strong><ul>
+<li>为左子树最大值</li>
+<li>一定没有右孩子</li>
+</ul>
+</li>
+<li>选择其中序遍历的<strong>直接后驱</strong><ul>
+<li>为右子树最小值</li>
+<li>一定没有左孩子</li>
+</ul>
+</li>
+</ul>
+<h2 id="二叉平衡树"><a href="#二叉平衡树" class="headerlink" title="二叉平衡树"></a>二叉平衡树</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>二叉搜索树</li>
+<li>左右子树高度差$h’\leq{1}$</li>
+<li>左右子树都是二叉平衡树</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20200824193318941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjY4MjQ4,size_16,color_FFFFFF,t_70#pic_center" alt="二叉平衡树" style="zoom: 50%;" />
+
+<ul>
+<li>平衡因子——左子树与右子树高度差$h_{left}-h_{right}$</li>
+</ul>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>最少结点：$n_h=\left\{ \begin{array}{l}
+  	0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \   h=0\\
+    	1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \   h=1\\
+    	2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  h=2\\
+    	1+n_{h-1}+n_{h-2}\ \ \ \ h\ne0,1,2 \\
+  \end{array} \right. $</li>
+</ul>
+<h3 id="二叉平衡树插入"><a href="#二叉平衡树插入" class="headerlink" title="二叉平衡树插入"></a>二叉平衡树插入</h3><ul>
+<li><p>先按照普通二叉搜索树插入</p>
+</li>
+<li><p>若不平衡，则进行调整</p>
+<ul>
+<li><p>先找到平衡因子超过$1$的根结点$s$</p>
+<ol>
+<li><p>$LL&#x2F;RR$类型——单旋转</p>
+<p>新结点插入$s$的左&#x2F;右结点</p>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200824194953180.png" alt="单旋转" style="zoom:33%;" />
+</li>
+<li><p>$LR&#x2F;RL$类型——双旋转</p>
+<img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/20200824195459362.png" alt="双旋转" style="zoom:33%;" /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/dataStructure/%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91.jpg" alt="二叉平衡树"></p>
+<h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>哈夫曼树只有度为$0$和$2$的结点</li>
+<li>$n$个叶子结点共$n-1$非叶子结点</li>
+<li>叶子结点：$(n+1)&#x2F;2$</li>
+</ul>
+<h3 id="树路径长度"><a href="#树路径长度" class="headerlink" title="树路径长度"></a>树路径长度</h3><p>$E&#x3D;I+2n$</p>
+<ul>
+<li><p>$I$——内路径长度</p>
+<p>根到分支结点路径和</p>
+</li>
+<li><p>$E$——外路径长度</p>
+<p>根到叶子的路径长度</p>
+</li>
+</ul>
+<h4 id="加权路径长度"><a href="#加权路径长度" class="headerlink" title="加权路径长度"></a>加权路径长度</h4><p>$WPL&#x3D;{\sum}_{k&#x3D;1}^mw_kl_k$</p>
+<ul>
+<li>$m$——叶结点数量</li>
+<li>$w_k$第$k$个叶结点权值</li>
+<li>$l_k$该叶结点路径长度</li>
+<li>$WPL$——文本最终转换成编码的总编码长度</li>
+</ul>
+<h2 id="哈夫曼树-1"><a href="#哈夫曼树-1" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><ul>
+<li>哈夫曼树是最小加权路径长度的扩充二叉树</li>
+<li>分支节点权值$&#x3D;$左孩子权值$+$右孩子权值</li>
+<li>对于$m$叉哈夫曼树，若$(n-1)%(m-1)&#x3D;u\ne 0$，则需补充$m-u-1$个$0$叶结点</li>
+</ul>
+<h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><ol>
+<li>选取最小的两个值</li>
+<li>求和形成新的值，并与剩下的最小的求和</li>
+</ol>
+<h4 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">BinaryTree <span class="token function">CreateHFMTree</span><span class="token punctuation">(</span><span class="token keyword">int</span> w<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    BinaryTree x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token punctuation">;</span> <span class="token comment">// 二叉树变量</span>
+    <span class="token function">Create</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化优先权队列PQ, 优先权存在根结点数据域</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">MakeTree</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建仅包含根结点二叉树，权值w[i]存入根结点</span>
+        <span class="token function">Append</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 将二叉树x插入优先权队列</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>PQ<span class="token punctuation">.</span>n <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">Serve</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 从PQ中取出根结点权值最小的二叉树，存入x</span>
+        <span class="token function">Serve</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 从PQ中取出根结点权值最小的二叉树，存入y</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/*合并二叉树x,y*/</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element <span class="token operator">&lt;</span> y<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element<span class="token punctuation">)</span> <span class="token comment">// 左子树结点权值小于右子树</span>
+        <span class="token function">MakeTree</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span> x<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element<span class="token operator">+</span>x<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token function">MakeTree</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span> x<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element<span class="token operator">+</span>x<span class="token punctuation">.</span>root<span class="token punctuation">.</span>element<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Append</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 新合成新二叉树z插入优先权队列</span>
+<span class="token function">Serve</span><span class="token punctuation">(</span>PQ<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获取优先权队列唯一二叉树，存入x，该二叉树即哈夫曼树</span>
+<span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><ul>
+<li>左0右1</li>
+<li>前缀编码：集合中元素不得为另一元素的前缀</li>
+<li>编码对应哈夫曼树元素无子树</li>
+</ul>
+<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><ol>
+<li><p>线索二叉树</p>
+</li>
+<li><p>哈夫曼树</p>
+</li>
+<li><p>二叉树的确定</p>
+</li>
+<li><p>二叉树的估计</p>
+<p>将对应序列用<strong>T</strong>、<strong>L</strong>、<strong>R</strong>表示</p>
+<ul>
+<li>前序遍历与后序遍历相同：TLR、LRT</li>
+<li>前序遍历与中序遍历相同：TLR、LTR</li>
+<li>中序遍历与后序遍历相同：LTR、LRT</li>
+<li>前序遍历与后序遍历相反：TLR、LRT</li>
+<li>前序遍历与中序遍历相反：TLR、LTR</li>
+<li>中序遍历与后序遍历相反：LTR、LRT</li>
+</ul>
+</li>
+<li><p>二叉树表达式</p>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/dataTree.html">http://jarrycow.top/posts/dataTree.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/setSearch.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/setSearch.jpg" class="responsive-img" alt="集合和搜索">
+                        
+                        <span class="card-title">集合和搜索</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            搜索数据常用
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/arrString.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/arrString.jpg" class="responsive-img" alt="数组和串">
+                        
+                        <span class="card-title">数组和串</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数组和字符串永远是绕不开的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

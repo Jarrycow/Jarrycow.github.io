@@ -1,0 +1,1921 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="网络安全">
+    <meta name="description" content="网络安全是计算机网络的安全基础">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>网络安全 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/netsecurity.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">网络安全</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">网络安全</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="post-category">
+                                网络安全
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="网络安全问题概述"><a href="#网络安全问题概述" class="headerlink" title="网络安全问题概述"></a>网络安全问题概述</h1><p>网络安全工程：技术、管理、道德、法律</p>
+<h2 id="计算机网络面临的安全性威胁"><a href="#计算机网络面临的安全性威胁" class="headerlink" title="计算机网络面临的安全性威胁"></a>计算机网络面临的安全性威胁</h2><p><strong>计算机网络威胁$\star$：</strong>截获、中断、篡改、伪造</p>
+<p><strong>被动攻击：</strong>攻击者只是观察和分析某PDU而不干扰信息流</p>
+<ol>
+<li>截获</li>
+<li>流量分析</li>
+</ol>
+<p><strong>主动攻击：</strong>攻击者对某个连接中通过的PDU进行各种处理</p>
+<ol>
+<li>更改报文流</li>
+<li>拒绝服务</li>
+<li>伪造连接初始化</li>
+<li>恶意程序<sub>计算机病毒、计算机蠕虫、特洛伊木马、逻辑炸弹、后门入侵、流氓软件</sub></li>
+<li><strong>拒绝服务DoS</strong>：向互联网上的某个服务器不停地发送大量分组，使互联网无法提供正常服务<ul>
+<li>分布式拒绝服务DDoS：从互联网上的多个网站集中攻击一个网站</li>
+</ul>
+</li>
+</ol>
+<h3 id="常见攻击"><a href="#常见攻击" class="headerlink" title="常见攻击"></a>常见攻击</h3><ul>
+<li><strong>重放攻击：</strong>截获$A$发给$B$的包，并直接发给$B$，使$B$误认为$C$是$A$，主要用于身份认证过程(防治：使用不重数)</li>
+<li><strong>中间人攻击(MIMT)：</strong>攻击者$C$分别与$A$、$B$联系，而$A$、$B$误以为相互直接通信(防治措施：加密、设备或IP异常检测)</li>
+<li><strong>拒绝服务：</strong>指攻击者向因特网上的服务器不停地发送大量分组，使因特网或服务器一直处于“忙”的状态而无法为客户提供正常服务</li>
+<li><strong>访问控制：</strong>也称为存取控制或接入控制，指通过授权，控制用户访问资源的范围，防止非授权访问，保证网络和系统的安全</li>
+<li><strong>流量分析：</strong>通过观察PDU的协议控制信息部分，了解正在通信的协议实体的地址和身份，研究PDU的长度和传输的频度，以便了解所交换的数据的某种性质</li>
+<li><strong>恶意程序：</strong>通常是指带有攻击意图所编写的一段程序</li>
+</ul>
+<h2 id="计算机网络通信安全的目标"><a href="#计算机网络通信安全的目标" class="headerlink" title="计算机网络通信安全的目标"></a>计算机网络通信安全的目标</h2><ol>
+<li>防止析出报文内容和流量分析</li>
+<li>防止恶意程序</li>
+<li>检测更改报文流和拒绝服务</li>
+</ol>
+<ul>
+<li><strong>对付被动攻击</strong>可采用各种数据<strong>加密</strong>技术。</li>
+<li><strong>对付主动攻击</strong>则需将<strong>加密</strong>技术与适当的<strong>鉴别</strong>技术相结合</li>
+</ul>
+<h2 id="安全的计算机网络目标"><a href="#安全的计算机网络目标" class="headerlink" title="安全的计算机网络目标"></a>安全的计算机网络目标</h2><ol>
+<li><p><strong>保密性</strong></p>
+<p>网络安全通信的<strong>最基本</strong>的内容</p>
+<p>是对付<strong>被动攻击</strong>必备的功能，需要使用各种<strong>密码技术</strong>。</p>
+</li>
+<li><p><strong>端点鉴别</strong></p>
+<p>鉴别信息的发送方和接收方的<strong>真实身份</strong>。</p>
+<p>对付<strong>主动攻击</strong></p>
+</li>
+<li><p><strong>信息的完整性</strong></p>
+<p>信息的内容<strong>未被篡改过</strong>。</p>
+<p>应对<strong>主动攻击</strong></p>
+</li>
+<li><p><strong>运行的安全性</strong></p>
+<p>系统能正常运行并提供服务。</p>
+<p><strong>访问控制</strong>：必须对访问网络的权限加以控制，并规定每个用户的访问权限。</p>
+</li>
+</ol>
+<p><strong>网络安全指标：</strong>保密性、可靠性、完整性、不可抵赖性、可控性、可用性</p>
+<h1 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h1><p>加密方法的安全性取决于密钥长度、攻破密文计算量<sub>与加密体制无关</sub></p>
+<h2 id="对称密钥密码体制"><a href="#对称密钥密码体制" class="headerlink" title="对称密钥密码体制"></a>对称密钥密码体制</h2><p><strong>特点：</strong>加密密钥与解密密钥的密码体制相同，收发双方共享密钥，对称密码的密钥保密</p>
+<p><strong>优点：</strong>加解密速度快，安全强度高，简便高效，密钥简短，破译极其困难，系统开销小，适合加密大量数据</p>
+<p><strong>缺点：</strong>密钥发送过程复杂，花费较高；用户多分布广时，密钥的分配存储复杂；通信双方必须统一密钥</p>
+<h3 id="数据加密标准-DES"><a href="#数据加密标准-DES" class="headerlink" title="数据加密标准 DES"></a>数据加密标准 DES</h3><p><strong>加密算法</strong></p>
+<ol>
+<li>对整个明文进行分组。每一个组长为64位。</li>
+<li>然后对每一个64位二进制数据进行加密处理，产生一组64位密文数据。</li>
+<li>最后将各组密文串接起来，即得出整个的密文。</li>
+</ol>
+<ul>
+<li>使用的密钥为64位<sub>实际密钥长度为56位，有8位用于奇偶校验</sub></li>
+</ul>
+<h3 id="三重DES"><a href="#三重DES" class="headerlink" title="三重DES"></a>三重DES</h3><p>64位明文用一个密钥加密，再用另一个密钥解密，然后再使用第一个密钥加密，即<br>$$<br>Y&#x3D;DES_{K1}\left(DES^{-1}<em>{K2}\left(DES</em>{K1}(X)\right)\right)<br>$$</p>
+<h2 id="公钥密码体制"><a href="#公钥密码体制" class="headerlink" title="公钥密码体制"></a>公钥密码体制</h2><p><strong>特点：</strong>加密密钥和解密密钥不同，加密密钥向公众公开，解密密钥保密<br><strong>优点：</strong>密钥少，好管理，分配简单；不需要用密钥通道和复杂的协议来传送密钥；可实现数字签名和数字鉴别</p>
+<p><strong>缺点：</strong>加密速度慢，开销较大</p>
+<p><strong>数论基础：</strong>大数分解</p>
+<h3 id="公钥算法的特点"><a href="#公钥算法的特点" class="headerlink" title="公钥算法的特点"></a>公钥算法的特点</h3><p>密钥对产生器产生出接收者$B$的<strong>一对密钥</strong>：加密密钥$PK_B$和解密密钥$SK_B$。</p>
+<p>发送者$A$用$B$的<strong>公钥</strong>$PK_B$对明文$X$<strong>加密</strong>（$E$运算)后，接收者$B$用自己的<strong>私钥</strong>$SK_B$<strong>解密</strong>($D$运算)，即可恢复出明文<br>$$<br>D_{SK_B}(Y)&#x3D;D_{SK_B}(E_{PK_B}(X))&#x3D;X<br>$$</p>
+<h1 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h1><p>用于证明<strong>真实性</strong></p>
+<p><strong>数字签名必须保证以下三点：</strong></p>
+<ol>
+<li><strong>报文鉴别</strong>——接收者能够核实发送者对报文的签名(<strong>证明来源</strong>)</li>
+<li><strong>报文的完整性</strong>——发送者事后不能抵赖对报文的签名(<strong>防否认</strong>)</li>
+<li><strong>不可否认</strong>——接收者不能伪造对报文的签名(<strong>防伪造</strong>)</li>
+</ol>
+<ul>
+<li>现在已有多种实现各种数字签名的方法。<strong>但采用公钥算法更容易实现</strong>。</li>
+</ul>
+<h1 id="鉴别"><a href="#鉴别" class="headerlink" title="鉴别"></a>鉴别</h1><p><strong>鉴别：</strong>验证通信的对方的确是自己所要通信的对象</p>
+<p><strong>保密：</strong>网络信息不被泄露给非授权的用户、实体或过程</p>
+<p><strong>授权：</strong>确定所进行的过程是否被允许</p>
+<ol>
+<li><strong>报文鉴别：</strong>防止<strong>伪造</strong>或<strong>篡改</strong>的，包含端点鉴别和报文完整性的鉴别</li>
+<li><strong>实体鉴别：</strong>仅仅鉴别发送报文的实体。实体可以是一个人，也可以是一个进程（客户或服务器)</li>
+</ol>
+<h2 id="报文鉴别"><a href="#报文鉴别" class="headerlink" title="报文鉴别"></a>报文鉴别</h2><p>许多报文并不需要加密，但却需要数字签名以便<strong>鉴别报文的真伪</strong></p>
+<h3 id="报文摘要MD过程-数字签名过程"><a href="#报文摘要MD过程-数字签名过程" class="headerlink" title="报文摘要MD过程(数字签名过程)"></a>报文摘要MD过程(数字签名过程)</h3><ol>
+<li>$A$把报文$X$经过报文摘要算法得到报文摘要$H$</li>
+<li>用$A$私钥对$H$进行$D$运算数字签名，生成报文鉴别码$MAC$</li>
+<li>把报文鉴别码追加$X$发送$B$</li>
+<li>$B$收到$X+MAC$后，将报文和鉴别码分离</li>
+<li>用$A$的公钥对$MAC$进行$E$运算，还原报文摘要$H$</li>
+<li>对$X$进行报文摘要运算，判断是否和$H$一致</li>
+</ol>
+<p><img src="C:/Users/Jarrycow/Documents//图片/报文摘要.png" alt="报文摘要"></p>
+<h3 id="报文摘要优点"><a href="#报文摘要优点" class="headerlink" title="报文摘要优点"></a>报文摘要优点</h3><ul>
+<li>耗费资源小</li>
+<li>不可伪造，可检验、不可否认</li>
+</ul>
+<h3 id="报文摘要标准"><a href="#报文摘要标准" class="headerlink" title="报文摘要标准"></a>报文摘要标准</h3><p><strong>密码散列函数</strong></p>
+<p><strong>散列函数特点</strong></p>
+<ol>
+<li>输入长度很长，输出长度固定较短</li>
+<li>输入和输出<strong>多对一</strong></li>
+<li><strong>单向性：</strong>不同的报文具有同样的密码散列函数输出计算上不可行</li>
+</ol>
+<p><strong>MD5：</strong>对任意长报文运算，得到<strong>128bit</strong>的MD5报文摘要</p>
+<ol>
+<li><strong>附加：</strong>把任意长的报文按模$2^{64}$计算其余数($64$位)，追加在报文的后面(长度项)。</li>
+<li><strong>填充：</strong>在报文和长度项之间填充$1\sim512$位，使得填充后的总长度是$512$的整数倍。填充的首位是$1$后面都是$0$</li>
+<li><strong>分组：</strong>把追加和填充后的报文分割为一个个$512$位的数据块，每个$512$位的报文数据再分成$4$个$128$位的数据块。</li>
+<li><strong>计算：</strong>将$4$个$128$位的数据块依次送到不同的散列函数进行$4$轮计算。每一轮又都按$32$位的小数据块进行复杂的运算。一直到最后计算出$ MD5$报文摘要代码($128$位)。</li>
+</ol>
+<p><strong>安全散列算法(SHA-1)</strong></p>
+<ol>
+<li>要求输入码长小于$2^{64}$位，输出码长为$160$位。</li>
+<li>将明文分成若干$512$位的定长块，每一块与当前的报文摘要值结合，产生报文摘要的下一个中间结果，直到处理完毕。</li>
+<li>共扫描$5$遍，效率略低于$MD5$，抗穷举性更高。</li>
+</ol>
+<h2 id="实体鉴别"><a href="#实体鉴别" class="headerlink" title="实体鉴别"></a>实体鉴别</h2><p>在系统接入的全部持续时间内对和对方实体<strong>只需验证一次</strong></p>
+<h3 id="使用对称密钥实体鉴别"><a href="#使用对称密钥实体鉴别" class="headerlink" title="使用对称密钥实体鉴别"></a>使用对称密钥实体鉴别</h3><ol>
+<li>$A$发送给$B$的报文的被加密，使用的是双方约定好的对称密钥$K_{AB}$</li>
+<li>$B$收到此报文后，用共享对称密钥$K_{AB}$进行解密，因而鉴别了实体$A$的身份</li>
+</ol>
+<ul>
+<li>无法对付<strong>重放攻击</strong></li>
+</ul>
+<h3 id="使用不重数鉴别"><a href="#使用不重数鉴别" class="headerlink" title="使用不重数鉴别"></a>使用不重数鉴别</h3><p><strong>不重数</strong>——不重复的大随机数</p>
+<ol>
+<li>$A$用明文发送其身份$A$和一个不重数$R_A$给$B$</li>
+<li>$B$用共享的密钥$K_{AB}$对$R_A$加密发回$A$，同时给出不重数$R_B$</li>
+<li>$A$再响应$B$的查问，用共享的密钥$K_{AB}$对$R_B$加密后发回$B$</li>
+</ol>
+<h1 id="密钥分配"><a href="#密钥分配" class="headerlink" title="密钥分配"></a>密钥分配</h1><p><strong>密钥管理：</strong>密钥产生、分配、注入、验证、使用</p>
+<p><strong>密钥管理中最大的问题：</strong>密钥分配</p>
+<p><strong>分配方式：</strong>网内分配(密钥自动分配)</p>
+<h2 id="对称密钥的分配"><a href="#对称密钥的分配" class="headerlink" title="对称密钥的分配"></a>对称密钥的分配</h2><p>常用的密钥分配方式：设立<strong>密钥分配中心KDC</strong> </p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>用户$A$向KDC发送明文，说明想和$B$通信(明文中给出$A$和$B$在KDC登记的身份)</li>
+<li>KDC用随机数产生一次一密的会话密钥$K_{AB}$，向$A$发送回答报文(用$A$的密钥$K_A$加密，包含$K_{AB}$、请$A$转给$B$的票据<sub>包含$A、B$在KDC登记身份以及$K_{AB}$，用$K_B$加密</sub>、时间戳)</li>
+<li>$B$收到$A$转来的票据并解密后，知道$A$要与其通信，同时也知道会话密钥$K_{AB}$</li>
+</ol>
+<h3 id="密钥分配中心KDC"><a href="#密钥分配中心KDC" class="headerlink" title="密钥分配中心KDC"></a>密钥分配中心KDC</h3><p><strong>KDC任务：</strong>给秘密通信的用户<strong>临时分配</strong>一个会话密钥</p>
+<p>为防止<strong>重放攻击</strong>，$KDC$还可在报文中加入时间戳</p>
+<p>会话密钥一次性</p>
+<h3 id="密钥分配协议-Kerberos"><a href="#密钥分配协议-Kerberos" class="headerlink" title="密钥分配协议 Kerberos"></a>密钥分配协议 Kerberos</h3><p><strong>最常用：</strong>Kerberos V5，既是鉴别协议，又是KDC</p>
+<p><strong>加密方式：</strong>AES</p>
+<p><strong>Kerberos服务器：</strong>鉴别服务器AS、票据授予服务器TGS</p>
+<p><strong>用户：</strong>服务器-服务器<sub>非人对人</sub></p>
+<p><strong>Kerberos 协议的优点：</strong></p>
+<ol>
+<li><p><strong>安全性高：</strong>对用户的口令加密后作为用户的私钥，避免了用户的口令在网络上显示传输，使得窃听者难以在网络上取得相应的口令信息</p>
+</li>
+<li><p><strong>透明性高：</strong>用户使用过程中仅登录时要求输入口令，与平常的操作完全一样</p>
+</li>
+<li><p><strong>可扩展性好：</strong>为每一个服务提供认证，确保应用的安全</p>
+</li>
+</ol>
+<p><strong>Kerberos协议的缺点：</strong></p>
+<ol>
+<li>Kerberos服务器与用户共享的秘密是用户的口令字，服务器在回应时<strong>不验证用户的真实性</strong>，假设只有合法用户拥有口令字，如攻击者记录申请回答报文，就易形成代码本攻击</li>
+<li>AS和TGS是集中式管理，容易形成瓶颈，系统的性能和安全也<strong>严重依赖于AS和TGS</strong>的性能和安全，在AS和TGS 前应该有访问控制，以增强AS和TGS的安全;</li>
+<li>随用户数增加，<strong>密钥管理较复杂</strong>。Kerberos拥有每个用户的口令字的散列值，AS与TGS负责户间通信密钥的分配。当N个用户想同时通信时，仍需要$N×(N-1)&#x2F;2$个密钥。</li>
+</ol>
+<h2 id="公钥的分配"><a href="#公钥的分配" class="headerlink" title="公钥的分配"></a>公钥的分配</h2><p><strong>认证中心CA：</strong>将公钥与其对应的实体绑定</p>
+<p>每个实体都有CA发来的<strong>证书</strong>(公钥及其拥有者的标识)</p>
+<p><strong>此证书被CA进行了数字签名</strong>，是不可伪造的</p>
+<p><strong>CA证书的吊销：</strong></p>
+<p>证书不是永久有效，可以<strong>过期</strong>，也可<strong>吊销</strong>。</p>
+<ul>
+<li><strong>原因</strong>:</li>
+</ul>
+<ol>
+<li><p>用户私钥被泄漏</p>
+</li>
+<li><p>用户不再被CA认证</p>
+</li>
+<li><p>CA​签署用户证书的私钥已被泄漏</p>
+</li>
+</ol>
+<ul>
+<li>CA$建立并维护一个证书吊销列表。</li>
+</ul>
+<h1 id="互联网使用的安全协议"><a href="#互联网使用的安全协议" class="headerlink" title="互联网使用的安全协议"></a>互联网使用的安全协议</h1><h2 id="网络层安全协议"><a href="#网络层安全协议" class="headerlink" title="网络层安全协议"></a>网络层安全协议</h2><p><strong>IP安全性问题</strong></p>
+<ol>
+<li>没有数据源鉴别机制</li>
+<li>没有完整性保护机制;</li>
+<li>没有机密性保护</li>
+<li>设计和实现上存在安全漏洞，使各种攻击有机可乘</li>
+</ol>
+<h3 id="IPsec协议"><a href="#IPsec协议" class="headerlink" title="IPsec协议"></a>IPsec协议</h3><p><strong>IPsec组成：</strong></p>
+<ol>
+<li><strong>IP安全数据报格式</strong>的两个协议<ul>
+<li>鉴别首部AH协议<sub>提供源点鉴别和数据完整性，但不能保密</sub></li>
+<li>封装安全有效载荷ESP协议<sub>提供源点鉴别、数据完整性和保密</sub></li>
+</ul>
+</li>
+<li><strong>有关加密算法</strong>的三个协议</li>
+<li><strong>互联网密钥交换IKE</strong>协议</li>
+</ol>
+<ul>
+<li>lpsec支持IPv4和IPv6</li>
+</ul>
+<h3 id="IP安全数据报工作方式"><a href="#IP安全数据报工作方式" class="headerlink" title="IP安全数据报工作方式"></a>IP安全数据报工作方式</h3><p><strong>运输方式</strong></p>
+<ul>
+<li>在<strong>运输层报文段</strong>前后添加若干控制信息，构成IPSec数据报</li>
+<li><strong>适用范围：</strong>于主机到主机之间的安全传送</li>
+<li><strong>使用要求：</strong>使用IPsec的主机都运行lPsec协议</li>
+</ul>
+<p><strong>隧道方式</strong></p>
+<ul>
+<li><p>在<strong>IP数据报</strong>前后添加若干控制信息，构成IPSec数据报</p>
+</li>
+<li><p><strong>适用范围：</strong>常用来实现虚拟专用网</p>
+</li>
+<li><p><strong>使用要求：</strong>在IPsec数据报所经过的所有路由器上都运行IPsec 协议</p>
+</li>
+</ul>
+<p><strong>IP安全数据报的IP首部都是不加密的</strong></p>
+<h3 id="IPsec其他构件"><a href="#IPsec其他构件" class="headerlink" title="IPsec其他构件"></a>IPsec其他构件</h3><p><strong>安全关联数据库SAD</strong></p>
+<ul>
+<li>存放<strong>SA</strong>的地方</li>
+<li>当一个主机发送IPsec数据报，就在SAD中找相应SA，以便获得必要的信息对IPSec数据实施安全保护</li>
+<li>当一个主机接收IPsec数据报，就在SAD中找相应SA，以便获得必要的信息检查该分组的安全性</li>
+</ul>
+<p><strong>安全策略数据库SPD：</strong>SPD指明什么样的数据报需要IPsec处理</p>
+<h2 id="运输层安全协议"><a href="#运输层安全协议" class="headerlink" title="运输层安全协议"></a>运输层安全协议</h2><h3 id="SSL和TLS"><a href="#SSL和TLS" class="headerlink" title="SSL和TLS"></a>SSL和TLS</h3><p><strong>协议：</strong>建立在可靠的TCP之上，与应用层协议独立无关</p>
+<p><strong>基本目标：</strong>实现两个应用实体之间的安全可靠通信。</p>
+<p><strong>适用范围：</strong>使用SSL最多的是<strong>HTTP</strong>, 但SSL可用于任何应用层协议</p>
+<ul>
+<li>HTTP调用SSL对整个网页进行加密时变成了<strong>https</strong>(TCP的HTTPS端口号是443，而不是平时使用的端口号80)</li>
+</ul>
+<h3 id="安全套接字SSL"><a href="#安全套接字SSL" class="headerlink" title="安全套接字SSL"></a>安全套接字SSL</h3><ul>
+<li><strong>SSL服务器鉴别：</strong>允许用户证实服务器的身份。支持SSL的客户端通过验证来自服务器的证书，来鉴别服务器的真实身份并获得服务器的公钥</li>
+<li><strong>SSL客户鉴别：</strong>SSL的可选安全服务，允许服务器证实客户的身份</li>
+<li><strong>加密的SSL会话：</strong>对客户和服务器间发送的所有报文进行加密，并检测报文是否被篡改</li>
+</ul>
+<p><strong>SSL工作过程：</strong></p>
+<ol>
+<li>浏览器向服务器发送浏览器的<strong>SSL版本号</strong>和<strong>密码编码参数</strong>选择</li>
+<li>服务器向浏览器发送服务器的<strong>SSL版本号</strong>、<strong>密码编码参数</strong>选择及<strong>服务器的证书</strong></li>
+<li>浏览器收到服务器发来的证书时，<strong>检查证书</strong>是否在自己的可信的CA表中：如不在，则后面的加密和鉴别连接就不能进行下去；如在，浏览器就使用CA的公开密钥对证书解密，这样就得到了服务器的公开密钥</li>
+<li>浏览器<strong>随机产生对称会话密钥</strong>，并用服务器的公开密钥加密,然后将加密的会话密钥发送给服务器</li>
+<li>浏览器向服务器发送一个报文，说明以后浏览器将使用此会话密钥进行加密。然后浏览器再向服务器发送一个单独的加密报文，表明<strong>浏览器端的握手</strong>过程已经完成;</li>
+<li>服务器也向浏览器发送一个报文，说明以后服务器将使用此会话密钥进行加密。然后服务器再向浏览器发送一个单独的加密报文，表明<strong>服务器端的握手</strong>过程已经完成;</li>
+<li>开始SSL的会话过程。</li>
+</ol>
+<h3 id="运输层安全TLS"><a href="#运输层安全TLS" class="headerlink" title="运输层安全TLS"></a>运输层安全TLS</h3><p>为所有基于TCP网络应用提供安全数据传输服务</p>
+<h2 id="应用层安全协议"><a href="#应用层安全协议" class="headerlink" title="应用层安全协议"></a>应用层安全协议</h2><h3 id="PGP协议"><a href="#PGP协议" class="headerlink" title="PGP协议"></a>PGP协议</h3><ul>
+<li>PGP是一个完整的电子邮件安全软件包，包括<strong>加密</strong>、<strong>鉴别</strong>、<strong>电子签名</strong>和<strong>压缩</strong>等技术<sub>IDEA和传统加密杂合算法</sub></li>
+<li>提供电子邮件安全性、发送鉴别和报文完整性</li>
+</ul>
+<p><strong>PGP工作原理</strong></p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/PGP.png" alt="PGP工作原理"></p>
+<h1 id="系统安全-防火墙与入侵检测"><a href="#系统安全-防火墙与入侵检测" class="headerlink" title="系统安全:防火墙与入侵检测"></a>系统安全:防火墙与入侵检测</h1><h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p><strong>防火墙</strong>是由软件、硬件构成的系统，是一种特殊编程的路由器,用来在两个网络之间实施<strong>访问控制策略</strong>。</p>
+<p><strong>防火墙功能：</strong></p>
+<p><strong>阻止</strong>和<strong>允许</strong></p>
+<ul>
+<li>“<strong>阻止</strong>”——阻止某种类型的通信量通过防火墙（从外部网络到内部网络</li>
+<li>“<strong>允许</strong>”——允许某种类型的通信量通过防火墙</li>
+<li>防火墙必须能够识别各种类型的通信量。不过在大多数情况下防火墙的主要功能是“<strong>阻止</strong>”</li>
+</ul>
+<h3 id="防火墙技术分类"><a href="#防火墙技术分类" class="headerlink" title="防火墙技术分类"></a>防火墙技术分类</h3><ul>
+<li><strong>网络级防火墙：</strong>防止整个网络出现外来非法入侵；包括<strong>分组过滤</strong>和<strong>授权服务器</strong></li>
+<li><strong>应用级防火墙：</strong>从应用程序进行访问控制；使用<strong>应用网关</strong>或<strong>代理服务器</strong>区分应用</li>
+</ul>
+<h2 id="入侵检测系统IDS"><a href="#入侵检测系统IDS" class="headerlink" title="入侵检测系统IDS"></a>入侵检测系统IDS</h2><p>在入侵已经开始，但还没有造成危害或在造成更大危害前，及时检测到入侵，以便尽快阻止入侵，把危害降低到最小</p>
+<p><strong>工作原理：</strong>对进入网络的分组执行<strong>深度分组检查</strong>，当观募到可疑分组时，向网络管理员发出告警或执行阻断操作<sub>由于IDS的“误报”率通常较高，多数情况不执行自动阻断</sub></p>
+<p><strong>功能：</strong>IDS能用于检测多种网络攻击，包括网络映射、端口扫描、DoS攻击、蠕虫和病毒、系统漏洞攻击等</p>
+<p>基于异常的检测可以检测出<strong>未知攻击</strong></p>
+<h3 id="入侵检测方法"><a href="#入侵检测方法" class="headerlink" title="入侵检测方法"></a>入侵检测方法</h3><ul>
+<li><p><strong>基于特征的IDS</strong>维护一个<strong>所有已知攻击标志性特征的数据库</strong>。</p>
+<p>基于特征的IDS 只能检测已知攻击，对于未知攻击则束手无策。</p>
+</li>
+<li><p><strong>基于异常的IDS</strong>通过观察正常运行的网络流量，学习正常流量的统计特性和规律。当检测到网络中流量某种统计规律不符合正常情况时，则认为可能发生了入侵行为。</p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/netsecurity.html">http://jarrycow.top/posts/netsecurity.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">网络安全</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/streamingMedia.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/streamingMedia.png" class="responsive-img" alt="流媒体">
+                        
+                        <span class="card-title">流媒体</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/appLayers.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/appLayers.png" class="responsive-img" alt="应用层">
+                        
+                        <span class="card-title">应用层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            绝大多数编程只涉及应用层，种类繁多
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jarrycow
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

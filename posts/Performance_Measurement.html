@@ -1,0 +1,2099 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="性能测量方法">
+    <meta name="description" content="
+
+时延测量方法时延测量研究现状
+往返时延的测量简单易行：开始与结束时间都由测量发起端时钟记录
+单向时延更能准确的评估网络的质量如视频点播服务，视频数据流通常是在服务器端到客户端的方向上传输
+可用 $RTT$ 估算出单向时延，但由于网络的不">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>性能测量方法 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/Performance_Measurement.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">性能测量方法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                                <span class="chip bg-color">网络测量</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                网络测量
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-11-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+
+<h1 id="时延测量方法"><a href="#时延测量方法" class="headerlink" title="时延测量方法"></a>时延测量方法</h1><h2 id="时延测量研究现状"><a href="#时延测量研究现状" class="headerlink" title="时延测量研究现状"></a>时延测量研究现状</h2><ul>
+<li><strong>往返时延</strong>的测量简单易行：开始与结束时间都由测量发起端时钟记录</li>
+<li><strong>单向时延</strong>更能准确的评估网络的质量<sub>如视频点播服务，视频数据流通常是在服务器端到客户端的方向上传输</sub></li>
+<li>可用 $RTT$ 估算出单向时延，但由于<strong>网络的不对称性</strong>，计算出的单向延时误差很大</li>
+</ul>
+<h2 id="时延测量的意义"><a href="#时延测量的意义" class="headerlink" title="时延测量的意义"></a>时延测量的意义</h2><ul>
+<li>时延反映数据包在传输过程中<strong>排队拥塞</strong>的情况</li>
+<li>有利于对时延敏感的<strong>高实时性</strong>交互应用</li>
+<li>根据时延来安排可用带宽，提高<strong>带宽利用率</strong></li>
+<li>事先检测出<strong>网络安全</strong>问题：对网络流量进行数据分析和数据挖掘，能够发现各种网络攻击，如 DDoS 攻击</li>
+</ul>
+<h2 id="时延测量问题"><a href="#时延测量问题" class="headerlink" title="时延测量问题"></a>时延测量问题</h2><ul>
+<li>时钟频差与时钟偏差的相互作用问题</li>
+<li>非对称路径下时延测量问题</li>
+<li>计时精度对测量的影响</li>
+<li>动态路由问题</li>
+<li>测量负载问题</li>
+<li>最小时延测量问题</li>
+</ul>
+<h3 id="时延测量方法-1"><a href="#时延测量方法-1" class="headerlink" title="时延测量方法"></a>时延测量方法</h3><ul>
+<li><p><strong>基于 ICMP 协议的时延测量</strong></p>
+<ul>
+<li>将报文封装在 ICMP 报文中测量</li>
+<li>ICMP 报文是 DOS 攻击主要方式，因此很可能被阻塞导致结果不可靠</li>
+<li>经典 ICMP 协议测量方法是 ping 和 traceroute</li>
+</ul>
+</li>
+<li><p><strong>基于 UDP 协议的网络时延测量</strong></p>
+<ul>
+<li>接收方从指定传输端口收到 UDP 报文后，反馈报文可能为 UDP 报文或是<br>ICMP 报文</li>
+<li>当端口对应服务不存在时，反馈的是 ICMP 端口不可达报文</li>
+<li>由于没有拥塞控制，UDP 报文使用高峰时为减少对 TCP 流影响，速率会受限</li>
+</ul>
+</li>
+<li><p>基于 TCP 协议的网络时延测量</p>
+<ul>
+<li>主要针对ICMP、UDP这两种报文被路由器或防火墙过滤的情况，应用最广</li>
+<li>TCP 测量难点：TCP 协议设置有发送缓冲窗口，探测数 据包并不是即时发送</li>
+<li>发送方记录发送时间远远早于时间发送时间，而使得时延测量的结果大于实际值的现象</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ICMP 报文</th>
+<th>UDP 报文</th>
+<th>TCP 报文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实现难度</td>
+<td>容易</td>
+<td>容易</td>
+<td>难</td>
+</tr>
+<tr>
+<td>过滤难度</td>
+<td>容易</td>
+<td>容易</td>
+<td>不容易</td>
+</tr>
+<tr>
+<td>测量效率</td>
+<td>高</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>测量准确度</td>
+<td>高</td>
+<td>较高</td>
+<td>较高</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="时延测量工具"><a href="#时延测量工具" class="headerlink" title="时延测量工具"></a>时延测量工具</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>概述</th>
+<th>下载</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Network Pinger</td>
+<td>提供时延 ping 操作、trace 跟踪、端口扫描等</td>
+<td><a target="_blank" rel="noopener" href="http://www.networkpinger.com/en/">http://www.networkpinger.com/en/</a></td>
+</tr>
+<tr>
+<td>qperf</td>
+<td>网络性能测试工具，测量两个节点之间的带宽和延迟，可以通过 TCP&#x2F;IP 以及 RDMA 传输进行工作</td>
+<td><a target="_blank" rel="noopener" href="https://pkgs.org/download/qperf">https://pkgs.org/download/qperf</a></td>
+</tr>
+<tr>
+<td>Ethr</td>
+<td>一款TCP、UDP和HTTP网络性能测量工具，用于跨多种协议对带宽、连接、数据包、延迟、丢失进行全面的网络性能测量</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Microsoft/Ethr">https://github.com/Microsoft/Ethr</a></td>
+</tr>
+<tr>
+<td>Angry IP Scanner</td>
+<td>非常快速的IP地址和端口扫描仪， 对每个IP地址执行ping操作，以检查其是否存在，然后可以选择解析其主名，确定MAC地址，扫描端口等</td>
+<td><a target="_blank" rel="noopener" href="https://angryip.org/download/">https://angryip.org/download/</a></td>
+</tr>
+</tbody></table>
+<h1 id="时钟同步方法"><a href="#时钟同步方法" class="headerlink" title="时钟同步方法"></a>时钟同步方法</h1><p><strong>时钟偏差：</strong>某一时刻时钟时间与参考时间之间的误差</p>
+<p><strong>时钟频率：</strong>时钟时间变化的快慢程度</p>
+<p><strong>时钟频差：</strong>时钟的频率与参考时钟频率之间的差值</p>
+<h2 id="消除时钟偏差主流方法"><a href="#消除时钟偏差主流方法" class="headerlink" title="消除时钟偏差主流方法"></a>消除时钟偏差主流方法</h2><ul>
+<li>**全球定位系统 GPS **<ul>
+<li>通过卫星授时</li>
+<li>使用外置天线来接收信号，测量精度最高，为纳秒级</li>
+<li>造价高而且使用环境易受限制，很难被大规模使用</li>
+</ul>
+</li>
+<li><strong>网络时间协议 NTP</strong><ul>
+<li>发送一个类似 PING 的探测包，接收端在收到探测包后返回一个应答包</li>
+<li>探测包的发送时间戳和接收时间戳、应答包的发送时间戳接收时间戳</li>
+<li>根据这几个时间戳，NTP 计算出两台机器的时钟偏差，从而完成同步</li>
+</ul>
+</li>
+<li><strong>精密时钟同步协议 PTP</strong><ul>
+<li>几台机器使用 GPS 作为主时钟，并且为众多节点提供时钟同步</li>
+<li>主时钟周期性地发布时间同步协议及时间信息，据此计算出主从线路时延及主从时间差，使主从设备时间保持一致来消除时钟偏差</li>
+</ul>
+</li>
+</ul>
+<h2 id="PTP-协议"><a href="#PTP-协议" class="headerlink" title="PTP 协议"></a>PTP 协议</h2><p><strong>普通时钟 OC</strong>：一般意义上的时钟，只有一个用于 PTP 同步的端口，可作为主时钟源或从时钟</p>
+<p><strong>边界时钟 BC</strong>：有多个用于精准同步的端口，可以对系统进行简化分解 ， 降低拓扑结构难度</p>
+<p><strong>透明时钟 TC</strong>：对边界时钟进行了优化， 减少级联间的时间延迟累积</p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E7%BA%A7%E8%81%94%E6%97%B6%E9%92%9F.png"></p>
+<h3 id="PTP-协议同步原理"><a href="#PTP-协议同步原理" class="headerlink" title="PTP 协议同步原理"></a><strong>PTP 协议同步原理</strong></h3><ol>
+<li><p>主时钟周期性向从时钟发送 <strong>Sync 同步报文</strong>，发送时刻 $t_1$ 与 <strong>Follow_UP 跟随报文</strong>发送给从时钟</p>
+</li>
+<li><p>从时钟收到 <strong>Sync 同步报文</strong>后， 记录到达时刻为 $ t_2$</p>
+</li>
+<li><p>从时钟解析 Sync同步报文 中的 $t_1$，向主时钟发送 <strong>Delay_Req 延时请求报文</strong>，记录发出时刻 $t_3$ </p>
+</li>
+<li><p>主时钟收到 <strong>Delay_Req 延时请求报文</strong> 记录到达时刻 $t_4$，将时间戳 $t_4$ 打包 <strong>Delay_Req 延时请求应答报文</strong>发送给从时钟</p>
+</li>
+</ol>
+<p>主从时钟之间的时钟偏差 Offset，主时钟到从时钟的传输时延：</p>
+<p>$Delay &#x3D; t_2-t_1-Offset\ \ Delay &#x3D; t_4-t_3+Offset$<br>$$<br>Offset&#x3D;\dfrac{\left(t_2-t_1\right)-\left(t_4-t_3\right)}2<br>$$</p>
+<h2 id="时钟频差测量方法"><a href="#时钟频差测量方法" class="headerlink" title="时钟频差测量方法"></a>时钟频差测量方法</h2><table>
+<thead>
+<tr>
+<th>算法名称</th>
+<th>算法概述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Paxson’s 方法</strong></td>
+<td>基于双向消息通信机制，该方法考虑了网络拥塞的影响，首先对测量结果分段，选择每段中单向延时最小的值，然后使用线性规划算法计算时钟偏差，网络拥塞严重时，该方法的计算精度降低</td>
+</tr>
+<tr>
+<td><strong>Moon 方法</strong></td>
+<td>基于单向消息通信机制，发送端以固定的时间向接收端发送一次数据包，并记下发送时间和接收时间。由此得到一组由二维坐标点组成的集合，用一种新的线性方法得到一条逼近测量集合的直线，从而获得时钟偏差</td>
+</tr>
+<tr>
+<td><strong>Li Zhang 方法</strong></td>
+<td>在 Moon 方法的基础上提出了基于凸包法求解网络单向延时的方法。通过凸包方法检测出逼近各个延迟值的直线从而求解网络单向延时</td>
+</tr>
+</tbody></table>
+<h2 id="时钟同步服务器"><a href="#时钟同步服务器" class="headerlink" title="时钟同步服务器"></a>时钟同步服务器</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.ntppool.org/zh/">NTP Pool Project</a></li>
+<li><a href="cn.pool.ntp.org">中国NTP</a></li>
+<li><a target="_blank" rel="noopener" href="https://tuna.moe/help/ntp/">清华大学</a></li>
+<li><a href="time.windows.com">微软自带</a></li>
+</ul>
+<h2 id="建立-Linux-时钟同步服务器"><a href="#建立-Linux-时钟同步服务器" class="headerlink" title="建立 Linux 时钟同步服务器"></a>建立 Linux 时钟同步服务器</h2><ol>
+<li>检查是否安装 ntp 和 ntpdate</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> –qa <span class="token operator">|</span> <span class="token function">grep</span> ntp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>修改 ntp 配置文件</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/ntp.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png"></p>
+<ol start="3">
+<li>启动 ntp 服务，并设置开机自启动</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start ntpd
+ systemctl <span class="token builtin class-name">enable</span> ntpd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>向设置的 NTP 服务器同步本地主机的时间，并查看同步状态</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ntpdate <span class="token parameter variable">-u</span> ntp1.aliyun.com 
+ntpstat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/npt%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F.png"></p>
+<ol start="5">
+<li>使用 crontab 定时同步，添加定时任务<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start crond
+systemctl <span class="token builtin class-name">enable</span> crond
+<span class="token function">crontab</span> <span class="token parameter variable">-e</span> <span class="token comment">#添加定时任务</span>
+<span class="token number">0</span> */2 * * * ntpdate ntp1.aliyun.com <span class="token operator">&amp;&amp;</span> hwclock <span class="token parameter variable">-w</span> <span class="token comment">#该命令在新建的crontab文件中添加，2个小时同步一次</span>
+<span class="token function">crontab</span> –l <span class="token comment">#查看定时任务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>查看ntp服务器与上层ntp的状态<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ntpq <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/NTP%E6%97%B6%E9%97%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%88%90%E5%8A%9F.png"></li>
+</ol>
+<ul>
+<li>remote：本机和上层ntp的ip或主机名 </li>
+<li>refid：参考上一层ntp主机地址</li>
+<li>st：stratum阶层 </li>
+<li>when：多少秒前曾经同步过时间</li>
+<li>poll：下次更新在多少秒后 </li>
+<li>reach：向上层ntp服务器要求更新的次数</li>
+<li>delay：网络延迟 </li>
+<li>offset：时间补偿</li>
+<li>jitter：系统时间与bios时间差</li>
+</ul>
+<h1 id="丢包测量方法"><a href="#丢包测量方法" class="headerlink" title="丢包测量方法"></a>丢包测量方法</h1><p><strong>丢包率：</strong>一段时间内，终端未成功接收的报文总数占源端发送报文总数的比例</p>
+<p><strong>通信双方观测到丢包率：</strong>通常情况下，丢失的数据包的数量非可以直接统计的量，因此引入终端接收的数据包的量$N_{rec}$，则丢包率：$R&#x3D;1-\dfrac{N_{rec}}{N_{all}}$</p>
+<p><strong>中间结点观测到丢包率：</strong>$N_{rec}$表示实际通过观测结点的数据包的数量，可实际统计；$N_loss$表示在到达观测结点之前丢包总数，可估计：$R&#x3D;\dfrac{N_{loss}}{N_{loss}+N_{rec}}$</p>
+<h2 id="丢包测量的问题"><a href="#丢包测量的问题" class="headerlink" title="丢包测量的问题"></a>丢包测量的问题</h2><ul>
+<li><strong>不参与通信的丢包测量</strong><ul>
+<li>对于网络服务提供商而言，从不参与通信的中间结点测量丢包十分困难</li>
+</ul>
+</li>
+<li><strong>UDP 协议的丢包测量</strong><ul>
+<li>UDP 协议简单，不易测量</li>
+<li>随着 QUIC 标准化，UDP 传输变多</li>
+</ul>
+</li>
+<li><strong>丢包测量开销</strong><ul>
+<li>许多测量基于扫描整条数据流中序号位，统计得到丢失和接收的数据包总量</li>
+<li>对于网络测量设备和海量网络数据，急需解决高速且准确测量丢包方法</li>
+</ul>
+</li>
+<li><strong>加密协议和子流问题</strong><ul>
+<li>数据传输更侧重加密难以检测</li>
+<li>多路复用导致一条传输层链接包含多条子流，难以区分检测</li>
+</ul>
+</li>
+<li><strong>丢包测量敏感度</strong><ul>
+<li>不同应用层服务在传输层表现差异巨大</li>
+<li>丢包测量通常要监测一定数据量才能准确测量丢包</li>
+<li>在数据量不稳定或数据突发时，难以保证丢包测量敏感度</li>
+</ul>
+</li>
+<li><strong>丢包测量精度</strong><ul>
+<li>丢包测量目标在于检测每个数据包丢失的时间和空间位置</li>
+<li>现实很难有方法检测倒数据包级别</li>
+</ul>
+</li>
+</ul>
+<h2 id="主动丢包测量方法"><a href="#主动丢包测量方法" class="headerlink" title="主动丢包测量方法"></a>主动丢包测量方法</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>基于 ICMP 协议</th>
+<th>基于通信双方</th>
+<th>基于自定义探针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>实现难度</strong></td>
+<td>容易</td>
+<td>中等</td>
+<td>难</td>
+</tr>
+<tr>
+<td><strong>测量准确度</strong></td>
+<td>低</td>
+<td>高</td>
+<td>中等</td>
+</tr>
+<tr>
+<td><strong>测量开销</strong></td>
+<td>高</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>安全性考虑</strong></td>
+<td>低</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>通用性</strong></td>
+<td>高</td>
+<td>低</td>
+<td>较高</td>
+</tr>
+<tr>
+<td><strong>优劣</strong></td>
+<td>功能有限，适用于粗略测量</td>
+<td>只适用于通信的参与方使用，有较大局限性</td>
+<td>实现开销大，针对具体测量需求需要特定 设计和实现；由于需要向网络中注入数据探针，存在造成网络阻塞的可能</td>
+</tr>
+</tbody></table>
+<h2 id="丢包测量工具"><a href="#丢包测量工具" class="headerlink" title="丢包测量工具"></a>丢包测量工具</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>概述</th>
+<th>下载</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>VoIP &amp; Network Quality Manager (VNQM)</strong></td>
+<td>Trace packet loss with this well-built, real-time monitoring and alerting tools for wan and VoIP.</td>
+<td><a target="_blank" rel="noopener" href="https://www.solarwinds.c/">https://www.solarwinds.c/</a></td>
+</tr>
+<tr>
+<td><strong>Network Performance Monitor (NPM)</strong></td>
+<td>A comprehensive network performance monitoring tool that includes packet loss tests and DFI.</td>
+<td><a target="_blank" rel="noopener" href="https://www.solarwinds.c/">https://www.solarwinds.c/</a></td>
+</tr>
+<tr>
+<td><strong>PRTG Network Monitor</strong></td>
+<td>A sensor-based network monitoring tool for packet loss and other performance insights.</td>
+<td><a target="_blank" rel="noopener" href="https://www.paessler.co/">https://www.paessler.co/</a></td>
+</tr>
+<tr>
+<td><strong>Packet Loss Test</strong></td>
+<td>Web-based, simple packet loss monitor if you need a free and quick solution.</td>
+<td><a target="_blank" rel="noopener" href="https://packetlosstest.co/">https://packetlosstest.co/</a></td>
+</tr>
+</tbody></table>
+<h1 id="带宽测量方法"><a href="#带宽测量方法" class="headerlink" title="带宽测量方法"></a>带宽测量方法</h1><p><strong>主动测量</strong>：通过向网络发送探测数据包，并根据它们所携带的信息来推测带宽的情况，主动测量将增加网络的负载，对测量结果的准确性也有影响。 </p>
+<ul>
+<li>优点：<ul>
+<li>灵活、主动，可根据不同网络使用不同方法</li>
+<li>不涉及用户信息，对于用户安全</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>会发送大量数据包，对网络产生负担和影响，干扰测量结果</li>
+</ul>
+</li>
+</ul>
+<p><strong>被动测量</strong>：不向网络发送数据包，而是监听网络中的流量来测量网络的带宽，被动测量不会增加网络的负载，但它部署起来却相对困难，一般需要配有专用设备 或拥有特殊权限，这对于普通用户来说不太容易实现。</p>
+<ul>
+<li>优点：<ul>
+<li>不需要发送额外探测数据包</li>
+<li>结果可能更准确</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>需要中间监测设备参与过程的</li>
+<li>实时性不高</li>
+<li>不利于隐私保护</li>
+</ul>
+</li>
+</ul>
+<h2 id="链路-x2F-路径带宽测量"><a href="#链路-x2F-路径带宽测量" class="headerlink" title="链路&#x2F;路径带宽测量"></a>链路&#x2F;路径带宽测量</h2><table>
+<thead>
+<tr>
+<th>技术分类</th>
+<th>核心思想</th>
+<th>优点</th>
+<th>缺点</th>
+<th>代表算法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可变包长技术 （VPS）</td>
+<td>从发送端到路径每跳的最小 RTT 与探测包大小成正比,与链路带宽成反比，通过线性回归技术逐跳地测量路径上每一跳链路的容量</td>
+<td>发送多组探测包，测量精度高</td>
+<td>测量时间较长，消耗的带宽也较大；ICMP 回应包可能会被忽略</td>
+<td>Pathchar，pchar，clink，Nettimer 等</td>
+</tr>
+<tr>
+<td>包对技术 （PP）</td>
+<td>测量假设分组只在瓶颈 路处排队，在之前和之后的链路中都不需要排队， 通过接收端包的大小与时间间隔，求出端到端的带宽</td>
+<td>实现较为简单，对网络的负载较小</td>
+<td>受背景流量的影响非常 严重，测量所得带宽值很容易出现误差</td>
+<td>Bprobe， pathrate， CapProbe， nettimer， SigMon等</td>
+</tr>
+</tbody></table>
+<h3 id="包间隔模型"><a href="#包间隔模型" class="headerlink" title="包间隔模型"></a>包间隔模型</h3><p><strong>PGM 算法思想：</strong>自源端向目的端发送测量包，当测量包的速率大于可用带宽时，在瓶颈链路上的探测包就会发生排队现象，测量包之间的间隔就会发生变化。通过研究这种变化，就能得到链路可用带宽值。PGM 算法通常假设窄链路和紧链路为同一链路，且窄链路容量已知。<br>$$<br>A&#x3D;C\times\left(1-\dfrac{\triangle_{out}-\triangle_{in}}{\triangle_{in}}\right)<br>$$<br>其中，A 为可用带宽，C 为链路带宽， $\triangle_{𝑜𝑢𝑡}$为输出时间间隔， $\triangle_{𝑖𝑛}$为输入时间间隔</p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PGM.png"></p>
+<ul>
+<li>优点：<ul>
+<li>PGM 算法单次测量时间较短，注入网络的流量较小，因此通常不会对网络造成较大负载</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>PGM 通常假设窄链路和紧链路为同一链路，且窄链路容量必须提前获知，但在实际网络中，由于交叉背景流的存在， PGM 模型假设窄链路与紧链路为同一链路的前提条件不能总是成立</li>
+<li>PGM 算法假设路径上的背景流是基于流体模型的，即背景流速率在测量时间内是恒定的，所以当路径上有突发性背景流时，测量精度无法保障</li>
+</ul>
+</li>
+</ul>
+<h3 id="包速率模型"><a href="#包速率模型" class="headerlink" title="包速率模型"></a>包速率模型</h3><p><strong>PRM 算法思想：</strong></p>
+<ul>
+<li>当所发送的探测流速率高于实际待测链路可用带宽时，则该探测流的单向时延将表现出一种递增趋势</li>
+<li>如果发送速率小于可用带宽，则探测流的单向时延呈现相对平稳趋势</li>
+<li>通过对时延变化趋势的判断，寻找 发送速率和到达速率开始匹配的转折点，将对应探测流的平均速率作为路径可用带宽的测量值</li>
+</ul>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/PRM.png"></p>
+<ul>
+<li>缺点：<ul>
+<li>其不可避免地会引入较多的测量负载，从而造成路径的短暂拥塞</li>
+</ul>
+</li>
+</ul>
+<h3 id="Pathload-模型"><a href="#Pathload-模型" class="headerlink" title="Pathload 模型"></a>Pathload 模型</h3><p><strong>负载周期流测量法 SLoPS：</strong>发送端周期性的发送一个探测流，接收端测量单向时延</p>
+<ul>
+<li>若发送速率 &gt; 可用带宽，探测包会在链路队列积累，单向时延增大</li>
+<li>若发送速率 &lt; 可用带宽，单向时延呈现出的平稳趋势</li>
+</ul>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/SLoPS.png"></p>
+<p>通过发送端和接收端的协作，Pathload能交互式调整发送端的速率，使得发送速率 逐步趋向于可用带宽</p>
+<p>算法结束条件：测量发送速率收敛于某个区间，所以测量返回的结果是个区间</p>
+<p><strong>探测包序列</strong></p>
+<p>在 pathload 算法执行中发送 N 个探测包列，每个探测包列速率都相同， 每个探测包列都含 K 个等长等间隔的探测包，也可以说这 N 个探测包列是完全相同的探测包列。将以上发送 N 个探测包列的过程称为一轮探测</p>
+<p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E6%8E%A2%E6%B5%8B%E5%8C%85%E5%88%97.png"><br>$$<br>PCT&#x3D;\dfrac{\sum_{k&#x3D;2}^HI\left(D_k-D_{k-1}\right)}{H-1}\<br>RDT&#x3D;\dfrac{D_H-D_1}{\sum_{k&#x3D;2}^HI\left(D_k-D_{k-1}\right)}<br>$$<br>其中，$I(X)&#x3D;\left{\matrix{1\ \ if\ X\ is\ true\0\ \ if\ X\ is\ false}\right.$</p>
+<ul>
+<li><strong>PCT：</strong>连续的探测包是否呈现递增趋势<ul>
+<li>$0\le PCT\le 1$</li>
+<li>$PCT&gt;0.66$，算法认为该速率下的探测包列的单向时延为增长的趋势</li>
+<li>$PCT&lt;0.54$，算法认为探测包列的单向时延为非增的趋势</li>
+</ul>
+</li>
+<li><strong>PDT：</strong>序列最后和第一个探测包的单向时延的变化，比探测流内所有相邻探测包的时延变化的绝对值之和<ul>
+<li>$-1\le PCT\le1$</li>
+<li>$PDT&gt;0.55$，算法认为该速率下探测包列的单项时延为增长的趋势</li>
+<li>$PDT&lt;0.45$，算法认为该速率下探测包列的单向时延为非增的趋势</li>
+<li>$0.45&lt;PDT&lt;0.55$，算法认为该速率下探测包列的单向时延的变化趋势不明显</li>
+</ul>
+</li>
+</ul>
+<p><strong>发送速率调整</strong></p>
+<p>通过二分搜索的方法改变发送探测包的速率，逐步收敛到可用带宽</p>
+<p>若$R(n)&lt;A$，则$R_{\min}&#x3D;R(n)$，$R(n+1)&#x3D;\dfrac{R_{\max}+R_{\min}}2$</p>
+<p>若$R(n)&gt;A$，则$R_{\max}&#x3D;R(n)$，$R(n+1)&#x3D;\dfrac{R_{\max}+R_{\min}}2$</p>
+<h3 id="Spruce-方法"><a href="#Spruce-方法" class="headerlink" title="Spruce 方法"></a>Spruce 方法</h3><p>Spruce 在测量的准确性和鲁棒性最优</p>
+<p><strong>算法假设前提</strong></p>
+<ul>
+<li>窄链路和紧链路为同一链路</li>
+<li>窄链路容量已知：窄链路指端到端路径中各段链路中容量最小的链路</li>
+</ul>
+<h3 id="Spruce-算法流程"><a href="#Spruce-算法流程" class="headerlink" title="Spruce 算法流程"></a>Spruce 算法流程</h3><ol>
+<li>将两个大小相同探测包组成的探测包对注入待测路径中</li>
+<li>背景流量的插入使包间间隔增大</li>
+<li>根据包对的包间间隔的变化估计可用带宽</li>
+<li>发送多个包对来获取可用带宽的平均估测值</li>
+</ol>
+<p>其中，$g_{in}$ 和 $g_{out}$ 分别表示在发送端和接收端探测包对中两个包的包间间隔</p>
+<h2 id="带宽测量工具"><a href="#带宽测量工具" class="headerlink" title="带宽测量工具"></a>带宽测量工具</h2><p><a target="_blank" rel="noopener" href="https://www.caida.org/tools/taxonomy/performance.xml">https://www.caida.org/tools/taxonomy/performance.xml</a></p>
+<h3 id="Pathload"><a href="#Pathload" class="headerlink" title="Pathload"></a>Pathload</h3><p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Pathload.png"></p>
+<h3 id="iperf3"><a href="#iperf3" class="headerlink" title="iperf3"></a>iperf3</h3><p><img src="/images/%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/iperf3.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/Performance_Measurement.html">http://jarrycow.top/posts/Performance_Measurement.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                                    <span class="chip bg-color">网络测量</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/enNetAnalysis.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/enNetAnalysis.jpg" class="responsive-img" alt="加密网络流量分析">
+                        
+                        <span class="card-title">加密网络流量分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/High_Speed_Measurement.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/High_Speed_Measurement.webp" class="responsive-img" alt="高速流量测量方法">
+                        
+                        <span class="card-title">高速流量测量方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络带宽已经达到了100Gbps甚至10Tbps，这么大数据量如何处理，主要可以从算法和硬件改进进行研究。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

@@ -1,0 +1,2072 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="物理层">
+    <meta name="description" content="物理层是将各种物理信号转换为编码">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>物理层 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/physicalLayer.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">物理层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="通信基础"><a href="#通信基础" class="headerlink" title="通信基础"></a>通信基础</h1><h2 id="信道、信号、宽带、码元、波特、速率、信源与信宿等基本概念"><a href="#信道、信号、宽带、码元、波特、速率、信源与信宿等基本概念" class="headerlink" title="信道、信号、宽带、码元、波特、速率、信源与信宿等基本概念"></a>信道、信号、宽带、码元、波特、速率、信源与信宿等基本概念</h2><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B.jpg" alt="数据通信系统模型"></p>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><ul>
+<li><p><strong>数据</strong>——运送消息的实体。</p>
+</li>
+<li><p><strong>信号</strong>——数据的电气的或电磁的表现。</p>
+<ul>
+<li><strong>模拟信号</strong>——消息的参数的取值是连续的。</li>
+<li><strong>数字信号</strong>——消息的参数的取值是离散的。</li>
+</ul>
+</li>
+<li><p><strong>码元</strong>——在使用时域的波形表示数字信号时，代表不同离散数值的基本波形。</p>
+</li>
+<li><p><strong>信源</strong>——产生和发送数据的源头</p>
+</li>
+<li><p><strong>信宿</strong>——接收数据的终点</p>
+</li>
+<li><p><strong>信道</strong>——向某一个方向传送信息的媒体。</p>
+</li>
+<li><p><strong>速率</strong>(数据率)——数据传输速率</p>
+<ul>
+<li><p><strong>码元速率</strong>(波特率)——单位时间内通过信道码元的个数[$Baud$]</p>
+</li>
+<li><p><strong>数据速率</strong>(比特率)——单位时间内通过信道信息量[$b&#x2F;s$]</p>
+<p>$C&#x3D;B\times \log_2n$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>信道容量</strong>(带宽)——一个信道最大数据传输速率</p>
+</li>
+</ul>
+<h3 id="通信方式"><a href="#通信方式" class="headerlink" title="通信方式"></a>通信方式</h3><ul>
+<li>**单向通信（单工通信)**——只能有一个方向的通信而没有反方向的交互。</li>
+<li>**双向交替通信（半双工通信)**——通信的双方都可以发送信息，但不能双方同时发送(当然也就不能同时接收)。</li>
+<li>**双向同时通信（全双工通信)**——通信的双方可以同时发送和接收信息。</li>
+</ul>
+<h3 id="传输方式"><a href="#传输方式" class="headerlink" title="传输方式"></a>传输方式</h3><ul>
+<li><p><strong>并行传输：</strong>距离短、速度快(计算机内部数据传输)</p>
+</li>
+<li><p><strong>串行传输：</strong>距离长、速度慢</p>
+</li>
+<li><p><strong>同步传输：</strong>字节无间隔，双方时钟同步</p>
+</li>
+<li><p><strong>异步传输：</strong>字节之间间隔不固定</p>
+</li>
+<li><p><strong>基带传输：</strong>基带信号直接传送到通信线路(数字信道)</p>
+</li>
+<li><p><strong>频带传输：</strong>基带信号经过调制后送到通信线路(模拟信道)</p>
+</li>
+</ul>
+<h2 id="奈奎斯特定理-amp-香农定理"><a href="#奈奎斯特定理-amp-香农定理" class="headerlink" title="奈奎斯特定理 &amp; 香农定理"></a>奈奎斯特定理 &amp; 香农定理</h2><ul>
+<li>码元传输速率越高，或信号传输距离越远，或传输媒体质量越差，在信道的输出端的波形的失真就越严重。</li>
+<li>若给出了码元与比特数之间的关系，则同时受到奈奎斯特和香农定理的约束</li>
+</ul>
+<h3 id="信噪比"><a href="#信噪比" class="headerlink" title="信噪比"></a>信噪比</h3><ul>
+<li><p>噪声存在于所有的电子设备和通信信道中。</p>
+</li>
+<li><p>噪声是随机产生的，它的瞬时值有时会很大。因此噪声会使接收端对码元的判决产生错误。<br>但噪声的影响是相对的。如果信号相对较强，那么噪声的影响就相对较小。</p>
+</li>
+<li><p><strong>信噪比</strong>就是信号的平均功率和噪声的平均功率之比。常记为$S&#x2F;N$（无量纲），并用分贝(dB)作为度量单位。</p>
+</li>
+</ul>
+<p>$$<br>信噪比&#x3D;10\log_{10}\dfrac{S}{N}(dB)<br>$$</p>
+<h3 id="奈奎斯特-Nyquist-定理"><a href="#奈奎斯特-Nyquist-定理" class="headerlink" title="奈奎斯特( Nyquist )定理"></a>奈奎斯特( Nyquist )定理</h3><ul>
+<li><p>在任何信道中，<strong>码元传输的速率是有上限的</strong>，否则就会出现<strong>码间串扰</strong>的问题，使接收端对码元的判决（即识别)成为不可能。</p>
+</li>
+<li><p>理想低通信道下的极限数据传输率</p>
+</li>
+</ul>
+<p>$$<br>C&#x3D;2Wlog_2V\ \ (b&#x2F;s)<br>$$</p>
+<ul>
+<li>$W$——理想低通（没有噪声、带宽有限）的信道中</li>
+<li>$V$——每个码元离散电平数目</li>
+</ul>
+<h3 id="香农-Shannon-定理"><a href="#香农-Shannon-定理" class="headerlink" title="香农(Shannon)定理"></a>香农(Shannon)定理</h3><p>带宽受限且有高斯白噪声干扰的信道<strong>极限、无差错</strong>的传播速率	<br>$$<br>  C&#x3D;Wlog_2(1+\dfrac{S}{N}) \text{  }(bit \text{\} s)<br>$$</p>
+<ul>
+<li><p>$W$——信道带宽(单位：$Hz$)</p>
+<ul>
+<li>$S$——信道内所传信号的平均功率</li>
+</ul>
+</li>
+<li><p>$N$——信道内部高斯噪声功率</p>
+</li>
+<li><p>香农定理表明</p>
+<ul>
+<li>信道的带宽或信道中的信噪比越大，则信息的极限传输速率就越高。</li>
+<li><strong>只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</strong><sub><font color="#DADADA">编码方式</font></sub></li>
+<li><strong>若信道带宽$W$或信噪比$S&#x2F;N$没有上限（当然实际信道不可能是这样的)，则信道的极限信息传输速率$C$也就没有上限。</strong></li>
+<li>实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。</li>
+<li>对于频带宽度已确定的信道，如果信噪比不能再提高了($W$确定则$S&#x2F;N$确定)，并且码元传输速率也达到了上限值，那么还有办法提高信息的传输速率。<br>这就是:用编码的方法让每一个码元携带更多比特的信息量。</li>
+</ul>
+</li>
+</ul>
+<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><ul>
+<li><strong>基带信号</strong>(基本频带信号)——来自信源的信号。(各种文字或图像文件的数据信号)</li>
+<li><strong>基带传输</strong>——数字信道传输</li>
+<li><strong>宽带传输</strong>——模拟信号传输</li>
+<li><strong>编码：</strong>数据变为数字信号</li>
+<li><strong>调制：</strong>数据变为模拟信号</li>
+</ul>
+<h3 id="数字数据编码为数字信号（编码）"><a href="#数字数据编码为数字信号（编码）" class="headerlink" title="数字数据编码为数字信号（编码）"></a>数字数据编码为数字信号（编码）</h3><p><strong>基带调制（基带传输）</strong>:仅对基带信号的波形进行变换，使它能够与信道特性相适应。<strong>变换后的信号仍然是基带信号</strong>。把这种过程称为<strong>编码</strong><sub><font color="#85289D">数字信号$\Rightarrow$另一种数字信号</font></sub></p>
+<ul>
+<li><strong>不归零制</strong>(NRZ):正电平代表1，负电平代表0。</li>
+<li><strong>归零制</strong>(RZ):正脉冲代表1，负脉冲代表0。</li>
+<li><strong>反向非归零编码</strong>(NRZI):信号翻转为0，不变为1。</li>
+<li><strong>曼彻斯特编码</strong>:位周期中心的向上跳变代表0，位周期中心的向下跳变代表1。但也可反过来定义(<font color="blue"><strong>以太网</strong></font>、BaseT)。</li>
+<li><strong>差分曼彻斯特编码</strong>:在每一位的中心处始终都有跳变。位开始边界有跳变代表0，而位开始边界没有跳变代表1(<font color="blue"><strong>局域网</strong></font>)。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E5%B8%B8%E8%A7%81%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F.png" alt="常见编码方式"></p>
+<ul>
+<li>曼彻斯特(Manchester)编码和差分曼彻斯特编码产生的<strong>信号频率比不归零制高</strong>。</li>
+<li>不归零制不能从信号波形本身中提取信号时钟频率(没有自同步能力)，<br>曼彻斯特编码和差分曼彻斯特编码具有<strong>自同步能力</strong>。<sub><font color="#B1B1B1">接收方可知发送方的发送速率</font></sub></li>
+<li>曼彻斯特编码波特率是数据率的<strong>两倍</strong>，编码效率为<strong>50%</strong></li>
+</ul>
+<h3 id="模拟数据编码为数字信号（调制）"><a href="#模拟数据编码为数字信号（调制）" class="headerlink" title="模拟数据编码为数字信号（调制）"></a>模拟数据编码为数字信号（调制）</h3><p>常用于<strong>音频信号</strong>编码的进行<strong>脉码调制(PCM)</strong></p>
+<ol>
+<li><p><strong>采样</strong><br>对模拟信号周期性扫描，把时间上连续的信号变为时间上离散的信号<br>假设原始信号最大频率$f$，则采样频率$f’\ge 2f$(奈奎斯特定理)</p>
+</li>
+<li><p><strong>量化</strong><br>抽样得到的幅值按照一定分级标准转化为对应数字值并取整数<br>声音分为$N$个量化级</p>
+</li>
+<li><p><strong>编码</strong><br>将量化的结果转化为二进制编码<br>假设每个采样点编码为$n$位的二进制数</p>
+</li>
+</ol>
+<p>$$<br>n&#x3D;\log_2N<br>$$</p>
+<p>数据传输速率<br>$$<br>v&#x3D;f’ \times n<br>$$</p>
+<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><ul>
+<li><p><strong>带通调制（频带传输）</strong>:使用<strong>载波</strong>(carrier)进行调制，把基带信号的频率范围搬移到较高的频段，并<strong>转换为模拟信号</strong>，这样就能够更好地在模拟信道中传输（即仅在一段频率范围内能够通过信道)。</p>
+</li>
+<li><p><strong>带通信号</strong> ∶经过载波调制后的信号。</p>
+</li>
+<li><p><strong>基带信号调制为模拟信号原因：</strong>基带信号往往包含有较多的低频成分，甚至有直流成分，而许多信道并不能传输这种低频分量或直流分量，必须对基带信号进行<strong>调制</strong>(modulation)。</p>
+</li>
+</ul>
+<ol>
+<li><strong>调幅(AM)</strong>:载波的振幅随基带数字信号而变化。</li>
+<li><strong>调频(FM)</strong>:载波的频率随基带数字信号而变化。</li>
+<li><strong>调相(PM)</strong>:载波的初始相位随基带数字信号而变化。</li>
+</ol>
+<ul>
+<li><strong>正交振幅调制QAM</strong>：为了更高的传输速率，结合调幅和相位</li>
+</ul>
+<p>$$<br>码元种类&#x3D;振幅种类 \times 相位种类\<br>数据传输速率&#x3D;波特率\times\log_2(振幅种类\times 相位种类)<br>$$</p>
+<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性，可能需要较高的频率。这种调制方式还可以使用<strong>频分复用（FDM）</strong>技术,充分利用带宽资源。电话机和本地局交换机采用模拟信号传输模拟数据的编码方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p>
+<h2 id="电路交换、报文交换与分组交换"><a href="#电路交换、报文交换与分组交换" class="headerlink" title="电路交换、报文交换与分组交换"></a>电路交换、报文交换与分组交换</h2><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E4%B8%89%E7%A7%8D%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83.png" alt="三种传输方式比较"></p>
+<h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><ul>
+<li><strong>面向连接的</strong></li>
+<li>电路交换三个阶段:<ol>
+<li><strong>建立连接</strong>：建立一条专用的物理通路，以保证双方通话时所需的通信资源在通信时不会被其他用户占用;</li>
+<li><strong>通信</strong>：主叫和被叫双方就能互相通电话;</li>
+<li><strong>释放连接</strong>：释放刚才使用的这条专用的物理通路（释放刚才占用的所有通信资源)。</li>
+</ol>
+</li>
+<li>电路交换的用户<strong>始终占用</strong>端到端的通信资源</li>
+<li><strong>优点</strong><ol>
+<li>通信时延小</li>
+<li>有序传输</li>
+<li>没有冲突</li>
+<li>适用范围广</li>
+<li>实时性强</li>
+<li>控制简单</li>
+</ol>
+</li>
+<li><strong>缺点</strong><ol>
+<li>建立链接时间长</li>
+<li>线路独占</li>
+<li>灵活性差</li>
+<li>难以规格化</li>
+<li>数据具有<strong>突发性</strong>，<strong>利用率低</strong>，不便进行<strong>差错控制</strong></li>
+</ol>
+</li>
+<li><strong>应用：</strong>传统电话网络<ul>
+<li>电话机直接连接，$N$部电话机两两直接连接需要$\frac{N(N-1)}{2}$电线</li>
+<li>数量增多，使用<strong>交换机</strong></li>
+</ul>
+</li>
+<li><strong>时延：</strong>$建立连接时间+总发送时延+总传播时延$</li>
+</ul>
+<h3 id="报文交换-存储转发网络"><a href="#报文交换-存储转发网络" class="headerlink" title="报文交换(存储转发网络)"></a>报文交换(存储转发网络)</h3><ul>
+<li><strong>无连接</strong></li>
+<li>封装成报文传给下一个节点(<strong>报文流中，网络保持对报文边界的跟踪；比特流将多次接收的比特流视为整体</strong>)</li>
+<li><strong>优点：</strong><ul>
+<li>较为<strong>充分地利用线路容量</strong></li>
+<li>可以实现不同链路之间不同数据<strong>传输速率的转换</strong></li>
+<li>可以实现<strong>格式转换</strong></li>
+<li>可以实现<strong>一对多</strong>、<strong>多对一</strong>的访问</li>
+<li>可以实现<strong>差错控制</strong></li>
+</ul>
+</li>
+<li><strong>缺点：</strong><ul>
+<li>增大了<strong>资源开销</strong></li>
+<li>增加了<strong>缓冲时延</strong></li>
+<li>需要额外的控制机制保证多个报文<strong>不乱序</strong></li>
+<li><strong>缓冲区</strong>难以管理</li>
+</ul>
+</li>
+<li><strong>应用：</strong>早期电报通信网</li>
+</ul>
+<h3 id="分组交换-包交换网络"><a href="#分组交换-包交换网络" class="headerlink" title="分组交换(包交换网络)"></a>分组交换(包交换网络)</h3><ul>
+<li><p><strong>互联网核心部分</strong></p>
+</li>
+<li><p><strong>过程</strong></p>
+<ol>
+<li>报文分组，加首部</li>
+<li>经路由器储存转发</li>
+<li>在目的地合并</li>
+</ol>
+</li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li>分组交换则采用<strong>存储转发</strong>技术。（主要设备：路由器）</li>
+<li>在发送端，先<strong>把较长的报文划分成较短的、固定长度的数据段</strong>（添加首部构成<strong>分组</strong>）</li>
+<li>每个分组在互联网中<strong>独立选择传输路径</strong></li>
+<li><strong>无连接</strong></li>
+</ul>
+</li>
+<li><p>路由器</p>
+<ul>
+<li>在路由器<strong>输入和输出端口之间没有直接连线</strong></li>
+<li>路由器处理分组的过程是<ol>
+<li>收到的分组先<strong>放入缓存(暂时存储)</strong></li>
+<li><strong>查找转发表</strong>，找出某个目的地址应从哪个端口转发</li>
+<li>把分组找到适当的端口<strong>转发</strong>出去</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>优点</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">优点</th>
+<th align="center">所采用的手段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">高效</td>
+<td align="center">在分组传输的过程中<strong>动态分配</strong>传输带宽，对通信链路是逐段占用。</td>
+</tr>
+<tr>
+<td align="center">灵活</td>
+<td align="center">为每一个分组<strong>独立</strong>地选择最合适的转发路由。</td>
+</tr>
+<tr>
+<td align="center">迅速</td>
+<td align="center">以分组作为传送单位，可以<strong>不先建立连接</strong>就能向其他主机发送分组。</td>
+</tr>
+<tr>
+<td align="center">可靠</td>
+<td align="center">保证可靠性的网络协议;分布式多路由的分组交换网，使网络有很好的生存性。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>缺点</strong></p>
+<ul>
+<li>于电路交换时存在存储转发时延</li>
+<li>需要传输额外的信息量</li>
+<li>当采用数据包服务时，可能失序、丢失、重复</li>
+</ul>
+</li>
+<li><p><strong>时延：</strong>$总传播时延+(链路数+分组数-1)\times 每个分组的发送时延$</p>
+</li>
+</ul>
+<h3 id="交换技术比较"><a href="#交换技术比较" class="headerlink" title="交换技术比较"></a>交换技术比较</h3><table>
+<thead>
+<tr>
+<th align="center">电路交换</th>
+<th align="center">报文交换</th>
+<th align="center">分组交换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">通信时延小;有序传输;没有冲突（不会产生信道征用的问题)</td>
+<td align="center">存储转发，无需建立连接，动态分配线路，提高线路可靠性和利用率，提供多目标服务</td>
+<td align="center">存储转发，无建立时延，线路利用率高，存储管理优化，减小出错几率和重发数据量；信道利用率高</td>
+</tr>
+<tr>
+<td align="center">需要建立连接,资源利用率低，线路独占，灵活性差</td>
+<td align="center">转发时延很大，要求网络节点有较大的缓存空间</td>
+<td align="center">存在转发时延，需要有额外的控制信息（丢失，重复，失序）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>若要连续传送大量的数据，且其传送时间远大于连接建立时间，则电路交换的传输速率较快</li>
+<li>报文交换和分组交换不需要预先分配传输带宽,在传送突发数据时可提高整个网络的信道利率</li>
+<li>由于一个分组的长度往往远小于整个报文的长度，因此分组交换比报文交换的时延小，同时也具有更好的灵活性。</li>
+<li><strong>对分组逐个确认 &amp; 对整个文件确认：</strong><ul>
+<li>如果网络容易丢失分组，那么对每个分组逐一确认比较好，此时仅重传丢失的分组</li>
+<li>另一方面，如果网络可靠度高，那么在不发生差错的情况下，仅在整个文件传送的结尾发送一次确认，从而减少了确认次数，节省了带宽；不过，即使只有单个分组丢失，也要重传整个文件</li>
+</ul>
+</li>
+</ul>
+<h1 id="传输介质"><a href="#传输介质" class="headerlink" title="传输介质"></a>传输介质</h1><p><strong>传输媒体</strong>也称为<strong>传输介质</strong>或<strong>传输媒介</strong>，它就是数据传输系统中在发送器和接收器之间的物理通路。</p>
+<h2 id="导引型传输媒体"><a href="#导引型传输媒体" class="headerlink" title="导引型传输媒体"></a>导引型传输媒体</h2><h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><ul>
+<li><strong>最常用</strong>的传输媒体（电话线）。</li>
+<li><strong>模拟传输</strong>和<strong>数字传输</strong>都可以使用双绞线</li>
+<li><strong>通信距离</strong>：几到十几公里（距离过远，可用<strong>放大器</strong>放大模拟信号，可用<strong>中继器</strong>传输数字信号）</li>
+<li><strong>绞合的目的</strong>：较少电磁干扰 </li>
+<li><font color="#840481"><strong>屏蔽双绞线STP</strong></font>：带金属屏蔽层</li>
+<li><font color="#840481"><strong>无屏蔽双绞线UTP</strong></font></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E5%8F%8C%E7%BB%9E%E7%BA%BF.png" alt="双绞线"></p>
+<h3 id="同轴电缆-总线"><a href="#同轴电缆-总线" class="headerlink" title="同轴电缆(总线)"></a>同轴电缆(总线)</h3><ul>
+<li><p>具有很好的<strong>抗干扰特性</strong>，用于<strong>传输较高速率</strong>的数据。</p>
+</li>
+<li><p>带宽取决于<strong>电缆的质量</strong>。</p>
+</li>
+<li><p><font color="blue"><strong>50Ω同轴电缆</strong></font>——<font color="#FF5CFA"><strong>LAN&#x2F;数字传输常用</strong></font> </p>
+</li>
+<li><p><font color="blue"><strong>75Ω同轴电缆</strong></font>——<font color="#FF5CFA"><strong>有线电视&#x2F;模拟传输常用</strong></font> </p>
+<p><img src="/../../../../../Users/Jarrycow/AppData/Local/Temp/Temp2_%E5%88%9D%E8%AF%95.zip/%E5%9B%BE%E7%89%87/%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86.png"></p>
+</li>
+</ul>
+<h3 id="光缆"><a href="#光缆" class="headerlink" title="光缆"></a>光缆</h3><ul>
+<li><p>光纤<strong>频率最高、带宽最宽</strong><sub>可见光的<strong>频率非常高</strong></sub></p>
+</li>
+<li><p>光线在纤芯中传输的方式：不断地<strong>全反射</strong></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E5%85%89%E7%BA%A4%E6%8A%98%E5%B0%84.png" alt="光纤折射"><br><strong>光纤种类</strong></p>
+<ul>
+<li><p><strong>多模光纤</strong><br>存在多条不同角度入射的光线在一条光纤中传输</p>
+<p>只适合<strong>近距离传输</strong></p>
+<p>光源：发光二极管</p>
+</li>
+<li><p><strong>单模光纤</strong><br>光纤的直径减小到只有一个光的波长，则线一直向前传播而不会产生反射。</p>
+<p>光源：激光器</p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E5%8D%95%E6%A8%A1%E5%85%89%E7%BA%A4%E5%92%8C%E5%A4%9A%E6%A8%A1%E5%85%89%E7%BA%A4.png" alt="单模光纤和多模光纤"></p>
+</li>
+</ul>
+<p><strong>优点</strong></p>
+<pre><code>1. 通信容量非常大。
+2. 传输损耗小，中继距离长。
+3. 抗雷电和电磁干扰性能好。
+4. 无串音干扰，保密性好。、
+5. 体积小，重量轻。
+</code></pre>
+<h2 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h2><p>将<strong>自由空间</strong>称为“非导引型传输媒体”。</p>
+<ul>
+<li>短波通信（即<strong>高频通信</strong>)主要是靠<strong>电离层的反射</strong>，但短波信道的通信<strong>质量较差，传输速率低</strong>(电离层不稳定)。</li>
+<li>微波在空间主要是<strong>直线传播</strong>。</li>
+</ul>
+<h3 id="无线电波"><a href="#无线电波" class="headerlink" title="无线电波"></a>无线电波</h3><p><strong>传输方式：</strong>地面波(低频、中频)、电离层反射(高频【短波通信】)</p>
+<p><strong>传输距离：</strong>很长<sub>无线电波具有较强的<strong>穿透能力</strong>,可以穿透固体</sub></p>
+<p><strong>应用：</strong>广泛应用于通信领域（无线手机通信、<strong>无线局域网</strong>）</p>
+<p><strong>优点：</strong>无须点对点，简化了通信连接<sub>无线电波<strong>向所有方向散播</strong></sub></p>
+<h3 id="微波通信"><a href="#微波通信" class="headerlink" title="微波通信"></a>微波通信</h3><p><strong>传输方式：</strong>直线传播 </p>
+<p><strong>分类：</strong>地面微波接力通信、卫星通信</p>
+<p><strong>传输距离：</strong>几十公里<sub>微波会<strong>穿透电离层</strong></sub>，远距离必须使用中继站(卫星通信)<br><strong>缺点</strong></p>
+<ol>
+<li>相邻站之间必须<strong>直视</strong>，不能有障碍物。<br>有时一个天线发射出的信号也会分成几条略有差别的路径到达接收天线,因而造成失真。</li>
+<li>易会受到恶劣气候的影响。<sub>非导引型传输媒体不可避免</sub></li>
+<li>隐蔽性和保密性较差。<sub>非导引型传输媒体通病</sub></li>
+<li>大量中继站的使用和维护耗费较多</li>
+</ol>
+<p><strong>卫星通信特点</strong></p>
+<p>通信距离远，通信费用与通信距离无关</p>
+<p>具有较大的传播时延</p>
+<h3 id="红外线"><a href="#红外线" class="headerlink" title="红外线"></a>红外线</h3><ul>
+<li><strong>点对点</strong>传输</li>
+<li>直线传输，中间不能有障碍，传输距离短</li>
+<li>传输速率低</li>
+</ul>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><ul>
+<li><strong>规程</strong>(procedure)：专指物理层协议</li>
+<li><strong>主要任务</strong>：确定与传输媒体<strong>接口</strong>的一些特性</li>
+</ul>
+<h2 id="物理层接口的特性"><a href="#物理层接口的特性" class="headerlink" title="物理层接口的特性"></a>物理层接口的特性</h2><ul>
+<li><strong>机械特性</strong>：指明接口所用接线器的形状和尺寸、引线数目和排列、固定和锁定装置等。<sub>看得见的特性</sub></li>
+<li><strong>电气特性</strong>：指明在接口电缆的各条线上出现的电压的范围。<sub>看不见的特性</sub></li>
+<li><strong>功能特性</strong>：指明某条线上出现的某一电平的电压的意义。</li>
+<li><strong>过程特性</strong>：指明对于不同功能的各种可能事件的出现顺序。</li>
+</ul>
+<h3 id="物理层主要特点"><a href="#物理层主要特点" class="headerlink" title="物理层主要特点"></a>物理层主要特点</h3><ul>
+<li><p>因在OSI之前，许多物理规程与协议已经制定并被采用，所以至今没按OSI地抽象模型制定一套新的物理层协议，而是沿用已存在的物理规程</p>
+</li>
+<li><p>由于物理连接方式很多，媒体传输种类也很多，因此具体物理协议很复杂<br>物理层考虑的是怎样才能在连接各种计算机的传输媒体<strong>传输数据比特流</strong>，而<strong>不是指具体的传输媒体</strong>。</p>
+</li>
+</ul>
+<h2 id="物理层作用"><a href="#物理层作用" class="headerlink" title="物理层作用"></a>物理层作用</h2><ul>
+<li>物理层的作用是要尽可能地<strong>屏蔽</strong>掉不同传输媒体和通信手段的差异，使数据链路层感觉不到差异，只考虑完成本层的协议和任务。</li>
+<li>给其服务用户(数据链路层)在一条物理的传输媒体上传送和接收比特流的能力</li>
+<li>在两个相邻系统中唯一地标识数据电路</li>
+</ul>
+<h1 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h1><h2 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h2><h2 id="集线器"><a href="#集线器" class="headerlink" title="集线器"></a>集线器</h2><h3 id="集线器的特点"><a href="#集线器的特点" class="headerlink" title="集线器的特点"></a>集线器的特点</h3><ul>
+<li>集线器是使用电子器件来模拟实际电缆线的工作，因此整个系统仍然像一个传统的以太网那样运行<sub>半双工</sub>。</li>
+<li>使用集线器的以太网在<strong>逻辑上</strong>仍是一个<strong>总线网</strong>，各工作站使用的还是CSMA&#x2F;CD协议，并<strong>共享逻辑上的总线</strong>。</li>
+<li>集线器很像一个多接口的转发器，<strong>工作在物理层</strong>。</li>
+<li>集线器采用了专门的芯片，进行自适应串音回波抵消，减少了近端串音。</li>
+</ul>
+<h3 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h3><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E6%98%9F%E5%9E%8B%E6%8B%93%E6%89%91.png" alt="星型拓扑"></p>
+<h1 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h1><h2 id="光纤同轴混合网-HFC网"><a href="#光纤同轴混合网-HFC网" class="headerlink" title="光纤同轴混合网(HFC网)"></a>光纤同轴混合网(HFC网)</h2><ul>
+<li>HFC网将原CATV 网中的同轴电缆<strong>主干部分改换为光纤</strong>，并使用<strong>模拟光纤技术</strong>。</li>
+<li>在模拟光纤中采用<strong>光的振幅调制AM</strong>，这比使用数字光纤更为经济。</li>
+<li>模拟光纤从<strong>头端</strong>连接到<strong>光纤结点</strong>(fiber node)，即<strong>光分配结点</strong>ODN(Optical Distribution Node)。在光纤结点光信号被转换为电信号。在光纤结点以下就是同轴电缆。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/HFC.png" alt="HFC"></p>
+<h2 id="FTTx技术"><a href="#FTTx技术" class="headerlink" title="FTTx技术"></a>FTTx技术</h2><ul>
+<li><p>FTTx是一种实现宽带居民接入网的方案，代表多种宽带光纤接入方式。</p>
+</li>
+<li><p>FTTx表示Fiber To The…(光纤到…)，例如:</p>
+<ol>
+<li><p><strong>光纤到户FTTH</strong> (Fiber To The Home):光纤→+直铺设到用户家庭，可能是居民接入网最后的解决方法。</p>
+</li>
+<li><p><strong>光纤到大楼FTTB</strong> (Fiber To The Building):光纤进入大楼后就转换为电信号，然后用电缆或双绞线分配到各用户。</p>
+</li>
+<li><p><strong>光纤到路边FTTC</strong> (Fiber To The Curb):光纤铺到路边，从路边到各用户可使用星形结构双绞线作为传输媒体。</p>
+</li>
+</ol>
+</li>
+<li><p>光配线网采用<strong>波分复用</strong>，上行和下行分别使用<strong>不同的波长</strong>。</p>
+</li>
+</ul>
+<h3 id="xDSL、HFC、FTTx优缺点"><a href="#xDSL、HFC、FTTx优缺点" class="headerlink" title="xDSL、HFC、FTTx优缺点"></a>xDSL、HFC、FTTx优缺点</h3><ul>
+<li>xDSL技术就是用数字技术对现有的模拟电话用户线进行改造，使它能够承载宽带业务。<br>成本低、易实现，但带宽和质量差异性大</li>
+<li>HFC网的最大的优点具有很宽的频带，并且能够利用相当大的覆盖面的有线电视网<br>但需要相当的资金和时间</li>
+<li>FTTx技术的优点是带宽非常宽，其缺点是造价较高，技术复杂，费用高，有时候不能充分利用带宽资源造成浪费。</li>
+<li>无线接入技术RIT (Radio Interface Technologies)是指通过无线介质将用户终端与网络节点连接起来，以实现用户与网络间的信息传递。无线接入技术的优点是灵活、方便、快捷，缺点是速率慢、不稳定、信号差。</li>
+</ul>
+<h2 id="宽带接入技术"><a href="#宽带接入技术" class="headerlink" title="宽带接入技术"></a>宽带接入技术</h2><h3 id="ADSL技术"><a href="#ADSL技术" class="headerlink" title="ADSL技术"></a>ADSL技术</h3><ul>
+<li><strong>非对称数字用户线 ADSL</strong> ：用数字技术对现有的<strong>模拟电话用户线</strong>进行改造，使它能够承载宽带业务。</li>
+<li>标准模拟电话信号的频带被限制在<strong>300~3400Hz</strong>的范围内，但用户线本身实际可通过的信号频率仍然<strong>超过1 MHz</strong>(靠先进的DMT编码，频分多载波并行传输、使得每秒一个码元就相当于每秒传输多个比特)</li>
+<li>ADSL技术就把0~4 kHz低端频谱留给传统电话使用，而<strong>把原来没有被利用的高端频谱留给用户上网使用</strong>。</li>
+<li>上行信道数量少，下行信道数量多<sub>多数人下载&gt;&gt;上传</sub></li>
+<li>DSL 就是<strong>数字用户线</strong>(Digital Subscriber Line)的缩写。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/ADSL.png" alt="ADSL"></p>
+<ul>
+<li><strong>电话分离器</strong>：用户线信号一分为二为低频传统电话所用信号和高频的网络信号</li>
+</ul>
+<h3 id="ADSL技术传送速率高原因"><a href="#ADSL技术传送速率高原因" class="headerlink" title="ADSL技术传送速率高原因"></a>ADSL技术传送速率高原因</h3><ul>
+<li>ADSL技术主要采用离散调制技术，这种技术将正交振幅调制(QAM)和频分复用技术相结合。把1MHz左右的带宽划分为256个通道，每个通道上采用16QAM 调制技术，这样每个波特可以携带16位数据。</li>
+<li>通过上述两种技术提高了信道速率，上下行速率的总和可达到15 Mb左右。</li>
+<li>依靠先进的编码技术，使得每秒传送一个码元就相当于每秒传送多个比特。</li>
+</ul>
+<h1 id="EPON-amp-GPON"><a href="#EPON-amp-GPON" class="headerlink" title="EPON &amp; GPON"></a>EPON &amp; GPON</h1><p><strong>EPON：</strong>以太网无源光网络。EPON指在链路层使用以太网协议，利用PON的拓扑结构实现了以太网的接入。EPON的优点是:与现有以太网的兼容性好，并且成本很低，扩展性强，管理方便。<br><strong>GPON：</strong>吉比特无源光网络。GPON采用通用封装方法GEM，可承载多业务，对各种业务类型都能够提供服务质量保证，是很有潜力的宽带光纤接入技术。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/physicalLayer.html">http://jarrycow.top/posts/physicalLayer.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/dataLinkLayer.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/dataLinkLayer.png" class="responsive-img" alt="数据链路层">
+                        
+                        <span class="card-title">数据链路层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据链路层可以学习接错编码和、信号复用
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/Net.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/Net.png" class="responsive-img" alt="计算机网络">
+                        
+                        <span class="card-title">计算机网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            计算机网络作为计算机基础知识之一，为我们分用和复用学习提供基础
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

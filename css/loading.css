@@ -1,0 +1,43 @@
+/*  */
+#loading-box .loading-line {
+  width: 67%;
+  height: 30px;
+  z-index: 500;
+  display: flex;
+  margin: auto;
+  /* position: fixed; */
+  position: absolute;
+  border-radius: 10px;
+  left: 16.5%;
+  top: calc(50% + (100vh / 6));
+  background: linear-gradient(1deg, #000000, #FFffff);
+  transition: all 0.1s;
+}
+
+#loading-box .herta {
+  display: flex;
+  position: relative;
+  position: fixed;
+  z-index: 500;
+  margin: auto;
+}
+
+/* 加载条背景 */
+#loading-box .loading-bgline {  
+  width: 67%;
+  height: 30px;
+  z-index: 500;
+  display: flex;
+  margin: auto;
+  position: fixed;
+  /* position: absolute; */
+  border-radius: 10px;
+  left: 16.5%;
+  top: calc(50% + (100vh / 6));
+  background-color: grey;
+  border-style: solid;
+  border-color: #FFffff;
+  border-width: 2px;
+  transition: all 0.1s;
+}
+

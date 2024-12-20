@@ -1,0 +1,1815 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="高速流量测量方法">
+    <meta name="description" content="网络带宽已经达到了100Gbps甚至10Tbps，这么大数据量如何处理，主要可以从算法和硬件改进进行研究。
+
+
+算法实现
+
+抽样：只能看到样本部分个体
+哈希：样本摘要
+聚类：事先定义好聚类标签路由器等设备
+
+流量抽样方法大数据特征
+数据量庞">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>高速流量测量方法 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/High_Speed_Measurement.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">高速流量测量方法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                                <span class="chip bg-color">网络测量</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">安全</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                网络测量
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-11-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>网络带宽已经达到了100Gbps甚至10Tbps，这么大数据量如何处理，主要可以从算法和硬件改进进行研究。</p>
+<span id="more"></span>
+
+<p><strong>算法实现</strong></p>
+<ul>
+<li>抽样：只能看到样本部分个体</li>
+<li>哈希：样本摘要</li>
+<li>聚类：事先定义好聚类标签<sub>路由器等设备</sub></li>
+</ul>
+<h1 id="流量抽样方法"><a href="#流量抽样方法" class="headerlink" title="流量抽样方法"></a>流量抽样方法</h1><h2 id="大数据特征"><a href="#大数据特征" class="headerlink" title="大数据特征"></a>大数据特征</h2><ol>
+<li>数据量庞大，不断递增 </li>
+<li>数据当中有重要的特征或趋势 </li>
+<li>对于如何更好的搜寻，总结它们，我们没有明确的答案</li>
+</ol>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/flow.png"></p>
+<p><strong>数据流</strong>：在一段时间内，有相同或相似标识的数据分组集合<br><strong>数据流标识</strong>：源，目的IP地址，源，目的端口等<br><strong>级别</strong>：每天在大型ISP网络当中，会生成100TB级别的数据流<br><strong>数据流记录</strong>： 流键值，分组总数，字节总数，数据流持续时间<br><strong>根据时间跨度管理网络</strong>：负载测试，DDoS攻击检测</p>
+<h2 id="为什么抽样"><a href="#为什么抽样" class="headerlink" title="为什么抽样"></a>为什么抽样</h2><ol>
+<li>资源受限<sub>带宽、内存、CPU</sub></li>
+<li>查询要求<sub>点对点, 精确度, 集成, 速度</sub></li>
+<li>数据特性<sub>重尾性, 相互关联性</sub></li>
+</ol>
+<h2 id="独立数据流抽样方法"><a href="#独立数据流抽样方法" class="headerlink" title="独立数据流抽样方法"></a>独立数据流抽样方法</h2><p><strong>伯努利抽样：</strong>每个物体以相同概率$p$被抽样</p>
+<p><strong>泊松抽样：</strong>权重为$x_i$的物体抽样概率为$p_i$</p>
+<p><strong>一致性抽样：</strong>要从不同集合的物体当中抽样，抽样不受权重和出现次数的影响<sub>$f(k)\rightarrow R$</sub>,同一标识同一决策</p>
+<p><strong>基于哈希的抽样(Bottom-k抽样)：</strong>对每个标识生成哈希函数</p>
+<h1 id="测量流量哈希函数"><a href="#测量流量哈希函数" class="headerlink" title="测量流量哈希函数"></a>测量流量哈希函数</h1><p><strong>定义</strong>：以数据流信息或者分组内容为输入值，来生成摘要的哈希函数<br><strong>是否使用密钥</strong>：保证处理大批量数据的效率，测量哈希函数不使用密 钥<br><strong>输入值特征</strong>：数据分组当中不随时间变化的部分</p>
+<p><strong>五元组定义数据流标识：</strong>${源IP, 目的IP, 源端口, 目的端口, 协议}$</p>
+<p><strong>高速网络四元组定义数据流标识：</strong>${源IP, 目的IP, 源端口, 目的端口}$<sub>高速网络绝大多数数据流都为TCP</sub></p>
+<p><strong>分类：</strong></p>
+<ul>
+<li>直接使用报文字段：效率更高，随机性不好</li>
+<li>使用哈希函数：效率略低，但是随机性更好</li>
+</ul>
+<p><strong>功能：</strong></p>
+<ul>
+<li>本质上概括了分组特征，实现了每个个体的排序和 分类功能</li>
+<li>排序和分类，为后续抽样，流量统计和流长分布计算提供了 便利</li>
+</ul>
+<h2 id="哈希函数测试"><a href="#哈希函数测试" class="headerlink" title="哈希函数测试"></a>哈希函数测试</h2><h3 id="随机度测度"><a href="#随机度测度" class="headerlink" title="随机度测度"></a>随机度测度</h3><p>研究一个哈希函数H，其输出为1个16比特的字符串，对于任何一个输入<br>每一种输出的抽样精度越接近$2^{-16}$，其随机性越好</p>
+<p><strong>位熵值：</strong>数据流可以取0&#x2F;1，假设$p(0)&#x3D;p\ \ p(1)&#x3D;1-p$，则位熵值$H(b)$：<br>$$<br>H(b)&#x3D;-\left(p\log_2p+(1-p)\log_2(1-p)\right)<br>$$<br>比特随机测度：$E&#x3D;\dfrac{H(b)}{H_{\max}(b)}$</p>
+<p>当$p&#x3D;\dfrac12$时，即$p(0)&#x3D;p(1)$时取最大值</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E9%9A%8F%E6%9C%BA%E5%BA%A6%E6%B5%8B%E8%AF%95.png"></p>
+<p><strong>位流熵值：</strong>对于一个长度为$k$的比特流，一共有$2^k$种排列组合方式，第$i$种排列组合出现的概率为$p_i$，则该位流熵值为：<br>$$<br>H(k)&#x3D;-\sum_{i&#x3D;0}^{2^k-1}p_i\log_2p_i<br>$$<br>位流随机测度：$E&#x3D;\dfrac{H(k)}{H_{\max}(k)}$，所有排列组合等概率出现取最大值</p>
+<p>随机测度取值$0\le E\le 1$，越接近1，随即性能越好</p>
+<h3 id="计算速度"><a href="#计算速度" class="headerlink" title="计算速度"></a>计算速度</h3><p>因素：硬件因素、函数因素</p>
+<p>$IPSX&lt;&lt;ROB&lt;&lt;CRC&lt;&lt;MD5$</p>
+<h3 id="均匀度测试"><a href="#均匀度测试" class="headerlink" title="均匀度测试"></a>均匀度测试</h3><p><strong>均匀性：</strong>所有可能出现的结果都应该尽可能均匀分布，不应该出现某几种输出聚焦的情况</p>
+<p>若将哈希函数的输出空间划分为$n$等分，对于$m$个实验对象，落入每一个区间的数量应该为$f_0&#x3D;\dfrac mn$。假设第$k$个区间数量为$f_k$，则理想偏差：<br>$$<br>\chi^2&#x3D;\dfrac{\sum_{k&#x3D;1}^n\left(f_k-f_0\right)^2}{f_0}<br>$$<br>假设样本均匀数量为512，可信度0.99，则$\chi^2_{0.99}(511)&#x3D;588.7$。若统计值$&gt;588.7$，则拒绝均匀分布假设。</p>
+<p>经过实践：</p>
+<ul>
+<li>MD5和IPSX均匀性不够好</li>
+<li>BOB和CRC具有较好的均匀性</li>
+</ul>
+<h3 id="冲突率测度"><a href="#冲突率测度" class="headerlink" title="冲突率测度"></a>冲突率测度</h3><p><strong>冲突：</strong>两个不同数据流被映射到同一区域，即对于$f_1\ne f_2$，但是$H(f_1)&#x3D;H(f_2)$</p>
+<p><strong>冲突次数：</strong>最后函数的输出空间当中第$i$个槽的统计结果为$N_i$，则发生该槽的冲突次数：<br>$$<br>C^2_{N_i}&#x3D;\dfrac{N_i(N_i-1)}2<br>$$<br><strong>冲突率：</strong>计算整个输出空间的冲突次数的总和，求出平均冲突次数来衡量该哈 希函数的冲突率：<br>$$<br>C&#x3D;\dfrac1{\dfrac{N(N-1)}2}\sum_{i&#x3D;1}^M\dfrac{N_i(N_i-1)}2<br>$$<br>其中，$\sum_{k&#x3D;1}^MN_k&#x3D;N$</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E5%86%B2%E7%AA%81%E7%8E%87%E6%AF%94%E8%BE%83.png"></p>
+<p>根据实验，CRC冲突率最小，IPSX和MD5接近</p>
+<h3 id="活跃流测度"><a href="#活跃流测度" class="headerlink" title="活跃流测度"></a>活跃流测度</h3><p><strong>活跃流：</strong>在属于该流的第一个报文分组到达后，在之后的每一个时间间隔里面，都至少有一个属于该数据流的报文分组到达</p>
+<p><strong>活跃流数：</strong>符合活跃流的数据流的总数</p>
+<p><strong>活跃流测度：</strong>可以提供算法完整的一致性刻画<br>$$<br>\hat n&#x3D;m\ln\left(\dfrac m {m-n}\right) \<br>f&#x3D;\dfrac{\left|\hat n-n\right|}n<br>$$<br>其中，$f$为活跃流测度，$m$为哈希函数输出空间总槽数，$n$为哈希函数实际映射到的总槽数，$\hat n$为为活跃流数量的最大似然估计值</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/%E6%B4%BB%E8%B7%83%E6%B5%81%E6%B5%8B%E5%BA%A6.png"></p>
+<h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><h3 id="IPSX-IP-Shift-and-XOR-算法"><a href="#IPSX-IP-Shift-and-XOR-算法" class="headerlink" title="IPSX(IP Shift and XOR)算法"></a>IPSX(IP Shift and XOR)算法</h3><ul>
+<li>为处理 IPv4 数据包而定制的</li>
+<li>利用 IP 分组不同字段可变性，使得减少IP分组之间相关性进行处理</li>
+<li>来自 IPv4 和 TCP&#x2F;UDP 报头的字段用作输入 </li>
+<li>只要使用位移和异或的极少数指令</li>
+</ul>
+<p><strong>IPSX 组成</strong></p>
+<ol>
+<li><p>输入选择：其形式是从IP包的各个部分进行组合输入 </p>
+<p>从 IP 数据包头的前 20 个字节和IP负载的前8个字节中提取</p>
+</li>
+<li><p>计算组合上的散列</p>
+<p>$f_1\ &#x3D;\ ip_{src}\ \ f_2\ &#x3D;\ ip_{dst}\ \ f_3\ &#x3D;\ port_{src}\ ||\ port_{dst}$</p>
+<p>$v_1\ &#x3D;\ f_1 \wedge f_2 $</p>
+<p>$v_2\ &#x3D;\ f_3$</p>
+<p>$h_1\ &#x3D;\ v_1\ &lt;&lt;\ 8$</p>
+<p>$h_1\ \wedge&#x3D;\ v_1&gt;&gt;4$</p>
+<p>$h_1\ \wedge&#x3D; \ v_1\ &gt;&gt;\ 12$</p>
+<p>$h_1\ \wedge&#x3D;\ v_1\ &gt;&gt;\ 16$</p>
+<p>$h_1\ \wedge&#x3D;\ v_2\ &lt;&lt;\ 6$</p>
+<p>$h_1\ \wedge&#x3D;\ v_2\ &lt;&lt;\ 10$</p>
+<p>$h_1\ \wedge&#x3D;\ v_2\ &lt;&lt;\ 14$</p>
+<p>$h_1\ \wedge&#x3D;\ v_2\ &gt;&gt;\ 7$</p>
+</li>
+</ol>
+<p>IPSX 哈希函数最后运算生成的结果为 32 比特，取其后 16 位，即输出$h_1$</p>
+<h3 id="异或位移算法"><a href="#异或位移算法" class="headerlink" title="异或位移算法"></a>异或位移算法</h3><p>比 IPSX 同等运算速率，但是随机性更好的</p>
+<p>$hash_1\ &#x3D;\ ip_src[1]\ &lt;&lt;\ 3,\ \ hash_1\ &#x3D;\ hash_1\ \wedge\ \ ip_dst[1],\ \ hash\ &#x3D;\ hash_1 $</p>
+<p>$hash_1\ &#x3D;\ ip_src[0]\ &lt;&lt;\ 3,\ \ hash_1\ &#x3D;\ hash_1\ \wedge\ \ port_src,\ \ hash\ &#x3D;\ hash_1 $</p>
+<p>$hash_1\ &#x3D;\ ip_src[0]\ &lt;&lt;\ 3,\ \ hash_1\ &#x3D;\ hash_1\ \wedge\ \ port_dst,\ \ hash\ &#x3D;\ hash_1 $</p>
+<h1 id="数据流测量方法"><a href="#数据流测量方法" class="headerlink" title="数据流测量方法"></a>数据流测量方法</h1><h2 id="Bitmap-测量方法"><a href="#Bitmap-测量方法" class="headerlink" title="Bitmap 测量方法"></a>Bitmap 测量方法</h2><p><strong>数据结构</strong>：基于“位”的映射，使用一个bit位来标记某个元素对应的value，key是 元素，通过1为表示一个数，0表示不存在，1表示存在</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/bitmap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png"></p>
+<p><strong>Direct Bitmap：</strong>。在 流标识上使用Hash函数，将每个流映射到Bitmap的1个位。在测量间隔开始时，所有位都设置为零。 每当一个包进入时，它的流标识散列到的位被设置为1</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Direct_Bitmap.png"></p>
+<p><strong>Virtual Bitmap：</strong>仅存储Bitmap的一部分，用采样因子乘以估计值，但当很少有流活动时估计不准确</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Virtual_Bitmap.png"></p>
+<p><strong>Multiresolution Bitmap：</strong>将具有不同分辨率的区域称为 Multiresolution Bitmap 的组成部分合成，在计算时，基于每个组件中设置的比特数，选择其中一个”基”来估计、推断Hash到这个”基”和所有更高分辨率组件的流数量</p>
+<p>![](images&#x2F;高速流量的测量方法&#x2F;Multiresolution Bitmap.png)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 找到最精确的组件</span>
+base <span class="token operator">=</span> c - <span class="token number">1</span>
+<span class="token keyword">while</span> base <span class="token operator">></span> <span class="token number">0</span>  and  bitsSet<span class="token punctuation">(</span>component<span class="token punctuation">[</span>base<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> set_max
+    base <span class="token operator">=</span> base - <span class="token number">1</span>
+end <span class="token keyword">while</span>
+base <span class="token operator">=</span> base + <span class="token number">1</span>
+<span class="token keyword">if</span>  base <span class="token operator">==</span> c  and  bitsSet<span class="token punctuation">(</span>component<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> set_max
+    <span class="token keyword">if</span>  bitsSet<span class="token punctuation">(</span>component<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> b_last
+        <span class="token builtin class-name">return</span> <span class="token string">"无法给出估计"</span>
+    <span class="token keyword">else</span>
+        warning <span class="token string">"估计不准确"</span>
+    end <span class="token keyword">if</span>
+end <span class="token keyword">if</span>
+<span class="token comment"># 估计Hash到它的流的数量</span>
+m <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span>  i <span class="token operator">=</span> base  to  c - <span class="token number">1</span>
+    m <span class="token operator">=</span> m + b ln<span class="token punctuation">(</span>b / bitZero<span class="token punctuation">(</span>component<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">))</span>
+end <span class="token keyword">for</span>
+<span class="token comment"># 确定并使用比例因子</span>
+m <span class="token operator">=</span> m + b_last ln<span class="token punctuation">(</span>b / bitZero<span class="token punctuation">(</span>component<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">))</span>
+factor <span class="token operator">=</span> k^<span class="token punctuation">&#123;</span>base-1<span class="token punctuation">&#125;</span>
+<span class="token builtin class-name">return</span> factor * m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>bitmap</th>
+<th>流数估计</th>
+<th>平均标准误差$StdError\left(\dfrac{\hat n}n\right)$</th>
+<th>内存最小占用量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direct bitmap</td>
+<td>$\hat{n}&#x3D;b\ln\left(\dfrac bz\right)$</td>
+<td>$\approx \dfrac{\sqrt{\text e^\rho-\rho-1}}{\rho\cdot\sqrt b}$</td>
+<td>$&lt;\dfrac N{\ln\left(N\varepsilon^2+1\right)}$</td>
+</tr>
+<tr>
+<td>Virtual bitmap</td>
+<td>$\hat{n}&#x3D;\dfrac1\alpha\ln\left(\dfrac bz\right)\&#x3D;h\ln\left(\dfrac bz\right)$</td>
+<td>$\approx \dfrac{\sqrt{\text e^\rho-1}}{\rho\cdot\sqrt b}$</td>
+<td>$\dfrac{1.5441}{\varepsilon^2}$</td>
+</tr>
+<tr>
+<td>Multiresolution bitmap</td>
+<td></td>
+<td>$\approx \dfrac{\sqrt{\frac{k-1}k\left(\text e^\rho-1\right)+\text e^{\frac \rho k}-1}}{\rho\sqrt{\frac{bk}{k-1}}}$</td>
+<td>$\dfrac{0.9186\ln\left(N\varepsilon^2\right)}{\varepsilon^2+ct}$</td>
+</tr>
+</tbody></table>
+<h2 id="Bloom-Fliter-测量方法"><a href="#Bloom-Fliter-测量方法" class="headerlink" title="Bloom Fliter 测量方法"></a>Bloom Fliter 测量方法</h2><p><strong>Bloom Fliter 设计：</strong>用多个 Hash 函数映射，有较高容错性，主要查找是否存在</p>
+<p>![](images&#x2F;高速流量的测量方法&#x2F;Bloom Filter.png)</p>
+<p>记 $m$ 位 Bloom Fliter 占用的总内存，$n$ 为综援素个数，$k$ 为 Hash 函数个数，$p$ 为 Bloom Fliter 中一位为 $0$ 的概率，假设 Hash 函数分布均匀，则任意一位为 $0$ 概率：<br>$$<br>p’&#x3D;\left(1-\dfrac1m\right)^{nk}\approx\text e^{-\frac{kn}m}&#x3D;p<br>$$<br> <strong>误判率：</strong><br>$$<br>f(m,k,n)&#x3D;\left(1-p’\right)^k\approx\left(1-p\right)^k&#x3D;\left(1-\text e^{-\frac{kn}m}\right)^k<br>$$<br>若给定误判率$f_0$，则 Bloom Fliter 可以最多表示元素个数：<br>$$<br>n_0&#x3D;-\dfrac{\ln\left(1-\text e^{\ln \frac{f_0}k}\right)\cdot m}k<br>$$<br>若给定 m&#x3D;10240bit, n&#x3D;1000：当 k&#x3D;7 ，有最小误判率</p>
+<h2 id="Sketch-测量方法"><a href="#Sketch-测量方法" class="headerlink" title="Sketch 测量方法"></a>Sketch 测量方法</h2><p>Bloom Fliter 是基于向量，而 Sketch 是基于矩阵</p>
+<p><img src="/images/%E9%AB%98%E9%80%9F%E6%B5%81%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/Sketch.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/High_Speed_Measurement.html">http://jarrycow.top/posts/High_Speed_Measurement.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                                    <span class="chip bg-color">网络测量</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">安全</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/Performance_Measurement.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/Performance_Measurement.jpeg" class="responsive-img" alt="性能测量方法">
+                        
+                        <span class="card-title">性能测量方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/Network_Measurement.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/Network_Measurement.jfif" class="responsive-img" alt="网络测量概述">
+                        
+                        <span class="card-title">网络测量概述</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" class="post-category">
+                                    网络测量
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">
+                        <span class="chip bg-color">网络测量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

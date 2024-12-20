@@ -1,0 +1,1896 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="流媒体">
+    <meta name="description" content="多媒体多媒体信息特点内容：图像、声音
+
+信息量往往很大，传送多媒体信息采用各种信息压缩技术
+对时延和时延抖动均有较高的要求。
+
+解决非等时问题方法：在接收端设置适当大小的缓存。到达缓存的非等时的分组，经过缓存后再以恒定速率读出,就变成了等时">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-cYRQJC8I93" />  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>流媒体 | Jarrycow&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--加载界面-->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <style>
+        body{
+            background-image: url(/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+<body>
+    
+    <div id="loading-box">
+      <!-- <div class="loading-left-bg"></div>
+      <div class="loading-right-bg"></div> -->
+
+      <!-- <div class="loading-line"></div> -->
+      
+      <!-- <div class="loading-bgline"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+      <!-- <div class="herta"><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/JavaWeb/hertaa_github.gif"></div> -->
+
+    </div>
+    <!-- 页面加载动画 -->
+    <script>
+      $(document).ready(function () {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      })
+    </script>
+  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jarrycow&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-th-list" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about-website">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于网站</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/resources" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-inbox" style="zoom: 0.6;"></i>
+      
+      <span>资源</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/resources/video">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/music">
+          
+          <i class="fa fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/picture">
+          
+          <i class="fa fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>图片</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources/file">
+          
+          <i class="fa fa-file" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>文件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bangumis">
+          
+          <i class="fa fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jarrycow&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            孔健睿的博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-th-list"></i>
+			
+			统计
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about-website " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于网站</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-inbox"></i>
+			
+			资源
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/resources/video " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/music " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/picture " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>图片</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources/file " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-file" style="position: absolute;left:50px" ></i>
+			      
+		          <span>文件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/bangumis " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/streamingMedia.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">流媒体</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-20
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h1><h2 id="多媒体信息特点"><a href="#多媒体信息特点" class="headerlink" title="多媒体信息特点"></a>多媒体信息特点</h2><p><strong>内容：</strong>图像、声音</p>
+<ol>
+<li>信息量往往很大，传送多媒体信息采用各种<strong>信息压缩</strong>技术</li>
+<li>对<strong>时延</strong>和<strong>时延抖动</strong>均有较高的要求。</li>
+</ol>
+<p><strong>解决非等时问题方法：</strong>在接收端设置适当大小的缓存。到达缓存的非等时的分组，经过缓存后再以恒定速率读出,就变成了等时的分组，这就在很大程度上消除了时延的抖动<sub>代价是增加了时延</sub></p>
+<h2 id="实时数据特点"><a href="#实时数据特点" class="headerlink" title="实时数据特点"></a>实时数据特点</h2><ol>
+<li>运输层采用<strong>UDP</strong></li>
+<li><strong>丢失容忍：</strong>宁可丢失少量分组，也不等待太晚到达的分组</li>
+</ol>
+<h2 id="音频-x2F-视频服务分类"><a href="#音频-x2F-视频服务分类" class="headerlink" title="音频&#x2F;视频服务分类"></a>音频&#x2F;视频服务分类</h2><ol>
+<li><p><strong>流式：</strong>存储音频&#x2F;视频</p>
+<p>特点：边下载边播放;</p>
+</li>
+<li><p><strong>流式实况音频&#x2F;视频：</strong>一对多(而不是一对一)的通信</p>
+<p>特点是：音频&#x2F;视频节目边录制边发送，在接收时也是要求能够连续播放;</p>
+</li>
+<li><p><strong>交互式音频&#x2F;视频：</strong>用户使用因特网和其他人进行实时交互式通信</p>
+</li>
+</ol>
+<h1 id="流媒体"><a href="#流媒体" class="headerlink" title="流媒体"></a>流媒体</h1><p><strong>媒体播放器主要功能：</strong>管理用户界面、解压缩、消除时延抖动和处理传输带来的差错</p>
+<p><strong>传统下载方法最大的缺点：</strong>历时太长</p>
+<h3 id="具有元文件万维网服务器"><a href="#具有元文件万维网服务器" class="headerlink" title="具有元文件万维网服务器"></a>具有元文件万维网服务器</h3><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/1895018-20200623091305694-277286750.png"></p>
+<p><strong>使用元文件下载媒体的步骤</strong></p>
+<ol>
+<li>浏览器用户媒体文件的超链，使用HTTP的GET报文接入到万维网服务器<sub>超链是指向一个元文件。这个元文件有实际的音频&#x2F;视频文件的统一资源定位符URL</sub></li>
+<li>万维网服务器把该元文件装入HTTP响应报文的主体，发回给浏览器<sub>响应报文中还有指明该音频&#x2F;视频文件类型的首部</sub></li>
+<li>客户机浏览器收到万维网服务器的响应，分析其内容类型首部行，调用相关的媒体播放器，把提取出的元文件传送给媒体播放器</li>
+<li>媒体播放器使用元文件中的URL直接和万维网服务器建立TCP连接，并向万维网服务器发送HTTP请求报文，要求下载浏览器想要的音频&#x2F;视频文件</li>
+<li>万维网服务器发送HTTP响应报文，把该音频&#x2F;视频文件发送给媒体播放器</li>
+<li>媒体播放器在存储了若干秒的音频&#x2F;视频文件后，就以音频&#x2F;视频流的形式边下载、边解压缩、边播放。</li>
+</ol>
+<h3 id="媒体服务器"><a href="#媒体服务器" class="headerlink" title="媒体服务器"></a>媒体服务器</h3><ul>
+<li><p>又称<strong>流式服务器</strong></p>
+</li>
+<li><p><strong>媒体服务器&amp;万维网服务器：</strong>媒体服务器支持流式音频和视频的传送</p>
+</li>
+<li><p>媒体播放器与媒体服务器的关系是客户与服务器的关系</p>
+</li>
+<li><p>媒体服务器和媒体播放器之间采用另外的协议进行交互</p>
+</li>
+</ul>
+<p><strong>使用媒体服务器下载媒体的步骤</strong></p>
+<p><img src="https://img2020.cnblogs.com/blog/1895018/202006/1895018-20200623091430058-1130078652.png"></p>
+<ol>
+<li>浏览器用户媒体文件的超链，使用HTTP的GET报文接入到万维网服务器<sub>超链是指向一个元文件。这个元文件有实际的音频&#x2F;视频文件的统一资源定位符URL</sub></li>
+<li>万维网服务器把该元文件装入HTTP响应报文的主体，发回给浏览器<sub>响应报文中还有指明该音频&#x2F;视频文件类型的首部</sub></li>
+<li>客户机浏览器收到万维网服务器的响应，分析其内容类型首部行，调用相关的媒体播放器，把提取出的元文件传送给媒体播放器</li>
+<li>媒体播放器使用元文件中的URL接入到媒体服务器，请求下载浏览器所请求的音频&#x2F;视频文件。下载可以借助于使用<strong>UDP</strong>的任何协议<sub>也可以在TCP连接上传送</sub>。</li>
+<li>媒体服务器给出响应，把该音频&#x2F;视频文件发送给媒体播放器。</li>
+<li>媒体播放器在迟延了若干秒后，以流的形式边下载、边解压缩、边播放。</li>
+</ol>
+<p><strong>采用 UDP 缺点：</strong></p>
+<ul>
+<li>网络情况多变，接收端的播放器<strong>很难始终按规定的速率</strong>播放</li>
+<li>很多单位的防火墙往往阻拦外部 UDP 分组的进入，因而使用 UDP 传送多媒体文件时会被<strong>防火墙阻拦</strong>掉。</li>
+<li>使用 UDP 传送流式多媒体文件时，如果在用户端希望能够控制媒体的播放，如进行暂停、快进等操作，那么还需要使用另外的协议 <strong>RTP</strong> 和 <strong>RTSP</strong>，增加了成本和复杂性。</li>
+</ul>
+<p><strong>使用 TCP 传送流式视频主要步骤</strong></p>
+<ol>
+<li>用户使用 HTTP 获取存储在万维网服务器中的视频文件，然后把视频数据传送到 TCP 发送缓存中。若发送缓存已填满，就暂时停止传送。</li>
+<li>从 TCP 发送缓存通过互联网向客户机中的 TCP 接收缓存传送视频数据，直到接收缓存被填满。</li>
+<li>从 TCP 接收缓存把视频数据再传送到应用程序缓存（即媒体播放器的缓存）。当这个缓存中的视频数据存储到一定程度时，就开始播放。这个过程一般不超过 1 分钟。</li>
+<li>在播放时，媒体播放器等时地（即周期性地）把视频数据按帧读出，经解压缩后，把视频节目显示在用户的屏幕上。</li>
+</ol>
+<h3 id="实时流式协议RTSP"><a href="#实时流式协议RTSP" class="headerlink" title="实时流式协议RTSP"></a>实时流式协议RTSP</h3><p><img src="https://img2020.cnblogs.com/blog/1895018/202006/1895018-20200623091502895-102220254.png"></p>
+<p>一个多媒体播放控制协议，本身并不传送数据</p>
+<p><strong>功能：</strong>使用户在播放从互联网下载的实时数据时能够进行控制</p>
+<p><strong>配套：</strong>媒体播放器、媒体服务器</p>
+<p><strong>工作方式：</strong>C&#x2F;S</p>
+<p><strong>RTSP 特点</strong></p>
+<ul>
+<li>是<strong>有状态</strong>的协议。它记录客户机所处于的状态<sub>初始化状态、播放状态、暂停状态</sub></li>
+<li>RTSP 控制分组既可在 <strong>TCP</strong> 上传送，也可在 <strong>UDP</strong> 上传送</li>
+<li>未定义音频&#x2F;视频的压缩方案，也没有规定音频&#x2F;视频如何封装</li>
+<li>没有流在媒体播放器中如何缓存</li>
+</ul>
+<p><strong>使用 RTSP 的媒体服务器的工作过程</strong></p>
+<ol>
+<li>浏览器向万维网服务器请求音频&#x2F;视频文件。</li>
+<li>万维网服务器从浏览器发送携带有元文件的响应。</li>
+<li>浏览器把收到的元文件传送给媒体播放器。</li>
+<li>RTSP 客户与媒体服务器的 RTSP 服务器建立连接。</li>
+<li>RTSP 服务器发送响应 RESPONSE 报文。</li>
+<li>RTSP 客户发送 PLAY 报文，开始下载音频&#x2F;视频文件。</li>
+<li>RTSP 服务器发送响应 RESPONSE 报文。</li>
+<li>RTSP 客户发送 TEARDOWN 报文断开连接。</li>
+<li>RTSP 服务器发送响应 RESPONSE 报文。</li>
+</ol>
+<h1 id="交互式媒体"><a href="#交互式媒体" class="headerlink" title="交互式媒体"></a>交互式媒体</h1><h2 id="IP电话"><a href="#IP电话" class="headerlink" title="IP电话"></a>IP电话</h2><p><strong>狭义：</strong>在 IP 网络上打电话</p>
+<p><strong>广义：</strong>在IP网络上进行交互式多媒体实时通信(包括话音、视像等)</p>
+<h3 id="IP电话网关"><a href="#IP电话网关" class="headerlink" title="IP电话网关"></a>IP电话网关</h3><p><strong>IP 电话网关的作用</strong></p>
+<ol>
+<li>在电话呼叫阶段和呼叫释放阶段进行<strong>电话信令的转换</strong></li>
+<li>在通话期间进行<strong>话音编码的转换</strong></li>
+</ol>
+<p><strong>IP 电话网关的几种连接方法</strong></p>
+<p>![IP 电话网关链接方法](C:&#x2F;Users&#x2F;Jarrycow&#x2F;Documents&#x2F;图片&#x2F;IP 电话网关的几种连接方法.png)</p>
+<h3 id="IP-电话的通话质量"><a href="#IP-电话的通话质量" class="headerlink" title="IP 电话的通话质量"></a>IP 电话的通话质量</h3><p>IP 电话的通话质量决定因素,但这两个因素是不确定的，取决于当时网络上的通信量</p>
+<ul>
+<li>一个是通话双方<strong>端到端的时延和时延抖动</strong>；</li>
+<li>另一个是<strong>话音分组的丢失率</strong></li>
+</ul>
+<p>端到端的时延不应超过 250 ms</p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E6%92%AD%E6%94%BE%E6%97%B6%E5%BB%B6%E6%9C%80%E4%BD%B3%E5%80%BC.png" alt="播放时延最佳值"></p>
+<h3 id="IP-电话所需要的几种应用协议"><a href="#IP-电话所需要的几种应用协议" class="headerlink" title="IP 电话所需要的几种应用协议"></a>IP 电话所需要的几种应用协议</h3><ol>
+<li><strong>信令协议：</strong>，使能够在互联网上找到被叫用户</li>
+<li><strong>话音分组的传送协议：</strong>使用来进行电话通信的话音数据能够以时延敏感属性在互联网中传送</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E6%B5%81%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE.png" alt="流媒体应用层协议"></p>
+<h2 id="实时运输协议RTP"><a href="#实时运输协议RTP" class="headerlink" title="实时运输协议RTP"></a>实时运输协议RTP</h2><h3 id="RTP工作原理"><a href="#RTP工作原理" class="headerlink" title="RTP工作原理"></a>RTP工作原理</h3><ul>
+<li>为实时应用提供端到端的运输，但不提供服务质量保证</li>
+<li>多媒体数据块经压缩编码处理后，先送给 RTP 封装成为 RTP 分组，再装入运输层的 UDP 用户数据报，然后再交给 IP 层</li>
+<li>RTP 是协议框架，只包含了实时应用的一些共同的功能</li>
+<li>RTP 自己并不对多媒体数据块做任何处理，而只是向应用层提供一些附加的信息，让应用层知道应当如何进行处理。</li>
+</ul>
+<p><strong>RTP 的层次：</strong></p>
+<p>应用开发者角度层次：应用层</p>
+<p>也可视作<strong>UDP之上的传输层子层</strong></p>
+<h3 id="RTP-分组的首部格式"><a href="#RTP-分组的首部格式" class="headerlink" title="RTP 分组的首部格式"></a>RTP 分组的首部格式</h3><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/RTP.png" alt="RTP分组首部格式"></p>
+<h3 id="实时运输控制协议RTCP"><a href="#实时运输控制协议RTCP" class="headerlink" title="实时运输控制协议RTCP"></a>实时运输控制协议RTCP</h3><p><strong>RTCP 协议的主要功能</strong></p>
+<ul>
+<li>服务质量的监视与反馈；</li>
+<li>媒体间的同步；</li>
+<li>播组中成员的标识。</li>
+</ul>
+<p><strong>RTCP 使用的五种分组类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>缩写表示</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>SR</td>
+<td>发送端周期性地向所有接收端用多播方式进行报告</td>
+</tr>
+<tr>
+<td>201</td>
+<td>RR</td>
+<td>使接收端周期性地向所有的点用多播方式进行报告</td>
+</tr>
+<tr>
+<td>202</td>
+<td>SDES</td>
+<td>给出会话中参加者的描述</td>
+</tr>
+<tr>
+<td>203</td>
+<td>BYE</td>
+<td>关闭一个数据流</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>APP</td>
+<td>使应用程序能够定义新的分组类型</td>
+</tr>
+</tbody></table>
+<h2 id="H-323"><a href="#H-323" class="headerlink" title="H.323"></a>H.323</h2><p>端系统之间实时声音和视频会议的<strong>一组</strong>协议</p>
+<h3 id="H-323-标准指明的四种构件"><a href="#H-323-标准指明的四种构件" class="headerlink" title="H.323 标准指明的四种构件"></a>H.323 标准指明的四种构件</h3><ol>
+<li><strong>H.323 终端</strong></li>
+<li><strong>网关：</strong>连接到两种不同的网络，使 H.323 网络可以和非 H.323 网络进行通信。</li>
+<li><strong>网闸：</strong>所有的呼叫都要通过网闸，提供地址转换、授权、带宽管理和计费功能</li>
+<li><strong>多点控制单元 MCU：</strong> 支持多个H.323终端音频视频会议</li>
+</ol>
+<h2 id="会话发起协议SIP"><a href="#会话发起协议SIP" class="headerlink" title="会话发起协议SIP"></a>会话发起协议SIP</h2><p>H.323 过于复杂，不便于发展基于 IP 的新业务。</p>
+<p>SIP较为简单且实用，目前已成为互联网的建议标准</p>
+<h3 id="SIP-系统的构件"><a href="#SIP-系统的构件" class="headerlink" title="SIP 系统的构件"></a>SIP 系统的构件</h3><p><strong>工作方式：</strong>文本方式的客户服务器协议</p>
+<p><strong>构件：</strong>用户代理、网络服务器</p>
+<ul>
+<li><p>用户代理包括<strong>用户代理客户</strong>和<strong>用户代理服务器</strong>，前者用来发起呼叫，而后者用来接受呼叫。</p>
+</li>
+<li><p>网络服务器分为<strong>代理服务器</strong>和<strong>重定向服务器</strong>。</p>
+<ul>
+<li>代理服务器接受来自主叫用户的呼叫请求，并将其转发给下一跳代理服务器，最后将呼叫请求转发给被叫用户。</li>
+<li>重定向服务器不接受呼叫，它通过响应告诉客户下一跳代理服务器的地址，由客户按此地址向下一跳代理服务器重新发送呼叫请求。</li>
+</ul>
+</li>
+<li><p><strong>配套协议：</strong>会话描述协议SDP——指明媒体编码、协议端口号、多播地址</p>
+</li>
+</ul>
+<h3 id="SIP会话过程"><a href="#SIP会话过程" class="headerlink" title="SIP会话过程"></a>SIP会话过程</h3><p>SIP 的会话共有三个阶段：建立会话、通信和终止会话</p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/SIP%E4%BC%9A%E8%AF%9D.png" alt="SIP会话"></p>
+<h1 id="改进“尽最大努力交付”服务"><a href="#改进“尽最大努力交付”服务" class="headerlink" title="改进“尽最大努力交付”服务"></a>改进“尽最大努力交付”服务</h1><h3 id="为了实现多媒体传输互联网演进-star"><a href="#为了实现多媒体传输互联网演进-star" class="headerlink" title="为了实现多媒体传输互联网演进$\star$"></a>为了实现多媒体传输互联网演进$\star$</h3><ol>
+<li>对TCP&#x2F;IP协议族不进行较大改动，主要增加网络链路带宽，并使用多播技术</li>
+<li>对TCP&#x2F;IP协议族进行较大改动，让应用程序向网络提出预留的传输带宽</li>
+<li>尽量不对TCP&#x2F;IP进行大的改动，在网络边沿对数据进行简单的分类和管制，以便区分网络所提供的服务。这样在路由器中，就根据数据报不同服务类别，提供不同等级的服务</li>
+</ol>
+<h2 id="调度管制机制"><a href="#调度管制机制" class="headerlink" title="调度管制机制"></a>调度管制机制</h2><h3 id="调度机制"><a href="#调度机制" class="headerlink" title="调度机制"></a>调度机制</h3><p>“调度”就是指排队的规则</p>
+<ol>
+<li>先进先出FIFO<sub>不能区分时间敏感分组和一般数据分组，并且也不公平</sub></li>
+<li>简单地按优先级排队<sub>在高优先级队列中总是有分组时，低优先级队列中的分组就长期得不到服务。这就不太公平</sub></li>
+<li>公平排队 FQ <sub>长分组得到的服务时间长，而短分组就比较吃亏，并且公平排队并没有区分分组的优先级</sub></li>
+<li><strong>加权公平排队 WFQ</strong></li>
+</ol>
+<h3 id="管制机制"><a href="#管制机制" class="headerlink" title="管制机制"></a>管制机制</h3><p><strong>管制指标：</strong></p>
+<ol>
+<li>平均速率：网络需要控制一个数据流的平均速率</li>
+<li>峰值速率：峰值速率限制数据流在非常短的时间间隔内的流量</li>
+<li>突发长度：限制非常短的时间间隔内连续注入网络中的分组数</li>
+</ol>
+<p><strong>漏桶管制器</strong></p>
+<p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/%E6%BC%8F%E6%A1%B6%E7%AE%A1%E5%88%B6%E5%99%A8.png" alt="漏桶管制器"></p>
+<p><strong>漏桶机制与加权公平排队相结合</strong></p>
+<p>$d_{\max}&#x3D;\dfrac{b_i\sum w_j}{R\times w_i}$</p>
+<h2 id="综合服务IntServ-amp-资源预留协议RSVP"><a href="#综合服务IntServ-amp-资源预留协议RSVP" class="headerlink" title="综合服务IntServ &amp; 资源预留协议RSVP"></a>综合服务IntServ &amp; 资源预留协议RSVP</h2><h2 id="综合服务IntServ"><a href="#综合服务IntServ" class="headerlink" title="综合服务IntServ"></a>综合服务IntServ</h2><h3 id="IntServ特点"><a href="#IntServ特点" class="headerlink" title="IntServ特点"></a>IntServ特点</h3><ol>
+<li>资源预留</li>
+<li>呼叫建立</li>
+</ol>
+<h3 id="IntServ-内容"><a href="#IntServ-内容" class="headerlink" title="IntServ 内容"></a>IntServ 内容</h3><p>定义了两类服务</p>
+<ul>
+<li><p><strong>有保证的服务：</strong>可保证一个分组在通过路由器时的排队时延有一个严格的上限。</p>
+</li>
+<li><p><strong>受控负载的服务：</strong>可以使应用程序得到比通常的“尽最大努力”更加可靠的服务。</p>
+</li>
+</ul>
+<h3 id="IntServ-组成部分"><a href="#IntServ-组成部分" class="headerlink" title="IntServ 组成部分"></a>IntServ 组成部分</h3><ol>
+<li>资源预留协议 RSVP：是 IntServ 的信令协议。</li>
+<li>接纳控制：用来决定是否同意对某一资源的请求。</li>
+<li>分类器：用来将进入路由器的分组进行分类，并根据分类的结果将不同类别的分组放入特定的队列。</li>
+<li>调度器：根据服务质量要求决定分组发送的前后顺序。</li>
+</ol>
+<h3 id="IntServ-存在问题"><a href="#IntServ-存在问题" class="headerlink" title="IntServ 存在问题"></a>IntServ 存在问题</h3><ol>
+<li>状态信息的数量与流数目成帧比</li>
+<li>体系结构复杂</li>
+<li>定义服务质量等级数目太少，不够灵活</li>
+</ol>
+<h2 id="资源预留协议RSVP"><a href="#资源预留协议RSVP" class="headerlink" title="资源预留协议RSVP"></a>资源预留协议RSVP</h2><p>资源预留协议 RSVP 在进行资源预留时采用了<strong>多播树</strong>的方式</p>
+<h3 id="RSVP-协议的工作原理"><a href="#RSVP-协议的工作原理" class="headerlink" title="RSVP 协议的工作原理"></a>RSVP 协议的工作原理</h3><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/Net/RSVP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png" alt="RSVP工作原理"></p>
+<h2 id="区分服务DiffSen"><a href="#区分服务DiffSen" class="headerlink" title="区分服务DiffSen"></a>区分服务DiffSen</h2><p>综合服务 IntServ 和资源预留协议 RSVP 都较复杂，很难在大规模的网络中实现，因此 IETF 提出了新的策略，即区分服务 DiffServ</p>
+<h2 id="区分服务-DiffServ-的要点"><a href="#区分服务-DiffServ-的要点" class="headerlink" title="区分服务 DiffServ 的要点"></a>区分服务 DiffServ 的要点</h2><ol>
+<li>力图不改变网络的基础结构，但在路由器中增加区分服务的功能</li>
+<li>网络被划分为许多个 DS 域</li>
+<li>边界路由器中的功能功能较多，可分为<strong>分类器</strong>和<strong>通信量调节器</strong></li>
+<li>提供了<strong>聚合</strong>功能</li>
+</ol>
+<h3 id="每跳行为-PHB"><a href="#每跳行为-PHB" class="headerlink" title="每跳行为 PHB"></a>每跳行为 PHB</h3><ul>
+<li><strong>迅速转发PHB：</strong>构造通过DS域的一个低丢失率、低时延、低时延抖动、确保带宽的端到端服务<sub>不排队少排队</sub></li>
+<li><strong>确保转发PHB：</strong>发生拥塞时，对每个等级的AF，路由器首先丢弃优先级较高的分组</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jarrycow</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jarrycow.top/posts/streamingMedia.html">http://jarrycow.top/posts/streamingMedia.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jarrycow</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">小钱钱，真心甜~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'juzJ3niBL1h4HLt2fKBMqwno-9Nh9j0Va',
+        appKey: 'ImefmGCqjTyJGFErzRAbYpDA',
+        serverURLs: 'https://juzj3nib.lc-cn-e1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/next.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/next.jfif" class="responsive-img" alt="next主题搭建">
+                        
+                        <span class="card-title">next主题搭建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            博客页面空白问题：安装好主题之后，预览本地页面正常，但博客显示空白
+原因：next默认使用jsdelivr作为DNS加速服务，但该服务国内备案已下架
+解决：打开 **themes\next\_config.yml**，将# FancyBox
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/netsecurity.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/netsecurity.png" class="responsive-img" alt="网络安全">
+                        
+                        <span class="card-title">网络安全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络安全是计算机网络的安全基础
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="post-category">
+                                    网络安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jarrycow&#39;s Blog<br />'
+            + '文章作者: Jarrycow<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Jarrycow所有, 任何形式的转载都请注明作者以及出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Jarrycow</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jarrycow" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:kjr000614@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=304295025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 304295025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/kong-cheng-ji-14-57" class="tooltipped" target="_blank" data-tooltip="关注我的知乎" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+
+    <a href="https://space.bilibili.com/xxx" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+<!--动态标题-->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+    document.addEventListener("visibilitychange", function () { 
+        document.hidden ? 
+        (document.title = "Σ(っ °Д °;)っ鳖走啊！", clearTimeout(st)) :
+        (document.title = "φ(゜▽゜*)♪爱你么么哒！", st = setTimeout(function () { 
+            document.title = OriginTitile 
+        }, 3e3)) 
+        }) 
+</script>
+    

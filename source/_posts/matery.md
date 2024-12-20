@@ -436,6 +436,165 @@ permalink: posts/:abbrlink.html
 
 **<font color="red">注：如果第四步更改了CDN，那么在挂梯子情况下，查看博客时极大可能导致公式无法加载</font>**
 
+# 界面加载动画
+
+1. 在 Matery 主题配置文件 `_config.yml` 中新增配置属性 `preloader`
+
+   ```yaml
+    # 是否开启页面加载动画 true 开启，false 关闭
+    preloader:
+      enable: true
+   ```
+
+2. 在 Matery 主题目录 `/layout/_widget` 下新增文件 `loading.ejs`，并写入内容。
+   ```js
+    <% if (theme.preloader.enable) { %>
+    <div id="loading-box">
+        <div class="loading-left-bg"></div>
+        <div class="loading-right-bg"></div>
+        <div class="spinner-box">
+            <div class="configure-border-1">
+                <div class="configure-core"></div>
+            </div>
+            <div class="configure-border-2">
+                <div class="configure-core"></div>
+            </div>
+            <div class="loading-word">加载中...</div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function(){
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded")
+        }, false)
+    </script>
+    <% } %>
+   ```
+
+3. 在主题目录 `/css` 下新增 `loading.css` ，并写入内容
+   ```css
+    #loading-box .loading-left-bg,
+    #loading-box .loading-right-bg {
+      position: fixed;
+      z-index: 1000;
+      width: 50%;
+      height: 100%;
+      background-color: #37474f;
+      transition: all 0.5s;
+    }
+    
+    #loading-box .loading-right-bg {
+      right: 0;
+    }
+    
+    #loading-box > .spinner-box {
+      position: fixed;
+      z-index: 1001;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    #loading-box .spinner-box .configure-border-1 {
+      position: absolute;
+      padding: 3px;
+      width: 115px;
+      height: 115px;
+      background: #ffab91;
+      animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+    }
+    
+    #loading-box .spinner-box .configure-border-2 {
+      left: -115px;
+      padding: 3px;
+      width: 115px;
+      height: 115px;
+      background: rgb(63, 249, 220);
+      transform: rotate(45deg);
+      animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+    }
+    
+    #loading-box .spinner-box .loading-word {
+      position: absolute;
+      color: #ffffff;
+      font-size: 0.8rem;
+    }
+    
+    #loading-box .spinner-box .configure-core {
+      width: 100%;
+      height: 100%;
+      background-color: #37474f;
+    }
+    
+    div.loaded div.loading-left-bg {
+      transform: translate(-100%, 0);
+    }
+    
+    div.loaded div.loading-right-bg {
+      transform: translate(100%, 0);
+    }
+    
+    div.loaded div.spinner-box {
+      display: none !important; 
+    }
+    
+    @keyframes configure-clockwise {
+      0% {
+        transform: rotate(0);
+      }
+    
+      25% {
+        transform: rotate(90deg);
+      }
+    
+      50% {
+        transform: rotate(180deg);
+      }
+    
+      75% {
+        transform: rotate(270deg);
+      }
+    
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes configure-xclockwise {
+      0% {
+        transform: rotate(45deg);
+      }
+    
+      25% {
+        transform: rotate(-45deg);
+      }
+    
+      50% {
+        transform: rotate(-135deg);
+      }
+    
+      75% {
+        transform: rotate(-225deg);
+      }
+    
+      100% {
+        transform: rotate(-315deg);
+      }
+    }
+   ```
+
+4. 在主题目录 `/layout/_partial/head.ejs`，在 `<head>` 标签中添加以下内容引入 `loading.css` 文件。
+   ```html
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/loading.css') %>">
+   ```
+5. 在主题目录 `/layout` 下找到 `layout.ejs`，然后在 `<body>` 标签下第一行引入 `loading.ejs`。
+
+   ```js
+    <%- partial('_widget/loading') %>
+   ```
+
 # 参考文献
 
 [matery官方文档](https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md)

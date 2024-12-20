@@ -116,7 +116,7 @@ music:
   title: #非吸底模式有效
     enable: true
     show: 听听音乐
-  autoHide: false    # hide automaticaly
+  autoHide: true    # hide automaticaly
   server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    #require song, playlist, album, search, artist
   id: 503838841     #require	song id / playlist id / album id / search keyword
@@ -683,6 +683,15 @@ instantpage:
 banner:
   enable: true
 
+# 404 界面
+notFound: 
+  enable: true
+  background: Mondstadt
+  paimeng: Paimeng
+  paimeng_sound_enable: true
+  paimeng_move_enable: true
+
+
 #ICP备案信息尾部显示
 icp:
   enable: false
@@ -763,3 +772,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   version: "latest" # default v7.1.2
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
+
+ # 是否开启页面加载动画 true 开启，false 关闭
+preloader:
+  enable: true

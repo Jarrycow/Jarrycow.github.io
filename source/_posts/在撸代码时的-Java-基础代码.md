@@ -16,6 +16,8 @@ date: 2021-01-30 01:23:58
 ---
 <!--more-->
 
+[toc]
+
 # 基本结构
 
 **整数最小值**
@@ -62,7 +64,11 @@ Arrays.copyOfRange(nums, ibegin, iend + 1);
 Arrays.stream(nums).min().getAsInt()
 ```
 
+**多维数组排序**
 
+```java
+Arrays.sort(nums, (a, b) -> a[0] - b[0]);
+```
 
 ## 可变数组
 
@@ -155,6 +161,31 @@ nums.removeLast();
 nums.removeFirst();
 ```
 
+# 列表
+
+**列表初始化**
+
+```java
+List<List<Integer>> lis = Arrays.asList(
+    Arrays.asList(0, 1),
+    Arrays.asList(2, 3)
+);
+```
+
+**列表内容获取**
+
+```java
+lis.get(index);
+```
+
+**数组转列表**
+
+```java
+Arrays.asList(arrays);
+```
+
+
+
 # 栈
 
 **新建栈**
@@ -220,26 +251,29 @@ for(Integer q : queue){
 **声明一个双端队列**
 
 ```java
-ArrayDeque<String> queue = new ArrayDeque<>();
+Deque<String> deque = new ArrayDeque<>();
 ```
 
 **队尾入栈**
 
 ```java
-queue.addLast(ch);
+deque.addLast(ch);
+deque.offerLast(ch);
 ```
 
 **队尾出栈**
 
 ```java
-queue.pollLast();
+deque.pollLast();
 ```
 
 **取队尾元素**
 
 ```java
-queue.peekLast()
+deque.peekLast()
 ```
+
+
 
 ## 堆（优先权队列）
 
@@ -276,6 +310,18 @@ heap.peek();
 ```
 
 # 字符串
+
+**字符定位**
+
+```java
+s.indexOf(ch);
+```
+
+**重复构造字符串 cnt 次**
+
+```java
+s.repeat(cnt)
+```
 
 **字符串替换**
 
@@ -352,6 +398,19 @@ res.append(ch);
 ```
 
 `ch` 支持拼接字符、字符串、数字等类型
+
+**字符串删除**
+
+```java
+res.delete(start, end);
+res.deleteCharAt(idx);
+```
+
+**字符串替换**
+
+```java
+res.replace(start, end, newStr);
+```
 
 **转换字符串**
 

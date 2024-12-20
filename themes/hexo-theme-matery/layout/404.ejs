@@ -1,41 +1,123 @@
 <style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 90.2vh;
-    }
+  /* 背景图效果. */
+  .test-cover {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 87vh;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  .container_box {
+    margin-top: 20px;
+    min-width: 300px;
+    min-height: 200px;
+    height: 40vw;
+    width: 60vw;
+    /* background: grey; */
+    position: relative;
+  }
+
+  .chat_cloud_box {
+    width: 75%;
+    height: 75%;
+    /* background-color: brown; */
+    line-height: 30vw;
+  }
+
+  .paimeng_box {
+    /* background-color: white; */
+    height: 25%;
+    width: 25%;
+    float: right;
+
+  }
+
+
+  .paimeng_words_box {
+    position: absolute;
+    top: 0;
+    width: 75%;
+    height: 75%;
+    text-align: center;
+    padding-top: 20%;
+    font: bold 100% "SmileySans-Oblique";
+  }
+
+  .chat_cloud,
+  .paimeng {
+    width: 100%;
+  }
 </style>
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                        404 Sorry 您找的页面不存在！
-                    </div>
-                    <div class="title center-align">
-                        试试右上角的<span style="color:blue;font-weight:bold">搜索</span>功能？
-                    </div>
-                    <div class="title center-align">
-                        <a href="/" target="_blank">返回首页</a>
-                    </div>
-                    <div class="description center-align">
-                        <%= page.description %>
-                    </div>
-                </div>
+<div class="test-cover pd-header">
+
+  <div class="container">
+    <div class="row">
+      <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+          <div class="container_box">
+            <div class="chat_cloud_box">
+              <img class="chat_cloud" src="/medias/images/chat_cloud.svg">
             </div>
+            <div class="paimeng_words_box">前面的区域，以后再来探索吧！</div>
+            <div class="paimeng_box">
+              <audio id="noTravel" src="/medias/images/PaimengSound.mp3"></audio>
+              <img class="paimeng" id="paimeng" src="/medias/images/Paimeng.png">
+            </div>
+            <div>
+
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<% if (theme.banner.enable) { %>
-    <script>
-        // 每天切换 banner 图.  Switch banner image every day.
-        var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
-        $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-    </script>
+<!-- 替换背景图 -->
+<% if (theme.notFound.enable) { %>
+<script>
+  // 404 界面背景图
+  var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + "<%- theme.notFound.background %>" + ".webp";
+  $('.test-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
 <% } else { %>
-    <script>
-        $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/0.jpg') %>)');
-    </script>
 <% } %>
 
+<!-- 点击派蒙放音频 -->
+<% if (theme.notFound.paimeng_sound_enable) { %>
+<script>
+  function paimenglicked() {
+    var audio = document.getElementById("noTravel");
+    audio.play();
+  }
+  // 为图片元素添加点击事件监听器
+  document.getElementById("paimeng").onclick = paimenglicked;
+</script>
+<% } else { %>
+<% } %>
+
+<!-- 替换派蒙移动 -->
+<% if (theme.notFound.paimeng_move_enable) { %>
+<script>
+  let img = document.getElementById('paimeng');
+  let amplitude = 38; // 垂直移动的幅度
+  let frequency = 0.02; // 振动频率
+  let offset = 0; // 初始偏移量
+
+  function moveImage() {
+    offset += frequency; // 逐渐增加偏移量，模拟时间变化
+    let yPosition = amplitude * Math.sin(offset); // 使用正弦函数来计算Y轴位置
+    img.style.transform = `translateY(${yPosition}px)`; // 更新图片的垂直位置
+    requestAnimationFrame(moveImage); // 循环调用自己，实现动画效果
+  }
+
+  moveImage(); // 启动动画
+</script>
+<% } else { %>
+<% } %>

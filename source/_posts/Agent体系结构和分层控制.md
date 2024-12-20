@@ -1,7 +1,6 @@
 ---
 title: Agent体系结构和分层控制
 author: Jarrycow
-img: /medias/featureimages/xxx.png
 cover: false
 top: false
 mathjax: true
